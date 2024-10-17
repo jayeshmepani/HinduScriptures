@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YajurVeda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <style>
+        
+
+        .samhita {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 90svh;
+
+        }
+
+        .samhita a {
+            text-decoration: none;
+            display: grid;
+            color: rgba(255, 217, 0, 0.91);
+
+        }
+        .yajurveda {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.9rem;
+        }
+        .yajurveda a{
+            position: absolute;
+            transform: translateY(-11rem);
+        }
+
+        .container .overview-link a {
+            text-decoration: none;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 2.3em;
+            padding-bottom: 13%;
+            position: absolute;
+            transform: translate(-50%, 5rem);
+        }
+
+        :root {
+            --min-font-size: 0.7em;
+            --max-font-size: 1em;
+            --min-width: 280px;
+            --max-width: 1920px;
+            --overview-min-font-size: 1.8em;
+            --overview-max-font-size: 2.4em;
+        }
+
+        .container a {
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+        }
+
+        .container .overview-link a {
+            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw),
+                var(--overview-max-font-size));
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="samhita">
+            <ol class="overview-link"><a class="overview-link" href="AgniPurana_overview.html">Overview</a></ol>
+            <li class="yajurveda" filename="vajasneyi_madhyadina_samhita.json"><a class="yajurveda" href="#" onclick="redirectToContent('vajasneyi_madhyadina_samhita.json')">Vajasneyi Madhyadina Samhita</a></li>
+        </div>
+    </div>
+
+    <script>
+        // Function to redirect to the content page for the selected 
+        function redirectToContent(filename) {
+            // Redirect to Content.html with the selected filename as a query parameter
+            window.location.href = `YajurVedaContent.html?filename=${encodeURIComponent(filename)}`;
+        }
+    </script>
+
+</body>
+
+</html>

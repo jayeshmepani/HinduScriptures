@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+.top-bar {
+  background-color: hsla(246, 97%, 7%, 0.83);
+  color: #ffffff;
+  padding: 0.37rem;
+}
+
+
+
+.page-info {
+  margin-left: 1rem;
+}
+
+.error {
+  background: orangered;
+  padding: 1rem;
+}
+
+#the-svg {
+  transform: translateY(-3%);
+  height: 100vh;
+  display: table;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
+}
+
+@media only screen and (max-width: 300px),
+only screen and (max-height: 640px) {
+
+  .center-container {
+    display: none;
+  }
+}
+
+#the-svg text tspan {
+  fill: hsl(61, 97%, 59%);
+  word-wrap: break-word;
+}
+
+#the-svg path {
+  fill: none;
+  word-wrap: break-word;
+  stroke-opacity: 0;
+}

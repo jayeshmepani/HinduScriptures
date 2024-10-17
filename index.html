@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for Hindu Scriptures</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .search-box {
+            transition: transform all 0.3s ease-out;
+        }
+
+        .scriptures-link,
+        .scriptures-link a {
+            text-decoration: none;
+            box-sizing: content-box;
+            color: yellow;
+            word-wrap: break-word;
+            text-align: left;
+            overflow: auto;
+        }
+
+        .scripturesList {
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center the list */
+            word-wrap: break-word;
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 2vw), var(--max-font-size));
+        }
+
+        i {
+            color: hsl(208, 100%, 97%);
+            padding-bottom: 0.3rem;
+            margin: 0;
+        }
+
+        :root {
+            --min-font-size: 0.8em;
+            --max-font-size: 1.9em;
+            --min-width: 300px;
+            --max-width: 1920px;
+            --search-box-height: 0px;
+            --i-height: 0px;
+            --list-height: 0px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        a {
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+        /* Add hover effects for each scriptures-link item */
+        a:hover {
+            padding: 0.5rem;
+            display: flex;
+            place-content: center;
+            border: rgba(0, 255, 255, 0.05) solid 1px;
+            border-radius: 0.7rem;
+            -webkit-backdrop-filter: blur(1rem) saturate(222%);
+            backdrop-filter: blur(1rem) saturate(222%);
+            transition: backdrop-filter 0.29s ease-in-out;
+        }
+
+        /* Remove default list marker style */
+        .scriptures-link li {
+            list-style-type: circle;
+        }
+
+        ol {
+            padding-left: 0rem;
+        }
+
+        .list-bg {
+            height: calc(53vh);
+            width: calc(100% + 1.3rem);
+            margin: auto 0;
+            overflow: auto;
+            border: 1.7px solid rgba(0, 123, 255, 0.2);
+            border-radius: 1rem;
+            padding: 1rem;
+            -webkit-backdrop-filter: blur(1.3px) saturate(111%) brightness(111%);
+            backdrop-filter: blur(1.3px) saturate(111%) brightness(111%);
+
+        }
+
+        .list {
+            position: absolute;
+            transform: translateY(2.7rem);
+            height: calc(50vh);
+            width: auto;
+            margin: auto 0;
+            overflow: auto;
+            place-content: center;
+        }
+
+        ol:last-child {
+            padding-bottom: 0;
+        }
+
+        .ai {
+            display: flex;
+            justify-content: center;
+            /* Center the button horizontally */
+            margin-top: calc(2rem + var(--search-box-height) + var(--i-height));
+        }
+
+        #ai-link {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: white;
+            /* White text color */
+            padding: 0.8rem 1.5rem;
+            /* Adjust padding */
+            background-color: #00796b;
+            /* Change button color */
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            /* Add a shadow for depth */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        #ai-link:hover {
+            background-color: #004d40;
+            /* Darker shade on hover */
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            /* Enhance shadow on hover */
+        }
+
+        .material-icons.left {
+            font-size: 1.8rem;
+            /* Icon size */
+            margin-right: 0.5rem;
+            /* Space between icon and text */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="search-box">
+            <form onsubmit="search(); return false;" method="get" class="search-bar">
+                <input type="text" placeholder="search..." id="search-input" name="q">
+                <button type="submit"><img src="images/search.png" alt="Search"></button>
+            </form>
+        </div>
+        <div class="ai">
+            <a id="ai-link" class="waves-effect waves-light btn" href="googleAI.html">
+                <i class="material-icons left">insights</i> AI Search here
+            </a>
+        </div>
+
+        <div class="scripturesList">
+            <i class="i">Currently available:</i>
+            <div class="list-bg"></div>
+            <div class="list">
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Vedas.html">Vedas</a></li>
+                    <ol class="overview-link"><a class="overview-link" style="color: yellow; text-decoration:none"
+                            href="Puranas_overview.html">Puranas Overview</a>
+                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="Puranas.html">Maha
+                                Puranas</a>
+                        </li>
+                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="UpaPurana.html">Upa
+                                Puranas</a>
+                        </li>
+                    </ol>
+                    <li><a class="scriptures-link" href="Ramayanas.html">Ramayanas</a></li>
+                    <li><a class="scriptures-link" href="ParvaList.html">Mahabharata</a></li>
+                    <li><a class="scriptures-link" href="Gita.html">Gitas</a></li>
+                    <li><a class="scriptures-link" href="Smriti.html">Smritis</a></li>
+                    <li><a class="scriptures-link" href="UpaSmrti.html">Upa Smritis</a></li>
+                    <li><a class="scriptures-link" href="Stotra.html">Stotras</a></li>
+                    <li><a class="scriptures-link" href="Namavali.html">Namavalis</a></li>
+                    <li><a class="scriptures-link" href="Stuti.html">Stutis</a></li>
+                    <li><a class="scriptures-link" href="Ashtaka.html">Ashtakas</a></li>
+                    <li><a class="scriptures-link" href="Kavacha.html">Kavachas</a></li>
+                    <li><a class="scriptures-link" href="Chalisa.html">Chalisas</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Linear equation parameters
+        const slope = 0.029;
+        const intercept = 71;
+
+        // Function to calculate scale based on the linear equation
+        const calculateScale = (width) => {
+            return slope * width + intercept;
+        };
+
+        function scaleElements() {
+            // Get the search box and AI elements
+            const searchBox = document.querySelector('.search-box');
+            const aiDiv = document.querySelector('.ai');
+
+            // Get the current screen width
+            const currentWidth = window.innerWidth;
+
+            // Calculate the scaling factor based on the linear equation
+            const scalePercentage = calculateScale(currentWidth);
+
+            // Apply the scaling using CSS transform property for both elements
+            searchBox.style.transform = `scale(${scalePercentage / 100})`;
+            aiDiv.style.transform = `scale(${scalePercentage / 100})`;
+
+            // Update CSS variable with the current height of the search box
+            const searchBoxHeight = searchBox.getBoundingClientRect().height;
+            document.documentElement.style.setProperty('--search-box-height', `${searchBoxHeight}px`);
+
+
+            // Log the heights
+            console.log(`Search box height: ${searchBoxHeight}px`);
+            console.log(`AI div height: ${aiHeight}px`);
+
+            // Get the computed style of scripturesList and log the margin-top
+            const scripturesList = document.querySelector('.scripturesList');
+            const scripturesListMarginTop = window.getComputedStyle(scripturesList).marginTop;
+            console.log(`Final margin-top applied to scripturesList: ${scripturesListMarginTop}`);
+        }
+
+        // Attach the scaleElements function to the window resize event
+        window.addEventListener('resize', scaleElements);
+
+        // Initial scaling on page load
+        scaleElements();
+    </script>
+
+    <script src="search.js"></script>
+
+</body>
+
+</html>

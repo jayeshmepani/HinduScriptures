@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ask me about Hinduism</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        #container {
+            /* Set a maximum width for larger screens */
+            width: -webkit-fill-available;
+            /* Make the container take full width */
+            margin: 0 auto;
+            /* Center the container */
+        }
+
+        h1 {
+            text-align: center;
+            color: aliceblue;
+            /* Center align the heading */
+        }
+
+        textarea {
+            width: -webkit-fill-available;
+            height: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            resize: none;
+            /* Disable resizing */
+            border: 1px solid #ccc;
+            /* Add border for better visibility */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        #askButton {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* Ensure it takes full width */
+            width: 100%;
+            /* Make button responsive */
+            margin-top: 10px;
+            /* Margin for separation */
+        }
+
+        #askButton:hover {
+            background-color: #45a049;
+        }
+
+        #chat-log {
+            margin-top: 20px;
+            max-height: 333px;
+            width: 600px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transform: translateY(-16%);
+            display: none;
+            /* Initially hide the chat log */
+        }
+
+        .user-message,
+        .response-message,
+        .error-message {
+            margin-bottom: 10px;
+        }
+
+        #loading {
+            display: none;
+            font-style: italic;
+            color: #888;
+            transform: translateY(-3rem);
+        }
+
+        .response-message {
+            margin-bottom: 1.25rem;
+            padding: 10px;
+            background-color: #e9f5e9;
+            border-radius: 5px;
+        }
+
+        li {
+            transform: translateX(1.25rem);
+            padding: 0.125rem 1.25rem 0.125rem 0rem;
+        }
+
+        .response-content {
+            margin-top: 5px;
+        }
+
+        .user-message {
+            background-color: #dfe6e9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        input[type="file"]::file-selector-button {
+            border: 2px solid #6c5ce7;
+            padding: 0.2em 0.4em;
+            border-radius: 0.2em;
+            background-color: #a29bfe;
+            transition: 1s;
+        }
+
+        input[type="file"]::-ms-browse:hover {
+            background-color: #81ecec;
+            border: 2px solid #00cec9;
+        }
+
+        input[type="file"]::-webkit-file-upload-button:hover {
+            background-color: #81ecec;
+            border: 2px solid #00cec9;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #81ecec;
+            border: 2px solid #00cec9;
+        }
+
+        form#userInputForm {
+            position: relative;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+            /* Smooth transition when it moves */
+        }
+
+        form#userInputForm.normal {
+            transform: translateY(-31%);
+        }
+
+        li::marker {
+            color: #000000;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (width < 600px) {
+            #container {
+                padding: 15px;
+                /* Less padding on smaller screens */
+            }
+
+            #askButton {
+                padding: 8px;
+                /* Adjust padding for smaller buttons */
+            }
+
+            textarea {
+                height: 80px;
+                /* Reduce height of textarea */
+            }
+
+            #chat-log {
+                margin-top: 20px;
+                max-height: 50vh;
+                width: auto;
+                transform: translateY(-16%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <h1>Explore the Wisdom of Hindu Scriptures and Traditions</h1>
+        <form id="userInputForm" enctype="multipart/form-data">
+            <textarea id="userInput" placeholder="Ask about scriptures, traditions, or anything related to Hinduism..."
+                required></textarea>
+            <input type="file" id="imageInput" name="image" accept="image/*" />
+            <button type="submit" id="askButton">Ask</button>
+        </form>
+        <div id="loading">Processing your question...</div>
+        <div id="chat-log" aria-live="polite"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // On page load, keep the form moved up
+            document.getElementById('userInputForm').classList.remove('normal');
+        });
+
+        document.getElementById('userInputForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const userInput = document.getElementById('userInput').value;
+            const imageInput = document.getElementById('imageInput').files[0];
+
+            if (!userInput && !imageInput) return;
+
+            document.getElementById('loading').style.display = 'block';
+
+            const chatLog = document.getElementById('chat-log');
+            const userMessage = `<div class="user-message"><strong>You:</strong> ${userInput}</div>`;
+
+            // Make the chat log visible after submission
+            chatLog.style.display = 'block';
+            chatLog.innerHTML += userMessage;
+
+            // Move the form down once chat log is displayed
+            document.getElementById('userInputForm').classList.add('normal');
+
+            // Display image if one is uploaded
+            if (imageInput) {
+                const imageUrl = URL.createObjectURL(imageInput);
+                const imageMessage = `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 100%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div>`;
+                chatLog.innerHTML += imageMessage;
+            }
+
+            const formData = new FormData();
+            formData.append('prompt', userInput);
+            if (imageInput) {
+                formData.append('image', imageInput);
+            }
+
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    const answerMessage = `
+                        <div class="response-message">
+                            <strong>AI Scholar:</strong>
+                            <div class="response-content">${formatResponse(data.answer)}</div>
+                        </div>
+                    `;
+                    chatLog.innerHTML += answerMessage;
+                } else {
+                    chatLog.innerHTML += `<div class="error-message">Error: ${data.error || 'Failed to get response.'}</div>`;
+                }
+            } catch (error) {
+                chatLog.innerHTML += `<div class="error-message">Error: Failed to get response.</div>`;
+            }
+
+            document.getElementById('userInput').value = '';
+            document.getElementById('imageInput').value = ''; // Clear image input
+            document.getElementById('loading').style.display = 'none';
+            chatLog.scrollTop = chatLog.scrollHeight;
+        });
+
+        // Function to format response text
+        function formatResponse(text) {
+            // Log the raw unformatted text for debugging
+            console.log("Raw unformatted text:", text);
+
+            // Remove bold and italic formatting and format the text
+            text = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Bold text wrapped in **
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');  // Italic text wrapped in *
+
+            // Format the text:
+            let formattedText = text
+                .replace(/(.*?)\:\s/g, '<strong>$1:</strong>') // Bold for text followed by a colon
+                .replace(/\n/g, '<br/>') // New lines to <br/>
+                .replace(/^\*\s/gm, '<li>') // Replace '* ' at the start of a line with <li>
+                .replace(/<\/li><br\/>/g, '</li>') // Remove <br/> after closing <li>
+                .replace(/<li><strong>(.*?)<\/strong><\/li>/g, '<li>$1</li>') // Separate <strong> from <li>
+                .replace(/<\/li>\s*<li>/g, '</li><li>'); // Ensure multiple bullet points are formatted correctly
+
+            // Wrap all <li> in <ul>
+            formattedText = `<ul>${formattedText}</ul>`;
+
+            // Replace any remaining "* " with bullet points
+            formattedText = formattedText.replace(/\* /g, '<li>') + '</li>';
+
+            return formattedText;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Kandas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <!-- Include your CSS styles here -->
+    <style>
+        .container .overview-link {
+            transform: translateY(-11em);
+            /*            padding-bottom: 7rem;*/
+        }
+
+        .container .overview-link a {
+            text-decoration: none;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 3em;
+        }
+
+        .container .kanda-list {
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            position: absolute;
+
+        }
+
+        .kanda-list a {
+            text-decoration: none;
+            display: grid;
+            grid-gap: 15px;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 1.8em;
+            box-sizing: content-box;
+        }
+
+        :root {
+            --min-font-size: 1.7rem;
+            --max-font-size: 2.5rem;
+            --min-width: 300px;
+            --max-width: 1920px;
+            --overview-min-font-size: 2.3em;
+            --overview-max-font-size: 3.7em;
+        }
+
+        .container a {
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+        }
+
+        .container .overview-link a {
+            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw), var(--overview-max-font-size));
+        }
+
+        .container .overview-link {
+            transform: translateY(calc(-7.3rem - 7.9vw));
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ol class="overview-link"><a class="overview-link" href="Ramayana_overview.html">Overview</a></ol>
+        <div class="kanda-list">
+            <!-- Kanda list will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch JSON file
+        function fetchJSONFile(filePath) {
+            return fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch JSON file: ${filePath}`);
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error(`Error fetching JSON file: ${filePath}`, error);
+                    throw error;
+                });
+        }
+    </script>
+
+    <script src="kandaList.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+* {
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: safe center;
+    justify-content: safe center;
+    /* Added to ensure centering both horizontally and vertically */
+    width: auto;
+    height: 100vh;
+    /* Changed to 100vh for consistency */
+    background-image: linear-gradient(#000733d4, rgba(0, 8, 51, 0.85)), url(images/bg.png);
+    padding: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
+    box-sizing: content-box;
+}
+
+.search-box {
+
+    .search-bar {
+        width: 100%;
+        max-width: 700px;
+        background: rgba(255, 255, 255, 0.2);
+        /* Adjusted the background color with transparency */
+        display: flex;
+        align-items: center;
+        border-radius: 60px;
+        padding: 8px 20px;
+        backdrop-filter: blur(2.3px) saturate(197%);
+    }
+
+    .search-bar input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 15px 20px;
+        font-size: 20px;
+        color: #cac7ff;
+    }
+
+    ::placeholder {
+        color: #cac7ff;
+    }
+
+    .search-bar button img {
+        width: 25px;
+    }
+
+    .search-bar button {
+        border: 0;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(to left, #58629b, #8a8bbf);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        opacity: 0.79;
+    }
+
+    .search-bar button:hover {
+        transform: scale(1.1);
+    }
+}
+
+.overview-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    width: 100svw;
+    background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
+    padding: 0;
+    margin: 0%;
+    border-width: 0px;
+    overflow: auto;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-box {
+    position: fixed;
+    top: 1rem;
+    padding-top: 1rem;
+
+    @media (width > 391px) {
+        width: 100%;
+    }
+
+}
+
+/*@media (width <= 2560px) {
+   .search-box {
+       scale: 133%;
+}
+}
+@media (width <= 1920px) {
+   .search-box {
+       scale: 100%;
+}
+
+@media (394px <= width <= 768px) {
+   .search-box {
+       scale: 89%;
+}
+}
+}*/
+@media (320px <=width <=391px) {
+    .search-box {
+        scale: 100%;
+    }
+}
+
+@media (width <=320px) {
+    .search-box {
+        scale: 85%;
+    }
+}
+
+@media only screen and (max-width: 300px),
+only screen and (max-height: 640px) {
+
+    .container,
+    .overview-container,
+    * {
+        display: none;
+    }
+}
+
+
+.search-results {
+    padding: 2rem;
+    text-wrap: wrap;
+    word-wrap: break-word;
+}
+
+li::marker {
+    color: #00000000;
+}
+
+/* Add hover effects for each scriptures-link item */
+a:hover {
+    padding: 0.5rem;
+    place-content: center;
+    border: rgba(0, 255, 255, 0.05) solid 1px;
+    border-radius: 0.7rem;
+    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+    backdrop-filter: blur(1rem) saturate(222%);
+    transition: backdrop-filter 0.29s ease-in-out;
+}
+
+ol>a:hover {
+    padding: 0.5rem;
+    place-content: center;
+    border: rgba(0, 255, 255, 0.05) solid 1px;
+    border-radius: 0.7rem;
+    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+    backdrop-filter: blur(1rem) saturate(222%);
+    transition: backdrop-filter 0.29s ease-in-out;
+}
+
+* {
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar for IE and Edge */
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+ol:last-child {
+    padding-bottom: 2rem;
+}
+
+ol {
+    padding-left: 2rem;
+}
+
+@media (orientation: portrait) {
+    li {
+        margin: 0 auto;
+        height: auto;
+        padding: auto;
+        margin: auto;
+    }
+}

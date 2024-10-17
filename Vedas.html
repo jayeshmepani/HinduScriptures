@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+
+  <style>
+    .Veda {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+    }
+
+    .Veda a {
+      text-decoration: none;
+      display: grid;
+      grid-gap: 15px;
+      color: rgba(255, 217, 0, 0.91);
+      font-size: 1em;
+      box-sizing: content-box;
+
+    }
+
+    .container .overview-link a {
+      text-decoration: none;
+      color: rgba(255, 217, 0, 0.91);
+      font-size: 2.3em;
+      padding: 0.3rem;
+    }
+
+    :root {
+      --min-font-size: 0.7em;
+      --max-font-size: 1em;
+      --min-width: 300px;
+      --max-width: 1920px;
+      --overview-min-font-size: 1.7em;
+      --overview-max-font-size: 2.3em;
+    }
+
+    .container a {
+      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+    }
+
+    .container .overview-link a {
+      font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw), var(--overview-max-font-size));
+    }
+
+    /* Add hover effects for each scriptures-link item */
+    .overview-link a:hover {
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      display: flex;
+      border: rgba(0, 255, 255, 0.07) solid 1px;
+      border-radius: 0.7rem;
+      -webkit-backdrop-filter: blur(0.7rem) saturate(222%);
+      backdrop-filter: blur(0.7rem) saturate(222%);
+      transition: backdrop-filter 0.29s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="Veda">
+      <ol class="overview-link"><a class="overview-link" style="color: yellow; font-size:2.9rem" href="Vedas_overview.html">Overview</a></ol>
+      <ol class="overview-link"><a class="overview-link" href="RigVeda.html">Rigveda</a></ol>
+      <ol class="overview-link"><a class="overview-link" href="YajurVeda.html">Yajurveda</a></ol>
+      <ol class="overview-link"><a class="overview-link" href="Samaveda.html">Samaveda</a></ol>
+      <ol class="overview-link"><a class="overview-link" href="AtharvaVeda.html">Atharvaveda</a></ol>
+    </div>
+  </div>
+
+</body>
+
+</html>
