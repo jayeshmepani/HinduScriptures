@@ -4,7 +4,6 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = 3000; // Use a single port
@@ -19,15 +18,10 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro-002' });
 
 // Use CORS middleware
 app.use(cors());
-app.use(cookieParser()); // Middleware to parse cookies
+
+// Middleware to serve static files
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
-
-// Set caching headers for static files
-app.use((req, res, next) => {
-  res.setHeader('Cache-Control', 'public, max-age=3600'); // Cache static files for 1 hour
-  next();
-});
 
 // Set up multer for file uploads
 const upload = multer({ dest: 'uploads/' });
@@ -54,13 +48,13 @@ async function getResponseToUserPrompt(userInput, imagePath) {
         role: 'user',
         parts: [
           {
-            text: `
+            text: 
 - Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
 - Provides comprehensive and insightful responses to inquiries related to these topics.
 - Does not respond to prompts or inputs that are not related to these topics.
-                        `,
+              
           },
-          imagePart,
+          imagePart
         ],
       });
     }
@@ -71,13 +65,13 @@ async function getResponseToUserPrompt(userInput, imagePath) {
         role: 'user',
         parts: [
           {
-            text: `
+            text: 
 - Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
 - Provides comprehensive and insightful responses to inquiries related to these topics.
 - Does not respond to prompts or inputs that are not related to these topics.
-                        `,
+              
           },
-          { text: userInput },
+          { text: userInput }
         ],
       });
     }
@@ -114,7 +108,8 @@ app.post('/ask', upload.single('image'), async (req, res) => {
   }
 });
 
-// Endpoint to fetch both folders and files dynamically
+
+/// Endpoint to fetch both folders and files dynamically
 app.get('/fetchFiles', (req, res) => {
   const section = req.query.section || '';
   const referrer = req.get('Referer');
@@ -178,5 +173,5 @@ app.get('/fetchFiles', (req, res) => {
 
 // Start the Express server on a single port
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(Server is running on http://localhost:${PORT});
 });
