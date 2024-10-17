@@ -17,8 +17,14 @@ function createTranslateButton() {
 
     button.addEventListener('click', () => {
         const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
-        const originalBaseUrl = 'https://hindu-scriptures.vercel.app/';
-        const translatedBaseUrl = 'https://hindu--scriptures-vercel-app.translate.goog/';
+        // const originalBaseUrl = 'https://hindu-scriptures.vercel.app/';
+        // const translatedBaseUrl = 'https://hindu--scriptures-vercel-app.translate.goog/';
+        const originalBaseUrl = 'https://hinduscriptures.onrender.com/';
+        const translatedBaseUrl = 'https://hinduscriptures-onrender-com.translate.goog/';
+        // const originalBaseUrl = 'https://jayeshmepani.github.io/';
+        // const translatedBaseUrl = 'https://jayeshmepani-github-io.translate.goog/';
+        // const originalBaseUrl = 'https://hinduscriptures.netlify.app/';
+        // const translatedBaseUrl = 'https://hinduscriptures-netlify-app.translate.goog';
         const currentPath = window.location.pathname;
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
