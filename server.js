@@ -111,19 +111,18 @@ app.post('/ask', upload.single('image'), async (req, res) => {
 
 // Endpoint to fetch both folders and files dynamically
 app.get('/fetchFiles', (req, res) => {
-  const section = req.query.section || ''; // Grab section if provided
+  const section = req.query.section || '';
   const referrer = req.get('Referer');
   let baseDir;
 
-  // Define baseDir based on the referrer
   if (referrer.includes('Namavali.html')) {
     baseDir = path.join(__dirname, 'DharmicData/Namavalis', section);
   } else if (referrer.includes('Stotra.html')) {
     baseDir = path.join(__dirname, 'DharmicData/Stotras', section);
   } else if (referrer.includes('Gita.html')) {
-    baseDir = path.join(__dirname, 'DharmicData/Gitas', section);
+    baseDir = path.join(__dirname, 'DharmicData/Gitas'); // Use section for additional paths
   } else if (referrer.includes('BhagvadGita.html')) {
-    baseDir = path.join(__dirname, 'DharmicData/Gitas/Bhagvad Gita', section);
+    baseDir = path.join(__dirname, 'DharmicData/Gitas/Bhagvad Gita'); // Handle files within Bhagvad Gita
   } else if (referrer.includes('Chalisa.html')) {
     baseDir = path.join(__dirname, 'DharmicData/Chalisa');
   } else if (referrer.includes('Stuti.html')) {
@@ -139,38 +138,35 @@ app.get('/fetchFiles', (req, res) => {
   } else if (referrer.includes('UpaPurana.html')) {
     baseDir = path.join(__dirname, 'DharmicData/UpaPuranas');
   } else if (referrer.includes('Ramayanas.html')) {
-    baseDir = path.join(__dirname, 'DharmicData/Ramayanas/', section);
+    baseDir = path.join(__dirname, 'DharmicData/Ramayanas/');
   } else if (referrer.includes('YogaVasistha.html')) {
     baseDir = path.join(__dirname, 'DharmicData/Ramayanas/Yoga Vasistha/', section);
   } else {
-    return res.status(400).json({ error: 'Invalid referrer or path' });
+    return res.json({ error: 'Invalid referrer' });
   }
 
-  // Check if the directory exists
   if (!fs.existsSync(baseDir)) {
-    return res.status(404).json({ error: 'Directory not found or invalid section' });
+    return res.json({ error: 'Invalid directory or section' });
   }
 
-  // Read the directory and filter out folders and files
+  // Read directories and files
   fs.readdir(baseDir, (err, items) => {
     if (err) {
-      return res.status(500).json({ error: 'Error reading directory' });
+      return res.json({ error: 'Error reading directory' });
     }
 
     const folders = [];
     const files = [];
 
-    // Loop through items to separate folders and specific file types (PDF and JSON)
     items.forEach(item => {
       const itemPath = path.join(baseDir, item);
       if (fs.statSync(itemPath).isDirectory()) {
-        folders.push(item);  // Add to folders list
-      } else if (['.pdf', '.json'].includes(path.extname(item).toLowerCase())) {
-        files.push(item);  // Add to files list if PDF or JSON
+        folders.push(item);
+      } else if (['.pdf', '.json'].includes(path.extname(item))) {
+        files.push(item);
       }
     });
 
-    // Send response with the list of folders and files
     res.json({ folders, files });
   });
 });
