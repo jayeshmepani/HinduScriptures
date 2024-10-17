@@ -48,11 +48,11 @@ async function getResponseToUserPrompt(userInput, imagePath) {
         role: 'user',
         parts: [
           {
-            text: 
+            text: `
 - Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
 - Provides comprehensive and insightful responses to inquiries related to these topics.
 - Does not respond to prompts or inputs that are not related to these topics.
-              
+              `
           },
           imagePart
         ],
@@ -65,11 +65,11 @@ async function getResponseToUserPrompt(userInput, imagePath) {
         role: 'user',
         parts: [
           {
-            text: 
+            text: `
 - Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
 - Provides comprehensive and insightful responses to inquiries related to these topics.
 - Does not respond to prompts or inputs that are not related to these topics.
-              
+              `
           },
           { text: userInput }
         ],
@@ -173,5 +173,5 @@ app.get('/fetchFiles', (req, res) => {
 
 // Start the Express server on a single port
 app.listen(PORT, () => {
-  console.log(Server is running on http://localhost:${PORT});
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
