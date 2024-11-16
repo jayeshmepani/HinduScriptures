@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Namavali</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="/download.png" rel="icon" type="image/x-icon" />
+
+  <style>
+    .Namavali {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 1rem;
+      /* Adjust the top padding as needed */
+      padding-bottom: 1rem;
+      /* Adjust the bottom padding as needed */
+      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+    }
+
+    .Namavali a {
+      text-decoration: none;
+      display: grid;
+      color: rgba(255, 217, 0, 0.91);
+    }
+
+    .container {
+      width: 100vw;
+    }
+
+    :root {
+      --min-font-size: 0.5em;
+      --max-font-size: 1em;
+      --min-width: 300px;
+      --max-width: 1920px;
+      --overview-min-font-size: 1.7em;
+      --overview-max-font-size: 2.3em;
+    }
+
+    .container a {
+      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+    }
+
+    li::marker {
+      text-wrap: wrap;
+      word-wrap: break-word;
+      font-size: clamp(var(--min-font-size),
+          calc(var(--min-font-size) + 1.5vw),
+          var(--max-font-size));
+    }
+
+    .section-links {
+      display: contents;
+      flex-direction: column;
+      height: 100svh;
+      text-align: left;
+      justify-content: center;
+      position: absolute;
+      font-size: 3.7rem;
+    }
+
+    .section-links a {
+      margin: 0.2rem;
+      font-size: 2.3rem;
+    }
+
+    .container .overview-link a {
+      text-decoration: none;
+      color: rgba(255, 217, 0, 0.91);
+      font-size: 2.3em;
+      padding-bottom: 13%;
+    }
+
+    :root {
+      --min-font-size: 0.3em;
+      --max-font-size: 1.3em;
+      --min-width: 280px;
+      --max-width: 1920px;
+      --overview-min-font-size: 1.7em;
+      --overview-max-font-size: 2.3em;
+    }
+
+    .container a {
+      font-size: clamp(var(--min-font-size),
+          calc(var(--min-font-size) + 1.5vw),
+          var(--max-font-size));
+      text-wrap: wrap;
+      word-wrap: break-word;
+    }
+
+    .container {
+      font-size: clamp(var(--min-font-size),
+          calc(var(--min-font-size) + 1vw),
+          var(--max-font-size));
+      text-wrap: wrap;
+      word-wrap: break-word;
+    }
+
+    .container .overview-link a {
+      font-size: clamp(var(--overview-min-font-size),
+          calc(var(--overview-min-font-size) + 1vw),
+          var(--overview-max-font-size));
+    }
+
+    #NamavaliList li:first-child {
+      padding-top: 1rem;
+    }
+
+    #NamavaliList li:last-child {
+      padding-bottom: 1rem;
+    }
+
+    a:hover {
+      padding: 0.5rem;
+      display: grid;
+      place-content: center;
+      border: rgba(0, 255, 255, 0.01) solid 1px;
+      border-radius: 0.7rem;
+      -webkit-backdrop-filter: blur(1rem) saturate(222%);
+      backdrop-filter: blur(1rem) saturate(222%);
+      transition: backdrop-filter 0.29s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="Namavali">
+
+      <ol id="NamavaliList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
+
+      <!-- Links to  sections -->
+      <div class="section-links" id="sectionLinks">
+        <!-- Links will be dynamically added here -->
+
+      </div>
+    </div>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const section = urlParams.get('section');
+    console.log('Section:', section);
+
+    function fetchFilenames(section) {
+      return fetch(`/fetchFiles?section=${encodeURIComponent(section)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error('Error fetching filenames:', data.error);
+            return { folders: [], files: [] };
+          }
+          return data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          return { folders: [], files: [] };
+        });
+    }
+
+    async function initialize() {
+      if (section) {
+        const { folders, files } = await fetchFilenames(section);
+
+        // Display folders
+        folders.forEach(folder => {
+          const li = document.createElement('li');
+          li.setAttribute('filename', `${section}/${folder}`);
+
+          const a = document.createElement('a');
+          a.href = `Namavalis?section=${encodeURIComponent(folder)}`;
+          a.textContent = folder;
+
+          li.appendChild(a);
+          document.getElementById('NamavaliList').appendChild(li);
+        });
+
+        // Display files
+        files.forEach(filename => {
+          const li = document.createElement('li');
+          li.setAttribute('filename', `${section}/${filename}`);
+
+          const a = document.createElement('a');
+          a.href = '#';
+          a.textContent = filename.replace('.pdf', '');
+          a.addEventListener('click', () => redirectToContent(`${section}/${filename}`));
+
+          li.appendChild(a);
+          document.getElementById('NamavaliList').appendChild(li);
+        });
+      } else {
+        // Fetch and display top-level folders if no section is specified
+        const { folders } = await fetchFilenames('');
+        const sectionLinksDiv = document.getElementById('sectionLinks');
+
+        folders.forEach(folder => {
+          const sectionLink = document.createElement('a');
+          sectionLink.href = `Namavalis?section=${encodeURIComponent(folder)}`;
+          sectionLink.textContent = folder;
+          sectionLinksDiv.appendChild(sectionLink);
+        });
+      }
+    }
+
+    function redirectToContent(filename) {
+      window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+    }
+
+    initialize();
+  </script>
+
+</body>
+
+</html>

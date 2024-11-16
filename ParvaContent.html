@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parva Content</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-results">
+            <div id="jsonContent">
+                <br>
+                <br>
+            </div>
+            <!-- Content of the selected Parva will be displayed here -->
+        </div>
+    </div>
+
+    <style>
+        .search-results {
+            /*font-size: 1.53rem;*/
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            width: auto;
+            height: 100vh;
+            align-items: center;
+            /* align-content: center; */
+            position: absolute;
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 2vw), var(--max-font-size));
+            justify-content: flex-start;
+        }
+
+        :root {
+            --min-font-size: 0.8em;
+            --max-font-size: 1.6em;
+            --min-width: 300px;
+            --max-width: 1920px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="ParvaContent.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

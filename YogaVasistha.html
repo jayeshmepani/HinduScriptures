@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>YogaVasistha</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="/download.png" rel="icon" type="image/x-icon" />
+
+    <style>
+        .YogaVasistha {
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            width: auto;
+            height: 100svh;
+            text-wrap: wrap;
+            word-wrap: break-word;
+        }
+
+        .YogaVasistha a {
+            text-decoration: none;
+            text-wrap: wrap;
+            word-wrap: break-word;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 1em;
+            box-sizing: content-box;
+        }
+
+        li::marker {
+            text-wrap: wrap;
+            word-wrap: break-word;
+            font-size: clamp(var(--min-font-size),
+                    calc(var(--min-font-size) + 1.5vw),
+                    var(--max-font-size));
+        }
+
+        .section-links {
+            display: flex;
+            flex-direction: column;
+            height: 100svh;
+            text-align: left;
+            justify-content: center;
+            position: absolute;
+            font-size: 3.7rem;
+        }
+
+        .section-links a {
+            margin: 0.2rem;
+            font-size: 2.3rem;
+        }
+
+        .container .overview-link a {
+            text-decoration: none;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 2.3em;
+            padding-bottom: 13%;
+        }
+
+        :root {
+            --min-font-size: 0.3em;
+            --max-font-size: 1.3em;
+            --min-width: 280px;
+            --max-width: 1920px;
+            --overview-min-font-size: 1.7em;
+            --overview-max-font-size: 2.3em;
+        }
+
+        .container a {
+            font-size: clamp(var(--min-font-size),
+                    calc(var(--min-font-size) + 1.5vw),
+                    var(--max-font-size));
+            text-wrap: wrap;
+            word-wrap: break-word;
+        }
+
+        .container {
+            font-size: clamp(var(--min-font-size),
+                    calc(var(--min-font-size) + 1vw),
+                    var(--max-font-size));
+            text-wrap: wrap;
+            word-wrap: break-word;
+        }
+
+        .container .overview-link a {
+            font-size: clamp(var(--overview-min-font-size),
+                    calc(var(--overview-min-font-size) + 1vw),
+                    var(--overview-max-font-size));
+        }
+
+        #YogaVasisthaList li:first-child {
+            padding-top: 1rem;
+        }
+
+        #YogaVasisthaList li:last-child {
+            padding-bottom: 1rem;
+        }
+
+        a:hover {
+            padding: 0.5rem;
+            display: grid;
+            place-content: center;
+            border: rgba(0, 255, 255, 0.01) solid 1px;
+            border-radius: 0.7rem;
+            -webkit-backdrop-filter: blur(1rem) saturate(222%);
+            backdrop-filter: blur(1rem) saturate(222%);
+            transition: backdrop-filter 0.29s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="YogaVasistha">
+
+            <ol id="YogaVasisthaList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
+
+            <!-- Links to  sections -->
+            <div class="section-links" id="sectionLinks">
+                <!-- Links will be dynamically added here -->
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // Extract the 'section' parameter from the URL (for nested sections/folders)
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section'); // Section or folder name
+
+        // Function to fetch folders and files for a given section
+        function fetchFilenames(section) {
+            // Fetch files and folders from the server, pass the section (folder path) if any
+            return fetch(`/fetchFiles?section=${encodeURIComponent(section || '')}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error fetching filenames:', data.error);
+                        return { folders: [], files: [] }; // Return empty arrays on error
+                    }
+                    return data; // Expecting 'folders' and 'files' arrays in the response
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    return { folders: [], files: [] }; // Return empty arrays on error
+                });
+        }
+
+        // Custom sorting function for chapter names
+        function customSort(a, b) {
+            const numA = parseInt(a.replace('Chapter ', ''), 10); // Extract number from 'Chapter x'
+            const numB = parseInt(b.replace('Chapter ', ''), 10); // Extract number from 'Chapter y'
+            return numA - numB; // Compare the extracted numbers
+        }
+
+        // Initialize the function to fetch and display folders/files
+        async function initialize() {
+            const { folders, files } = await fetchFilenames(section);
+
+            // Clear existing content before appending new items
+            document.getElementById('YogaVasisthaList').innerHTML = '';
+
+            // If section is provided, display nested folders and files
+            if (section) {
+                // Display folders within the current section
+                folders.forEach(folder => {
+                    const li = document.createElement('li');
+                    const newSectionPath = section ? `${section}/${folder}` : folder;
+
+                    const a = document.createElement('a');
+                    a.href = `YogaVasistha?section=${encodeURIComponent(newSectionPath)}`;
+                    a.textContent = folder;
+
+                    li.appendChild(a);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+
+                // Sort files numerically and display within the current section
+                files.sort(customSort).forEach(filename => {
+                    const li = document.createElement('li');
+                    const filePath = `${section}/${filename}`;
+
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = filename.replace('.json', ''); // Remove '.json' for display
+                    a.addEventListener('click', () => redirectToContent(filePath));
+
+                    li.appendChild(a);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+            }
+            // If no section is specified, display top-level folders
+            else {
+                folders.forEach(folder => {
+                    const li = document.createElement('li');
+
+                    const sectionLink = document.createElement('a');
+                    sectionLink.href = `YogaVasistha?section=${encodeURIComponent(folder)}`;
+                    sectionLink.textContent = folder;
+
+                    li.appendChild(sectionLink);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+            }
+        }
+
+        // Function to redirect to content viewing page
+        function redirectToContent(filename) {
+            window.location.href = `YogaVasisthaContent?filename=${encodeURIComponent(filename)}`;
+        }
+
+        // Call the initialize function to display folders/files
+        initialize();
+    </script>
+
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu Scriptures Search</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        :root {
+            --primary-color: hsl(222, 61%, 73%);
+            --secondary-color: #00796b;
+            --text-color: #cac7ff;
+            --background-start: rgba(0, 7, 51, 0.95);
+            --background-end: rgba(0, 7, 51, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(var(--background-start), var(--background-end)),
+                url('images/bg.png') center/cover fixed;
+        }
+
+        .container {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .search-section {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(3px);
+            border-radius: 1.5rem;
+            z-index: 10;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            padding-right: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: hsla(197, 73%, 59%, 0.79);
+        }
+
+        .ai-search {
+            margin: 1rem auto;
+            padding: 1rem 2rem;
+            background: var(--secondary-color);
+            border: none;
+            border-radius: 1.3rem;
+            color: white;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .ai-search:hover {
+            box-shadow: hsl(179, 91%, 23%) 9.61px 9.61px 16px inset, hsl(179, 91%, 37%) -9.61px -9.61px 16px inset;
+        }
+
+        .scriptures-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            overflow-y: auto;
+            height: 53vh;
+        }
+
+        .scripture-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(2px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scripture-link {
+            display: block;
+            color: #ffd700;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        ol,
+        li,
+        a {
+            list-style-type: none;
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        a {
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+        .scriptures-container a:hover {
+            padding: 0.5rem;
+            display: flex;
+            place-content: center;
+            border: rgba(0, 255, 255, 0.05) solid 1px;
+            border-radius: 0.7rem;
+            -webkit-backdrop-filter: saturate(150%) blur(2px) brightness(37%);
+            background-color: rgb(65 105 225 / 15%);
+            backdrop-filter: saturate(150%) blur(2px) brightness(37%);
+            transition: backdrop-filter 0.29s ease-in-out;
+        }
+
+        .material-icons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ol {
+            padding-left: 0rem;
+        }
+
+        h2 {
+            padding-bottom: 0.3rem;
+        }
+
+        * {
+            /* Hide scrollbar for Firefox */
+            scrollbar-width: none;
+
+            /* Hide scrollbar for IE and Edge */
+            -ms-overflow-style: none;
+        }
+
+        /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .search-section {
+                padding: 1rem;
+            }
+
+            .search-bar input {
+                font-size: 1rem;
+            }
+
+
+            .scriptures-container {
+                height: 61vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="search-section">
+            <!-- Main Search -->
+            <div class="search-box">
+                <form onsubmit="search(); return false;" method="get" class="search-bar">
+                    <input type="text" placeholder="Search scriptures..." id="search-input" name="q" required>
+                    <button type="submit">
+                        <i class="material-icons">search</i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- AI Search Button -->
+            <a class="ai-search" href="AI">
+                <i class="material-icons left">psychology</i> AI Search here
+            </a>
+
+            <!-- Sitemap Search -->
+            <div class="sitemap-search">
+                <form action="/search" method="get" class="search-bar">
+                    <input type="text" placeholder="Browse sitemap..." id="sitemap-search" name="q" required>
+                    <button type="submit">
+                        <i class="material-icons">map</i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <div class="scriptures-container">
+            <div class="scripture-category">
+                <h2>Sacred Scriptures</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Vedas">Vedas</a></li>
+                    <li><a class="scriptures-link" href="Upnishad">Upnishad</a></li>
+                    <ol class="overview-link">
+                        <li><a class="overview-link" href="puranas-overview">Puranas Overview</a></li>
+                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="Puranas">Maha Puranas</a>
+                        </li>
+                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="Upa-Puranas">Upa Puranas</a>
+                        </li>
+                    </ol>
+                    <li><a class="scriptures-link" href="Ramayanas">Ramayanas</a></li>
+                    <li><a class="scriptures-link" href="mahabharata">Mahabharata</a></li>
+                    <li><a class="scriptures-link" href="Gitas">Gitas</a></li>
+                </ol>
+            </div>
+
+            <div class="scripture-category">
+                <h2>Spiritual Praxis Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Smritis">Smritis</a></li>
+                    <li><a class="scriptures-link" href="upa-smritis">Upa Smritis</a></li>
+                </ol>
+            </div>
+
+            <div class="scripture-category">
+                <h2>Auxiliary Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Upanga">Upanga</a></li>
+                    <li><a class="scriptures-link" href="Vedanga">Vedanga</a></li>
+                </ol>
+            </div>
+
+
+            <div class="scripture-category">
+                <h2>Devotional Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Aarati">Aaratis</a></li>
+                    <li><a class="scriptures-link" href="Ashtakas">Ashtakas</a></li>
+                    <li><a class="scriptures-link" href="Bhajan">Bhajan</a></li>
+                    <li><a class="scriptures-link" href="Chalisas">Chalisas</a></li>
+                    <li><a class="scriptures-link" href="Kavachas">Kavachas</a></li>
+                    <li><a class="scriptures-link" href="Namavalis">Namavalis</a></li>
+                    <li><a class="scriptures-link" href="Stotras">Stotras</a></li>
+                    <li><a class="scriptures-link" href="Stutis">Stutis</a></li>
+                </ol>
+            </div>
+            <div class="scripture-category">
+                <h2>Swaminarayan Sect</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Swaminarayan-Sect">Swaminarayan Sect</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="search.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Vasistha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-results">
+            <div id="jsonContent">
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the filename from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const filename = urlParams.get('filename');
+
+        // Fetch and display JSON files from the corresponding directory
+        fetch(`DharmicData/Ramayanas/Yoga Vasistha/${filename}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch JSON file: ${filename}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('JSON Data:', data);
+
+                const jsonContentDiv = document.getElementById('jsonContent');
+
+                // Check if the data is an array of objects with a "text" property
+                if (Array.isArray(data) && data.length > 0 && data[0].text) {
+                    const entryDiv = document.createElement('div');
+                    entryDiv.id = 'p';
+                    entryDiv.style.textAlign = 'center';
+
+                    // Sort data numerically by filenames (assuming filenames are numbers)
+                    const sortedData = data.sort((a, b) => {
+                        const numA = parseInt(a.filename, 10);  // Parse to number
+                        const numB = parseInt(b.filename, 10);  // Parse to number
+                        return numA - numB;
+                    });
+
+                    // Iterate over each entry in the sorted array
+                    sortedData.forEach(entry => {
+                        entryDiv.innerHTML += `
+                    <div>
+                        ${entry.text.replace(/\n/g, ' <br/> ').trim()}
+                    </div>
+                    <br><br>
+                `;
+                    });
+
+                    // Append the div containing all entries to the main container
+                    jsonContentDiv.appendChild(entryDiv);
+                } else {
+                    console.error('Error: Unexpected JSON structure.');
+                }
+            })
+            .catch(error => {
+                console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+            });
+    </script>
+    <script src="translate.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+    <style>
+        #p {
+            font-size: 1.3rem;
+            color: yellow;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        /*{
+  border: 1px solid red;
+}*/
+    </style>
+
+</body>
+
+</html>

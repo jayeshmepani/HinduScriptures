@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/x-icon" href="/download.png">
+  <script src="pdfjs/pdf.min.js"></script>
+  <script src="pdfjs/pdf.worker.min.js"></script>
+  <link rel="stylesheet" href="pdfjs.css" />
+  <title>Adbhuta Ramayana</title>
+</head>
+
+<body>
+  <!-- Update the HTML to make the page-num span editable -->
+  <div class="top-bar">
+    <span class="page-info">
+      Page <span id="page-num" contenteditable="true" oninput="updatePageNum()"></span> of <span id="page-count"></span>
+    </span>
+  </div>
+
+  <div class="center-container">
+    <div id="the-svg"></div>
+  </div>
+
+  <script src="AdbhutRamayanBook.js"></script>
+
+  <!-- <style>
+    @media (orientation: portrait) {
+      #the-svg {
+        transform: translateX(25%);
+        width: 100svw;
+      }
+    }
+
+    @media (min-aspect-ratio: 1) and (max-aspect-ratio: 1.11) {
+      #the-svg {
+        scale: 0.8;
+      }
+    }
+
+    @media (min-aspect-ratio: 1.11)and (max-aspect-ratio: 2.25) {
+      #the-svg {
+        scale: 0.9;
+      }
+    }
+    @media (min-aspect-ratio: 2.25) {
+      #the-svg {
+        scale: 0.937;
+      }
+    }
+  </style> -->
+
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahābhārata Overview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        /* Apply styles to the paragraph and h1 */
+        * {
+            /*border: solid red 2px;*/
+        }
+
+        body,
+        html {
+            margin: 0%;
+            border-width: 0px;
+        }
+
+        .overview-container {
+            display: grid;
+            grid-gap: 15px;
+            align-items: center;
+            justify-content: center;
+            height: 100svh;
+            position: absolute;
+        }
+
+        h1,
+        p,
+        .image-container {
+            color: rgba(255, 255, 255, 0.91);
+            /* Adjusted text color */
+            font-size: 17px;
+            /* Adjusted font size for better readability */
+            width: 87svw;
+            /* Adjusted width for better responsiveness */
+            box-sizing: content-box;
+        }
+
+        h1 {
+            font-size: 23px;
+            text-align: center;
+        }
+
+
+        .image-container {
+            padding-right: 5%;
+            padding-left: 5%;
+            transform: translateX(-4.5%);
+            max-width: 100%;
+            /* Adjusted to ensure image responsiveness */
+        }
+
+        img {
+            width: 100%;
+            /* Ensures image responsiveness */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overview-container">
+        <!-- Your provided information -->
+        <h1><b>Mahābhārata Overview</b></h1>
+        <!-- ... add the information you provided ... -->
+        <p>
+            The Mahābhārata is one of the two major Smriti texts and Sanskrit epics of ancient India revered in
+            Hinduism, the other being the Rāmāyaṇa.
+            The epic classified as an ‘Itihasa’ and initially called ‘Jaya’ had just 8,800 verses. Jaya means victory
+            and the story essentially deals with victory of “Dharma” or righteousness. Vyasa taught ‘Jaya’ to his four
+            disciples Vaisampayana, Sumantu, Jaimini and Paila and his son Suka. Later, Vaisampayana recited the epic to
+            King Janamejaya while he performed Sarpasatra and it became ‘Bharata’ with 24,000 verses. Finally,
+            Ugrasravas son of Lomaharshana surnamed Sauti, who heard the story at the sarpasatra, recited this epic to
+            the great sages attending the twelve year sacrifice of Saunaka, called Kulapati, in the forest of Naimisha
+            and became the current version with close to verses. The questions asked by Janamejaya and answers given by
+            Vaisampayana became additions to the original epic written by Vyasa. Similarly, the questions asked by the
+            sages to Ugrasravas and his answers also becomes part of the final version.
+            <br><br>
+            The core story of the work is that of a dynastic struggle for the throne of Hastinapura, the kingdom ruled
+            by the Kuru clan. It narrates the events and aftermath of the Kurukshetra War, a war of succession between
+            two groups of princely cousins, the Kauravas and the Pāṇḍavas. The Mahābhārata itself ends with the death of
+            Krishna, and the subsequent end of his dynasty and ascent of the Pandava brothers to heaven. It also marks
+            the beginning of the Hindu age of Kali Yuga.
+            <br><br>
+            It also contains philosophical and devotional material, such as a discussion of the four "goals of life" or
+            puruṣārtha. Among the principal works and stories in the Mahābhārata are the Bhagavad Gita, the story of
+            Damayanti, the story of Shakuntala, the story of Pururava and Urvashi, the story of Savitri and Satyavan,
+            the story of Kacha and Devayani, the story of Rishyasringa and an abbreviated version of the Rāmāyaṇa, often
+            considered as works in their own right.
+            <br><br>
+            The Mahābhārata is the longest epic poem known and has been described as "the longest poem ever written".
+            Its longest version consists of over 1,00,000 śloka, and long prose passages. At about 1.8 million words in
+            total.
+        </p>
+
+        <div class="image-container">
+            <img src="mahabharata_family_tree.png" alt="Mahābhārata Family Tree" style="max-width: 100%;" />
+        </div>
+    </div>
+    <script>
+        // Linear equation parameters
+        const slope = -0.0097;
+        const intercept = 9.1;
+
+        // Function to calculate padding-top based on the linear equation
+        const calculatePaddingTop = (width) => {
+            return slope * width + intercept;
+        };
+
+        function adjustPaddingTop() {
+            console.log("Adjusting padding top...");
+
+            // Get the element you want to adjust (replace 'h1' with your actual element selector)
+            const targetElement = document.querySelector('h1');
+
+            // Log the target element
+            console.log("Target Element:", targetElement);
+
+            // Get the current screen width
+            const currentWidth = window.innerWidth;
+
+            // Log the current width
+            console.log("Current Width:", currentWidth);
+
+            // Calculate the padding-top based on the linear equation
+            const paddingTopValue = calculatePaddingTop(currentWidth);
+
+            // Log the calculated padding top
+            console.log("Calculated Padding Top:", paddingTopValue);
+
+            // Apply the padding-top using CSS style property
+            targetElement.style.paddingTop = `${paddingTopValue}%`;
+        }
+
+        // Attach the adjustPaddingTop function to the window resize event
+        window.addEventListener('resize', adjustPaddingTop);
+
+        // Initial adjustment on page load
+        adjustPaddingTop();
+    </script>
+    <script src="translate.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

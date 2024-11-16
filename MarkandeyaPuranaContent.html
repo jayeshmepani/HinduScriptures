@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markandeya Purana</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+  <div class="container">
+    <div class="search-results">
+      <div id="jsonContent">
+        <br>
+        <br>
+      </div>
+      <!-- Content of the selected Parva will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    // Get the filename from the query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const filename = urlParams.get('filename');
+    console.log('Filename:', filename);
+
+    // Fetch and display the selected JSON file
+    fetch(`DharmicData/Purana/Markandeya Purana/${filename}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch JSON file: ${filename}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('JSON Data:', data);
+
+        // Handle the JSON data here (e.g., display it on the page)
+        const jsonContentDiv = document.getElementById('jsonContent');
+
+        // Check if the data is an array of objects with a "text" property
+        if (Array.isArray(data) && data.length > 0 && data[0].text) {
+          // Iterate over each entry in the array
+          data.forEach(entry => {
+            // Create a new div for each entry
+            const entryDiv = document.createElement('div');
+
+            // Text
+            entryDiv.innerHTML = `
+          <div style="display: grid; align-items: center; justify-content: center;">
+          <p style="color: yellow;">${entry.text.replace(/\n/g, ' <br> ').trim()}</p>
+          <br><br>
+          </div>
+        `;
+
+            jsonContentDiv.appendChild(entryDiv);
+          });
+        } else {
+          // If the expected structure is not found, handle it accordingly
+          console.error(`Error: Unexpected JSON structure.`);
+        }
+      })
+      .catch(error => {
+        // Handle errors here
+        console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+      });
+
+  </script>
+  <script src="translate.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

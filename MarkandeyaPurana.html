@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markandeya Purana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <style>
+        .chapter {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 100dvh;
+        }
+
+        .chapter a {
+            text-decoration: none;
+            display: grid;
+            grid-gap: 15px;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 1em;
+            box-sizing: content-box;
+        }
+
+        :root {
+            --min-font-size: 0.7em;
+            --max-font-size: 1em;
+            --min-width: 280px;
+            --max-width: 1920px;
+            --overview-min-font-size: 1.7em;
+            --overview-max-font-size: 2.3em;
+        }
+
+        .container a {
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
+        }
+
+        #chapterList li:first-child {
+            padding-top: 1rem;
+            /* Adjust the top padding as needed */
+        }
+
+        #chapterList li:last-child {
+            padding-bottom: 1rem;
+            /* Adjust the bottom padding as needed */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="chapter">
+            <ol id="chapterList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
+        </div>
+    </div>
+
+    <script>
+        // Loop to generate list items for chapters in ranges
+        for (let i = 1; i <= 134; i += 5) {
+            const li = document.createElement('li');
+            const startChapter = i;
+            let endChapter = Math.min(i + 4, 134);
+
+            // Handle exception for chapters 71-75
+            if (startChapter === 71) {
+                endChapter = 80;
+            } else if (startChapter === 76) {
+                continue; // Skip 76-80 range
+            }
+            li.setAttribute('filename', `${startChapter}.json`);
+
+            const a = document.createElement('a');
+            a.href = '#';
+            a.setAttribute('onclick', `redirectToParvaContent('${startChapter}.json')`);
+            a.textContent = `Chapter ${startChapter}-${endChapter}`;
+
+            li.appendChild(a);
+            document.getElementById('chapterList').appendChild(li);
+        }
+
+        // Function to redirect to the content page for the selected Parva range
+        function redirectToParvaContent(filename) {
+            // Redirect to ParvaContent with the selected filename as a query parameter
+            window.location.href = `MarkandeyaPuranaContent?filename=${encodeURIComponent(filename)}`;
+        }
+    </script>
+
+</body>
+
+</html>
