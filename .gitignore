@@ -1,0 +1,12 @@
+node_modules
+
+# Exclude large PDF files from being added
+DharmicData/Upnishad/*.pdf
+# # Exclude large PDF files from Ramayanas directory
+DharmicData/Ramayanas/Anand Ramayan.pdf
+DharmicData/Ramayanas/Bhushundi Ramayan.pdf
+DharmicData/Ramayanas/Satyopakhyan.pdf
+
+misc
+
+uploads
