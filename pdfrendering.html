@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Rendering</title>
+    <title>Book</title>
     <link rel="icon" type="image/x-icon" href="/download.png">
     <style>
         * {
@@ -36,7 +36,7 @@
             align-items: center;
             align-content: center;
             justify-content: center;
-            height: 100vh;
+            height: 100svh;
             background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
         }
 
@@ -139,9 +139,9 @@
     <div class="center-container">
         <canvas id="the-canvas"></canvas>
         <div class="loader" id="loader"></div>
-        <div class="progress-container">
+        <!-- <div class="progress-container">
             <div id="progress-bar" class="progress-bar"></div>
-        </div>
+        </div> -->
     </div>
 
     <script src="pdfjs/pdf.min.js"></script>
@@ -173,6 +173,9 @@
             }
             else if (document.referrer.includes('Bhajan')) {
                 url = `DharmicData/Bhajan/${filename}`;
+            }
+            else if (document.referrer.includes('Swaminarayan-Sect')) {
+                url = `DharmicData/Swaminarayan Sect/${filename}`;
             }
             else {
                 console.error('Invalid referrer:', document.referrer);
@@ -253,8 +256,8 @@
                         pageIsRendering = false;
 
                         // Update progress bar
-                        const progress = (num / pdfDoc.numPages) * 100;
-                        progressBar.style.width = `${progress}%`;
+                        //const progress = (num / pdfDoc.numPages) * 100;
+                        //progressBar.style.width = `${progress}%`;
 
                         // Output current page with custom logic for Ekamra Purana
                         document.getElementById('page-num').textContent = displayPageNumber(num);

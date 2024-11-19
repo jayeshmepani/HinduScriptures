@@ -64,6 +64,11 @@
             padding-top: 1rem;
         }
 
+        #SwaminarayanList a:first-child {
+            width: 23.5rem;
+            text-align: center;
+        }
+
         #SwaminarayanList li:last-child {
             padding-bottom: 1rem;
         }
@@ -79,11 +84,12 @@
             transition: backdrop-filter 0.29s ease-in-out;
         }
 
-        a:hover {
+        a:hover:first-child {
             padding: 0;
             -webkit-backdrop-filter: none;
             backdrop-filter: none;
             transition: none;
+            border:0;
         }
     </style>
 </head>
@@ -92,7 +98,7 @@
     <div class="container">
         <div class="Swaminarayan">
 
-            <ol id="SwaminarayanList" style="color:rgba(255, 217, 0, 0.91);font-size: 22px">
+            <ol id="SwaminarayanList" style="color:rgba(255, 217, 0, 0.91)">
             </ol>
 
             <!-- Links to  sections -->
@@ -176,7 +182,7 @@
             history.pushState({ section: section, file: filename }, '', `?section=${encodeURIComponent(section)}&filename=${encodeURIComponent(filename)}`);
 
             // Redirect to the content page for the file
-            window.location.href = `Content?filename=${encodeURIComponent(fullPath)}`;
+            window.location.href = `book?filename=${encodeURIComponent(fullPath)}`;
         }
 
         // Listen for changes in the browser history (back/forward navigation)
