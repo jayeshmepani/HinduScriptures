@@ -77,29 +77,37 @@ function handlePopState(event) {
     }
 }
 
-// Function to set up the search functionality
+// Function to set up the search functionality with debouncing
 function setupSearch() {
     const searchBar = document.getElementById("search-bar");
+    let debounceTimeout;
+
     searchBar.addEventListener("input", () => {
+        clearTimeout(debounceTimeout); // Clear the previous timeout if any
+
         const query = searchBar.value.toLowerCase();
 
-        // Filter all kirtans where the query matches the title or description
-        const searchResults = jsonData.filter(kirtan =>
-            (kirtan.title_guj && kirtan.title_guj.toLowerCase().includes(query)) ||
-            (kirtan.title_eng && kirtan.title_eng.toLowerCase().includes(query)) ||
-            (kirtan.description_guj && kirtan.description_guj.toLowerCase().includes(query)) ||
-            (kirtan.description_eng && kirtan.description_eng.toLowerCase().includes(query))
-        );
+        // Set a new timeout to trigger the search after 300ms of inactivity
+        debounceTimeout = setTimeout(() => {
+            // Filter all kirtans where the query matches the title or description
+            const searchResults = jsonData.filter(kirtan =>
+                (kirtan.title_guj && kirtan.title_guj.toLowerCase().includes(query)) ||
+                (kirtan.title_eng && kirtan.title_eng.toLowerCase().includes(query)) ||
+                (kirtan.description_guj && kirtan.description_guj.toLowerCase().includes(query)) ||
+                (kirtan.description_eng && kirtan.description_eng.toLowerCase().includes(query))
+            );
 
-        // Sort search results by Gujarati alphabet order
-        searchResults.sort((a, b) => {
-            return a.title_guj.localeCompare(b.title_guj, 'gu', { sensitivity: 'base' });
-        });
+            // Sort search results by Gujarati alphabet order
+            searchResults.sort((a, b) => {
+                return a.title_guj.localeCompare(b.title_guj, 'gu', { sensitivity: 'base' });
+            });
 
-        // Display the filtered and sorted kirtans based on the search (only title)
-        displayKirtans(searchResults); // Only display titles in search result
+            // Display the filtered and sorted kirtans based on the search (only title)
+            displayKirtans(searchResults); // Only display titles in search result
+        }, 300); // Delay search by 300ms after the user stops typing
     });
 }
+
 
 // Function to show the loader
 function showLoader() {

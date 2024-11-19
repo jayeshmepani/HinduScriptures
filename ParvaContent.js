@@ -1,4 +1,3 @@
-// Map filenames to book names
 const filenameToBook = {
   '1.json': 'Adi Parva',
   '2.json': 'Sabha Parva',
@@ -25,46 +24,96 @@ const urlParams = new URLSearchParams(window.location.search);
 const filename = urlParams.get('filename');
 console.log('Filename:', filename);
 
-// Fetch and display the selected JSON file
 fetch(`DharmicData/Mahabharata/${filename}`)
   .then(response => {
-    if (!response.ok) {
-      throw new Error(`Failed to fetch JSON file: ${filename}`);
-    }
-    return response.json();
+      if (!response.ok) {
+          throw new Error(`Failed to fetch JSON file: ${filename}`);
+      }
+      return response.json();
   })
   .then(data => {
-    console.log('JSON Data:', data);
-    // Handle the JSON data here (e.g., display it on the page)
-    const jsonContentDiv = document.getElementById('jsonContent');
+      console.log('JSON Data:', data);
 
-    // Get the book name from the filenameToBook mapping
-    const bookName = filenameToBook[filename] || filename;
+      const jsonContentDiv = document.getElementById('jsonContent');
+      const chapterSelector = document.getElementById('chapterSelector');
+      const shlokaSelector = document.getElementById('shlokaSelector');
 
-    // Iterate over each entry in the JSON array
-    data.forEach(entry => {
-      // Create a new div for each entry
-      const entryDiv = document.createElement('div');
+      // Get the book name from the filenameToBook mapping
+      const bookName = filenameToBook[filename] || filename;
 
-      // Display Book, Chapter, Shloka, and Text
-      entryDiv.innerHTML = `
-      <div style="display: grid; align-items: center; justify-content: center;">
-        <p style="color: yellow;">Book: ${bookName}</p>
-        <p style="color: white;">Chapter: ${entry.chapter}</p>
-        <p style="color: white;">Shloka: ${entry.shloka}</p>
-        <p style="color: orange;">${entry.text.replace(/\n/g, ' ।<br> ').trim()} ॥</p>
-        <br>
-        <br>
-      </div>
-    `;
+      // Populate chapter selector dynamically
+      const chapters = Array.from(new Set(data.map(entry => entry.chapter)));
+      chapters.forEach(chapter => {
+          const option = document.createElement('option');
+          option.value = chapter;
+          option.innerText = `Chapter ${chapter}`;
+          chapterSelector.appendChild(option);
+      });
 
-      // Append the entry div to the main content div
-      jsonContentDiv.appendChild(entryDiv);
-    });
+      // Function to populate the shloka selector based on the selected chapter
+      function populateShlokaSelector(selectedChapter) {
+          // Clear existing shloka options
+          shlokaSelector.innerHTML = '<option value="all">All</option>';
+
+          // Find the number of shlokas for the selected chapter
+          const shlokasInChapter = data.filter(entry => entry.chapter === selectedChapter);
+          const numShlokas = Math.max(...shlokasInChapter.map(entry => entry.shloka));
+
+          // Populate the shloka selector with appropriate range based on the number of shlokas in the chapter
+          for (let i = 1; i <= numShlokas; i++) {
+              const option = document.createElement('option');
+              option.value = i;
+              option.innerText = `Shloka ${i}`;
+              shlokaSelector.appendChild(option);
+          }
+      }
+
+      // Function to filter and display content based on selected chapter and shloka
+      function filterContent() {
+          const selectedChapter = chapterSelector.value;
+          const selectedShloka = shlokaSelector.value;
+
+          // Filter data based on selected chapter and shloka
+          const filteredData = data.filter(entry => {
+              const chapterMatch = selectedChapter === 'all' || entry.chapter === parseInt(selectedChapter);
+              const shlokaMatch = selectedShloka === 'all' || entry.shloka === parseInt(selectedShloka);
+              return chapterMatch && shlokaMatch;
+          });
+
+          // Clear existing content
+          jsonContentDiv.innerHTML = '';
+
+          // Display filtered content
+          filteredData.forEach(entry => {
+              const entryDiv = document.createElement('div');
+              entryDiv.innerHTML = `
+                  <div style="display: grid; align-items: center; justify-content: center;">
+                      <p style="color: yellow;">Book: ${bookName}</p>
+                      <p style="color: white;">Chapter: ${entry.chapter}</p>
+                      <p style="color: white;">Shloka: ${entry.shloka}</p>
+                      <p style="color: orange;">${entry.text.replace(/\n/g, ' ।<br> ').trim()} ॥</p>
+                      <br><br>
+                  </div>
+              `;
+              jsonContentDiv.appendChild(entryDiv);
+          });
+      }
+
+      // Add event listeners for selectors
+      chapterSelector.addEventListener('change', (e) => {
+          const selectedChapter = parseInt(e.target.value);
+          populateShlokaSelector(selectedChapter);
+          filterContent(); // Re-filter content when chapter changes
+      });
+
+      shlokaSelector.addEventListener('change', filterContent);
+
+      // Initial population of shloka options when page loads
+      populateShlokaSelector('all');
+      filterContent(); // Initial content display
   })
   .catch(error => {
-    // Handle errors here
-    console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+      console.error(`Error fetching or displaying JSON file ${filename}:`, error);
   });
 
 // Function to create and handle the "Translate" button
@@ -74,7 +123,6 @@ function createTranslateButton() {
   button.type = 'submit';
   button.className = 'btn waves-effect waves-light';
   
-  // Button styles
   button.style.position = 'fixed';
   button.style.top = '10px';
   button.style.right = '10px';
@@ -86,7 +134,6 @@ function createTranslateButton() {
   button.style.cursor = 'pointer';
   button.style.transition = 'all 0.3s ease';
 
-  // Hover effect
   button.addEventListener('mouseover', () => {
       button.style.boxShadow = 'inset 9.61px 9.61px 16px hsl(179, 91%, 23%), inset -9.61px -9.61px 16px hsl(179, 91%, 37%)';
   });
@@ -94,7 +141,6 @@ function createTranslateButton() {
       button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
   });
 
-  // Translation URL construction
   button.addEventListener('click', initiateTranslation);
 
   document.body.appendChild(button);
@@ -103,20 +149,13 @@ function createTranslateButton() {
 // Function to handle translation URL generation and opening
 function initiateTranslation() {
   const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
-  // const originalBaseUrl = 'https://hindu-scriptures.vercel.app/';
-  // const translatedBaseUrl = 'https://hindu--scriptures-vercel-app.translate.goog/';
   const originalBaseUrl = 'https://hinduscriptures.onrender.com';
   const translatedBaseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
-  // const originalBaseUrl = 'https://jayeshmepani.github.io/';
-  // const translatedBaseUrl = 'https://jayeshmepani-github-io.translate.goog/';
-  // const originalBaseUrl = 'https://hinduscriptures.netlify.app/';
-  // const translatedBaseUrl = 'https://hinduscriptures-netlify-app.translate.goog';
   const currentPath = window.location.pathname;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const filename = urlParams.get('filename');
 
-  // Generate translation URL
   const extendedUrl = filename
       ? `${translatedBaseUrl}${currentPath}.html?filename=${encodeURIComponent(filename)}&${additionalParams}`
       : `${translatedBaseUrl}${currentPath}.html?${additionalParams}`;
@@ -125,5 +164,4 @@ function initiateTranslation() {
   window.open(extendedUrl, '_blank');
 }
 
-// Call the function to create the Translate button when the page loads
 window.onload = createTranslateButton;

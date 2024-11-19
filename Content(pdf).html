@@ -11,7 +11,7 @@
   <script src="pdfjs/pdf.worker.min.js"></script>
   <link rel="stylesheet" href="pdfjs.css" />
   <script src="removeHtmlExtension.js"></script>
-  <title></title>
+  <title>Content</title>
 </head>
 
 <body>
@@ -25,86 +25,125 @@
 
   <div class="center-container" id="center-container">
     <div id="the-svg"></div>
+    <div class="loader" id="loader"></div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(window.location.search);
       const filename = urlParams.get('filename');
-      console.log('Filename:', filename);
+      const loader = document.getElementById('loader');
+      const container = document.querySelector("#the-svg");
+      const svgCont = document.querySelector('#center-container');
 
-      let url;
-      if (document.referrer.includes('Gitas')) {
-        url = `DharmicData/Gitas/${filename}`;
-      } else if (document.referrer.includes('Namavalis')) {
-        url = `DharmicData/Namavalis/${filename}`;
-      } else if (document.referrer.includes('Stotras')) {
-        url = `DharmicData/Stotras/${filename}`;
-      } else if (document.referrer.includes('Smritis')) {
-        url = `DharmicData/Smritis/${filename}`;
-      } else if (document.referrer.includes('upa-smritis')) {
-        url = `DharmicData/UpaSmritis/${filename}`;
-      }
-      else if (document.referrer.includes('Stutis')) {
-        url = `DharmicData/Stuti/${filename}`;
-      }
-      else if (document.referrer.includes('Ashtakas')) {
-        url = `DharmicData/Ashtaka/${filename}`;
-      }
-      else if (document.referrer.includes('Kavachas')) {
-        url = `DharmicData/Kavacha/${filename}`;
-      }
-      else if (document.referrer.includes('Chalisas')) {
-        url = `DharmicData/Chalisa/${filename}`;
-      }
-      else if (document.referrer.includes('Upa-Puranas')) {
-        url = `DharmicData/UpaPuranas/${filename}`;
-      }
-      else if (document.referrer.includes('Vedanga')) {
-        url = `DharmicData/Vedanga/${filename}`;
-      }
-      else if (document.referrer.includes('Upanga')) {
-        url = `DharmicData/Upanga/${filename}`;
-      }
-      else if (document.referrer.includes('Swaminarayan-Sect')) {
-          url = `DharmicData/Swaminarayan Sect/${filename}`;
-      }
-      else {
-        console.error('Invalid referrer:', document.referrer);
-      }
-
-      if (url) {
-        console.log('URL:', url);
-        // Perform the desired action with the URL
-      }
-
+      let containerWidth, containerHeight;
       let pdfDoc = null,
         pageNum = 1,
         pageIsRendering = false,
         pageNumIsPending = null,
         isEditing = false;
 
-      const scale = 1,
-        container = document.querySelector("#the-svg");
+      // Determine URL based on referrer
+      let url;
+      const referrer = document.referrer;
+      const categories = {
+        'Gitas': 'Gitas',
+        'Namavalis': 'Namavalis',
+        'Stotras': 'Stotras',
+        'Smritis': 'Smritis',
+        'upa-smritis': 'UpaSmritis',
+        'Stutis': 'Stuti',
+        'Ashtakas': 'Ashtaka',
+        'Kavachas': 'Kavacha',
+        'Chalisas': 'Chalisa',
+        'Upa-Puranas': 'UpaPuranas',
+        'Vedanga': 'Vedanga',
+        'Upanga': 'Upanga',
+        'Swaminarayan-Sect': 'Swaminarayan Sect'
+      };
 
-      // Render the page
+      // Find matching category
+      for (const [key, value] of Object.entries(categories)) {
+        if (referrer.includes(key)) {
+          url = `DharmicData/${value}/${filename}`;
+          break;
+        }
+      }
+
+      if (!url) {
+        console.error('Invalid referrer:', referrer);
+        return;
+      }
+
+
+      console.log('URL:', url);
+      // Show loader and loading message
+      loader.style.display = 'block';
+      const loadingMessage = document.createElement('div');
+      loadingMessage.className = 'loading-message';
+      loadingMessage.textContent = 'Please wait until load...';
+      document.querySelector('.center-container').appendChild(loadingMessage);
+
+      // Scaling function
+      const applyScaling = () => {
+        if (!container || !containerWidth || !containerHeight) return;
+
+        const currentWidth = window.innerWidth;
+        const svgElement = document.getElementById('the-svg');
+
+        svgElement.style.overflowX = 'hidden';
+        svgCont.style.overflowX = 'hidden';
+
+        console.log('Current Width:', currentWidth);
+        console.log('Container Width:', containerWidth);
+        console.log('Container Height:', containerHeight);
+
+        // Special handling for specific PDFs
+        if (filename === 'Gopi Gita.pdf' && referrer.includes('Gitas')) {
+          const slope = 20 / 3;
+          const intercept = 66.666667;
+          let scalingFactor;
+
+          if (currentWidth < 300) {
+            scalingFactor = 55;
+          } else if (currentWidth > 460) {
+            scalingFactor = 79;
+          } else {
+            scalingFactor = (currentWidth + intercept) / slope;
+          }
+
+          svgElement.style.transform = `scale(${scalingFactor / 100})`;
+        } else if (referrer.includes('Stotras')) {
+          if (currentWidth > 355 && currentWidth < 400) {
+            svgElement.style.transform = 'scale(0.9)';
+          } else if (currentWidth <= 355) {
+            svgElement.style.transform = 'scale(0.8)';
+          }
+        } else {
+          // Default scaling logic
+          const containerWidthNum = parseFloat(containerWidth);
+          if (containerWidthNum > currentWidth) {
+            const scale = currentWidth / containerWidthNum;
+            svgElement.style.transform = `scale(${scale})`;
+          }
+          console.log('Applied scale:', scale);
+        }
+      };
+
+      // Render Page Function
       const renderPage = (num) => {
         pageIsRendering = true;
 
-        // Get page
         pdfDoc.getPage(num).then((page) => {
-          // Set scale
-          const viewport = page.getViewport({ scale });
+          const viewport = page.getViewport({ scale: 1 });
 
-          // Ensure that the SVG container is created before setting attributes
-          if (!container) {
-            console.error("SVG container not found.");
-            return;
-          }
+          // Store viewport dimensions globally
+          containerWidth = viewport.width + "px";
+          containerHeight = viewport.height + "px";
 
           // Set dimensions
-          container.style.width = viewport.width + "px";
-          container.style.height = viewport.height + "px";
+          container.style.height = containerHeight;
+          container.style.width = containerWidth;
 
           page.getOperatorList()
             .then(function (opList) {
@@ -153,22 +192,21 @@
               // Clear previous content and append filtered SVG
               container.innerHTML = '';
               container.appendChild(svg);
+
+              // Apply scaling
+              applyScaling();
+              window.addEventListener('resize', applyScaling);
             });
-
           pageIsRendering = false;
-
           if (pageNumIsPending !== null) {
             renderPage(pageNumIsPending);
             pageNumIsPending = null;
           }
-
-          // Output current page
-          document.querySelector("#page-num").textContent = num;
+          document.getElementById("page-num").textContent = num;
         });
       };
 
-      // Check for pages rendering
-      const queueRenderPage = (num) => {
+      const queueRenderPage = num => {
         if (pageIsRendering) {
           pageNumIsPending = num;
         } else {
@@ -176,20 +214,22 @@
         }
       };
 
-      // Get Document
+      // PDF Loading and Initial Setup
       pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
         pdfDoc = pdfDoc_;
-
         document.querySelector("#page-count").textContent = pdfDoc.numPages;
+
+        // Hide loader and remove the message
+        loader.style.display = 'none';
+        loadingMessage.style.display = 'none';
 
         renderPage(pageNum);
       }).catch((err) => {
-        // Display error
+        console.error(err);
         const div = document.createElement("div");
         div.className = "error";
         div.appendChild(document.createTextNode(err.message));
         document.querySelector("body").insertBefore(div, container);
-        // Remove top bar
         document.querySelector(".top-bar").style.display = "none";
       });
 
@@ -340,107 +380,16 @@
         }
       });
 
-      // Add dynamic scaling script only if filename is "Gopi Gita.pdf" and referrer is "Gita"
-      if (filename === 'Gopi Gita.pdf' && document.referrer.includes('Gitas')) {
-        console.log('Adding dynamic scaling script.');
+      // Apply scaling when window is resized
+      window.addEventListener('resize', applyScaling);
 
-        // Linear equation parameters
-        const slope = 20 / 3;
-        const intercept = 66.666667;
+      // Apply scaling when page is fully loaded
+      window.addEventListener('load', () => {
+        applyScaling();
+      });
 
-        // Function to calculate width based on the linear equation
-        const calculateWidth = (scalingFactor) => {
-          return slope * scalingFactor - intercept;
-        };
-
-        function scaleSvg() {
-          // Get the SVG element
-          const svgElement = document.querySelector('#the-svg');
-
-          // Get the current screen width
-          const currentWidth = window.innerWidth;
-
-          // Calculate the scaling factor based on the linear equation
-          let scalingFactor;
-          if (currentWidth < 300) {
-            scalingFactor = 55;
-          } else if (currentWidth > 460) {
-            scalingFactor = 79;
-          } else {
-            scalingFactor = (currentWidth + intercept) / slope;
-          }
-
-          // Apply the scaling using CSS transform property
-          svgElement.style.transform = `scale(${scalingFactor / 100})`;
-
-          // Log scaling factor and width to console
-          console.log('Scaling Factor:', scalingFactor);
-          console.log('Calculated Width:', calculateWidth(scalingFactor));
-        }
-
-        // Attach the scaleSvg function to the window resize event
-        window.addEventListener('resize', scaleSvg);
-
-        // Initial scaling on page load
-        scaleSvg();
-      } else if (document.referrer.includes('Stotras')) {
-        // Apply the scaling using CSS transform property for PDFs from Stotra
-        const svgElement = document.querySelector('#the-svg');
-        const currentWidth = window.innerWidth;
-
-        console.log('Current Width:', currentWidth); // Log current width
-
-        if (currentWidth > 355 && currentWidth < 400) {
-          // Apply transform scale of 90%
-          svgElement.style.transform = 'scale(0.9)';
-          // Log the application of the scaling
-          //console.log('Applied 90% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        } else if (currentWidth <= 355) {
-          // Apply transform scale of 80%
-          svgElement.style.transform = 'scale(0.8)';
-          // Log the application of the scaling
-          //console.log('Applied 80% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        }
-      } else if (document.referrer.includes('Smritis' && 'upa-smritis' && 'Stutis' && 'Ashtakas' && 'Kavachas' && '')) {
-        // Apply the scaling using CSS transform property for PDFs from Stotra
-        const svgElement = document.querySelector('#the-svg');
-        const svgCont = document.querySelector('#center-container');
-        const currentWidth = window.innerWidth;
-
-        svgElement.style.overflowX = 'hidden';
-        // svgElement.style.display = 'table';
-        svgCont.style.overflowX = 'hidden';
-
-        console.log('Current Width:', currentWidth); // Log current width
-
-        if (currentWidth > 475) {
-          // Apply transform scale of 85%
-          svgElement.style.transform = 'scale(0.85)';
-          // Log the application of the scaling
-          //console.log('Applied 90% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        } else if (currentWidth > 375 && currentWidth <= 475) {
-          // Apply transform scale of 80%
-          svgElement.style.transform = 'scale(0.8)';
-          // Log the application of the scaling
-          //console.log('Applied 80% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        } else if (currentWidth > 315 && currentWidth <= 375) {
-          // Apply transform scale of 80%
-          svgElement.style.transform = 'scale(0.7)';
-          // Log the application of the scaling
-          //console.log('Applied 80% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        } else if (currentWidth <= 315) {
-          // Apply transform scale of 80%
-          svgElement.style.transform = 'scale(0.65)';
-          // Log the application of the scaling
-          //console.log('Applied 80% scaling for referrer from Stotra');
-          console.log(svgElement.style.transform);
-        }
-      }
+    }).catch(error => {
+      console.error('Error loading PDF:', error);
     });
   </script>
 

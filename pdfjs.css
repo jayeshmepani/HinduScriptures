@@ -21,20 +21,32 @@
   padding: 1rem;
 }
 
-#the-svg {
+/* #the-svg {
   transform: translateY(-3%);
-  height: 100vh;
+  height: 90svh;
   display: table;
+} */
+
+#the-svg {
+  transform: translateY(-1.5rem);
+  height: 90svh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
 
 .center-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
   justify-content: center;
-  height: 100vh;
+  height: 100svh;
   background-image: linear-gradient(hsla(246, 97%, 7%, 0.97), hsla(279, 97%, 9%, 0.97));
 }
 
@@ -56,3 +68,40 @@ only screen and (max-height: 640px) {
   word-wrap: break-word;
   stroke-opacity: 0;
 }
+
+.loader {
+  border: 0.7rem solid #f3f3f3;
+  border-top: 0.7rem solid #3498db;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 3s linear infinite;
+  display: none;
+  position: absolute;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-message {
+  font-size: 1rem;
+  color: #ff9800;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  top: 87%;
+  position: absolute;
+}
+
+/* .loading-message::after {
+  content: 'please wait until load...';
+  display: flex;
+  flex-direction: column;
+} */

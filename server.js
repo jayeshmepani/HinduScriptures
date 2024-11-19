@@ -293,7 +293,7 @@ app.get('/Swaminarayan-Sect', (req, res) => {
 
 
 app.get('/Kirtan', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Kirtan.html'));
+  res.sendFile(path.join(__dirname, 'kirtan.html'));
 });
 
 app.get('/content', (req, res) => {
@@ -460,7 +460,7 @@ app.get('/search', async (req, res) => {
                                         
               html{
                   background-color: hsla(246, 97%, 7%, 0.83);
-                  height: 100vh;
+                  height: 100svh;
               }
           </style>
       </head>
@@ -552,7 +552,7 @@ app.get('/browse', (req, res) => {
 
                   html{
                       background-color: hsla(246, 97%, 7%, 0.83);
-                      height: 100vh;
+                      height: 100svh;
                   }
               </style>
           </head>

@@ -9,89 +9,71 @@
     <link rel="icon" type="image/x-icon" href="/download.png">
     <!-- Include your CSS styles here -->
     <style>
-        .container .overview-link {
-            transform: translateY(-11em);
-            /*            padding-bottom: 7rem;*/
+        .Kanda-list {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+
+        .Kanda-list a {
+            text-decoration: none;
+            display: grid;
+            grid-gap: 15px;
+            color: rgba(255, 217, 0, 0.91);
+            font-size: 1em;
+            box-sizing: content-box;
+
         }
 
         .container .overview-link a {
             text-decoration: none;
             color: rgba(255, 217, 0, 0.91);
-            font-size: 3em;
+            font-size: 2.3em;
+            padding-bottom: 13%;
+            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw), var(--overview-max-font-size));
         }
 
-        .container .kanda-list {
-            align-items: center;
-            justify-content: center;
-            height: auto;
-            position: absolute;
-
-        }
-
-        .kanda-list a {
-            text-decoration: none;
-            display: grid;
-            grid-gap: 15px;
-            color: rgba(255, 217, 0, 0.91);
-            font-size: 1.8em;
-            box-sizing: content-box;
-        }
-
-        @media (orientation: portrait) {
-            .overview-link {
-                padding-bottom: 4rem ;
-            }
-        }
 
         :root {
-            --min-font-size: 1.7rem;
-            --max-font-size: 2.5rem;
-            --min-width: 300px;
+            --min-font-size: 0.7em;
+            --max-font-size: 1em;
+            --min-width: 280px;
             --max-width: 1920px;
-            --overview-min-font-size: 2.3em;
-            --overview-max-font-size: 3.7em;
+            --overview-min-font-size: 1.7em;
+            --overview-max-font-size: 2.3em;
         }
 
         .container a {
             font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
         }
-
-        .container .overview-link a {
-            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw), var(--overview-max-font-size));
-        }
-
-        .container .overview-link {
-            transform: translateY(calc(-7.3rem - 7.9vw));
-        }
     </style>
 </head>
 
 <body>
+
     <div class="container">
-        <ol class="overview-link"><a class="overview-link" href="Ramayana_overview.html">Overview</a></ol>
-        <div class="kanda-list">
-            <!-- Kanda list will be displayed here -->
+        <div class="Kanda-list">
+            <ol class="overview-link"><a class="overview-link" href="Ramayana_overview.html">Overview</a></ol>
+            <ol style="color:rgba(255, 217, 0, 0.91);font-size: 29px">
+                <li filename="1.json"><a href="#" onclick="redirectToKandaContent('1.json')">Bāla Kāṇḍa</a></li>
+                <li filename="2.json"><a href="#" onclick="redirectToKandaContent('2.json')">Ayodhyā Kāṇḍa</a></li>
+                <li filename="3.json"><a href="#" onclick="redirectToKandaContent('3.json')">Araṇya Kāṇḍa</a></li>
+                <li filename="4.json"><a href="#" onclick="redirectToKandaContent('4.json')">Kiṣkindhā Kāṇda</a></li>
+                <li filename="5.json"><a href="#" onclick="redirectToKandaContent('5.json')">Sundara Kaṇḍa</a></li>
+                <li filename="6.json"><a href="#" onclick="redirectToKandaContent('6.json')">Yuddha Kāṇḍa</a></li>
+                <li filename="7.json"><a href="#" onclick="redirectToKandaContent('7.json')">Uttara Kanda</a></li>
+            </ol>
         </div>
     </div>
 
     <script>
-        // Function to fetch JSON file
-        function fetchJSONFile(filePath) {
-            return fetch(filePath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch JSON file: ${filePath}`);
-                    }
-                    return response.json();
-                })
-                .catch(error => {
-                    console.error(`Error fetching JSON file: ${filePath}`, error);
-                    throw error;
-                });
+        // Function to redirect to the content page for the selected Kanda
+        function redirectToKandaContent(filename) {
+            // Redirect to KandaContent with the selected filename as a query parameter
+            window.location.href = `kandaContent?filename=${encodeURIComponent(filename)}`;
         }
     </script>
-
-    <script src="kandaList.js"></script>
 
     <script src="removeHtmlExtension.js"></script>
 </body>
