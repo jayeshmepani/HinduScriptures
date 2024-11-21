@@ -41,7 +41,7 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            min-height: 100vh;
+            min-height: 100svh;
             color: #ffffff;
         }
 
@@ -177,6 +177,8 @@
             /* margin-left: 2rem; */
             padding: 0.5rem;
             border-radius: 7.5px;
+            display: flex;
+            flex-direction: column;
         }
 
         .ai-message {
@@ -338,7 +340,7 @@
 
             if (imageInput) {
                 const imageUrl = URL.createObjectURL(imageInput);
-                const imageMessage = `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 100%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div><br>`;
+                const imageMessage = `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 50%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div><br>`;
                 chatLog.innerHTML += imageMessage;
             }
 
@@ -420,6 +422,9 @@
         function formatResponse(text) {
             console.log("Raw unformatted text:", text);
 
+            // Add a newline before each numbered item for consistent formatting
+            text = text.replace(/(\d+)\.\s/g, '\n$1. ');
+
             text = text
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>');
@@ -431,7 +436,10 @@
                 .replace(/^\*\s/gm, '<li>')
                 .replace(/<\/li><br\/>/g, '</li>')
                 .replace(/<li><strong>(.*?)<\/strong><\/li>/g, '<li>$1</li>')
-                .replace(/<\/li>\s*<li>/g, '</li><li>');
+                .replace(/<\/li>\s*<li>/g, '</li><li>')
+
+               // .replace(/(\d+)\.\s(.*?)(?=\n|$)/g, '<li>$2</li>') // Format each numbered item as a <li>
+               // .replace(/\n+/g, ''); // Remove extra newlines
 
             formattedText = `<ul>${formattedText}</ul>`;
             formattedText = formattedText.replace(/\* /g, '<li>') + '</li>';

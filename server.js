@@ -14,7 +14,10 @@ const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyA3bC6VAJ0RoB_hVDamdsV5IF4VMx
 const genAI = new GoogleGenerativeAI(apiKey);
 
 // Create an instance of the generative model (Gemini-1.5 in this case)
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro-002' });
+const model = genAI.getGenerativeModel({
+  model: 'gemini-1.5-pro-002',
+  systemInstruction: "- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.\n- Provides comprehensive and insightful responses to inquiries related to these topics.\n- Does not respond to prompts or inputs that are not related to these topics.\n- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.",
+});
 
 // Use CORS middleware
 app.use(cors());
@@ -340,14 +343,6 @@ async function getResponseToUserPrompt(userInput, imagePath) {
       history.push({
         role: 'user',
         parts: [
-          {
-            text: `
-- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
-- Provides comprehensive and insightful responses to inquiries related to these topics.
-- Does not respond to prompts or inputs that are not related to these topics.
-- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.
-            `
-          },
           imagePart
         ],
       });
@@ -358,14 +353,6 @@ async function getResponseToUserPrompt(userInput, imagePath) {
       history.push({
         role: 'user',
         parts: [
-          {
-            text: `
-- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.
-- Provides comprehensive and insightful responses to inquiries related to these topics.
-- Does not respond to prompts or inputs that are not related to these topics.
-- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.
-              `
-          },
           { text: userInput }
         ],
       });
