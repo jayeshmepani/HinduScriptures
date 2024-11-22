@@ -10,8 +10,8 @@ body {
 }
 
 :root {
-    --background-start: rgba(0, 7, 51, 0.91);
-    --background-end: rgba(0, 7, 51, 0.83);
+    --background-start: rgba(0, 7, 51, 0.95);
+    --background-end: rgba(0, 7, 51, 0.85);
 }
 
 .container {
@@ -22,7 +22,7 @@ body {
     justify-content: safe center;
     /* Added to ensure centering both horizontally and vertically */
     width: auto;
-    height: 100vh;
+    height: 100svh;
     /* Changed to 100vh for consistency */
     /* background-image: linear-gradient(#000733d4, rgba(0, 8, 51, 0.85)), url(images/bg.png); */
     background: linear-gradient(var(--background-start), var(--background-end)), url('images/bg.png');

@@ -25,30 +25,6 @@
             box-sizing: content-box;
         }
 
-        .container .overview-link a {
-            text-decoration: none;
-            color: rgba(255, 217, 0, 0.91);
-            font-size: 2.3em;
-            padding-bottom: 13%;
-        }
-
-        :root {
-            --min-font-size: 0.7em;
-            --max-font-size: 1em;
-            --min-width: 280px;
-            --max-width: 1920px;
-            --overview-min-font-size: 1.7em;
-            --overview-max-font-size: 2.3em;
-        }
-
-        .container a {
-            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-        }
-
-        .container .overview-link a {
-            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw),
-                var(--overview-max-font-size));
-        }
 
         .section-links {
             display: flex;
@@ -70,6 +46,7 @@
         #chapterList li:last-child {
             padding-bottom: 1rem; /* Adjust the bottom padding as needed */
         }
+
         #chapterList{
             transform: translateX(1.1rem);
         }
@@ -81,7 +58,7 @@
 
     <div class="container">
         <div class="chapter">
-            <ol id="chapterList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
+            <ol id="chapterList" style="color:rgba(255, 217, 0, 0.91);font-size: 24px"></ol>
 
             <!-- Links to Purvabhag and Uttarbhag sections -->
             <div class="section-links" id="sectionLinks">

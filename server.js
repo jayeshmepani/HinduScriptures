@@ -343,6 +343,11 @@ async function getResponseToUserPrompt(userInput, imagePath) {
       history.push({
         role: 'user',
         parts: [
+          {
+            text: `
+Default Instructional Prompt: Please analyze the provided image thoroughly first and extract all visible content (such as text, lists, symbols, diagrams, illustrations, or any other relevant details) accurately. Once the extraction is complete, present the extracted content in full detail. After that, generate an in-depth, detailed response or insights based on the extracted content, correlating it with the context and relevant interpretations or references.
+            `
+          },
           imagePart
         ],
       });
