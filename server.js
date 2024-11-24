@@ -13,14 +13,12 @@ const PORT = process.env.PORT || 3000;
 // Use Helmet middleware for enhanced security
 app.use(helmet());
 
-// Customize Helmet if needed
-// Example: Allow some inline scripts or specify custom CSP
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Adjust if inline scripts are required
-      objectSrc: ["'none'"], // Prevent embedding plugins
+      styleSrc: ["'self'", "fonts.googleapis.com"],
       imgSrc: ["'self'", "data:"], // Allow images from self and data URIs
       upgradeInsecureRequests: [], // Automatically upgrade http to https
     },
