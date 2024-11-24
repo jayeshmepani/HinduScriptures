@@ -16,17 +16,29 @@ app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "blob:"], // Allow blob URLs
-      styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"], // Allow inline styles
-      imgSrc: ["'self'", "data:"], // Allow images from self and data URIs
-      upgradeInsecureRequests: [], // Automatically upgrade http to https
+      defaultSrc: ["*"], // Allow everything
+      // scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://translate.goog"],
+      // styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com", "https://translate.goog"],
+      // imgSrc: ["'self'", "data:", "https://translate.goog"],
+      upgradeInsecureRequests: [],
     },
   })
 );
 
+
 // Use CORS middleware
 app.use(cors());
+
+// Setting up Cross-Origin Resource Policy (CORP) and Cross-Origin Embedder Policy (COEP)
+app.use((req, res, next) => {
+  // Allow cross-origin resources if the resource is from a different origin
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+
+  // Allow resources from any domain (use cautiously)
+  res.setHeader('Cross-Origin-Embedder-Policy', 'unsafe-none');
+
+  next();
+});
 
 // Middleware to serve static files
 app.use(express.json());
