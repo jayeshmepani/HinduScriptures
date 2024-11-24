@@ -17,8 +17,8 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Adjust if inline scripts are required
-      styleSrc: ["'self'", "fonts.googleapis.com"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "blob:"], // Allow blob URLs
+      styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com"], // Allow inline styles
       imgSrc: ["'self'", "data:"], // Allow images from self and data URIs
       upgradeInsecureRequests: [], // Automatically upgrade http to https
     },
