@@ -13,26 +13,26 @@ const PORT = process.env.PORT || 3000;
 // Use Helmet middleware for enhanced security
 app.use(helmet());
 
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["*"], // Allow everything
-      // scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://translate.goog"],
-      // styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com", "https://translate.goog"],
-      // imgSrc: ["'self'", "data:", "https://translate.goog"],
-      scriptSrc: ["*"], // Allow scripts from any source
-      styleSrc: ["*"], // Allow styles from any source
-      imgSrc: ["*"], // Allow images from any source
-      fontSrc: ["*"], // Allow fonts from any source
-      connectSrc: ["*"], // Allow connections to any source
-      objectSrc: ["*"], // Allow objects from any source
-      childSrc: ["*"], // Allow child resources (like iframes) from any source
-      frameSrc: ["*"], // Allow frames from any source
-      formAction: ["*"], // Allow form submissions to any URL
-      upgradeInsecureRequests: [], // Optional: automatically upgrade HTTP to HTTPS
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: ["*"], // Allow everything
+//       // scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://translate.goog"],
+//       // styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com", "https://translate.goog"],
+//       // imgSrc: ["'self'", "data:", "https://translate.goog"],
+//       scriptSrc: ["*"], // Allow scripts from any source
+//       styleSrc: ["*"], // Allow styles from any source
+//       imgSrc: ["*"], // Allow images from any source
+//       fontSrc: ["*"], // Allow fonts from any source
+//       connectSrc: ["*"], // Allow connections to any source
+//       objectSrc: ["*"], // Allow objects from any source
+//       childSrc: ["*"], // Allow child resources (like iframes) from any source
+//       frameSrc: ["*"], // Allow frames from any source
+//       formAction: ["*"], // Allow form submissions to any URL
+//       upgradeInsecureRequests: [], // Optional: automatically upgrade HTTP to HTTPS
+//     },
+//   })
+// );
 
 
 // Use CORS middleware
