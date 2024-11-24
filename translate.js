@@ -4,7 +4,7 @@ function createTranslateButton() {
     button.innerText = 'Translate';
     button.type = 'submit';
     button.className = 'btn waves-effect waves-light';
-    
+
     // Button styles
     button.style.position = 'fixed';
     button.style.top = '10px';
@@ -55,8 +55,6 @@ function initiateTranslation() {
     console.log(`Extended URL: ${extendedUrl}`);
     // Open the new window
     const newWindow = window.open(extendedUrl, '_blank');
-
-    // Inject custom CSS for #jsonContent::before
     newWindow.onload = () => {
         const styleElement = newWindow.document.createElement('style');
         styleElement.textContent = `
@@ -69,12 +67,14 @@ function initiateTranslation() {
                 font-size: 16px;
                 font-weight: bold;
                 color: red;
-                margin-bottom: 10px;
+                align-items: center;
+                position: relative;
+                top: -5.5vh;
             }
         `;
         newWindow.document.head.appendChild(styleElement);
     };
-}
+}    
 
 // Call the function to create the Translate button when the page loads
 window.onload = createTranslateButton;
