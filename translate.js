@@ -25,7 +25,7 @@ function createTranslateButton() {
         button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
     });
 
-    // Translation URL construction
+    // Button click handler
     button.addEventListener('click', initiateTranslation);
 
     document.body.appendChild(button);
@@ -34,14 +34,8 @@ function createTranslateButton() {
 // Function to handle translation URL generation and opening
 function initiateTranslation() {
     const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
-    // const originalBaseUrl = 'https://hindu-scriptures.vercel.app/';
-    // const translatedBaseUrl = 'https://hindu--scriptures-vercel-app.translate.goog/';
     const originalBaseUrl = 'https://hinduscriptures.onrender.com';
     const translatedBaseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
-    // const originalBaseUrl = 'https://jayeshmepani.github.io/';
-    // const translatedBaseUrl = 'https://jayeshmepani-github-io.translate.goog/';
-    // const originalBaseUrl = 'https://hinduscriptures.netlify.app/';
-    // const translatedBaseUrl = 'https://hinduscriptures-netlify-app.translate.goog';
     const currentPath = window.location.pathname;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -53,28 +47,35 @@ function initiateTranslation() {
         : `${translatedBaseUrl}${currentPath}.html?${additionalParams}`;
 
     console.log(`Extended URL: ${extendedUrl}`);
+
     // Open the new window
     const newWindow = window.open(extendedUrl, '_blank');
-    newWindow.onload = () => {
-        const styleElement = newWindow.document.createElement('style');
-        styleElement.textContent = `
-            #jsonContent::before {
-                content: 'Kindly ensure the language is set correctly';
-                height: max-content;
-                display: flex;
-                color: white;
-                flex-direction: column;
-                font-size: 16px;
-                font-weight: bold;
-                color: red;
-                align-items: center;
-                position: relative;
-                top: -5.5vh;
-            }
-        `;
-        newWindow.document.head.appendChild(styleElement);
-    };
-}    
 
-// Call the function to create the Translate button when the page loads
+    // Handle same-origin scenario
+    newWindow.onload = () => {
+        try {
+            // If the new window is same-origin, inject custom styles
+            const styleElement = newWindow.document.createElement('style');
+            styleElement.textContent = `
+                #jsonContent::before {
+                    content: 'Kindly ensure the language is set correctly';
+                    height: max-content;
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: red;
+                    align-items: center;
+                    position: relative;
+                    top: -5.5vh;
+                }
+            `;
+            newWindow.document.head.appendChild(styleElement);
+        } catch (err) {
+            console.error('Could not modify the new window. Is it cross-origin?', err);
+        }
+    };
+}
+
+// Initialize the "Translate" button when the page loads
 window.onload = createTranslateButton;
