@@ -1,4 +1,3 @@
-// Function to create and handle the "Translate" button
 function createTranslateButton() {
     const button = document.createElement('button');
     button.innerText = 'Translate';
@@ -48,17 +47,17 @@ function initiateTranslation() {
 
     console.log(`Extended URL: ${extendedUrl}`);
 
-    // Open the new window
+    // Open the new window safely
     const newWindow = window.open(extendedUrl, '_blank');
 
-    // Handle same-origin scenario
+    // Ensure the new window is on the same origin before modifying the content
     newWindow.onload = () => {
         try {
-            // If the new window is same-origin, inject custom styles
+            // Only inject styles if the new window is from the same origin
             const styleElement = newWindow.document.createElement('style');
             styleElement.textContent = `
                 #jsonContent::before {
-                    content: 'Kindly ensure the language is set correctly';
+                    content: 'Kindly ensure that the source and target languages are set correctly';
                     height: max-content;
                     display: flex;
                     flex-direction: column;
