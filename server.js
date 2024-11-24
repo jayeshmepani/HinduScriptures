@@ -3,11 +3,29 @@ const cors = require('cors');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const helmet = require('helmet');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Use Helmet middleware for enhanced security
+app.use(helmet());
+
+// Customize Helmet if needed
+// Example: Allow some inline scripts or specify custom CSP
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Adjust if inline scripts are required
+      objectSrc: ["'none'"], // Prevent embedding plugins
+      imgSrc: ["'self'", "data:"], // Allow images from self and data URIs
+      upgradeInsecureRequests: [], // Automatically upgrade http to https
+    },
+  })
+);
 
 // Use CORS middleware
 app.use(cors());
