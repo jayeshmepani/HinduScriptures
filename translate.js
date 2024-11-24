@@ -53,7 +53,27 @@ function initiateTranslation() {
         : `${translatedBaseUrl}${currentPath}.html?${additionalParams}`;
 
     console.log(`Extended URL: ${extendedUrl}`);
-    window.open(extendedUrl, '_blank');
+    // Open the new window
+    const newWindow = window.open(extendedUrl, '_blank');
+
+    // Inject custom CSS for #jsonContent::before
+    newWindow.onload = () => {
+        const styleElement = newWindow.document.createElement('style');
+        styleElement.textContent = `
+            #jsonContent::before {
+                content: 'Kindly ensure the language is set correctly';
+                height: max-content;
+                display: flex;
+                color: white;
+                flex-direction: column;
+                font-size: 16px;
+                font-weight: bold;
+                color: red;
+                margin-bottom: 10px;
+            }
+        `;
+        newWindow.document.head.appendChild(styleElement);
+    };
 }
 
 // Call the function to create the Translate button when the page loads

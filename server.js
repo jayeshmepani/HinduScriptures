@@ -4,20 +4,10 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Set your API key for Google Gemini
-const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyA3bC6VAJ0RoB_hVDamdsV5IF4VMx6isbo'; // Replace with your actual API key
-// const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyB47bxpxggdBeVoVeIrXc8K_fZFdoz1VUQ'; // Replace with your actual API key
-const genAI = new GoogleGenerativeAI(apiKey);
-
-// Create an instance of the generative model (Gemini-1.5 in this case)
-const model = genAI.getGenerativeModel({
-  model: 'gemini-1.5-pro-002',
-  systemInstruction: "- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.\n- Provides comprehensive and insightful responses to inquiries related to these topics.\n- Does not respond to prompts or inputs that are not related to these topics.\n- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.",
-});
 
 // Use CORS middleware
 app.use(cors());
@@ -25,6 +15,138 @@ app.use(cors());
 // Middleware to serve static files
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
+
+// Store API keys in an array for dynamic usage
+const apiKeys = [
+  process.env.GEMINI_API_KEY1,
+  process.env.GEMINI_API_KEY2,
+  process.env.GEMINI_API_KEY3,
+  process.env.GEMINI_API_KEY4,
+  process.env.GEMINI_API_KEY5,
+];
+
+// Temporary store for used keys for the current day
+let usedKeysToday = [];
+
+// Function to get a random API key
+function getRandomApiKey(usedKeys = []) {
+  const validKeys = apiKeys.filter(key => key && !usedKeys.includes(key)); // Remove undefined, empty, or already used keys
+  if (validKeys.length === 0) {
+    throw new Error("No valid API keys available.");
+  }
+  const randomIndex = Math.floor(Math.random() * validKeys.length);
+  console.log("Selected API Key:", validKeys[randomIndex]); // Log the selected key for debugging
+  return validKeys[randomIndex];
+}
+
+// Function to create a new GoogleGenerativeAI instance
+function createGoogleGenerativeAI(apiKey) {
+  return new GoogleGenerativeAI(apiKey);
+}
+
+// Reset the used keys at the start of each day (you can use a cron job or setInterval for this)
+function resetUsedKeys() {
+  usedKeysToday = []; // Clear the list of used keys
+}
+
+// Set up a daily reset (this is just an example; adjust the timing as needed)
+setInterval(() => {
+  resetUsedKeys(); // This will reset the used keys list at midnight
+}, 24 * 60 * 60 * 1000); // Reset every 24 hours (86400000 milliseconds)
+
+// Set up multer for file uploads
+const upload = multer({ dest: 'uploads/' });
+
+// Function to convert file to generative part
+function fileToGenerativePart(filePath, mimeType) {
+  return {
+    inlineData: {
+      data: Buffer.from(fs.readFileSync(filePath)).toString('base64'),
+      mimeType,
+    },
+  };
+}
+
+// Function to interact with the AI model based on user prompt and image
+async function getResponseToUserPrompt(userInput, imagePath, history = []) {
+  try {
+    // If an image is uploaded, convert it and add to history
+    if (imagePath) {
+      const imagePart = fileToGenerativePart(imagePath, 'image/jpeg');
+      history.push({
+        role: 'user',
+        parts: [
+          {
+            text: `Default Instructional Prompt: Please analyze the provided image thoroughly first and extract all visible content (such as text, lists, symbols, diagrams, illustrations, or any other relevant details) accurately. Once the extraction is complete, present the extracted content in full detail. After that, generate an in-depth, detailed response or insights based on the extracted content, correlating it with the context and relevant interpretations or references.`
+          },
+          imagePart
+        ],
+      });
+    }
+
+    // If user input is provided, add it to history
+    if (userInput && userInput.trim() !== '') {
+      history.push({
+        role: 'user',
+        parts: [
+          { text: userInput }
+        ],
+      });
+    }
+
+    // Get a random API key that hasn't been used yet
+    const apiKey = getRandomApiKey();
+    const genAI = createGoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-1.5-pro',
+      systemInstruction: "- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.\n- Provides comprehensive and insightful responses to inquiries related to these topics.\n- Does not respond to prompts or inputs that are not related to these topics.\n- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.",
+    });
+
+    // Start a chat session with the AI model
+    const chatSession = model.startChat({ history });
+    const result = await chatSession.sendMessage(userInput || '');
+
+    return result.response.text(); // Return AI response
+  } catch (error) {
+    console.error("Error:", error);
+
+    // Check if error is due to rate limit and retry with another key
+    if (error.status === 429) {
+      const errorDetails = error.details || {}; // Safely handle missing details
+      const apiKey = errorDetails.apiKey || 'Unknown API Key'; // Handle undefined apiKey
+      console.error(`Rate limit exceeded for API key: ${apiKey}`);
+
+      // Retry with another key
+      return getResponseToUserPrompt(userInput, imagePath, history);
+    } else {
+      // For other errors, re-throw them
+      throw error;
+    }
+  }
+}
+
+
+// Endpoint to handle user questions with optional image upload
+app.post('/ask', upload.single('image'), async (req, res) => {
+  try {
+    const userInput = req.body.prompt; // Extract the user input from the request body
+    const imagePath = req.file ? req.file.path : null; // Get uploaded image path
+
+    // Fetch AI response
+    const response = await getResponseToUserPrompt(userInput, imagePath);
+
+    // If an image was uploaded, delete it after processing
+    if (imagePath) {
+      fs.unlinkSync(imagePath); // Remove the file after processing
+    }
+
+    res.json({ answer: response }); // Send back the response as JSON
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred while processing your request: ' + error.message });
+  }
+});
+
 
 // Array of content files with .html extension
 const contentFiles = [
@@ -318,82 +440,6 @@ app.get('/content', (req, res) => {
   }
 });
 
-
-// Set up multer for file uploads
-const upload = multer({ dest: 'uploads/' });
-
-// Function to convert file to generative part
-function fileToGenerativePart(filePath, mimeType) {
-  return {
-    inlineData: {
-      data: Buffer.from(fs.readFileSync(filePath)).toString('base64'),
-      mimeType,
-    },
-  };
-}
-
-// Function to interact with the AI model based on user prompt and image
-async function getResponseToUserPrompt(userInput, imagePath) {
-  try {
-    const history = [];
-
-    // If an image is uploaded, convert it and add to history
-    if (imagePath) {
-      const imagePart = fileToGenerativePart(imagePath, 'image/jpeg');
-      history.push({
-        role: 'user',
-        parts: [
-          {
-            text: `
-Default Instructional Prompt: Please analyze the provided image thoroughly first and extract all visible content (such as text, lists, symbols, diagrams, illustrations, or any other relevant details) accurately. Once the extraction is complete, present the extracted content in full detail. After that, generate an in-depth, detailed response or insights based on the extracted content, correlating it with the context and relevant interpretations or references.
-            `
-          },
-          imagePart
-        ],
-      });
-    }
-
-    // If user input is provided, add it to history
-    if (userInput && userInput.trim() !== '') {
-      history.push({
-        role: 'user',
-        parts: [
-          { text: userInput }
-        ],
-      });
-    }
-
-    // Start a chat session with the AI model
-    const chatSession = model.startChat({ history });
-    const result = await chatSession.sendMessage(userInput || '');
-
-    return result.response.text(); // Get AI response
-  } catch (error) {
-    console.error('Error fetching AI response:', error);
-    return 'Error processing your request: ' + error.message;
-  }
-}
-
-// Endpoint to handle user questions with optional image upload
-app.post('/ask', upload.single('image'), async (req, res) => {
-  try {
-    const userInput = req.body.prompt; // Extract the user input from the request body
-    const imagePath = req.file ? req.file.path : null; // Get uploaded image path
-
-    // Fetch AI response
-    const response = await getResponseToUserPrompt(userInput, imagePath);
-
-    // If an image was uploaded, delete it after processing
-    if (imagePath) {
-      fs.unlinkSync(imagePath); // Remove the file after processing
-    }
-
-    res.json({ answer: response }); // Send back the response as JSON
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred while processing your request: ' + error.message });
-  }
-});
 
 // Route to render the search results
 app.get('/search', async (req, res) => {
