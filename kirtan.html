@@ -93,7 +93,7 @@
             width: 79vw;
             position: relative;
             top: 8%;
-            height: 79vh;
+            height: 79svh;
             overflow: auto;
         }
 
@@ -105,7 +105,7 @@
             font-size: 1rem;
         }
 
-        .kirtan-item {
+        .kirtan-item:not(:last-child) {
             padding: 10px 0;
             border-bottom: 1px solid #ddd;
             margin-bottom: 10px;
@@ -126,7 +126,6 @@
             height: 3rem;
             animation: spin 3s linear infinite;
             display: none;
-            /* Initially hidden */
             position: absolute;
         }
 

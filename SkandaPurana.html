@@ -7,81 +7,63 @@
     <title>Skanda Purana</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/download.png">
-
     <style>
         .chapter {
             display: grid;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            align-content: center;
-        }
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
 
-        .chapter a {
-            text-decoration: none;
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 217, 0, 0.91);
-            font-size: 1em;
-            box-sizing: content-box;
-        }
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
 
-        #chapterList{
-            height: 100svh;
-        }
-
-        :root {
-            --min-font-size: 0.7em;
-            --max-font-size: 1em;
-            --min-width: 280px;
-            --max-width: 1920px;
-            --overview-min-font-size: 1.7em;
-            --overview-max-font-size: 2.3em;
-        }
-
-        .container a {
-            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-        }
-
-        .section-links {
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: auto;
-            position: absolute;
-            width: auto;
-            transform: translateX(-50%);
-        }
-
-        /* Media query for portrait screens */
-        @media (orientation: portrait) {
-            .section-links, #subsectionLinks {  
-                width: 41vh;
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
             }
         }
 
-        #subsectionLinks{
-            text-align: center;
-            transform: translate(-50%);
-            position: absolute;
-        }
+        ol#chapterList,
+        .section-links,
+        .subsection-links {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
 
-        .section-links a,  #subsectionLinks a {
-            margin: 0.2rem;
-            font-size: 2.3rem;
-        }
-        #chapterList li:first-child {
-            padding-top: 1rem; /* Adjust the top padding as needed */
-        }
+            li {
+                display: block;
 
-        #chapterList li:last-child {
-            padding-bottom: 1rem; /* Adjust the bottom padding as needed */
-        }
+                a {
+                    display: contents !important;
+                }
+            }
 
+            li,
+            a {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
     </style>
 
 </head>
@@ -90,20 +72,11 @@
 
     <div class="container">
         <div class="chapter">
-            <ol id="chapterList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
-
-            <!-- Links to Purvardhah, Uttarardhah, and Preta Kanda sections -->
-            <div class="section-links" id="sectionLinks">
-                <!-- Links will be dynamically added here -->
-            </div>
-                <!-- Links to subsections -->
-            <div class="subsection-links" id="subsectionLinks">
-                <!-- Subsection links will be dynamically added here -->
-            </div>
+            <ol id="chapterList"></ol>
+            <div class="section-links" id="sectionLinks"></div>
+            <div class="subsection-links" id="subsectionLinks"></div>
         </div>
-
     </div>
-
     <script>
         // Get the filename from the query parameters
         const urlParams = new URLSearchParams(window.location.search);
@@ -204,7 +177,7 @@
             // If main section selected, display subsections
             generateSubsectionLinks();
             // Start chapter remains 1 for all subsections, as they start from chapter 1
-        }else if (section === '5. Avantikhanda' && subDirectory) {
+        } else if (section === '5. Avantikhanda' && subDirectory) {
             if (subsection === '1. Avantikshetramahatmyam') {
                 startChapter = 1;
                 endChapter = 71; // Number of JSON files in 'Avantikshetramahatmyam' subdirectory
@@ -222,7 +195,7 @@
             // If main section selected, display subsections
             generateSubsectionLinks();
             // Start chapter remains 1 for all subsections, as they start from chapter 1
-        }else if (section === '7. Prabhasakhanda' && subDirectory) {
+        } else if (section === '7. Prabhasakhanda' && subDirectory) {
             if (subsection === '1. Prabhasakshetra Mahatmyam') {
                 startChapter = 1;
                 endChapter = 365; // Number of JSON files in 'Prabhasakshetra Mahatmyam' subdirectory
@@ -243,7 +216,7 @@
             console.error('Invalid section:', section);
             // Handle invalid section here (e.g., show an error message)
         }
-        
+
 
         // Generate the chapter list
         if (startChapter !== undefined && endChapter !== undefined) {
@@ -328,7 +301,7 @@
                     subsectionLink.href = `SkandaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
                     subsectionLink.textContent = subsection;
                     subsectionLinksDiv.appendChild(subsectionLink);
-                    subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
                 });
             } else if (section === '2. Vaishnavakhanda') {
                 const VaishnavakhandaSubsections = [
@@ -349,7 +322,7 @@
                     subsectionLink.href = `SkandaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
                     subsectionLink.textContent = subsection;
                     subsectionLinksDiv.appendChild(subsectionLink);
-                    subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
                 });
             } else if (section === '3. Brahmakhanda') {
                 const BrahmakhandaSubsections = [
@@ -364,7 +337,7 @@
                     subsectionLink.href = `SkandaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
                     subsectionLink.textContent = subsection;
                     subsectionLinksDiv.appendChild(subsectionLink);
-                    subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
                 });
             } else if (section === '5. Avantikhanda') {
                 const AvantikhandaSubsections = [
@@ -373,14 +346,14 @@
                     '3. Reva Khanda'
                     // Add more subsections if available
                 ];
-            
+
                 AvantikhandaSubsections.forEach(subsection => {
                     const encodedSubsection = encodeURIComponent(subsection);
                     const subsectionLink = document.createElement('a');
                     subsectionLink.href = `SkandaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
                     subsectionLink.textContent = subsection;
                     subsectionLinksDiv.appendChild(subsectionLink);
-                    subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
                 });
             } else if (section === '7. Prabhasakhanda') {
                 const PrabhasakhandaSubsections = [
@@ -390,14 +363,14 @@
                     '4. Dwarakamahatmyam'
                     // Add more subsections if available
                 ];
-            
+
                 PrabhasakhandaSubsections.forEach(subsection => {
                     const encodedSubsection = encodeURIComponent(subsection);
                     const subsectionLink = document.createElement('a');
                     subsectionLink.href = `SkandaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
                     subsectionLink.textContent = subsection;
                     subsectionLinksDiv.appendChild(subsectionLink);
-                    subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
                 });
             }
         }

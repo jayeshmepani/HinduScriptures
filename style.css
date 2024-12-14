@@ -10,185 +10,34 @@ body {
 }
 
 :root {
-    --background-start: rgba(0, 7, 51, 0.95);
-    --background-end: rgba(0, 7, 51, 0.85);
+    --background-start: hsla(232, 100%, 10%, 0.95);
+    --background-end: hsla(232, 100%, 10%, 0.85);
 }
 
-.container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: safe center;
-    justify-content: safe center;
-    /* Added to ensure centering both horizontally and vertically */
-    width: auto;
-    height: 100svh;
-    /* Changed to 100vh for consistency */
-    /* background-image: linear-gradient(#000733d4, rgba(0, 8, 51, 0.85)), url(images/bg.png); */
-    background: linear-gradient(var(--background-start), var(--background-end)), url('images/bg.png');
-
-    padding: 0;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: auto;
-    box-sizing: content-box;
-}
-
-.sitemap-search {
-
-    .search-bar {
-        width: 100%;
-        max-width: 700px;
-        background: rgba(255, 255, 255, 0.2);
-        /* Adjusted the background color with transparency */
-        display: flex;
-        align-items: center;
-        border-radius: 60px;
-        padding: 8px 20px;
-        backdrop-filter: blur(2.3px) saturate(197%);
-    }
-
-    .search-bar input {
-        background: transparent;
-        flex: 1;
-        border: 0;
-        outline: none;
-        padding: 15px 20px;
-        font-size: 20px;
-        color: #cac7ff;
-    }
-
-    ::placeholder {
-        color: #cac7ff;
-    }
-
-    .search-bar button img {
-        width: 25px;
-    }
-
-    .search-bar button {
-        border: 0;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(to left, #58629b, #8a8bbf);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-        opacity: 0.79;
-    }
-
-    .search-bar button:hover {
-        transform: scale(1.1);
-    }
-}
-
-.search-box {
-
-    .search-bar {
-        width: 100%;
-        max-width: 700px;
-        background: rgba(255, 255, 255, 0.2);
-        /* Adjusted the background color with transparency */
-        display: flex;
-        align-items: center;
-        border-radius: 60px;
-        padding: 8px 20px;
-        backdrop-filter: blur(2.3px) saturate(197%);
-    }
-
-    .search-bar input {
-        background: transparent;
-        flex: 1;
-        border: 0;
-        outline: none;
-        padding: 15px 20px;
-        font-size: 20px;
-        color: #cac7ff;
-    }
-
-    ::placeholder {
-        color: #cac7ff;
-    }
-
-    .search-bar button img {
-        width: 25px;
-    }
-
-    .search-bar button {
-        border: 0;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(to left, #58629b, #8a8bbf);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-        opacity: 0.79;
-    }
-
-    .search-bar button:hover {
-        transform: scale(1.1);
-    }
-}
-
+.container,
 .overview-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100svh;
-    width: 100svw;
-    background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
+    width: 100%;
     padding: 0;
-    margin: 0%;
-    border-width: 0px;
+    margin: 0;
     overflow: auto;
     box-sizing: content-box;
-    display: flex;
-    flex-direction: column;
-}
 
-.search-box {
-    position: fixed;
-    top: 1rem;
-    padding-top: 1rem;
-
-    @media (width > 391px) {
-        width: 100%;
+    &.container {
+        position: relative;
+        background: linear-gradient(var(--background-start), var(--background-end)),
+            url('images/bg.png') center/cover fixed no-repeat;
     }
 
-}
-
-
-/*@media (width <= 2560px) {
-   .search-box {
-       scale: 133%;
-}
-}
-@media (width <= 1920px) {
-   .search-box {
-       scale: 100%;
-}
-
-@media (394px <= width <= 768px) {
-   .search-box {
-       scale: 89%;
-}
-}
-}*/
-@media (320px <=width <=391px) {
-    .search-box {
-        scale: 100%;
+    &.overview-container {
+        background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
     }
 }
 
-@media (width <=320px) {
-    .search-box {
-        scale: 85%;
-    }
-}
 
 @media only screen and (max-width: 280px),
 only screen and (max-height: 600px) {
@@ -200,11 +49,22 @@ only screen and (max-height: 600px) {
     }
 }
 
-
 .search-results {
     padding: 2rem;
     text-wrap: wrap;
     word-wrap: break-word;
+    margin-top: 20px;
+    color: hsl(60, 100%, 50%);
+}
+
+#jsonContent p,
+#jsonContent #p>* {
+    font-size: 17px !important;
+
+    &:hover {
+        color: hsl(123, 100%, 73%) !important;
+        transition: color 0.37s ease-in;
+    }
 }
 
 li::marker {
@@ -232,6 +92,7 @@ ol>a:hover {
     transition: backdrop-filter 0.29s ease-in-out;
 }
 
+
 * {
     /* Hide scrollbar for Firefox */
     scrollbar-width: none;
@@ -245,41 +106,21 @@ ol>a:hover {
     display: none;
 }
 
-ol:last-child {
-    padding-bottom: 2rem;
-}
-
-/* ol {
-    padding-left: 2rem;
-} */
-
-@media (orientation: portrait) {
-    li {
-        margin: 0 auto;
-        height: auto;
-        padding: auto;
-        margin: auto;
-    }
-}
-
-.search-results {
-    margin-top: 20px;
-}
-
 .result-item {
     padding: 8px;
     color: aliceblue;
     border-bottom: 1px solid #ddd;
+
+    a {
+        color: aliceblue;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
-.result-item a {
-    color: aliceblue;
-    text-decoration: none;
-}
-
-.result-item a:hover {
-    text-decoration: underline;
-}
 
 .back-link {
     display: block;
@@ -287,12 +128,21 @@ ol:last-child {
     color: #f0f5f6;
     text-decoration: none;
     padding: 1rem;
+
+    &:hover {
+        color: hsl(99, 73%, 73%);
+        transition: color 0.29s ease-in-out;
+        padding: 1rem;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        border: 0;
+    }
 }
 
-.back-link:hover {
-    color: hsl(99, 73%, 73%);
-    transition: color 0.29s ease-in-out;
-    padding: 1rem;
-    backdrop-filter: none;
-    border: 0;
+
+a,
+li {
+    text-decoration: none;
+    color: rgba(255, 217, 0, 0.91);
+    display: block !important;
 }

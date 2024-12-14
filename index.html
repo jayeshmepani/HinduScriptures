@@ -16,7 +16,9 @@
             --background-end: rgba(0, 7, 51, 0.85);
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -30,7 +32,7 @@
         }
 
         .container {
-            min-height: 100vh;
+            min-height: 100svh;
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -45,8 +47,8 @@
             max-width: 1200px;
             display: flex;
             flex-direction: column;
-            gap: 1.3rem;
-            padding: 2rem;
+            gap: 0.9rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(3px);
             border-radius: 1.5rem;
@@ -58,46 +60,45 @@
             max-width: 700px;
             margin: 0 auto;
             position: relative;
-        }
 
-        .search-bar input {
-            width: 100%;
-            padding: 1.2rem 1.5rem;
-            padding-right: 4rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
+            input {
+                width: 100%;
+                padding: 1rem 1.2rem 1rem 1.2rem;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 1.5rem;
+                font-size: 1.1rem;
+                color: var(--text-color);
+                transition: 0.3s;
 
-        .search-bar input:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.2);
-            outline: none;
-        }
+                &:focus {
+                    background: rgba(255, 255, 255, 0.15);
+                    border-color: rgba(255, 255, 255, 0.2);
+                    outline: none;
+                }
+            }
 
-        .search-bar button {
-            position: absolute;
-            right: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary-color);
-            border: none;
-            border-radius: 50%;
-            padding: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+            button {
+                position: absolute;
+                right: 0.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: var(--primary-color);
+                border: none;
+                border-radius: 50%;
+                padding: 0.5rem;
+                cursor: pointer;
+                transition: 0.3s;
 
-        .search-bar button:hover {
-            background: hsla(197, 73%, 59%, 0.79);
+                &:hover {
+                    background: hsla(197, 73%, 59%, 0.79);
+                }
+            }
         }
 
         .ai-search {
             margin: 1rem auto;
-            padding: 1rem 2rem;
+            padding: 0.7rem 1.3rem;
             background: var(--secondary-color);
             border: none;
             border-radius: 1.3rem;
@@ -108,11 +109,12 @@
             gap: 0.5rem;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s ease;
-        }
+            transition: 0.3s;
 
-        .ai-search:hover {
-            box-shadow: hsl(179, 91%, 23%) 9.61px 9.61px 16px inset, hsl(179, 91%, 37%) -9.61px -9.61px 16px inset;
+            &:hover {
+                box-shadow: hsl(179, 91%, 23%) 9.61px 9.61px 16px inset,
+                    hsl(179, 91%, 37%) -9.61px -9.61px 16px inset;
+            }
         }
 
         .scriptures-container {
@@ -120,63 +122,57 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: calc(3 * 386px);
             padding: 2rem;
             overflow-y: auto;
-            height: 53vh;
+            bottom: 0;
+            position: absolute;
+
+            a {
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 217, 0, 0.15);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.61rem;
+
+                &:hover {
+                    padding: 0.51rem;
+                    background-color: rgba(255, 217, 0, 0.1);
+                    border-color: rgba(255, 217, 0, 0.3);
+                    transform: scale(1.03);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
         }
 
         .scripture-category {
             background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(2px);
             backdrop-filter: blur(2px);
             border-radius: 1rem;
             padding: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .scripture-link {
-            display: block;
-            color: #ffd700;
-            text-decoration: none;
-            padding: 0.8rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
         ol,
         li,
         a {
-            list-style-type: none;
+            list-style: none;
             color: #ffd700;
             text-decoration: none;
         }
 
-        a {
-            -webkit-backdrop-filter: none;
-            backdrop-filter: none;
+        .material-icons,
+        .scriptures-link,
+        .overview-link {
+            display: grid;
+            gap: 0.5rem;
         }
 
-        .scriptures-container a:hover {
-            padding: 0.5rem;
-            display: flex;
-            place-content: center;
-            border: rgba(0, 255, 255, 0.05) solid 1px;
-            border-radius: 0.7rem;
-            -webkit-backdrop-filter: saturate(150%) blur(2px) brightness(37%);
-            background-color: rgb(65 105 225 / 15%);
-            backdrop-filter: saturate(150%) blur(2px) brightness(37%);
-            transition: backdrop-filter 0.29s ease-in-out;
-        }
-
-        .material-icons {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        ol {
-            padding-left: 0rem;
+        .overview-link li:not(:first-child) {
+            padding-left: 2ch;
         }
 
         h2 {
@@ -184,34 +180,23 @@
         }
 
         * {
-            /* Hide scrollbar for Firefox */
-            scrollbar-width: none;
-
-            /* Hide scrollbar for IE and Edge */
             -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
         *::-webkit-scrollbar {
             display: none;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
 
+            .container,
             .search-section {
                 padding: 1rem;
             }
 
             .search-bar input {
                 font-size: 1rem;
-            }
-
-
-            .scriptures-container {
-                height: 61vh;
             }
         }
     </style>
@@ -254,9 +239,9 @@
                     <li><a class="scriptures-link" href="Upnishad">Upnishad</a></li>
                     <ol class="overview-link">
                         <li><a class="overview-link" href="puranas-overview">Puranas Overview</a></li>
-                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="Puranas">Maha Puranas</a>
+                        <li><a class="scriptures-link" href="Puranas">Maha Puranas</a>
                         </li>
-                        <li style="padding-left: 1.5rem;"><a class="scriptures-link" href="Upa-Puranas">Upa Puranas</a>
+                        <li><a class="scriptures-link" href="Upa-Puranas">Upa Puranas</a>
                         </li>
                     </ol>
                     <li><a class="scriptures-link" href="Ramayanas">Ramayanas</a></li>
@@ -304,6 +289,39 @@
         </div>
     </div>
     <script src="search.js"></script>
+    <script>
+        // Get the .search-section element
+        const searchSection = document.querySelector('.search-section');
+
+        // Get the .container element
+        const container = document.querySelector('.container');
+
+        // Get the .scriptures-container element
+        const scripturesContainer = document.querySelector('.scriptures-container');
+
+        if (searchSection && container && scripturesContainer) {
+            // Get the height of .search-section
+            const { height: searchSectionHeight } = searchSection.getBoundingClientRect();
+
+            // Get the height of .container
+            const { height: containerHeight } = container.getBoundingClientRect();
+
+            // Calculate the height for .scriptures-container
+            const calculatedHeight = containerHeight - searchSectionHeight - 37;
+
+            // Set the height for .scriptures-container
+            scripturesContainer.style.height = `${calculatedHeight}px`;
+
+            console.log("Search Section Height:", searchSectionHeight);
+            console.log("Container Height:", containerHeight);
+            console.log("Scriptures Container Calculated Height:", calculatedHeight);
+        } else {
+            console.error("One or more required elements not found.");
+        }
+
+        // Log the full window dimensions (optional)
+        console.log("Window Height:", window.innerHeight);
+    </script>
 
 </body>
 

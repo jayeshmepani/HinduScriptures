@@ -29,12 +29,9 @@
         }
 
         .center-container {
-            position: relative;
             display: flex;
             flex-direction: column;
-            flex-wrap: wrap;
             align-items: center;
-            align-content: center;
             justify-content: center;
             height: 100svh;
             background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
@@ -43,40 +40,19 @@
         #the-canvas {
             transform: translateY(-1.5rem);
             height: 90svh;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: center;
-            align-items: center;
-        }
-
-        @media (orientation: portrait) {
-            #the-canvas {
-                transform: translateY(-1.5rem);
-                width: 90svw;
-                height: auto;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                flex-wrap: wrap;
-                align-content: center;
-                align-items: center;
-            }
+            width: 90%;
+            object-fit: contain;
         }
 
         /* Loader Styles */
         .loader {
             border: 0.7rem solid #f3f3f3;
-            /* Light grey */
             border-top: 0.7rem solid #3498db;
-            /* Blue */
             border-radius: 50%;
             width: 3rem;
             height: 3rem;
             animation: spin 3s linear infinite;
             display: none;
-            /* Initially hidden */
             position: absolute;
 
         }
@@ -99,32 +75,13 @@
             text-align: center;
             top: 87%;
             position: absolute;
-        }
 
-        .loading-message::after {
-            content: 'please wait until load...';
-            display: flex;
-            flex-direction: column;
+            &::after {
+                content: 'please wait until load...';
+                display: flex;
+                flex-direction: column;
+            }
         }
-
-        /* Progress Bar Styles */
-        /*.progress-container {
-            width: 100%;
-            height: 10px;
-            background: #e0e0e0;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: #3498db;
-            /* Blue */
-        /*width: 0;
-            /* Start with 0 width */
-        /*transition: width 0.5s;*/
-        /* }*/
     </style>
 </head>
 
@@ -139,9 +96,6 @@
     <div class="center-container">
         <canvas id="the-canvas"></canvas>
         <div class="loader" id="loader"></div>
-        <!-- <div class="progress-container">
-            <div id="progress-bar" class="progress-bar"></div>
-        </div> -->
     </div>
 
     <script src="pdfjs/pdf.min.js"></script>
@@ -254,10 +208,6 @@
 
                     page.render(renderContext).promise.then(() => {
                         pageIsRendering = false;
-
-                        // Update progress bar
-                        //const progress = (num / pdfDoc.numPages) * 100;
-                        //progressBar.style.width = `${progress}%`;
 
                         // Output current page with custom logic for Ekamra Purana
                         document.getElementById('page-num').textContent = displayPageNumber(num);

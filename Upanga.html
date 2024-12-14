@@ -9,95 +9,70 @@
     <link rel="icon" type="image/x-icon" href="/download.png" />
 
     <style>
-        .Upanga {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding-top: 1rem;
-          /* Adjust the top padding as needed */
-          padding-bottom: 1rem;
-          /* Adjust the bottom padding as needed */
-          font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-        }
-    
-        .Upanga a {
-          text-decoration: none;
-          display: grid;
-          color: rgba(255, 217, 0, 0.91);
-        }
-    
-        .container {
-          width: 100vw;
-        }
-    
-        li::marker {
-          text-wrap: wrap;
-          word-wrap: break-word;
-          font-size: clamp(var(--min-font-size),
-              calc(var(--min-font-size) + 1.5vw),
-              var(--max-font-size));
-        }
-    
-        .section-links {
-          display: contents;
-          flex-direction: column;
-          height: 100svh;
-          text-align: left;
-          justify-content: center;
-          position: absolute;
-          font-size: 3.7rem;
-        }
-    
-        .section-links a {
-          margin: 0.2rem;
-          font-size: 2.3rem;
-        }
-    
-        .container .overview-link a {
+      .Upanga {
+        display: grid;
+        gap: 1rem;
+        width: 100%;
+        margin: 2rem auto;
+        font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+  
+        a {
           text-decoration: none;
           color: rgba(255, 217, 0, 0.91);
-          font-size: 2.3em;
-          padding-bottom: 13%;
+  
+          &:hover {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+            display: block;
+          }
         }
-
-    
-        .container a {
-          text-wrap: wrap;
-          word-wrap: break-word;
+      }
+  
+      ol#UpangaList {
+        display: grid;
+        gap: 0.7rem;
+        width: min(85%, 600px);
+  
+        li {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 217, 0, 0.3);
+          border-radius: 10px;
+          transition: all 0.3s ease;
+          margin: 0;
+          padding: 0.7rem;
+          display: block;
+  
+          &:hover {
+            padding: 0.55rem;
+            background-color: rgba(255, 217, 0, 0.2);
+            border-color: rgba(255, 217, 0, 0.7);
+            transform: scale(1.05);
+            -webkit-backdrop-filter: blur(1rem) saturate(222%);
+            backdrop-filter: blur(1rem) saturate(222%);
+          }
         }
-    
-        .container {
-          text-wrap: wrap;
-          word-wrap: break-word;
-        }
-
-        #UpangaList li:first-child {
-          padding-top: 1rem;
-        }
-    
-        #UpangaList li:last-child {
-          padding-bottom: 1rem;
-        }
-    
-        a:hover {
-          padding: 0.5rem;
-          display: grid;
-          place-content: center;
-          border: rgba(0, 255, 255, 0.01) solid 1px;
-          border-radius: 0.7rem;
-          -webkit-backdrop-filter: blur(1rem) saturate(222%);
-          backdrop-filter: blur(1rem) saturate(222%);
-          transition: backdrop-filter 0.29s ease-in-out;
-        }
+      }
+  
+      li:hover {
+        padding: 0.5rem;
+        display: grid;
+        place-content: center;
+        border: rgba(0, 255, 255, 0.01) solid 1px;
+        border-radius: 0.7rem;
+        -webkit-backdrop-filter: blur(1rem) saturate(222%);
+        backdrop-filter: blur(1rem) saturate(222%);
+        transition: backdrop-filter 0.29s ease-in-out;
+      }
       </style>
 </head>
 
 <body>
     <div class="container">
         <div class="Upanga">
-            <ol id="UpangaList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
-
-            <div class="section-links" id="sectionLinks">
+            <ol id="UpangaList"></ol>
             </div>
         </div>
     </div>

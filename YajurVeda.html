@@ -11,56 +11,53 @@
     <style>
         .samhita {
             display: grid;
-            align-items: center;
-            justify-content: center;
-            height: 90svh;
+            gap: 1rem;
+            width: min(85%, 600px);
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
 
-        }
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                width: -webkit-fill-available;
 
-        .samhita a {
-            text-decoration: none;
-            display: grid;
-            color: rgba(255, 217, 0, 0.91);
-
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                    background: transparent;
+                    transform: none !important;
+                }
+            }
         }
 
         .yajurveda {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.9rem;
-        }
+            display: grid;
+            gap: 0.7rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 217, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0.7rem;
+            display: block;
 
-        .yajurveda a {
-            position: absolute;
-            transform: translateY(-11rem);
-        }
+            &:hover {
+                padding: 0.55rem;
+                background-color: rgba(255, 217, 0, 0.2);
+                border-color: rgba(255, 217, 0, 0.7);
+                transform: scale(1.05);
+                -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                backdrop-filter: blur(1rem) saturate(222%);
+            }
 
-        .container .overview-link a {
-            text-decoration: none;
-            color: rgba(255, 217, 0, 0.91);
-            font-size: 2.3em;
-            padding-bottom: 13%;
-            position: absolute;
-            transform: translate(-50%, 5rem);
-        }
-
-        :root {
-            --min-font-size: 0.7em;
-            --max-font-size: 1em;
-            --min-width: 280px;
-            --max-width: 1920px;
-            --overview-min-font-size: 1.8em;
-            --overview-max-font-size: 2.4em;
-        }
-
-        .container a {
-            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-        }
-
-        .container .overview-link a {
-            font-size: clamp(var(--overview-min-font-size), calc(var(--overview-min-font-size) + 1vw),
-                    var(--overview-max-font-size));
         }
     </style>
 

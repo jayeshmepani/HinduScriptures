@@ -10,109 +10,53 @@
 
   <style>
     .Smriti {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 1rem;
-      /* Adjust the top padding as needed */
-      padding-bottom: 1rem;
-      /* Adjust the bottom padding as needed */
-      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-    }
-
-    .Smriti a {
-      text-decoration: none;
       display: grid;
-      color: rgba(255, 217, 0, 0.91);
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
     }
 
-    .container {
-      width: 100vw;
+    ol#SmritiList {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
     }
 
-    :root {
-      --min-font-size: 0.5em;
-      --max-font-size: 1em;
-      --min-width: 300px;
-      --max-width: 1920px;
-      --overview-min-font-size: 1.7em;
-      --overview-max-font-size: 2.3em;
-    }
-
-    .container a {
-      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 1vw), var(--max-font-size));
-    }
-
-    li::marker {
-      text-wrap: wrap;
-      word-wrap: break-word;
-      font-size: clamp(var(--min-font-size),
-          calc(var(--min-font-size) + 1.5vw),
-          var(--max-font-size));
-    }
-
-    .section-links {
-      display: contents;
-      flex-direction: column;
-      height: 100svh;
-      text-align: left;
-      justify-content: center;
-      position: absolute;
-      font-size: 3.7rem;
-    }
-
-    .section-links a {
-      margin: 0.2rem;
-      font-size: 2.3rem;
-    }
-
-    .container .overview-link a {
-      text-decoration: none;
-      color: rgba(255, 217, 0, 0.91);
-      font-size: 2.3em;
-      padding-bottom: 13%;
-    }
-
-    :root {
-      --min-font-size: 0.3em;
-      --max-font-size: 1.3em;
-      --min-width: 280px;
-      --max-width: 1920px;
-      --overview-min-font-size: 1.7em;
-      --overview-max-font-size: 2.3em;
-    }
-
-    .container a {
-      font-size: clamp(var(--min-font-size),
-          calc(var(--min-font-size) + 1.5vw),
-          var(--max-font-size));
-      text-wrap: wrap;
-      word-wrap: break-word;
-    }
-
-    .container {
-      font-size: clamp(var(--min-font-size),
-          calc(var(--min-font-size) + 1vw),
-          var(--max-font-size));
-      text-wrap: wrap;
-      word-wrap: break-word;
-    }
-
-    .container .overview-link a {
-      font-size: clamp(var(--overview-min-font-size),
-          calc(var(--overview-min-font-size) + 1vw),
-          var(--overview-max-font-size));
-    }
-
-    #SmritiList li:first-child {
-      padding-top: 1rem;
-    }
-
-    #SmritiList li:last-child {
-      padding-bottom: 1rem;
-    }
-
-    a:hover {
+    li:hover {
       padding: 0.5rem;
       display: grid;
       place-content: center;
@@ -128,11 +72,9 @@
 <body>
   <div class="container">
     <div class="Smriti">
-      <ol id="SmritiList" style="color:rgba(255, 217, 0, 0.91);font-size: 29px"></ol>
-
-      <div class="section-links" id="sectionLinks">
-      </div>
+      <ol id="SmritiList"></ol>
     </div>
+  </div>
   </div>
   <script>
     // Function to fetch filenames
