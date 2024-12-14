@@ -18,8 +18,8 @@ body {
 .overview-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: safe center;
+    justify-content: safe center;
     height: 100svh;
     width: 100%;
     padding: 0;
