@@ -434,7 +434,7 @@ app.get('/Bhajan', (req, res) => {
   res.sendFile(path.join(__dirname, 'Bhajan.html'));
 });
 
-app.get('/AaratisSangrah2', (req, res) => {
+app.get('/AaratisSangrah1', (req, res) => {
   res.sendFile(path.join(__dirname, 'Aaratis_Sangrah.html'));
 });
 
