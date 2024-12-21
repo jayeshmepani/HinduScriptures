@@ -135,6 +135,48 @@
       }
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+      function createTranslateButton() {
+        const button = document.createElement('button');
+        button.innerText = 'Translate';
+        button.type = 'button';
+        button.style.cssText = `
+          position: fixed; top: 10px; right: 10px;
+          padding: 10px 20px; background: #4a148c; color: yellow;
+          border: none; border-radius: 13px; cursor: pointer; z-index: 1000;
+        `;
+        button.setAttribute('aria-label', 'Translate Page');
+        button.addEventListener('click', initiateTranslation);
+        document.body.appendChild(button);
+      }
+
+      function initiateTranslation() {
+        const currentUrl = window.location.href;
+        const originalDomain = 'hinduscriptures.onrender.com';
+        const translationDomain = 'hinduscriptures-onrender-com.translate.goog';
+        const originalReferrer = document.referrer || 'No referrer available';
+
+        console.log('Original Referrer:', originalReferrer);
+        console.log('Current URL:', currentUrl);
+
+        if (!currentUrl.includes(originalDomain)) {
+          console.error('Current URL does not match the expected original domain.');
+          return;
+        }
+
+        const referrerParam = encodeURIComponent(originalReferrer);
+        const translationUrl =
+          currentUrl.replace(originalDomain, translationDomain) +
+          `&_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB&originalReferrer=${referrerParam}`;
+
+        console.log('Translation URL:', translationUrl);
+
+        // Open the translation page in a new tab
+        window.open(translationUrl, '_blank');
+      }
+
+      createTranslateButton();
+    });
   </script>
   <style>
     #p {
@@ -149,57 +191,6 @@
     }
   </style>
   <script src="removeHtmlExtension.js"></script>
-
-  <script>
-    // Function to create and handle the "Translate" button
-    function createTranslateButton() {
-      const button = document.createElement('button');
-      button.innerText = 'Translate';
-      button.type = 'submit';
-
-      // Simple button styles
-      button.style.position = 'fixed';
-      button.style.top = '10px';
-      button.style.right = '10px';
-      button.style.padding = '10px 20px';
-      button.style.background = '#4a148c';
-      button.style.color = 'yellow';
-      button.style.border = 'none';
-      button.style.borderRadius = '13px';
-      button.style.cursor = 'pointer';
-      button.style.zIndex = '1000';
-
-      button.addEventListener('click', initiateTranslation);
-      document.body.appendChild(button);
-    }
-
-    // Simple translation function
-    function initiateTranslation() {
-      // Get current URL and params
-      // Extract the referrer parameter
-      const urlParams = new URLSearchParams(window.location.search);
-      const originalReferrer = urlParams.get('referrer');
-      const translationDomain = 'hinduscriptures-onrender-com.translate.goog';
-      const originalDomain = 'hinduscriptures.onrender.com';
-
-      console.log('Original Referrer2:', decodeURIComponent(originalReferrer));
-
-      // Add referrer as a query parameter to the translation URL
-      const referrerParam = encodeURIComponent(originalReferrer);
-
-      console.log('referrerParam', referrerParam);
-
-      const translationUrl =
-        currentUrl.replace(originalDomain, translationDomain) +
-        `&_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB&referrer=${referrerParam}`;
-
-      // Open translation in a new tab
-      window.open(translationUrl, '_blank');
-    }
-
-    // Add button when page loads
-    document.addEventListener("DOMContentLoaded", createTranslateButton);
-  </script>
 </body>
 
 </html>
