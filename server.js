@@ -517,14 +517,16 @@ app.get('/search', async (req, res) => {
           <link rel="stylesheet" href="/style.css">
           <style>
               h1 {
-                  padding: 2rem;
                   text-align: center;
                   color: ghostwhite;
+                  width: 90%;
+                  overflow-wrap: anywhere;
+                  margin-block: 1rem;
               }
-                                        
-              html{
-                  background-color: hsla(246, 97%, 7%, 0.83);
-                  height: 100svh;
+
+              html {
+                  background-image: linear-gradient(hsl(246deg 97% 7%), hsl(279deg 97% 9%));
+                  min-height: 100svh;
               }
           </style>
       </head>
@@ -609,14 +611,16 @@ app.get('/browse', (req, res) => {
               <link rel="stylesheet" href="/style.css">
               <style>
                   h1 {
-                      padding: 2rem;
                       text-align: center;
                       color: ghostwhite;
+                      width: 90%;
+                      overflow-wrap: anywhere;
+                      margin-block: 1rem;
                   }
 
                   html{
-                      background-color: hsla(246, 97%, 7%, 0.83);
-                      height: 100svh;
+                      background-image: linear-gradient(hsl(246deg 97% 7%), hsl(279deg 97% 9%));
+                      min-height: 100svh;
                   }
               </style>
           </head>

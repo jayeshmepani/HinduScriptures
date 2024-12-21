@@ -110,13 +110,24 @@ ol>a:hover {
     padding: 8px;
     color: aliceblue;
     border-bottom: 1px solid #ddd;
+    width: 90%;
 
     a {
-        color: aliceblue;
-        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 217, 0, 0.15);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.61rem;
+        font-size: clamp(1rem, 0.9306rem + 0.3704vw, 1.375rem);
 
         &:hover {
-            text-decoration: underline;
+            padding: 0.51rem;
+            background-color: rgba(255, 217, 0, 0.1);
+            border-color: rgba(255, 217, 0, 0.3);
+            transform: scale(1.03);
+            -webkit-backdrop-filter: blur(1rem) saturate(222%);
+            backdrop-filter: blur(1rem) saturate(222%);
         }
     }
 }
@@ -127,10 +138,11 @@ ol>a:hover {
     margin-top: 20px;
     color: #f0f5f6;
     text-decoration: none;
-    padding: 1rem;
+    padding: 1.5rem !important;
+    font-size: 1.23rem !important;
 
     &:hover {
-        color: hsl(99, 73%, 73%);
+        color: hsl(111, 97%, 55%);
         transition: color 0.29s ease-in-out;
         padding: 1rem;
         -webkit-backdrop-filter: none;

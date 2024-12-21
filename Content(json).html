@@ -85,7 +85,6 @@
                 // Display logic for JSON with "content" property
                 data.forEach(entry => {
                   const entryDiv = document.createElement('div');
-                  //entryDiv.style.marginBottom = '20px'; // Optional styling
                   entryDiv.innerHTML = `
                       <div style="display: grid; align-items: center; justify-content: center;">
                         <p style="color: yellow; font-weight: bold;">${entry.kaand}</p>
@@ -136,24 +135,123 @@
     });
 
   </script>
+  // Add this script right before your closing
+</body> tag
+<script>
+  // Function to create and handle the "Translate" button
+  function createTranslateButton() {
+    const button = document.createElement('button');
+    button.innerText = 'Translate';
+    button.type = 'submit';
+    button.className = 'btn waves-effect waves-light';
 
-  <style>
-    #p {
-      font-size: 1.3rem;
-      color: yellow;
+    // Button styles matching your dark theme
+    button.style.position = 'fixed';
+    button.style.top = '10px';
+    button.style.right = '10px';
+    button.style.padding = '10px 20px';
+    button.style.borderRadius = '13px';
+    button.style.background = '#4a148c'; // Deep purple matching your theme
+    button.style.color = 'yellow'; // Matching your text color
+    button.style.border = 'none';
+    button.style.cursor = 'pointer';
+    button.style.transition = 'all 0.3s ease';
+    button.style.fontSize = '1.1rem';
+    button.style.zIndex = '1000';
+
+    // Hover effect
+    button.addEventListener('mouseover', () => {
+      button.style.background = '#6a1b9a';
+    });
+    button.addEventListener('mouseout', () => {
+      button.style.background = '#4a148c';
+    });
+
+    button.addEventListener('click', initiateTranslation);
+    document.body.appendChild(button);
+  }
+
+  // Function to get directory path based on referrer
+  function getDirectoryPath() {
+    const referrer = document.referrer;
+    let directoryPath = '';
+
+    // Using the same logic as your existing code
+    if (referrer.includes('Gitas')) {
+      directoryPath = 'DharmicData/Gitas';
+    } else if (referrer.includes('DattPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Datt Purana';
+    } else if (referrer.includes('Stotras')) {
+      directoryPath = 'DharmicData/Stotras';
+    } else if (referrer.includes('HarivanshaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Harivansha Purana';
+    } else if (referrer.includes('NaradiyaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Naradiya Purana';
+    } else if (referrer.includes('VishnudharmottarPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Vishnudharmottar Purana';
+    } else if (referrer.includes('KalikaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Kalika Purana';
+    } else if (referrer.includes('MallaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Malla Purana';
+    } else if (referrer.includes('MudgalaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Mudgala Purana';
+    } else if (referrer.includes('ShivadharmaPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Shivadharma Purana';
+    } else if (referrer.includes('SrimadDeviBhagwatPurana')) {
+      directoryPath = 'DharmicData/UpaPuranas/Srimad Devi Bhagwat Purana';
+    } else if (referrer.includes('Chalisas')) {
+      directoryPath = 'DharmicData/Chalisa';
+    } else if (referrer.includes('Ramcharitmanas')) {
+      directoryPath = 'DharmicData/Ramayanas/Ramcharitmanas';
+    } else if (referrer.includes('Aarati')) {
+      directoryPath = 'DharmicData/Aartis';
     }
 
-    div {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
+    return directoryPath;
+  }
 
-    /*{
-border: 1px solid red;
-}*/
-  </style>
-    <script src="removeHtmlExtension.js"></script>
+  // Function to handle translation
+  function initiateTranslation() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filename = urlParams.get('filename');
+    const directory = getDirectoryPath();
+
+    // Construct translation URL with all necessary parameters
+    const params = new URLSearchParams({
+      'filename': filename,
+      'directory': directory,
+      '_x_tr_sl': 'sa',     // Source language: Sanskrit
+      '_x_tr_tl': 'en',     // Target language: English
+      '_x_tr_hl': 'en-GB'   // Interface language
+    });
+
+    const baseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
+    const currentPath = window.location.pathname;
+    const translationUrl = `${baseUrl}${currentPath}?${params.toString()}`;
+
+    console.log('Translation URL:', translationUrl);
+    window.open(translationUrl, '_blank');
+  }
+
+  // Initialize translation button when the page loads
+  document.addEventListener("DOMContentLoaded", function () {
+    createTranslateButton();
+  });
+</script>
+
+<style>
+  #p {
+    font-size: 1.3rem;
+    color: yellow;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+</style>
+<script src="removeHtmlExtension.js"></script>
 </body>
 
 </html>
