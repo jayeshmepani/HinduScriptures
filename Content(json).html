@@ -158,40 +158,71 @@
       button.type = 'submit';
       button.className = 'btn waves-effect waves-light';
 
-      // Button styles matching your dark theme
+      // Button styles
       button.style.position = 'fixed';
       button.style.top = '10px';
       button.style.right = '10px';
-      button.style.padding = '10px 20px';
+      button.style.padding = '10px';
       button.style.borderRadius = '13px';
-      button.style.background = '#4a148c';
-      button.style.color = 'yellow';
+      button.style.background = '#00796b';
+      button.style.color = 'white';
       button.style.border = 'none';
       button.style.cursor = 'pointer';
       button.style.transition = 'all 0.3s ease';
-      button.style.fontSize = '1.1rem';
-      button.style.zIndex = '1000';
 
       // Hover effect
       button.addEventListener('mouseover', () => {
-        button.style.background = '#6a1b9a';
+        button.style.boxShadow = 'inset 9.61px 9.61px 16px hsl(179, 91%, 23%), inset -9.61px -9.61px 16px hsl(179, 91%, 37%)';
       });
       button.addEventListener('mouseout', () => {
-        button.style.background = '#4a148c';
+        button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
       });
 
+      // Translation URL construction
       button.addEventListener('click', initiateTranslation);
+
       document.body.appendChild(button);
+    }
+
+    // Function to set up proper referrer structure
+    function setupReferrer() {
+      const currentUrl = new URL(window.location.href);
+      const urlParams = new URLSearchParams(currentUrl.search);
+      const filename = urlParams.get('filename');
+      const directory = urlParams.get('directory');
+
+      // Extract section from filename path
+      let section = '';
+      if (filename) {
+        const pathParts = filename.split('/');
+        if (pathParts.length > 1) {
+          section = decodeURIComponent(pathParts[0]);
+        }
+      }
+
+      // Set proper referrer URL
+      const baseUrl = 'https://hinduscriptures.onrender.com';
+      const referrerUrl = `${baseUrl}/DattPurana?section=${encodeURIComponent(directory || section)}`;
+
+      // Store the referrer URL in sessionStorage
+      sessionStorage.setItem('customReferrer', referrerUrl);
+
+      return referrerUrl;
     }
 
     // Function to handle translation
     function initiateTranslation() {
-      // Get current URL parameters
       const currentUrl = new URL(window.location.href);
       const urlParams = new URLSearchParams(currentUrl.search);
 
-      // Create new URLSearchParams with existing parameters
+      // Set up proper referrer before translation
+      const referrerUrl = setupReferrer();
+
+      // Create new URL parameters
       const newParams = new URLSearchParams();
+
+      // Add custom referrer parameter
+      newParams.append('referrer', referrerUrl);
 
       // Preserve all existing parameters
       for (const [key, value] of urlParams.entries()) {
@@ -208,14 +239,23 @@
       const translationUrl = `${baseUrl}${currentUrl.pathname}?${newParams.toString()}`;
 
       console.log('Original URL:', window.location.href);
+      console.log('Referrer URL:', referrerUrl);
       console.log('Translation URL:', translationUrl);
 
       window.open(translationUrl, '_blank');
     }
 
-    // Initialize translation button when the page loads
+    // Initialize when page loads
     document.addEventListener("DOMContentLoaded", function () {
       createTranslateButton();
+      setupReferrer();
+    });
+
+    // Override the document.referrer property
+    Object.defineProperty(document, 'referrer', {
+      get: function () {
+        return sessionStorage.getItem('customReferrer') || '';
+      }
     });
   </script>
 </body>
