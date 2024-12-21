@@ -61,7 +61,6 @@
       else {
         console.log('Invalid referrer:', document.referrer);
       }
-      console.log('referrer:', document.referrer);
 
       if (url) {
         console.log('URL:', url);
@@ -86,6 +85,7 @@
                 // Display logic for JSON with "content" property
                 data.forEach(entry => {
                   const entryDiv = document.createElement('div');
+                  //entryDiv.style.marginBottom = '20px'; // Optional styling
                   entryDiv.innerHTML = `
                       <div style="display: grid; align-items: center; justify-content: center;">
                         <p style="color: yellow; font-weight: bold;">${entry.kaand}</p>
@@ -135,49 +135,8 @@
       }
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-      function createTranslateButton() {
-        const button = document.createElement('button');
-        button.innerText = 'Translate';
-        button.type = 'button';
-        button.style.cssText = `
-          position: fixed; top: 10px; right: 10px;
-          padding: 10px 20px; background: #4a148c; color: yellow;
-          border: none; border-radius: 13px; cursor: pointer; z-index: 1000;
-        `;
-        button.setAttribute('aria-label', 'Translate Page');
-        button.addEventListener('click', initiateTranslation);
-        document.body.appendChild(button);
-      }
-
-      function initiateTranslation() {
-        const currentUrl = window.location.href;
-        const originalDomain = 'hinduscriptures.onrender.com';
-        const translationDomain = 'hinduscriptures-onrender-com.translate.goog';
-        const originalReferrer = document.referrer || 'No referrer available';
-
-        console.log('Original Referrer:', originalReferrer);
-        console.log('Current URL:', currentUrl);
-
-        if (!currentUrl.includes(originalDomain)) {
-          console.error('Current URL does not match the expected original domain.');
-          return;
-        }
-
-        const referrerParam = encodeURIComponent(originalReferrer);
-        const translationUrl =
-          currentUrl.replace(originalDomain, translationDomain) +
-          `&_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB&originalReferrer=${referrerParam}`;
-
-        console.log('Translation URL:', translationUrl);
-
-        // Open the translation page in a new tab
-        window.open(translationUrl, '_blank');
-      }
-
-      createTranslateButton();
-    });
   </script>
+
   <style>
     #p {
       font-size: 1.3rem;
@@ -190,7 +149,7 @@
       text-align: left;
     }
   </style>
-  <script src="removeHtmlExtension.js"></script>
+    <script src="removeHtmlExtension.js"></script>
 </body>
 
 </html>
