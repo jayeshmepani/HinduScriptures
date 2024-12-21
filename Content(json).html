@@ -176,31 +176,26 @@
     // Simple translation function
     function initiateTranslation() {
       // Get current URL and params
-      const currentUrl = window.location.href;
-      const originalReferrer = document.referrer; // Capture the original referrer
+      // Extract the referrer parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const originalReferrer = urlParams.get('referrer');
       const translationDomain = 'hinduscriptures-onrender-com.translate.goog';
       const originalDomain = 'hinduscriptures.onrender.com';
 
+      console.log('Original Referrer2:', decodeURIComponent(originalReferrer));
+
       // Add referrer as a query parameter to the translation URL
       const referrerParam = encodeURIComponent(originalReferrer);
+
+      console.log('referrerParam', referrerParam);
+
       const translationUrl =
         currentUrl.replace(originalDomain, translationDomain) +
         `&_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB&referrer=${referrerParam}`;
 
       // Open translation in a new tab
       window.open(translationUrl, '_blank');
-
-      console.log('originalReferrer:', document.referrer);
     }
-
-    // Extract the referrer parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const originalReferrer2 = urlParams.get('referrer');
-
-    if (originalReferrer2) {
-      console.log('Original Referrer2:', decodeURIComponent(originalReferrer2));
-    }
-
 
     // Add button when page loads
     document.addEventListener("DOMContentLoaded", createTranslateButton);
