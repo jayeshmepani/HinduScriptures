@@ -148,6 +148,7 @@
     }
   </style>
   <script src="removeHtmlExtension.js"></script>
+
   <script>
     // Function to create and handle the "Translate" button
     function createTranslateButton() {
@@ -182,53 +183,31 @@
       document.body.appendChild(button);
     }
 
-    // Function to extract section from referrer URL
-    function extractSection() {
-      const referrer = document.referrer;
-      const sections = [
-        'Gitas', 'DattPurana', 'Stotras', 'HarivanshaPurana',
-        'NaradiyaPurana', 'VishnudharmottarPurana', 'KalikaPurana',
-        'MallaPurana', 'MudgalaPurana', 'ShivadharmaPurana',
-        'SrimadDeviBhagwatPurana', 'Chalisas', 'Ramcharitmanas', 'Aarati'
-      ];
-
-      for (const section of sections) {
-        if (referrer.includes(section)) {
-          return section;
-        }
-      }
-      return '';
-    }
-
     // Function to handle translation
     function initiateTranslation() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const filename = urlParams.get('filename');
-      const section = extractSection();
+      // Get current URL parameters
+      const currentUrl = new URL(window.location.href);
+      const urlParams = new URLSearchParams(currentUrl.search);
 
-      // Create new URL parameters including the referrer section
-      const params = new URLSearchParams({
-        'filename': filename || '',
-        'referrer_section': section,  // Add the section to preserve referrer info
-        '_x_tr_sl': 'sa',     // Source language: Sanskrit
-        '_x_tr_tl': 'en',     // Target language: English
-        '_x_tr_hl': 'en-GB'   // Interface language
-      });
+      // Create new URLSearchParams with existing parameters
+      const newParams = new URLSearchParams();
 
-      // Base URL for the translation service
+      // Preserve all existing parameters
+      for (const [key, value] of urlParams.entries()) {
+        newParams.append(key, value);
+      }
+
+      // Add translation parameters
+      newParams.append('_x_tr_sl', 'sa');     // Source language: Sanskrit
+      newParams.append('_x_tr_tl', 'en');     // Target language: English
+      newParams.append('_x_tr_hl', 'en-GB');  // Interface language
+
+      // Construct the translation URL
       const baseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
-      const currentPath = window.location.pathname;
+      const translationUrl = `${baseUrl}${currentUrl.pathname}?${newParams.toString()}`;
 
-      // Construct the translation URL with referrer information
-      let translationUrl = `${baseUrl}${currentPath}?${params.toString()}`;
-
-      // Add data attributes to help the translation page identify the content type
-      document.body.setAttribute('data-section', section);
-      document.body.setAttribute('data-filename', filename || '');
-
+      console.log('Original URL:', window.location.href);
       console.log('Translation URL:', translationUrl);
-      console.log('Section:', section);
-      console.log('Filename:', filename);
 
       window.open(translationUrl, '_blank');
     }
@@ -236,20 +215,6 @@
     // Initialize translation button when the page loads
     document.addEventListener("DOMContentLoaded", function () {
       createTranslateButton();
-
-      // Extract and store referrer information
-      const section = extractSection();
-      if (section) {
-        document.body.setAttribute('data-section', section);
-      }
-    });
-
-    // Add event listener to handle URL changes
-    window.addEventListener('popstate', function (event) {
-      const section = extractSection();
-      if (section) {
-        document.body.setAttribute('data-section', section);
-      }
     });
   </script>
 </body>
