@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/download.png" />
+    <title>Kirtan</title>
+    <style>
+        :root {
+            --primary-color: hsl(222, 61%, 73%);
+            --text-color: #cac7ff;
+        }
+
+        body {
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            top: 1.5%;
+            position: fixed;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .search-bar {
+            width: 79vw;
+            margin: 0 auto 20px auto;
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            top: 7%;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            padding-right: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: hsla(197, 73%, 59%, 0.79);
+        }
+
+
+        .material-icons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #kirtan-display {
+            width: 79vw;
+            position: relative;
+            top: 8%;
+            height: 79svh;
+            overflow: auto;
+        }
+
+        #kirtan-display h2 {
+            cursor: pointer;
+            color: #ffd700;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .kirtan-item:not(:last-child) {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .kirtan-item>p {
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Loader Styles */
+        .loader {
+            border: 0.7rem solid #f3f3f3;
+            border-top: 0.7rem solid #3498db;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            animation: spin 3s linear infinite;
+            display: none;
+            position: absolute;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-message {
+            font-size: 1rem;
+            color: #ff9800;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            top: 87%;
+            position: absolute;
+        }
+
+        .loading-message::after {
+            content: 'please wait until load...';
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-bar input {
+                font-size: 1rem;
+                padding: 1rem 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kirtan</h1>
+
+        <div class="search-bar">
+            <form action="" method="" class="search-bar">
+                <input type="text" placeholder="Search for kirtans..." id="search-bar" name="q" required>
+                <button type="submit">
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+        </div>
+
+        <div id="loader" class="loader"></div>
+        <p id="loading-message" class="loading-message"></p>
+
+        <div id="kirtan-display"></div>
+    </div>
+    <script src="kirtan.js"></script>
+</body>
+
+</html>

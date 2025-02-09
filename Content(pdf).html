@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="image/x-icon" href="/download.png" />
+
+  <script src="pdfjs/pdf.min.js"></script>
+  <script src="pdfjs/pdf.worker.min.js"></script>
+  <link rel="stylesheet" href="pdfjs.css" />
+  <title>Content</title>
+</head>
+
+<body>
+  <div class="top-bar">
+    <span class="page-info">
+      Page
+      <span id="page-num" contenteditable="true" oninput="updatePageNum()"></span>
+      of <span id="page-count"></span>
+    </span>
+  </div>
+
+  <div class="center-container" id="center-container">
+    <div id="the-svg"></div>
+    <div class="loader" id="loader"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filename = urlParams.get('filename');
+      const loader = document.getElementById('loader');
+      const container = document.querySelector("#the-svg");
+      const svgCont = document.querySelector('#center-container');
+
+      let containerWidth, containerHeight;
+      let pdfDoc = null,
+        pageNum = 1,
+        pageIsRendering = false,
+        pageNumIsPending = null,
+        isEditing = false;
+
+      // Determine URL based on referrer
+      let url;
+      const referrer = document.referrer;
+      const categories = {
+        'Gitas': 'Gitas',
+        'Namavalis': 'Namavalis',
+        'Stotras': 'Stotras',
+        'Smritis': 'Smritis',
+        'upa-smritis': 'UpaSmritis',
+        'Stutis': 'Stuti',
+        'Ashtakas': 'Ashtaka',
+        'Kavachas': 'Kavacha',
+        'Chalisas': 'Chalisa',
+        'Upa-Puranas': 'UpaPuranas',
+        'Vedanga': 'Vedanga',
+        'Upanga': 'Upanga',
+        'Swaminarayan-Sect': 'Swaminarayan Sect'
+      };
+
+      // Find matching category
+      for (const [key, value] of Object.entries(categories)) {
+        if (referrer.includes(key)) {
+          url = `DharmicData/${value}/${filename}`;
+          break;
+        }
+      }
+
+      if (!url) {
+        console.error('Invalid referrer:', referrer);
+        return;
+      }
+
+
+      console.log('URL:', url);
+      // Show loader and loading message
+      loader.style.display = 'block';
+      const loadingMessage = document.createElement('div');
+      loadingMessage.className = 'loading-message';
+      loadingMessage.textContent = 'Please wait until load...';
+      document.querySelector('.center-container').appendChild(loadingMessage);
+
+      // Scaling function
+      const applyScaling = () => {
+        if (!container || !containerWidth || !containerHeight) return;
+
+        const currentWidth = window.innerWidth;
+        const svgElement = document.getElementById('the-svg');
+
+        svgElement.style.overflowX = 'hidden';
+        svgCont.style.overflowX = 'hidden';
+
+        console.log('Current Width:', currentWidth);
+        console.log('Container Width:', containerWidth);
+        console.log('Container Height:', containerHeight);
+
+        // Special handling for specific PDFs
+        if (filename === 'Gopi Gita.pdf' && referrer.includes('Gitas')) {
+          const slope = 20 / 3;
+          const intercept = 66.666667;
+          let scalingFactor;
+
+          if (currentWidth < 300) {
+            scalingFactor = 55;
+          } else if (currentWidth > 460) {
+            scalingFactor = 79;
+          } else {
+            scalingFactor = (currentWidth + intercept) / slope;
+          }
+
+          svgElement.style.transform = `scale(${scalingFactor / 100})`;
+        } else if (referrer.includes('Stotras')) {
+          if (currentWidth > 355 && currentWidth < 400) {
+            svgElement.style.transform = 'scale(0.9)';
+          } else if (currentWidth <= 355) {
+            svgElement.style.transform = 'scale(0.8)';
+          }
+        } else {
+          // Default scaling logic
+          const containerWidthNum = parseFloat(containerWidth);
+          if (containerWidthNum > currentWidth) {
+            const scale = currentWidth / containerWidthNum;
+            svgElement.style.transform = `scale(${scale})`;
+          }
+          console.log('Applied scale:', scale);
+        }
+      };
+
+      // Render Page Function
+      const renderPage = (num) => {
+        pageIsRendering = true;
+
+        pdfDoc.getPage(num).then((page) => {
+          const viewport = page.getViewport({ scale: 1 });
+
+          // Store viewport dimensions globally
+          containerWidth = viewport.width + "px";
+          containerHeight = viewport.height + "px";
+
+          // Set dimensions
+          container.style.height = containerHeight;
+          container.style.width = containerWidth;
+
+          page.getOperatorList()
+            .then(function (opList) {
+              var svgGfx = new pdfjsLib.SVGGraphics(page.commonObjs, page.objs);
+              return svgGfx.getSVG(opList, viewport);
+            })
+            .then(function (svg) {
+              // Filter out unwanted SVG elements
+              const svgElements = svg.querySelectorAll('g[transform="translate(72 523.276)"]');
+              if (svgElements.length > 2) {
+                svgElements[svgElements.length - 1].remove();
+              }
+
+              // Filter out unwanted SVG elements
+              svg.querySelectorAll('text[transform*="matrix(5 0 0 5 91 739.1732)"]').forEach(function (element) {
+                element.remove();
+              });
+
+              //  svg.querySelectorAll('text[transform*="matrix(10 0 0 10 91 735.7)"]').forEach(function (element) {
+              //    element.remove();
+              //  });
+
+              //  svg.querySelectorAll('text[transform*="matrix(10 0 0 10 448.1882 735.7)"]').forEach(function (element) {
+              //  element.remove();
+              //  });
+
+              //transform="matrix(5 0 0 5 91 738.1732) scale(1, -1)"
+              //matrix(5 0 0 5 417.6915 738.5332) scale(1, -1)
+              //translate(72 523.276)
+              svg.querySelectorAll('text[transform*="matrix(5 0 0 5 91 738.1732)"]').forEach(function (element) {
+                element.remove();
+              });
+
+              svg.querySelectorAll('text[transform*="matrix(5 0 0 5 417.6915 738.5332)"]').forEach(function (element) {
+                element.remove();
+              });
+
+
+              svg.querySelectorAll('text[transform*="matrix(5 0 0 5 417.6915 739.5332)"]').forEach(function (element) {
+                element.remove();
+              });
+              // svg.querySelectorAll('g[transform="translate(72 523.276)"]').forEach(function (element) {
+              //  element.remove();
+              // });
+
+              // Clear previous content and append filtered SVG
+              container.innerHTML = '';
+              container.appendChild(svg);
+
+              // Apply scaling
+              applyScaling();
+              window.addEventListener('resize', applyScaling);
+            });
+          pageIsRendering = false;
+          if (pageNumIsPending !== null) {
+            renderPage(pageNumIsPending);
+            pageNumIsPending = null;
+          }
+          document.getElementById("page-num").textContent = num;
+        });
+      };
+
+      const queueRenderPage = num => {
+        if (pageIsRendering) {
+          pageNumIsPending = num;
+        } else {
+          renderPage(num);
+        }
+      };
+
+      // PDF Loading and Initial Setup
+      pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
+        pdfDoc = pdfDoc_;
+        document.querySelector("#page-count").textContent = pdfDoc.numPages;
+
+        // Hide loader and remove the message
+        loader.style.display = 'none';
+        loadingMessage.style.display = 'none';
+
+        renderPage(pageNum);
+      }).catch((err) => {
+        console.error(err);
+        const div = document.createElement("div");
+        div.className = "error";
+        div.appendChild(document.createTextNode(err.message));
+        document.querySelector("body").insertBefore(div, container);
+        document.querySelector(".top-bar").style.display = "none";
+      });
+
+      // Function to update the page number and trigger rendering
+      const updateAndRenderPage = (newPageNum) => {
+        newPageNum = Math.max(1, Math.min(newPageNum, pdfDoc.numPages));
+
+        if (pageNum !== newPageNum) {
+          pageNum = newPageNum;
+          document.getElementById("page-num").textContent = pageNum;
+          queueRenderPage(pageNum);
+        }
+      };
+
+      // Enable scrolling using the cursor and keys
+      window.addEventListener("wheel", function (e) {
+        const sensitivity = 0.3; // Adjust sensitivity
+        const deltaY = e.deltaY * sensitivity;
+
+        if (deltaY > 0) {
+          // Scrolling down
+          updateAndRenderPage(pageNum + 1);
+        } else {
+          // Scrolling up
+          updateAndRenderPage(pageNum - 1);
+        }
+      });
+
+
+      // Enable touch-based scrolling for mobile and tablet devices
+      let touchStartY = 0;
+      let touchStartX = 0;
+      let isMultiTouch = false;
+
+      window.addEventListener('touchstart', function (e) {
+        if (e.touches.length > 1) {
+          isMultiTouch = true; // Multi-touch detected
+          return;
+        }
+        isMultiTouch = false; // Single-touch only
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+      });
+
+      window.addEventListener('touchend', function (e) {
+        if (isMultiTouch) {
+          return; // Skip page navigation if it was a multi-touch event
+        }
+
+        const touchEndY = e.changedTouches[0].clientY;
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaY = touchEndY - touchStartY;
+        const deltaX = touchEndX - touchStartX;
+
+        const touchSensitivity = 7.5; // Adjust touch sensitivity
+        const deltaThreshold = window.innerHeight / touchSensitivity;
+        const deltaThresholdX = window.innerWidth / touchSensitivity;
+
+        // Vertical scrolling (Y-axis)
+        if (Math.abs(deltaY) > Math.abs(deltaX)) { // Prioritize vertical over horizontal
+          if (deltaY > deltaThreshold) {
+            updateAndRenderPage(pageNum - 1); // Scrolling up
+          } else if (deltaY < -deltaThreshold) {
+            updateAndRenderPage(pageNum + 1); // Scrolling down
+          }
+        }
+        // Horizontal scrolling (X-axis)
+        else {
+          if (deltaX > deltaThresholdX) {
+            updateAndRenderPage(pageNum - 1); // Scrolling left
+          } else if (deltaX < -deltaThresholdX) {
+            updateAndRenderPage(pageNum + 1); // Scrolling right
+          }
+        }
+      });
+
+      window.addEventListener('touchmove', function (e) {
+        if (e.touches.length > 1) {
+          isMultiTouch = true; // Mark as multi-touch during the move
+        }
+      });
+
+
+      // Enable navigation using arrow keys and page keys
+      window.addEventListener("keydown", function (e) {
+        if (isEditing) {
+          if (e.key === "Enter") {
+            isEditing = false;
+            updatePageNum();
+            e.preventDefault();
+          } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            e.preventDefault();
+          }
+        } else {
+          if (e.key === "ArrowUp" || e.key === "ArrowLeft" || e.key === "PageUp") {
+            // Arrow Up, Arrow Left, or Page Up: Previous page
+            e.preventDefault();
+            updateAndRenderPage(pageNum - 1);
+          } else if (e.key === "ArrowDown" || e.key === "ArrowRight" || e.key === "PageDown") {
+            // Arrow Down, Arrow Right, or Page Down: Next page
+            e.preventDefault();
+            updateAndRenderPage(pageNum + 1);
+          }
+        }
+      });
+
+      // Function to handle editing the page number
+      const updatePageNum = () => {
+        const inputElement = document.getElementById("page-num");
+        const newPageNum = parseInt(inputElement.textContent, 10);
+
+        if (!isNaN(newPageNum)) {
+          updateAndRenderPage(newPageNum);
+        } else {
+          // If the entered page number is invalid, reset to the current page number
+          inputElement.textContent = pageNum;
+        }
+      };
+
+      // Show Prev Page
+      const showPrevPage = () => {
+        updateAndRenderPage(pageNum - 1);
+      };
+
+      // Show Next Page
+      const showNextPage = () => {
+        updateAndRenderPage(pageNum + 1);
+      };
+
+      document.getElementById("page-num").addEventListener("click", function () {
+        isEditing = true;
+        this.textContent = ""; // Clear the content when clicked
+      });
+
+      document.getElementById("page-num").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          isEditing = false;
+          updatePageNum();
+          e.preventDefault();
+        }
+      });
+
+      window.addEventListener("keydown", function (e) {
+        if (isEditing) {
+          if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+            e.preventDefault();
+          }
+        }
+      });
+
+      // Apply scaling when window is resized
+      window.addEventListener('resize', applyScaling);
+
+      // Apply scaling when page is fully loaded
+      window.addEventListener('load', () => {
+        applyScaling();
+      });
+
+    }).catch(error => {
+      console.error('Error loading PDF:', error);
+    });
+  </script>
+
+  <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

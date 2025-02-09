@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aarati</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .Aarati {
+        display: grid;
+        gap: 1rem;
+        width: 100%;
+        margin: 2rem auto;
+        font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+        a {
+            text-decoration: none;
+            color: rgba(255, 217, 0, 0.91);
+
+            &:hover {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+                display: block;
+            }
+        }
+    }
+
+    ol#AaratiList {
+        display: grid;
+        gap: 0.7rem;
+        width: min(85%, 600px);
+
+        li {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 217, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0.7rem;
+            display: block;
+
+            &:hover {
+                padding: 0.55rem;
+                background-color: rgba(255, 217, 0, 0.2);
+                border-color: rgba(255, 217, 0, 0.7);
+                transform: scale(1.05);
+                -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                backdrop-filter: blur(1rem) saturate(222%);
+            }
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Aarati">
+            <ol id="AaratiList">
+                <li><a class="" href="AaratisSangrah1">Aaratis Sangrah 1</a></li>
+            </ol>
+        </div>
+    </div>
+    <script>
+        // Function to fetch filenames
+        function fetchFilenames() {
+            return fetch('/fetchFiles') // Fetch filenames directly from the server
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error fetching filenames:', data.error);
+                        return []; // Return an empty array on error
+                    }
+                    return data.files || []; // Return the array of filenames (or an empty array if not found)
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    return []; // Return an empty array on error
+                });
+        }
+
+        // Initialize the script to fetch and display filenames
+        async function initialize() {
+            const filenames = await fetchFilenames(); // Fetch filenames directly
+
+            // Ensure filenames is an array before proceeding
+            if (!Array.isArray(filenames)) {
+                console.error('Expected an array of filenames, got:', filenames);
+                return; // Exit if filenames is not an array
+            }
+
+            // Display each filename in the list
+            filenames.forEach(filename => {
+                const li = document.createElement("li");
+                li.setAttribute("filename", filename); // Set filename attribute
+
+                const a = document.createElement("a");
+                a.href = "#"; // Use '#' for in-page linking
+                // Remove file extensions for display
+                const displayName = filename.replace(/\.(pdf|json)$/, ""); // Removes '.pdf' or '.json'
+                a.textContent = displayName; // Set display text without extension
+
+                a.addEventListener("click", () => redirectToAaratiContent(filename)); // Event listener for redirection
+
+                li.appendChild(a); // Append anchor to list item
+                document.getElementById("AaratiList").appendChild(li); // Append list item to the list
+            });
+        }
+
+        function redirectToAaratiContent(filename) {
+            if (filename.endsWith('.json')) {
+                window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+            } else if (filename.endsWith('.pdf')) {
+                window.location.href = `Book?filename=${encodeURIComponent(filename)}`;
+            }
+            else {
+                console.error("Unsupported file format.");
+            }
+        }
+        // Call the initialize function to display the filenames
+        initialize();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YajurVeda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <style>
+        .samhita {
+            display: grid;
+            gap: 1rem;
+            width: min(85%, 600px);
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                width: -webkit-fill-available;
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                    background: transparent;
+                    transform: none !important;
+                }
+            }
+        }
+
+        .yajurveda {
+            display: grid;
+            gap: 0.7rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 217, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0.7rem;
+            display: block;
+
+            &:hover {
+                padding: 0.55rem;
+                background-color: rgba(255, 217, 0, 0.2);
+                border-color: rgba(255, 217, 0, 0.7);
+                transform: scale(1.05);
+                -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                backdrop-filter: blur(1rem) saturate(222%);
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="samhita">
+            <li class="yajurveda" filename="vajasneyi_madhyadina_samhita.json"><a class="yajurveda" href="#"
+                    onclick="redirectToContent('vajasneyi_madhyadina_samhita.json')">Vajasneyi Madhyadina Samhita</a>
+            </li>
+        </div>
+    </div>
+
+    <script>
+        // Function to redirect to the content page for the selected 
+        function redirectToContent(filename) {
+            // Redirect to Content with the selected filename as a query parameter
+            window.location.href = `YajurVedaContent?filename=${encodeURIComponent(filename)}`;
+        }
+    </script>
+
+    <script src="removeHtmlExtension.js"></script>
+
+</body>
+
+</html>

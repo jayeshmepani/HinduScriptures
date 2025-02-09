@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu Scriptures Search</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        :root {
+            --primary-color: hsl(222, 61%, 73%);
+            --secondary-color: #00796b;
+            --text-color: #cac7ff;
+            --background-start: rgba(0, 7, 51, 0.95);
+            --background-end: rgba(0, 7, 51, 0.85);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(var(--background-start), var(--background-end)),
+                url('images/bg.png') center/cover fixed;
+        }
+
+        .container {
+            min-height: 100svh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .search-section {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+            border-radius: 1.5rem;
+            z-index: 10;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+
+            input {
+                width: 100%;
+                padding: 1rem 1.2rem 1rem 1.2rem;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 1.5rem;
+                font-size: 1.1rem;
+                color: var(--text-color);
+                transition: 0.3s;
+
+                &:focus {
+                    background: rgba(255, 255, 255, 0.15);
+                    border-color: rgba(255, 255, 255, 0.2);
+                    outline: none;
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 0.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: var(--primary-color);
+                border: none;
+                border-radius: 50%;
+                padding: 0.5rem;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    background: hsla(197, 73%, 59%, 0.79);
+                }
+            }
+        }
+
+        .ai-search {
+            margin: 1rem auto;
+            padding: 0.7rem 1.3rem;
+            background: var(--secondary-color);
+            border: none;
+            border-radius: 1.3rem;
+            color: white;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: hsl(179, 91%, 23%) 9.61px 9.61px 16px inset,
+                    hsl(179, 91%, 37%) -9.61px -9.61px 16px inset;
+            }
+        }
+
+        .scriptures-container {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+            gap: 1rem;
+            width: min(100%, calc(3 * 370px));
+            padding: 2rem;
+            overflow-y: auto;
+            bottom: 0;
+            position: absolute;
+
+            a {
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 217, 0, 0.15);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.61rem;
+                font-size: clamp(1rem, 0.9306rem + 0.3704vw, 1.375rem);
+
+                &:hover {
+                    padding: 0.51rem;
+                    background-color: rgba(255, 217, 0, 0.1);
+                    border-color: rgba(255, 217, 0, 0.3);
+                    transform: scale(1.03);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+
+        .scripture-category {
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-rows: subgrid;
+            grid-row: span 2;
+            align-items: start;
+        }
+
+        ol,
+        li,
+        a {
+            list-style: none;
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .material-icons,
+        .scriptures-link,
+        .overview-link {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .overview-link li:not(:first-child) {
+            padding-left: 2ch;
+        }
+
+        h2 {
+            padding-bottom: 0.3rem;
+        }
+
+        * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+
+            .container,
+            .search-section {
+                padding: 1rem;
+            }
+
+            .search-bar input {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <style>
+        h1 {
+            text-align: center;
+            color: ghostwhite;
+            width: 90%;
+            overflow-wrap: anywhere;
+            margin-block: 1rem;
+        }
+
+        html {
+            background-color: hsla(246, 97%, 7%, 0.83);
+            height: 100svh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="search-section">
+            <!-- Main Search -->
+            <div class="search-box">
+                <form onsubmit="search(); return false;" method="get" class="search-bar">
+                    <input type="text" placeholder="Search scriptures..." id="search-input" name="q" required>
+                    <button type="submit">
+                        <i class="material-icons">search</i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- AI Search Button -->
+            <a class="ai-search" href="AI">
+                <i class="material-icons left">psychology</i> AI Search here
+            </a>
+
+            <!-- Sitemap Search -->
+            <div class="sitemap-search">
+                <form action="/search" method="get" class="search-bar">
+                    <input type="text" placeholder="Browse sitemap..." id="sitemap-search" name="q" required>
+                    <button type="submit">
+                        <i class="material-icons">map</i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <div class="scriptures-container">
+            <div class="scripture-category">
+                <h2>Sacred Scriptures</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Vedas">Vedas</a></li>
+                    <li><a class="scriptures-link" href="Upnishad">Upnishad</a></li>
+                    <ol class="overview-link">
+                        <li><a class="overview-link" href="puranas-overview">Puranas Overview</a></li>
+                        <li><a class="scriptures-link" href="Puranas">Maha Puranas</a>
+                        </li>
+                        <li><a class="scriptures-link" href="Upa-Puranas">Upa Puranas</a>
+                        </li>
+                    </ol>
+                    <li><a class="scriptures-link" href="Ramayanas">Ramayanas</a></li>
+                    <li><a class="scriptures-link" href="mahabharata">Mahabharata</a></li>
+                    <li><a class="scriptures-link" href="Gitas">Gitas</a></li>
+                </ol>
+            </div>
+
+            <div class="scripture-category">
+                <h2>Spiritual Praxis Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Smritis">Smritis</a></li>
+                    <li><a class="scriptures-link" href="upa-smritis">Upa Smritis</a></li>
+                </ol>
+            </div>
+
+            <div class="scripture-category">
+                <h2>Auxiliary Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Upanga">Upanga</a></li>
+                    <li><a class="scriptures-link" href="Vedanga">Vedanga</a></li>
+                </ol>
+            </div>
+
+
+            <div class="scripture-category">
+                <h2>Devotional Texts</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Aarati">Aaratis</a></li>
+                    <li><a class="scriptures-link" href="Ashtakas">Ashtakas</a></li>
+                    <li><a class="scriptures-link" href="Bhajan">Bhajan</a></li>
+                    <li><a class="scriptures-link" href="Chalisas">Chalisas</a></li>
+                    <li><a class="scriptures-link" href="Kavachas">Kavachas</a></li>
+                    <li><a class="scriptures-link" href="Namavalis">Namavalis</a></li>
+                    <li><a class="scriptures-link" href="Stotras">Stotras</a></li>
+                    <li><a class="scriptures-link" href="Stutis">Stutis</a></li>
+                </ol>
+            </div>
+            <div class="scripture-category">
+                <h2>Swaminarayan Sect</h2>
+                <ol class="scriptures-link">
+                    <li><a class="scriptures-link" href="Swaminarayan-Sect">Swaminarayan Sect</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="search.js"></script>
+    <script>
+        // Get the .search-section element
+        const searchSection = document.querySelector('.search-section');
+
+        // Get the .container element
+        const container = document.querySelector('.container');
+
+        // Get the .scriptures-container element
+        const scripturesContainer = document.querySelector('.scriptures-container');
+
+        if (searchSection && container && scripturesContainer) {
+            // Get the height of .search-section
+            const { height: searchSectionHeight } = searchSection.getBoundingClientRect();
+
+            // Get the height of .container
+            const { height: containerHeight } = container.getBoundingClientRect();
+
+            // Calculate the height for .scriptures-container
+            const calculatedHeight = containerHeight - searchSectionHeight - 37;
+
+            // Set the height for .scriptures-container
+            scripturesContainer.style.height = `${calculatedHeight}px`;
+
+            console.log("Search Section Height:", searchSectionHeight);
+            console.log("Container Height:", containerHeight);
+            console.log("Scriptures Container Calculated Height:", calculatedHeight);
+        } else {
+            console.error("One or more required elements not found.");
+        }
+
+        // Log the full window dimensions (optional)
+        console.log("Window Height:", window.innerHeight);
+    </script>
+
+</body>
+
+</html>

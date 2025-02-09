@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamana Purana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        .chapter {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#chapterList {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+                display: block;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="chapter">
+            <ol id="chapterList"></ol>
+        </div>
+    </div>
+
+    <script>
+        // Loop to generate list items for chapters up to 383
+        for (let chapter_number = 1; chapter_number <= 96; chapter_number++) {
+            const li = document.createElement('li');
+            li.setAttribute('filename', `${chapter_number}.json`);
+
+            const a = document.createElement('a');
+            a.href = '#';
+            a.setAttribute('onclick', `redirectToParvaContent('${chapter_number}.json')`);
+            a.textContent = `Chapter ${chapter_number}`;
+
+            li.appendChild(a);
+            document.getElementById('chapterList').appendChild(li);
+        }
+
+        // Function to redirect to the content page for the selected Parva
+        function redirectToParvaContent(filename) {
+            // Redirect to ParvaContent with the selected filename as a query parameter
+            window.location.href = `VamanaPuranaContent?filename=${encodeURIComponent(filename)}`;
+        }
+    </script>
+
+</body>
+
+</html>

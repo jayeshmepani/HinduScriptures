@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu Purana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-results">
+            <div id="jsonContent">
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the filename from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const filename = urlParams.get('filename');
+        console.log('Filename:', filename);
+
+        // Fetch and display the selected JSON file from the corresponding directory
+        fetch(`DharmicData/Purana/Vishnu Purana/${filename}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch JSON file: ${filename}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('JSON Data:', data);
+
+                // Handle the JSON data here (e.g., display it on the page)
+                const jsonContentDiv = document.getElementById('jsonContent');
+
+                // Check if the data is an array of objects with a "text" property
+                if (Array.isArray(data) && data.length > 0 && data[0].text) {
+                    // Create a new div for all entries
+                    const entryDiv = document.createElement('div');
+                    entryDiv.id = 'p';
+                    entryDiv.style.textAlign = 'center';
+
+                    // Iterate over each entry in the array and append to the existing div
+                    data.forEach(entry => {
+                        entryDiv.innerHTML += `
+                        <div>
+                            ${entry.text.replace(/\n/g, ' <br/> ').trim()}
+                        </div>
+                        <br><br>
+                    `;
+                    });
+
+                    // Append the div containing all entries to the main container
+                    jsonContentDiv.appendChild(entryDiv);
+                } else {
+                    // If the expected structure is not found, handle it accordingly
+                    console.error(`Error: Unexpected JSON structure.`);
+                }
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+            });
+    </script>
+    <script src="translate.js"></script>
+    <style>
+        #p {
+            font-size: 1.3rem;
+            color: yellow;
+        }
+
+        /*{
+  border: 1px solid red;
+}*/
+    </style>
+
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

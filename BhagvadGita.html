@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+
+  <style>
+    .Yoga-list {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#list {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+      color: rgba(255, 217, 0, 0.91);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:is(:first-child) {
+          text-align: center;
+          font-size: 2.3rem; 
+          color: yellow;
+        }
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Yoga-list">
+      <ol id="list">
+        <li><a class="overview-link" href="Bhagavad Gita_overview.html">Overview</a></li>
+        <li filename="1.json"><a href="#" onclick="redirectToContent('1.json')">Arjuna Vishada Yoga</a></li>
+        <li filename="2.json"><a href="#" onclick="redirectToContent('2.json')">Sankhya Yoga</a></li>
+        <li filename="3.json"><a href="#" onclick="redirectToContent('3.json')">Karma Yoga</a></li>
+        <li filename="4.json"><a href="#" onclick="redirectToContent('4.json')">Gyana-Karma-Sanyasa Yoga</a></li>
+        <li filename="5.json"><a href="#" onclick="redirectToContent('5.json')">Karma-Sanyasa Yoga</a></li>
+        <li filename="6.json"><a href="#" onclick="redirectToContent('6.json')">Atma-Samyama Yoga (Dhyana Yoga)</a></li>
+        <li filename="7.json"><a href="#" onclick="redirectToContent('7.json')">Gyana-Vigyana Yoga</a></li>
+        <li filename="8.json"><a href="#" onclick="redirectToContent('8.json')">Akshara Brahma Yoga</a></li>
+        <li filename="9.json"><a href="#" onclick="redirectToContent('9.json')">Raja-Vidya-Raja-Guhya Yoga</a></li>
+        <li filename="10.json"><a href="#" onclick="redirectToContent('10.json')">Vibhuti Yoga</a></li>
+        <li filename="11.json"><a href="#" onclick="redirectToContent('11.json')">Vishwarupa-Darsana Yoga</a></li>
+        <li filename="12.json"><a href="#" onclick="redirectToContent('12.json')">Bhakti Yoga</a></li>
+        <li filename="13.json"><a href="#" onclick="redirectToContent('13.json')">Ksetra-Ksetrajna-Vibhaga Yoga</a></li>
+        <li filename="14.json"><a href="#" onclick="redirectToContent('14.json')">Gunatraya-Vibhaga Yoga</a></li>
+        <li filename="15.json"><a href="#" onclick="redirectToContent('15.json')">Purushottama Yoga</a></li>
+        <li filename="16.json"><a href="#" onclick="redirectToContent('16.json')">Daivasura-Sampad-Vibhaga Yoga</a></li>
+        <li filename="17.json"><a href="#" onclick="redirectToContent('17.json')">Shraddha-Traya-Vibhaga Yoga</a></li>
+        <li filename="18.json"><a href="#" onclick="redirectToContent('18.json')">Moksha-Sanyasa Yoga</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    // Function to redirect to the content page for the selected 
+    function redirectToContent(filename) {
+      // Redirect to Content with the selected filename as a query parameter
+      window.location.href = `BhagavadGitaContent?filename=${encodeURIComponent(filename)}`;
+    }
+  </script>
+
+</body>
+
+</html>

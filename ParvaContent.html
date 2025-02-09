@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parva Content</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-results">
+            <!-- Chapter and Shloka selection dropdowns -->
+            <div class="selector">
+                <div class="dropdown">
+                    <label for="chapterSelector">Select Chapter:</label>
+                    <select id="chapterSelector">
+                        <option value="all">All</option>
+                        <!-- Chapter options will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="shlokaSelector">Select Shloka:</label>
+                    <select id="shlokaSelector">
+                        <option value="all">All</option>
+                        <!-- Shloka options will be populated dynamically -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Content of the selected Parva will be displayed here -->
+            <div id="jsonContent">
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 2vw), var(--max-font-size));
+            justify-content: flex-start;
+            width: auto;
+            height: 100svh;
+        }
+
+        :root {
+            --min-font-size: 0.8em;
+            --max-font-size: 1.6em;
+            --min-width: 300px;
+            --max-width: 1920px;
+        }
+
+        /* Container for the dropdowns */
+        .selector {
+            display: flex;
+            gap: 15px;
+            top: -3.7%;
+            position: relative;
+            flex-direction: row;
+            width: 23rem;
+            padding-top: 0.14rem;
+        }
+
+        /* Styling for each dropdown container */
+        .dropdown {
+            display: flex;
+            font-size: 13px;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        /* Label styling */
+        .dropdown label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: aliceblue;
+        }
+
+        /* Select element styling */
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            background-color: #fff;
+            transition: border-color 0.3s;
+            cursor: pointer;
+        }
+
+        /* Hover effect for select elements */
+        select:hover {
+            border-color: #00796b;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .selector {
+                flex-direction: column;
+                padding-top: 0.14rem;
+            }
+        }
+
+        #jsonContent {
+            overflow: auto;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="ParvaContent.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

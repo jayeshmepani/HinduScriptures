@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+  <div class="container">
+    <div class="search-results">
+      <div id="jsonContent">
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the filename from the query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const filename = urlParams.get('filename');
+      console.log('Filename:', filename);
+
+      // Determine the URL based on the referrer
+      let url;
+      if (document.referrer.includes('Gitas')) {
+        url = `DharmicData/Gitas/${filename}`;
+      } else if (document.referrer.includes('DattPurana')) {
+        url = `DharmicData/UpaPuranas/Datt Purana/${filename}`;
+      } else if (document.referrer.includes('Stotras')) {
+        url = `DharmicData/Stotras/${filename}`;
+      } else if (document.referrer.includes('HarivanshaPurana')) {
+        url = `DharmicData/UpaPuranas/Harivansha Purana/${filename}`;
+      } else if (document.referrer.includes('NaradiyaPurana')) {
+        url = `DharmicData/UpaPuranas/Naradiya Purana/${filename}`;
+      } else if (document.referrer.includes('VishnudharmottarPurana')) {
+        url = `DharmicData/UpaPuranas/Vishnudharmottar Purana/${filename}`;
+      } else if (document.referrer.includes('KalikaPurana')) {
+        url = `DharmicData/UpaPuranas/Kalika Purana/${filename}`;
+      } else if (document.referrer.includes('MallaPurana')) {
+        url = `DharmicData/UpaPuranas/Malla Purana/${filename}`;
+      } else if (document.referrer.includes('MudgalaPurana')) {
+        url = `DharmicData/UpaPuranas/Mudgala Purana/${filename}`;
+      } else if (document.referrer.includes('ShivadharmaPurana')) {
+        url = `DharmicData/UpaPuranas/Shivadharma Purana/${filename}`;
+      } else if (document.referrer.includes('SrimadDeviBhagwatPurana')) {
+        url = `DharmicData/UpaPuranas/Srimad Devi Bhagwat Purana/${filename}`;
+      } else if (document.referrer.includes('Chalisas')) {
+        url = `DharmicData/Chalisa/${filename}`;
+      } else if (document.referrer.includes('Ramcharitmanas')) {
+        url = `DharmicData/Ramayanas/Ramcharitmanas/${filename}`;
+      }
+      else if (document.referrer.includes('Aarati')) {
+        url = `DharmicData/Aartis/${filename}`;
+      }
+      else {
+        console.log('Invalid referrer:', document.referrer);
+      }
+
+      if (url) {
+        console.log('URL:', url);
+
+        // Fetch and display the selected JSON file
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to fetch JSON file: ${filename}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('JSON Data:', data);
+
+            const jsonContentDiv = document.getElementById('jsonContent');
+
+            // Handle the JSON data based on its structure
+            if (Array.isArray(data) && data.length > 0) {
+              // Check for "content" property in the first object
+              if (data[0].content) {
+                // Display logic for JSON with "content" property
+                data.forEach(entry => {
+                  const entryDiv = document.createElement('div');
+                  //entryDiv.style.marginBottom = '20px'; // Optional styling
+                  entryDiv.innerHTML = `
+                      <div style="display: grid; align-items: center; justify-content: center;">
+                        <p style="color: yellow; font-weight: bold;">${entry.kaand}</p>
+                        <p style="color: white; font-weight: bold;">${entry.type}</p>
+                        <p style="color: orange;">${entry.content.replace(/\n/g, '<br>').trim()}</p>
+                        <br>
+                        <br>
+                      </div>
+                    `;
+                  jsonContentDiv.appendChild(entryDiv);
+                });
+              } else if (Array.isArray(data) && data.length > 0 && data[0].text) {
+                const entryDiv = document.createElement('div');
+                entryDiv.id = 'p';
+                entryDiv.style.textAlign = 'center';
+
+                // Sort data numerically by filenames (assuming filenames are numbers)
+                const sortedData = data.sort((a, b) => {
+                  const numA = parseInt(a.filename, 10);  // Parse to number
+                  const numB = parseInt(b.filename, 10);  // Parse to number
+                  return numA - numB;
+                });
+
+                // Iterate over each entry in the sorted array
+                sortedData.forEach(entry => {
+                  entryDiv.innerHTML += `
+                <div>
+                    ${entry.text.replace(/\n/g, ' <br/> ').trim()}
+                </div>
+                <br><br>
+            `;
+                });
+
+                // Append the div containing all entries to the main container
+                jsonContentDiv.appendChild(entryDiv);
+              } else {
+                console.error('Error: Unexpected JSON structure.');
+              }
+            } else {
+              console.error(`Error: Unexpected JSON structure.`);
+            }
+          })
+          .catch(error => {
+            // Handle errors here
+            console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+          });
+      }
+    });
+
+  </script>
+
+  <style>
+    #p {
+      font-size: 1.3rem;
+      color: yellow;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+  </style>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

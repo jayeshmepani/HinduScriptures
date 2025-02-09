@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavata Purana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <style>
+        .chapter {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#chapterList,
+        .section-links {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                display: block;
+
+                a {
+                    display: contents !important;
+                }
+            }
+
+            li,
+            a {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="chapter">
+            <ol id="chapterList"></ol>
+            <div class="section-links" id="sectionLinks"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get the filename from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section'); // Get the section parameter from the URL
+        console.log('Section:', section);
+
+        // Define the chapters based on the section
+        let startChapter, endChapter;
+        switch (section) {
+            case 'Skandhah 1':
+                startChapter = 1;
+                endChapter = 19;
+                break;
+            case 'Skandhah 2':
+                startChapter = 1;
+                endChapter = 10;
+                break;
+            case 'Skandhah 3':
+                startChapter = 1;
+                endChapter = 33;
+                break;
+            case 'Skandhah 4':
+                startChapter = 1;
+                endChapter = 31;
+                break;
+            case 'Skandhah 5':
+                startChapter = 1;
+                endChapter = 26;
+                break;
+            case 'Skandhah 6':
+                startChapter = 1;
+                endChapter = 19;
+                break;
+            case 'Skandhah 7':
+                startChapter = 1;
+                endChapter = 15;
+                break;
+            case 'Skandhah 8':
+                startChapter = 1;
+                endChapter = 24;
+                break;
+            case 'Skandhah 9':
+                startChapter = 1;
+                endChapter = 24;
+                break;
+            case 'Skandhah 10':
+                startChapter = 1;
+                endChapter = 90;
+                break;
+            case 'Skandhah 11':
+                startChapter = 1;
+                endChapter = 31;
+                break;
+            case 'Skandhah 12':
+                startChapter = 1;
+                endChapter = 13;
+                break;
+            default:
+                console.error('Invalid section:', section);
+            // Handle invalid section here (e.g., show an error message)
+        }
+
+        // Loop to generate list items for chapters
+        for (let chapter_number = startChapter; chapter_number <= endChapter; chapter_number++) {
+            const li = document.createElement('li');
+            li.setAttribute('filename', `${section}/${chapter_number}.json`);
+
+            const a = document.createElement('a');
+            a.href = '#';
+            a.setAttribute('onclick', `redirectToContent('${section}/${chapter_number}.json')`);
+            a.textContent = `Chapter ${chapter_number}`;
+
+            li.appendChild(a);
+            document.getElementById('chapterList').appendChild(li);
+        }
+
+        // Function to redirect to the content page for the selected section and chapter
+        function redirectToContent(filename) {
+            // Redirect to BhagavataPuranaContent with the selected filename and directory as query parameters
+            window.location.href = `BhagavataPuranaContent?filename=${encodeURIComponent(filename)}&directory=${encodeURIComponent(section)}`;
+        }
+
+        // Check if the section parameter exists in the URL
+        if (!section) {
+            // If not, add links to sections
+            const sectionLinksDiv = document.getElementById('sectionLinks');
+            const sections = [
+                'Skandhah 1', 'Skandhah 2', 'Skandhah 3', 'Skandhah 4', 'Skandhah 5',
+                'Skandhah 6', 'Skandhah 7', 'Skandhah 8', 'Skandhah 9', 'Skandhah 10',
+                'Skandhah 11', 'Skandhah 12'
+            ];
+            sections.forEach(section => {
+                const a = document.createElement('a');
+                a.href = `BhagavataPurana?section=${encodeURIComponent(section)}`;
+                a.textContent = section;
+                sectionLinksDiv.appendChild(a);
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

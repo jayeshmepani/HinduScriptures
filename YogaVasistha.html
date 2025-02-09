@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>YogaVasistha</title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="/download.png" rel="icon" type="image/x-icon" />
+    <style>
+        .YogaVasistha {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#YogaVasisthaList,
+        .section-links {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                display: block;
+
+                a {
+                    display: contents !important;
+                }
+            }
+
+            li,
+            a {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="YogaVasistha">
+            <ol id="YogaVasisthaList"></ol>
+            <div class="section-links" id="sectionLinks"></div>
+        </div>
+    </div>
+    <script>
+        // Extract the 'section' parameter from the URL (for nested sections/folders)
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section'); // Section or folder name
+
+        // Function to fetch folders and files for a given section
+        function fetchFilenames(section) {
+            // Fetch files and folders from the server, pass the section (folder path) if any
+            return fetch(`/fetchFiles?section=${encodeURIComponent(section || '')}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error fetching filenames:', data.error);
+                        return { folders: [], files: [] }; // Return empty arrays on error
+                    }
+                    return data; // Expecting 'folders' and 'files' arrays in the response
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    return { folders: [], files: [] }; // Return empty arrays on error
+                });
+        }
+
+        // Custom sorting function for chapter names
+        function customSort(a, b) {
+            const numA = parseInt(a.replace('Chapter ', ''), 10); // Extract number from 'Chapter x'
+            const numB = parseInt(b.replace('Chapter ', ''), 10); // Extract number from 'Chapter y'
+            return numA - numB; // Compare the extracted numbers
+        }
+
+        // Initialize the function to fetch and display folders/files
+        async function initialize() {
+            const { folders, files } = await fetchFilenames(section);
+
+            // Clear existing content before appending new items
+            document.getElementById('YogaVasisthaList').innerHTML = '';
+
+            // If section is provided, display nested folders and files
+            if (section) {
+                // Display folders within the current section
+                folders.forEach(folder => {
+                    const li = document.createElement('li');
+                    const newSectionPath = section ? `${section}/${folder}` : folder;
+
+                    const a = document.createElement('a');
+                    a.href = `YogaVasistha?section=${encodeURIComponent(newSectionPath)}`;
+                    a.textContent = folder;
+
+                    li.appendChild(a);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+
+                // Sort files numerically and display within the current section
+                files.sort(customSort).forEach(filename => {
+                    const li = document.createElement('li');
+                    const filePath = `${section}/${filename}`;
+
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = filename.replace('.json', ''); // Remove '.json' for display
+                    a.addEventListener('click', () => redirectToContent(filePath));
+
+                    li.appendChild(a);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+            }
+            // If no section is specified, display top-level folders
+            else {
+                folders.forEach(folder => {
+                    const li = document.createElement('li');
+
+                    const sectionLink = document.createElement('a');
+                    sectionLink.href = `YogaVasistha?section=${encodeURIComponent(folder)}`;
+                    sectionLink.textContent = folder;
+
+                    li.appendChild(sectionLink);
+                    document.getElementById('YogaVasisthaList').appendChild(li);
+                });
+            }
+        }
+
+        // Function to redirect to content viewing page
+        function redirectToContent(filename) {
+            window.location.href = `YogaVasisthaContent?filename=${encodeURIComponent(filename)}`;
+        }
+
+        // Call the initialize function to display folders/files
+        initialize();
+    </script>
+
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

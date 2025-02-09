@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Kandas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+
+    <style>
+        .Kanda-list {
+          display: grid;
+          gap: 1rem;
+          width: 100%;
+          margin: 2rem auto;
+          font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+    
+          a {
+            text-decoration: none;
+            color: rgba(255, 217, 0, 0.91);
+    
+            &:hover {
+              margin: 0;
+              padding: 0;
+              border: 0;
+              -webkit-backdrop-filter: none;
+              backdrop-filter: none;
+              display: block;
+            }
+          }
+        }
+    
+        ol#list {
+          display: grid;
+          gap: 0.7rem;
+          width: min(85%, 600px);
+          color: rgba(255, 217, 0, 0.91);
+    
+          li {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 217, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0.7rem;
+            display: block;
+    
+            &:is(:first-child) {
+              text-align: center;
+              font-size: 2.3rem; 
+              color: yellow;
+            }
+    
+            &:hover {
+              padding: 0.55rem;
+              background-color: rgba(255, 217, 0, 0.2);
+              border-color: rgba(255, 217, 0, 0.7);
+              transform: scale(1.05);
+              -webkit-backdrop-filter: blur(1rem) saturate(222%);
+              backdrop-filter: blur(1rem) saturate(222%);
+            }
+          }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="Kanda-list">
+            <ol id="list">
+                <li><a class="overview-link" href="Ramayana_overview.html">Overview</a></li>
+                <li filename="1.json"><a href="#" onclick="redirectToKandaContent('1.json')">Bāla Kāṇḍa</a></li>
+                <li filename="2.json"><a href="#" onclick="redirectToKandaContent('2.json')">Ayodhyā Kāṇḍa</a></li>
+                <li filename="3.json"><a href="#" onclick="redirectToKandaContent('3.json')">Araṇya Kāṇḍa</a></li>
+                <li filename="4.json"><a href="#" onclick="redirectToKandaContent('4.json')">Kiṣkindhā Kāṇda</a></li>
+                <li filename="5.json"><a href="#" onclick="redirectToKandaContent('5.json')">Sundara Kaṇḍa</a></li>
+                <li filename="6.json"><a href="#" onclick="redirectToKandaContent('6.json')">Yuddha Kāṇḍa</a></li>
+                <li filename="7.json"><a href="#" onclick="redirectToKandaContent('7.json')">Uttara Kanda</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Function to redirect to the content page for the selected Kanda
+        function redirectToKandaContent(filename) {
+            // Redirect to KandaContent with the selected filename as a query parameter
+            window.location.href = `kandaContent?filename=${encodeURIComponent(filename)}`;
+        }
+    </script>
+
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

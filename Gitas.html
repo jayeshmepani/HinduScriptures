@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gitas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="/download.png" />
+
+  <style>
+    .Gitas {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#GitasList {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+      color: rgba(255, 217, 0, 0.91);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+
+    li:hover {
+      padding: 0.5rem;
+      display: grid;
+      place-content: center;
+      border: rgba(0, 255, 255, 0.01) solid 1px;
+      border-radius: 0.7rem;
+      -webkit-backdrop-filter: blur(1rem) saturate(222%);
+      backdrop-filter: blur(1rem) saturate(222%);
+      transition: backdrop-filter 0.29s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Gitas">
+      <ol id="GitasList"></ol>
+    </div>
+  </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const section = ''; // Add any specific section if needed
+      fetch(`/fetchFiles?section=${encodeURIComponent(section)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error(data.error);
+            return;
+          }
+
+          // Render folders
+          data.folders.forEach(folder => {
+            const li = document.createElement("li");
+            li.textContent = folder; // Display folder name as is
+            li.addEventListener("click", () => redirectToGitaContent(folder)); // Navigate to folder
+            document.getElementById("GitasList").appendChild(li);
+          });
+
+          // Render files
+          data.files.forEach(file => {
+            const li = document.createElement("li");
+
+            // Remove file extensions for display
+            const displayName = file.replace(/\.(pdf|json)$/, ""); // Removes '.pdf' or '.json'
+            li.textContent = displayName; // Set display text without extension
+
+            li.addEventListener("click", () => redirectToGitaContent(file)); // Navigate to file
+            document.getElementById("GitasList").appendChild(li);
+          });
+        })
+        .catch(err => console.error('Error fetching files:', err));
+    });
+
+    function redirectToGitaContent(filename) {
+      if (filename.endsWith('.json')) {
+        window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+      } else if (filename.endsWith('.pdf')) {
+        window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+      } else if (filename === "Bhagvad Gita") {
+        window.location.href = `BhagvadGita?filename=${encodeURIComponent(filename)}`;
+      } else {
+        console.error("Unsupported file format.");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

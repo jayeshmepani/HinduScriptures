@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpaPuranas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="/download.png" />
+
+  <style>
+    .UpaPuranas {
+      width: 100%;
+      margin: 2rem auto;
+
+      & a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#UpaPuranasList {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+      color: rgba(255, 217, 0, 0.91);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="UpaPuranas">
+      <ol id="UpaPuranasList"></ol>
+    </div>
+  </div>
+  <script>
+
+    const filenames = [
+      "Datt Purana",
+      "Harivansha Purana",
+      "Kalika Purana",
+      "Malla Purana",
+      "Mudgala Purana",
+      "Naradiya Purana",
+      "Shivadharma Purana",
+      "Srimad Devi Bhagwat Purana",
+      "Vishnudharmottar Purana",
+      "Bhargav Purana.pdf",
+      "Ekamra Purana.pdf",
+      "Kapila Purana.pdf",
+      "Kalki Purana.pdf",
+      "Maricha Purana.pdf",
+      "Nandi Purana.pdf",
+      "Narasimha Purana.pdf",
+      "Nilamata Purana.pdf",
+      "Parashara Purana.pdf",
+      "Samba Purana.pdf",
+      "Saura Purana.pdf",
+      "Varuna Purana.pdf",
+      "Vishnudharma Purana.pdf"
+    ];
+
+    filenames.forEach((filename) => {
+      const li = document.createElement("li");
+      li.setAttribute("filename", filename);
+
+      const a = document.createElement("a");
+      a.href = "#";
+      a.textContent = filename.replace(".json", "").replace(".pdf", ""); // Remove file extensions
+      a.addEventListener("click", () => redirectToContent(filename)); // Use addEventListener for better event handling
+
+      li.appendChild(a);
+      document.getElementById("UpaPuranasList").appendChild(li);
+    });
+
+    function redirectToContent(filename) {
+      if (filename.endsWith('.pdf')) {
+        if (filename === "Kalki Purana.pdf" || filename === "Ekamra Purana.pdf" || filename === "Bhargav Purana.pdf") {
+          window.location.href = `book?filename=${encodeURIComponent(filename)}`;
+        } else {
+          window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+        }
+      }
+      else if (filename === "Datt Purana") {
+        window.location.href = `DattPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Harivansha Purana") {
+        window.location.href = `HarivanshaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Kalika Purana") {
+        window.location.href = `KalikaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Malla Purana") {
+        window.location.href = `MallaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Mudgala Purana") {
+        window.location.href = `MudgalaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Naradiya Purana") {
+        window.location.href = `NaradiyaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Shivadharma Purana") {
+        window.location.href = `ShivadharmaPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Srimad Devi Bhagwat Purana") {
+        window.location.href = `SrimadDeviBhagwatPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else if (filename === "Vishnudharmottar Purana") {
+        window.location.href = `VishnudharmottarPurana?filename=${encodeURIComponent(filename)}`;
+      }
+      else {
+        console.error("Unsupported file format.");
+      }
+    }
+
+  </script>
+</body>
+
+</html>

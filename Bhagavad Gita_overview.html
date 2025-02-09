@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita Overview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        /* Apply styles to the paragraph and h1 */
+        * {
+            /*border: solid red 2px;*/
+        }
+
+        body,
+        html {
+            margin: 0%;
+            border-width: 0px;
+        }
+
+        .overview-container {
+            display: grid;
+            grid-gap: 15px;
+            align-items: center;
+            justify-content: center;
+            height: 100svh;
+            position: absolute;
+        }
+
+        h1,
+        p {
+            color: rgba(255, 255, 255, 0.91);
+            /* Adjusted text color */
+            font-size: 17px;
+            /* Adjusted font size for better readability */
+            width: 87svw;
+            /* Adjusted width for better responsiveness */
+            box-sizing: content-box;
+        }
+
+        p {
+            padding-bottom: 1.3rem;
+        }
+
+        h1 {
+            font-size: 23px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overview-container">
+        <!-- Your provided information -->
+        <h1><b>Bhagavad Gita Overview</b></h1>
+        <!-- ... add the information you provided ... -->
+        <p>
+            The Bhagavad Gita, often abbreviated as the Gita, is a revered Hindu scripture that forms a crucial part of
+            the Mahabharata, specifically chapters 23–40 of book 6 known as the Bhishma Parva. This ancient text,
+            composed in Sanskrit, comprises 700 verses structured into poetic meters, primarily the shloka. Preserved in
+            Mahabharata manuscripts, the Gita exists in various Indic scripts, with minor variations among manuscripts.
+            <br><br>
+
+            Comprising 18 chapters, the Bhagavad Gita addresses a spectrum of life's facets, including duty,
+            spirituality, and ethical dilemmas. Each shloka is a couplet, resulting in a complete text of 1,400 lines,
+            with two quarter verses in each shloka, precisely eight syllables per quarter verse. The metered verse form,
+            although lacking rhyme, serves as the principal meter in the Gita. This intricate structure and poetic form
+            contribute to the aesthetic and philosophical richness of the Bhagavad Gita, enhancing its timeless
+            significance as a spiritual and literary masterpiece.
+            <br><br>
+
+            In Hindu mythology, the Bhagavad Gita is believed to be written by the sage Veda Vyasa, with Ganesha as the
+            scribe. It serves as a synthesis of Hindu ideas, addressing concepts of dharma, theistic bhakti, and the
+            yogic pursuit of moksha. The Gita covers different yogas, including Jñāna, Bhakti, Karma, and Rāja yogas,
+            drawing inspiration from the Samkhya-Yoga philosophy.
+            <br><br>
+
+            Set on the battlefield of Kurukshetra, the Gita delves into Arjuna's inner conflict about participating in
+            the war against his own kin. Krishna's guidance extends beyond the immediate war scenario, encompassing
+            profound philosophical and ethical teachings that transcend the battlefield.
+            <br><br>
+
+            At the heart of the Gita's teachings is the concept of the individual self (Atman) and the supreme self
+            (Brahman) within each being. The dialogue explores various perspectives on the relationship between Atman
+            and Brahman, ranging from non-dualism to qualified non-dualism and complete duality.
+            <br><br>
+
+            The Gita holds immense significance in Hinduism and has garnered diverse interpretations. The title
+            "Bhagavad Gita" translates to the "song of God" or the "Divine Song." In India, it is often referred to with
+            great respect as Shrimad Bhagavad Gita.
+            <br><br>
+
+            The Gita also incorporates elements of Sanskrit prosody, one of the six Vedangas or limbs of Vedic studies.
+            At certain dramatic moments, it employs the tristubh meter found in the Vedas, where each line of the
+            couplet contains two quarter verses with exactly eleven syllables.
+            <br><br>
+
+            It's noteworthy that the original Bhagavad Gita does not have chapter titles. However, some Sanskrit
+            editions, as well as translators, have added chapter titles. For instance, Swami Chidbhavananda categorizes
+            each of the eighteen chapters as a separate yoga, likening them to disciplines that "train the body and the
+            mind." He names the first chapter as "Arjuna Vishada Yogam" or the "Yoga of Arjuna's Dejection." Similarly,
+            Sir Edwin Arnold titled this chapter in his 1885 translation as "The Distress of Arjuna."
+            <br><br>
+
+            This intricate structure and poetic form contribute to the aesthetic and philosophical richness of the
+            Bhagavad Gita, enhancing its timeless significance as a spiritual and literary masterpiece.
+        </p>
+    </div>
+
+    <script>
+        // Linear equation parameters
+        const slope = -0.0097;
+        const intercept = 9.1;
+
+        // Function to calculate padding-top based on the linear equation
+        const calculatePaddingTop = (width) => {
+            return slope * width + intercept;
+        };
+
+        function adjustPaddingTop() {
+            console.log("Adjusting padding top...");
+
+            // Get the element you want to adjust (replace 'h1' with your actual element selector)
+            const targetElement = document.querySelector('h1');
+
+            // Log the target element
+            console.log("Target Element:", targetElement);
+
+            // Get the current screen width
+            const currentWidth = window.innerWidth;
+
+            // Log the current width
+            console.log("Current Width:", currentWidth);
+
+            // Calculate the padding-top based on the linear equation
+            const paddingTopValue = calculatePaddingTop(currentWidth);
+
+            // Log the calculated padding top
+            console.log("Calculated Padding Top:", paddingTopValue);
+
+            // Apply the padding-top using CSS style property
+            targetElement.style.paddingTop = `${paddingTopValue}%`;
+        }
+
+        // Attach the adjustPaddingTop function to the window resize event
+        window.addEventListener('resize', adjustPaddingTop);
+
+        // Initial adjustment on page load
+        adjustPaddingTop();
+    </script>
+
+    <script src="translate.js"></script>
+    <script src="removeHtmlExtension.js"></script>
+</body>
+
+</html>

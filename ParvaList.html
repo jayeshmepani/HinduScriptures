@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parva List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+
+  <style>
+    .Parva-list {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#list {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+      color: rgba(255, 217, 0, 0.91);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:is(:first-child) {
+          text-align: center;
+          font-size: 2.3rem; 
+          color: yellow;
+        }
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="Parva-list">
+      <ol id="list">
+        <li><a class="overview-link" href="Mahabharata_overview.html">Overview</a></li>
+        <li filename="1.json"><a href="#" onclick="redirectToParvaContent('1.json')">Adi Parva</a></li>
+        <li filename="2.json"><a href="#" onclick="redirectToParvaContent('2.json')">Sabha Parva</a></li>
+        <li filename="3.json"><a href="#" onclick="redirectToParvaContent('3.json')">Vana Parva</a></li>
+        <li filename="4.json"><a href="#" onclick="redirectToParvaContent('4.json')">Virata Parva</a></li>
+        <li filename="5.json"><a href="#" onclick="redirectToParvaContent('5.json')">Udyoga Parva</a></li>
+        <li filename="6.json"><a href="#" onclick="redirectToParvaContent('6.json')">Bhishma Parva</a></li>
+        <li filename="7.json"><a href="#" onclick="redirectToParvaContent('7.json')">Drona Parva</a></li>
+        <li filename="8.json"><a href="#" onclick="redirectToParvaContent('8.json')">Karna Parva</a></li>
+        <li filename="9.json"><a href="#" onclick="redirectToParvaContent('9.json')">Shalya Parva</a></li>
+        <li filename="10.json"><a href="#" onclick="redirectToParvaContent('10.json')">Sauptika Parva</a></li>
+        <li filename="11.json"><a href="#" onclick="redirectToParvaContent('11.json')">Stri Parva</a></li>
+        <li filename="12.json"><a href="#" onclick="redirectToParvaContent('12.json')">Shanti Parva</a></li>
+        <li filename="13.json"><a href="#" onclick="redirectToParvaContent('13.json')">Anushasana Parva</a></li>
+        <li filename="14.json"><a href="#" onclick="redirectToParvaContent('14.json')">Ashvamedhika Parva</a></li>
+        <li filename="15.json"><a href="#" onclick="redirectToParvaContent('15.json')">Ashramavasika Parva</a></li>
+        <li filename="16.json"><a href="#" onclick="redirectToParvaContent('16.json')">Mausala Parva</a></li>
+        <li filename="17.json"><a href="#" onclick="redirectToParvaContent('17.json')">Mahaprasthanika Parva</a></li>
+        <li filename="18.json"><a href="#" onclick="redirectToParvaContent('18.json')">Swargarohanika Parva</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    // Function to redirect to the content page for the selected Parva
+    function redirectToParvaContent(filename) {
+      // Redirect to ParvaContent with the selected filename as a query parameter
+      window.location.href = `ParvaContent?filename=${encodeURIComponent(filename)}`;
+    }
+  </script>
+
+</body>
+
+</html>

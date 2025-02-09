@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+
+  <style>
+    /* Veda Links */
+    .Veda {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+
+      a {
+        text-decoration: none;
+      }
+
+    }
+
+    .overview-link {
+      display: block;
+      text-align: left;
+      color: rgba(255, 217, 0, 0.91);
+      padding: .7rem;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 217, 0, 0.3);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      margin: 0;
+
+      &:is(:first-child) {
+        text-align: center;
+        font-size: 2.3rem; 
+        color: yellow;
+      }
+
+      &:hover {
+        background-color: rgba(255, 217, 0, 0.2);
+        border-color: rgba(255, 217, 0, 0.7);
+        transform: scale(1.05);
+        -webkit-backdrop-filter: blur(1rem) saturate(222%);
+        backdrop-filter: blur(1rem) saturate(222%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="Veda">
+      <a class="overview-link" href="Vedas_overview.html">Overview</a>
+      <a class="overview-link" href="RigVeda.html">Rigveda</a>
+      <a class="overview-link" href="YajurVeda.html">Yajurveda</a>
+      <a class="overview-link" href="Samaveda.html">Samaveda</a>
+      <a class="overview-link" href="AtharvaVeda.html">Atharvaveda</a>
+    </div>
+  </div>
+
+  <script src="removeHtmlExtension.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedanga</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/download.png" />
+    <style>
+        .Vedanga {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+      
+            a {
+              text-decoration: none;
+              color: rgba(255, 217, 0, 0.91);
+      
+              &:hover {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+                display: block;
+              }
+            }
+          }
+      
+          ol#VedangaList {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+      
+            li {
+              background-color: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(255, 217, 0, 0.3);
+              border-radius: 10px;
+              transition: all 0.3s ease;
+              margin: 0;
+              padding: 0.7rem;
+              display: block;
+      
+              &:hover {
+                padding: 0.55rem;
+                background-color: rgba(255, 217, 0, 0.2);
+                border-color: rgba(255, 217, 0, 0.7);
+                transform: scale(1.05);
+                -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                backdrop-filter: blur(1rem) saturate(222%);
+              }
+            }
+          }
+      
+          li:hover {
+            padding: 0.5rem;
+            display: grid;
+            place-content: center;
+            border: rgba(0, 255, 255, 0.01) solid 1px;
+            border-radius: 0.7rem;
+            -webkit-backdrop-filter: blur(1rem) saturate(222%);
+            backdrop-filter: blur(1rem) saturate(222%);
+            transition: backdrop-filter 0.29s ease-in-out;
+          }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Vedanga">
+            <ol id="VedangaList"></ol>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const section = new URLSearchParams(window.location.search).get('section') || ''; // Get section from URL or use empty string for top level
+            fetchFiles(section);  // Fetch files for the current section
+        });
+
+        // Function to fetch the list of folders and files based on section (including nested sections)
+        function fetchFiles(section = '') {
+            fetch(`/fetchFiles?section=${encodeURIComponent(section)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error(data.error);
+                        return;
+                    }
+
+                    // Clear the list before adding new items
+                    const vedangaList = document.getElementById("VedangaList");
+                    vedangaList.innerHTML = '';
+
+                    // Render folders (sections) if there are any
+                    if (data.folders && data.folders.length > 0) {
+                        data.folders.forEach(folder => {
+                            const li = document.createElement("li");
+                            li.textContent = folder; // Display folder name
+                            li.addEventListener("click", () => fetchFiles(`${section}/${folder}`)); // Fetch files in the nested folder
+                            vedangaList.appendChild(li);
+                        });
+                    }
+
+                    // Render files if there are any
+                    if (data.files && data.files.length > 0) {
+                        data.files.forEach(file => {
+                            const li = document.createElement("li");
+
+                            // Remove file extension for display
+                            const displayName = file.replace(/\.(pdf)$/, "");
+                            li.textContent = displayName; // Set display text without extension
+
+                            li.addEventListener("click", () => redirectToContent(file, section)); // Navigate to file within section
+                            vedangaList.appendChild(li);
+                        });
+                    }
+                })
+                .catch(err => console.error('Error fetching files:', err));
+        }
+
+        // Function to handle redirection based on file or folder
+        function redirectToContent(filename, section = '') {
+            // List of excluded files by their numeric part
+            const excludedFiles = ["19", "20", "25"];
+
+            // Check if the file is a PDF
+            if (filename.endsWith('.pdf')) {
+                // Special case for "Hiranyakeshi Dharma Sutra.pdf"
+                if (filename === "Hiranyakeshi Dharma Sutra.pdf") {
+                    window.location.href = `book?filename=Kalp%2FDharma%20Sutra%2FHiranyakeshi%20Dharma%20Sutra.pdf`
+                } else {
+                    // Extract the number part of the filename, e.g., "Hiranyakeshi Shrauta Prashna 01.pdf"
+                    const regex = /(\d{2})/;  // This matches the two digits (01, 02, ..., 29)
+                    const match = filename.match(regex);
+
+                    // If the filename matches the "Hiranyakeshi Shrauta Prashna XX.pdf" format
+                    if (match) {
+                        const fileNumber = match[1]; // The 2-digit number part
+
+                        // Check if the file number is excluded
+                        if (!excludedFiles.includes(fileNumber)) {
+                            // Check if a section is provided, and include it in the URL
+                            window.location.href = `book?filename=${encodeURIComponent(section ? `${section}/${filename}` : filename)}`;
+                        } else {
+                            window.location.href = `Content?filename=${encodeURIComponent(section ? `${section}/${filename}` : filename)}`;
+                        }
+                    } else {
+                        // If it's not one of the recognized files, just redirect to Content
+                        window.location.href = `Content?filename=${encodeURIComponent(section ? `${section}/${filename}` : filename)}`;
+                    }
+                }
+            } else {
+                // If it's a folder, navigate accordingly
+                window.location.href = `Vedanga?section=${encodeURIComponent(section ? `${section}/${filename}` : filename)}`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

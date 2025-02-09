@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Purana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        .chapter {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#chapterList,
+        .section-links,
+        .subsection-links {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                display: block;
+
+                a {
+                    display: contents !important;
+                }
+            }
+
+            li,
+            a {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="chapter">
+            <ol id="chapterList"></ol>
+            <div class="section-links" id="sectionLinks"></div>
+            <div class="subsection-links" id="subsectionLinks"></div>
+        </div>
+    </div>
+    <script>
+        // Get the filename from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        let section = urlParams.get('section'); // Get the section parameter from the URL
+        let subsection = urlParams.get('subsection'); // Get the subsection parameter from the URL
+        const subDirectory = urlParams.get('sub'); // Check if subdirectory flag is present
+
+        // Decode section and subsection names if they exist
+        if (section) {
+            section = decodeURIComponent(section);
+        }
+        if (subsection) {
+            subsection = decodeURIComponent(subsection);
+        }
+
+        console.log('Section:', section);
+        console.log('Subsection:', subsection);
+
+        // Define the chapters based on the section and subsection
+        let startChapter, endChapter;
+
+        if (section === '1. Vishweshwara Samhita') {
+            startChapter = 1;
+            endChapter = 25; // Number of JSON files in 'Vishweshwara Samhita' folder
+        } else if (section === '2. Rudra Samhita' && !subDirectory) {
+            // If main section selected, display subsections
+            generateSubsectionLinks();
+        } else if (section === '2. Rudra Samhita' && subDirectory) {
+            // If subdirectory selected, display chapters
+            if (subsection === '2.1. Srishtikhanda') {
+                startChapter = 1;
+                endChapter = 20; // Number of JSON files in 'Srishtikhanda' subdirectory
+            } else if (subsection === '2.2. Satikhanda') {
+                startChapter = 1;
+                endChapter = 43; // Number of JSON files in 'Satikhanda' subdirectory
+            } else if (subsection === '2.3. Parvatikhanda') {
+                startChapter = 1;
+                endChapter = 55; // Number of JSON files in 'Parvatikhanda' subdirectory
+            } else if (subsection === '2.4. Kumarakhanda') {
+                startChapter = 1;
+                endChapter = 20; // Number of JSON files in 'Kumarakhanda' subdirectory
+            } else if (subsection === '2.5. Yuddhakhanda') {
+                startChapter = 1;
+                endChapter = 59; // Number of JSON files in 'Yuddhakhanda' subdirectory
+            } else {
+                console.error('Invalid subsection:', subsection);
+                // Handle invalid subsection here (e.g., show an error message)
+            }
+        } else if (section === '3. Shatarudra Samhita') {
+            startChapter = 1;
+            endChapter = 42; // Number of JSON files in 'Shatarudra Samhita' folder
+        } else if (section === '4. Koti Rudra Samhita') {
+            startChapter = 1;
+            endChapter = 43; // Number of JSON files in 'Koti Rudra Samhita' folder
+        } else if (section === '5. Uma Samhita') {
+            startChapter = 1;
+            endChapter = 51; // Number of JSON files in 'Uma Samhita' folder
+        } else if (section === '6. Kailasa Samhita') {
+            startChapter = 1;
+            endChapter = 23; // Number of JSON files in 'Kailasa Samhita' folder
+        }
+        else if (section === '7. Vayaviya Samhita' && !subDirectory) {
+            // If main section selected, display subsections
+            generateSubsectionLinks();
+        } else if (section === '7. Vayaviya Samhita' && subDirectory) {
+            // If subdirectory selected, display chapters
+            if (subsection === 'Purva Bhag') {
+                startChapter = 1;
+                endChapter = 35; // Number of JSON files in 'Purva Bhag' subdirectory
+            } else if (subsection === 'Uttar Bhag') {
+                startChapter = 1;
+                endChapter = 41; // Number of JSON files in 'Uttar Bhag' subdirectory
+            } else {
+                console.error('Invalid subsection:', subsection);
+                // Handle invalid subsection here (e.g., show an error message)
+            }
+        } else {
+            console.error('Invalid section:', section);
+            // Handle invalid section here (e.g., show an error message)
+        }
+
+        // Generate the chapter list
+        if (startChapter !== undefined && endChapter !== undefined) {
+            const chapterList = document.getElementById('chapterList');
+            for (let chapter_number = startChapter; chapter_number <= endChapter; chapter_number++) {
+                const li = document.createElement('li');
+                li.setAttribute('filename', `${section.replace(/ /g, '%20')}/${chapter_number}.json`);
+                const a = document.createElement('a');
+                a.href = '#';
+                a.setAttribute('onclick', `redirectToContent('${section.replace(/ /g, '%20')}/${chapter_number}.json')`);
+                a.textContent = `Chapter ${chapter_number}`; // Set the text content to display chapter number
+                li.appendChild(a);
+                chapterList.appendChild(li);
+            }
+        }
+
+        // Function to redirect to the content page for the selected section and chapter
+        function redirectToContent(filename) {
+            // Encode the section name with spaces before appending it to the URL
+            const encodedSection = encodeURIComponent(section);
+            let fullFilename;
+
+            // Check if it's a subsection
+            if (subsection && subDirectory) {
+                const encodedSubsection = encodeURIComponent(subsection);
+                console.log('Encoded Section:', encodedSection);
+                console.log('Encoded Subsection:', encodedSubsection);
+                console.log('Filename:', filename);
+                // Remove the section from the filename if it's already present
+                const correctedFilename = filename.replace(`${encodedSection}/`, '');
+                fullFilename = `${encodedSection}/${encodedSubsection}/${correctedFilename}`;
+            } else {
+                fullFilename = filename; // If it's not a subsection, use the filename as it is
+            }
+
+            // Redirect to the content page with the selected filename and directory as query parameters
+            window.location.href = `ShivaPuranaContent?filename=${encodeURIComponent(fullFilename)}`;
+        }
+
+        // Check if the section parameter exists in the URL
+        if (!section) {
+            // If not, add links to Shiva Purana sections
+            const sectionLinksDiv = document.getElementById('sectionLinks');
+
+            const ShivaSections = [
+                '1. Vishweshwara Samhita',
+                '2. Rudra Samhita',
+                '3. Shatarudra Samhita',
+                '4. Koti Rudra Samhita',
+                '5. Uma Samhita',
+                '6. Kailasa Samhita',
+                '7. Vayaviya Samhita'
+            ];
+
+            ShivaSections.forEach(folder => {
+                const encodedFolder = encodeURIComponent(folder);
+                const sectionLink = document.createElement('a');
+                sectionLink.href = `ShivaPurana?section=${encodedFolder}`;
+                sectionLink.textContent = folder;
+                sectionLinksDiv.appendChild(sectionLink);
+            });
+        }
+
+        // Function to generate subsection links for Rudra Samhita and Vayaviya Samhita
+        function generateSubsectionLinks() {
+            const subsectionLinksDiv = document.getElementById('subsectionLinks');
+            subsectionLinksDiv.innerHTML = ''; // Clear previous links
+
+            if (section === '2. Rudra Samhita') {
+                const RudraSubsections = [
+                    '2.1. Srishtikhanda',
+                    '2.2. Satikhanda',
+                    '2.3. Parvatikhanda',
+                    '2.4. Kumarakhanda',
+                    '2.5. Yuddhakhanda'
+                ];
+
+                RudraSubsections.forEach(subsection => {
+                    const encodedSubsection = encodeURIComponent(subsection);
+                    const subsectionLink = document.createElement('a');
+                    subsectionLink.href = `ShivaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
+                    subsectionLink.textContent = subsection;
+                    subsectionLinksDiv.appendChild(subsectionLink);
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                });
+            } else if (section === '7. Vayaviya Samhita') {
+                const VayaviyaSubsections = [
+                    'Purva Bhag',
+                    'Uttar Bhag'
+                ];
+
+                VayaviyaSubsections.forEach(subsection => {
+                    const encodedSubsection = encodeURIComponent(subsection);
+                    const subsectionLink = document.createElement('a');
+                    subsectionLink.href = `ShivaPurana?section=${encodeURIComponent(section)}&subsection=${encodedSubsection}&sub=true`;
+                    subsectionLink.textContent = subsection;
+                    subsectionLink.addEventListener('click', function () {
+                        generateChapterList(subsection); // Generate chapter list when subsection link is clicked
+                    });
+                    subsectionLinksDiv.appendChild(subsectionLink);
+                    //subsectionLinksDiv.appendChild(document.createElement('br')); // Add line break
+                });
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

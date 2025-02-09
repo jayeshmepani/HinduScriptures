@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smriti</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="/download.png" />
+
+  <style>
+    .Smriti {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#SmritiList {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+
+    li:hover {
+      padding: 0.5rem;
+      display: grid;
+      place-content: center;
+      border: rgba(0, 255, 255, 0.01) solid 1px;
+      border-radius: 0.7rem;
+      -webkit-backdrop-filter: blur(1rem) saturate(222%);
+      backdrop-filter: blur(1rem) saturate(222%);
+      transition: backdrop-filter 0.29s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Smriti">
+      <ol id="SmritiList"></ol>
+    </div>
+  </div>
+  </div>
+  <script>
+    // Function to fetch filenames
+    function fetchFilenames() {
+      return fetch('/fetchFiles') // Fetch filenames directly from the server
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error('Error fetching filenames:', data.error);
+            return []; // Return an empty array on error
+          }
+          return data.files || []; // Return the array of filenames (or an empty array if not found)
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          return []; // Return an empty array on error
+        });
+    }
+
+    // Initialize the script to fetch and display filenames
+    async function initialize() {
+      document.getElementById("SmritiList").innerHTML = '';  // Clear previous entries
+
+      const filenames = await fetchFilenames(); // Fetch filenames directly
+
+      if (!Array.isArray(filenames)) {
+        console.error('Expected an array of filenames, got:', filenames);
+        return;
+      }
+
+      filenames.forEach(filename => {
+        const li = document.createElement("li");
+        li.setAttribute("filename", filename);
+
+        const a = document.createElement("a");
+        a.href = "#";
+        a.textContent = filename.replace(".pdf", "");
+        a.addEventListener("click", () => redirectToSmritiContent(filename));
+
+        li.appendChild(a);
+        document.getElementById("SmritiList").appendChild(li);
+      });
+    }
+
+    // Function to redirect to content viewing page
+    function redirectToSmritiContent(filename) {
+      window.location.href = `Content?filename=${encodeURIComponent(filename)}`; // Redirect to content page
+    }
+
+    // Call the initialize function to display the filenames
+    initialize();
+  </script>
+
+</body>
+
+</html>

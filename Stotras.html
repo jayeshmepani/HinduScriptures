@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stotra</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="/download.png" />
+
+  <style>
+    .Stotra {
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#StotraList,
+    .section-links {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+
+      li {
+        display: block;
+
+        a {
+          display: contents !important;
+        }
+      }
+
+
+      li,
+      a {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Stotra">
+      <ol id="StotraList"></ol>
+      <div class="section-links" id="sectionLinks"></div>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const section = urlParams.get('section');
+    console.log('Section:', section);
+
+    function fetchFilenames(section) {
+      return fetch(`/fetchFiles?section=${encodeURIComponent(section)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            console.error('Error fetching filenames:', data.error);
+            return { folders: [], files: [] };
+          }
+          return data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          return { folders: [], files: [] };
+        });
+    }
+
+    async function initialize() {
+      if (section) {
+        const { folders, files } = await fetchFilenames(section);
+
+        // Display folders
+        folders.forEach(folder => {
+          const li = document.createElement('li');
+          li.setAttribute('filename', `${section}/${folder}`);
+
+          const a = document.createElement('a');
+          a.href = `Stotra?section=${encodeURIComponent(folder)}`;
+          a.textContent = folder;
+
+          li.appendChild(a);
+          document.getElementById('StotraList').appendChild(li);
+        });
+
+        // Display files
+        files.forEach(filename => {
+          const li = document.createElement('li');
+          li.setAttribute('filename', `${section}/${filename}`);
+
+          const a = document.createElement("a");
+          a.href = "#"; // Use '#' for in-page linking
+          // Remove file extensions for display
+          const displayName = filename.replace(/\.(pdf|json)$/, ""); // Removes '.pdf' or '.json'
+          a.textContent = displayName; // Set display text without extension
+
+          a.addEventListener('click', () => redirectToContent(`${section}/${filename}`));
+
+          li.appendChild(a);
+          document.getElementById('StotraList').appendChild(li);
+        });
+      } else {
+        // Fetch and display top-level folders if no section is specified
+        const { folders } = await fetchFilenames('');
+        const sectionLinksDiv = document.getElementById('sectionLinks');
+
+        folders.forEach(folder => {
+          const sectionLink = document.createElement('a');
+          sectionLink.href = `Stotras?section=${encodeURIComponent(folder)}`;
+          sectionLink.textContent = folder;
+          sectionLinksDiv.appendChild(sectionLink);
+        });
+      }
+    }
+
+    function redirectToContent(filename) {
+      if (filename.endsWith('.json')) {
+        window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+      } else if (filename.endsWith('.pdf')) {
+        window.location.href = `Content?filename=${encodeURIComponent(filename)}`;
+      }
+      else {
+        console.error("Unsupported file format.");
+      }
+    }
+    // Call the initialize function to display the filenames
+    initialize();
+  </script>
+</body>
+
+</html>

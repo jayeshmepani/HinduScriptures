@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Hindu Scriptures</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        :root {
+            --primary-color: #45a049;
+            --secondary-color: #7c4dff;
+            --background-gradient: linear-gradient(135deg, #5e35b1 0%, #3949ab 100%);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            /* Hide scrollbar for Firefox */
+            scrollbar-width: none;
+
+            /* Hide scrollbar for IE and Edge */
+            -ms-overflow-style: none;
+        }
+
+        /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-image: linear-gradient(#000733d4, #000833d9), url(images/bg.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100svh;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .input-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .input-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .textarea-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(94, 53, 177, 0.1);
+        }
+
+        .file-upload {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 2px dashed var(--primary-color);
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: var(--secondary-color);
+            background: rgba(94, 53, 177, 0.05);
+        }
+
+        .file-upload i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1.5px);
+        }
+
+        .chat-container {
+            background: rgba(242, 242, 242, 0.95);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--card-shadow);
+            max-height: 95svh;
+            overflow-y: auto;
+            display: none;
+            color: black;
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+        }
+
+        .user-message {
+            background: #63aa4b;
+            padding: 0.5rem;
+            border-radius: 7.5px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-message {
+            background: #e3f2fd;
+            margin-right: 2rem;
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .message-header i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .message-content {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            color: var(--primary-color);
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        li::marker {
+            color: #00000000;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            box-sizing: border-box;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .response-content>ul>table {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #ddd;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .input-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <header class="header">
+            <h1>Explore the Wisdom of Hindu Scriptures and Traditions</h1>
+            <p>Discover ancient knowledge and spiritual insights</p>
+        </header>
+
+        <div class="input-card">
+            <form id="userInputForm" enctype="multipart/form-data">
+                <div class="textarea-wrapper">
+                    <textarea id="userInput"
+                        placeholder="Ask about scriptures, traditions, or anything related to Hinduism..."
+                        required></textarea>
+                </div>
+
+                <label class="file-upload" for="imageInput">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <div class="file-upload-label">
+                        <strong>Choose an image</strong>
+                        <p>or drag and drop here</p>
+                    </div>
+                    <input type="file" id="imageInput" name="image" accept="image/*" />
+                </label>
+
+                <button type="submit" id="askButton" class="submit-btn">
+                    <i class="fas fa-search"></i> Explore
+                </button>
+            </form>
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> This AI provides responses based on its trained data, not the specific
+                    texts or sources available on this platform, and may not always be accurate. For reliable
+                    information, please refer to the original scriptures and authoritative texts hosted here.</p>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <i class="fas fa-spinner"></i> Processing your question...
+        </div>
+
+        <div id="chat-log" class="chat-container" aria-live="polite" style="display: none;">
+            <!-- Messages will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('userInputForm').classList.remove('normal');
+        });
+
+        document.getElementById('userInputForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const userInput = document.getElementById('userInput').value;
+            const imageInput = document.getElementById('imageInput').files[0];
+
+            if (!userInput && !imageInput) return;
+
+            document.getElementById('loading').style.display = 'block';
+
+            const chatLog = document.getElementById('chat-log');
+            const userMessage = `<div class="user-message"><strong>You:</strong> ${userInput}</div><br>`;
+
+            chatLog.style.display = 'block';
+            chatLog.innerHTML += userMessage;
+
+            document.getElementById('userInputForm').classList.add('normal');
+
+            if (imageInput) {
+                const imageUrl = URL.createObjectURL(imageInput);
+                const imageMessage = `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 50%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div><br>`;
+                chatLog.innerHTML += imageMessage;
+            }
+
+            const formData = new FormData();
+            formData.append('prompt', userInput);
+            if (imageInput) {
+                formData.append('image', imageInput);
+            }
+
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    const answerMessage = `
+                        <div class="response-message">
+                            <strong>AI Scholar:</strong>
+                            <div class="response-content">${formatResponse(data.answer)}</div>
+                        </div>
+                    `;
+                    chatLog.innerHTML += answerMessage;
+                } else {
+                    chatLog.innerHTML += `<div class="error-message">Error: ${data.error || 'Failed to get response.'}</div>`;
+                }
+            } catch (error) {
+                chatLog.innerHTML += `<div class="error-message">Error: Failed to get response.</div>`;
+            }
+
+            document.getElementById('userInput').value = '';
+            document.getElementById('imageInput').value = '';
+            document.getElementById('loading').style.display = 'none';
+            chatLog.scrollTop = chatLog.scrollHeight;
+        });
+
+        document.getElementById('imageInput').addEventListener('change', (e) => {
+            updateFileLabel(e.target.files.length > 0 ? e.target.files[0].name : null);
+        });
+
+        function handleDragAndDrop() {
+            const fileUpload = document.querySelector('.file-upload');
+            const fileInput = document.getElementById('imageInput');
+
+            fileUpload.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUpload.style.borderColor = 'var(--primary-color)';
+                fileUpload.style.background = 'rgba(94, 53, 177, 0.05)';
+            });
+
+            fileUpload.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                fileUpload.style.borderColor = '#e0e0e0';
+                fileUpload.style.background = 'transparent';
+            });
+
+            fileUpload.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const files = e.dataTransfer.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    fileInput.files = files;
+                    updateFileLabel(files[0].name);
+                }
+            });
+        }
+
+        handleDragAndDrop();
+
+        function updateFileLabel(filename = null) {
+            const label = document.querySelector('.file-upload-label');
+            if (filename) {
+                label.innerHTML = `<strong>Selected file:</strong><p>${filename}</p>`;
+            } else {
+                label.innerHTML = `<strong>Choose an image</strong><p>or drag and drop here</p>`;
+            }
+        }
+
+        function formatResponse(text) {
+            console.log("Raw unformatted text:", text);
+
+            // Add a newline before each numbered item for consistent formatting
+            text = text.replace(/(\d+)\.\s/g, '\n$1. ');
+
+            text = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            let formattedText = text
+                .replace(/(.*?)\:\s/g, '<strong>$1:</strong>')
+                // .replace(/\n/g, '<br/>')
+                .replace(/\n{2,}/g, '<br/><br/>')  // Replace 2 or more newlines with 2 <br> tags
+                .replace(/^\*\s/gm, '<li>')
+                .replace(/<\/li><br\/>/g, '</li>')
+                .replace(/<li><strong>(.*?)<\/strong><\/li>/g, '<li>$1</li>')
+                .replace(/<\/li>\s*<li>/g, '</li><li>')
+
+               // .replace(/(\d+)\.\s(.*?)(?=\n|$)/g, '<li>$2</li>') // Format each numbered item as a <li>
+               // .replace(/\n+/g, ''); // Remove extra newlines
+
+            formattedText = `<ul>${formattedText}</ul>`;
+            formattedText = formattedText.replace(/\* /g, '<li>') + '</li>';
+
+            return formattedText;
+        }
+    </script>
+</body>
+
+</html>
