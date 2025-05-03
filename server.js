@@ -526,7 +526,7 @@ app.get('/search', async (req, res) => {
 
               html {
                   background-image: linear-gradient(hsl(246deg 97% 7%), hsl(279deg 97% 9%));
-                  min-height: 100svh;
+                  min-height: 100dvh;
               }
           </style>
       </head>
@@ -620,7 +620,7 @@ app.get('/browse', (req, res) => {
 
                   html{
                       background-image: linear-gradient(hsl(246deg 97% 7%), hsl(279deg 97% 9%));
-                      min-height: 100svh;
+                      min-height: 100dvh;
                   }
               </style>
           </head>
