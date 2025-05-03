@@ -37,12 +37,8 @@
       gap: 0.7rem;
       width: min(85%, 600px);
 
-      li {
-        display: block;
-
-        a {
-          display: contents !important;
-        }
+      &:has(li) li {
+        display: contents !important;
       }
 
       li,
