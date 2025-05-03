@@ -3,173 +3,221 @@ const cors = require('cors');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
 require('dotenv').config();
+
+const { GoogleGenAI } = require('@google/genai');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// === SECURITY HEADERS & CORS ===
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
     "script-src 'unsafe-inline' 'unsafe-eval' * data: blob: filesystem:;" +
     "default-src *;" +
     "connect-src *;" +
-    "img-src * data:;" +
+    "img-src * data: blob:;" +
     "frame-src *;" +
     "style-src * 'unsafe-inline';" +
     "font-src * data:;" +
     "media-src *"
   );
-  next();
-});
-
-// Use CORS middleware
-app.use(cors());
-
-// Setting up Cross-Origin Resource Policy (CORP) and Cross-Origin Embedder Policy (COEP)
-app.use((req, res, next) => {
-  // Allow cross-origin resources if the resource is from a different origin
   res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-
-  // Allow resources from any domain (use cautiously)
   res.setHeader('Cross-Origin-Embedder-Policy', 'unsafe-none');
-
   next();
 });
-
-// Middleware to serve static files
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
-// Store API keys in an array for dynamic usage
-const apiKeys = [
+const upload = multer({ dest: 'uploads/' });
+
+// === API KEY ROTATION ===
+const API_KEYS = [
   process.env.GEMINI_API_KEY1,
   process.env.GEMINI_API_KEY2,
   process.env.GEMINI_API_KEY3,
   process.env.GEMINI_API_KEY4,
   process.env.GEMINI_API_KEY5,
+].filter(Boolean);
+
+if (!API_KEYS.length) {
+  console.error('No Gemini API keys provided. Set GEMINI_API_KEY1…5 in your .env');
+  process.exit(1);
+}
+
+let keyIndex = 0;
+function getNextApiKey() {
+  const key = API_KEYS[keyIndex];
+  keyIndex = (keyIndex + 1) % API_KEYS.length;
+  return key;
+}
+
+const tools = [
+  { googleSearch: {} },
 ];
 
-// Temporary store for used keys for the current day
-let usedKeysToday = [];
+// === SYSTEM INSTRUCTION ===
+const SYSTEM_INSTRUCTION = `
+You are a deeply insightful and traditionally trained scholar of Hinduism, Sanātana Dharma, and all its associated sacred knowledge systems. Your expertise spans both **Vedic** and **post-Vedic traditions**, embracing the full depth of **śruti**, **smṛti**, **tantra**, **oral traditions**, and **devotional literature**. You possess mastery in a vast range of disciplines, including but not limited to the following:
 
-// Function to get a random API key
-function getRandomApiKey(usedKeys = []) {
-  const validKeys = apiKeys.filter(key => key && !usedKeys.includes(key)); // Remove undefined, empty, or already used keys
-  if (validKeys.length === 0) {
-    throw new Error("No valid API keys available.");
-  }
-  const randomIndex = Math.floor(Math.random() * validKeys.length);
-  console.log("Selected API Key:", validKeys[randomIndex]); // Log the selected key for debugging
-  return validKeys[randomIndex];
-}
+- **Vedas and Upavedas**: Ṛgveda, Yajurveda, Sāmaveda, Atharvaveda; Ayurveda, Dhanurveda, Gāndharvaveda, Arthashāstra, and more.
+- **Vedāṅgas and Upāṅgas**: Śikṣā (phonetics), Kalpa (rituals), Vyākaraṇa (grammar), Nirukta (etymology), Chandas (prosody), Jyotiṣa (astronomy); Itihāsa, Purāṇa, Nyāya, Dharmaśāstra, and others.
+- **Smṛti and Upa-Smṛti texts**: Manu Smṛti, Yājñavalkya Smṛti, and other lesser-known dharma texts.
+- **Purāṇas, Upa-Purāṇas, Ati-Purāṇas**: Covers all 18 Mahāpurāṇas, Upa-purāṇas like Nāradīya, Saura, Bhaviṣya, and regional or sectarian Ati-purāṇas.
+- **Itihāsas**: Mahābhārata (incl. Harivaṁśa) and the complete **Rāmāyaṇa corpus**, including:
+  - Vālmīki Rāmāyaṇa, Adbhuta Rāmāyaṇa, Ādhyātma Rāmāyaṇa, Rāmcaritmānas, Bhūṣuṇḍī Rāmāyaṇa, Ānanda Rāmāyaṇa, Yoga Vāsiṣṭha, Brahma Rāmāyaṇa, Mantra Rāmāyaṇa, Satyopākhyāna, and others.
+- **All known Gītās** (70+): Bhagavad Gītā, Anu Gītā, Ashtāvakra Gītā, Ailagītā, Aśvaghoṣa Gītā, Agastya Gītā, Aajgar Gītā, and others from Purāṇas and Itihāsas.
+- **Darśanas (Philosophical Systems)**: Vedānta, Sāṅkhya, Nyāya, Vaiśeṣika, Yoga, Pūrva Mīmāṁsā — both classical and applied.
+- **Sanskrit grammar, linguistics, etymology**, and Devanāgarī-based dialects.
+- **Rituals and Karma-kāṇḍa**: Śrauta and Smārta practices, Saṁskāras (sacraments), Yajñas, Pūjās, Vratas, Utsavas (festivals), and other ceremonial rites.
+- **Devotional Literature**: Stotras, Stutis, Aṣṭakas, Āratis, Nāmāvalīs, Kavacas, Chalisās, Bhajans, Harikathās (narratives), and other forms of devotional texts.
+- **Iconography, Yantras, Maṇḍalas, Cosmology**, and **Vāstuśāstra** (science of architecture and spatial arrangement).
+- **Tantra-āgama traditions**: Śaiva, Śākta, Vaiṣṇava āgamas and their associated ritual and philosophical content.
+- **Lineages of ṛṣis, āchāryas, sants, and sampradāyas**: Including classical, Bhakti, modern, and contemporary thinkers and teachers.
+- **Oral traditions**, regional recensions, ślokas, śākhās (branches of Vedic study), and recitational customs.
 
-// Function to create a new GoogleGenerativeAI instance
-function createGoogleGenerativeAI(apiKey) {
-  return new GoogleGenerativeAI(apiKey);
-}
 
-// Reset the used keys at the start of each day (you can use a cron job or setInterval for this)
-function resetUsedKeys() {
-  usedKeysToday = []; // Clear the list of used keys
-}
+### Strict HTML-Only Output
 
-// Set up a daily reset (this is just an example; adjust the timing as needed)
-setInterval(() => {
-  resetUsedKeys(); // This will reset the used keys list at midnight
-}, 24 * 60 * 60 * 1000); // Reset every 24 hours (86400000 milliseconds)
+1. **No Markdown or stray asterisks**: All emphasis must use <strong> or <em> tags. Do not use *, **, _, or backticks.
+2. **Paragraphs**: Wrap text blocks in <p>…</p>.
+3. **Headings**: Use <h3>…</h3> for main sections.
+4. **Lists**:
 
-// Set up multer for file uploads
-const upload = multer({ dest: 'uploads/' });
+   * Ordered lists: <ol><li>…</li></ol>
+   * Unordered lists: <ul><li>…</li></ul>
+5. **Line breaks** (<br/>):
 
-// Function to convert file to generative part
-function fileToGenerativePart(filePath, mimeType) {
+   * **0 times** inside a <p>…</p>.
+   * **1** <br/> between consecutive <p> blocks.
+   * **2** <br/> before each <h3> or <table> block to clearly separate major sections.
+
+### Response Guidelines:
+
+1. **Comprehensiveness**
+   Answers must be **detailed**, **structured**, and **deeply insightful**, drawing fully from scholarly and scriptural sources. Use layered explanations for students and advanced practitioners.
+
+2. **Use of Sanskrit**
+   Integrate **Sanskrit terms** with transliteration and etymology. Highlight them with '<em>' or '<strong>' as appropriate.
+
+3. **Comparison Queries**
+   For “difference between” or comparative questions, present the comparison in an HTML '<table>' with headers and rows clearly distinguishing each item.
+
+4. **Refusal of Irrelevant Queries**
+   If the question lies outside Hindu/Sanātana Dharma domains, respond with a single HTML paragraph:
+   '<p>This question lies outside the domain of Sanātana Dharma, Hinduism, or its associated knowledge systems. Kindly ask something within this sacred context.</p>'
+
+5. **Line Break Usage**
+   Use '<br/>' **exactly** as follows:
+   * **0 times** between inline elements (e.g., within a paragraph).
+   * **1 time** between consecutive paragraphs ('<p>' blocks).
+   * **2 times** between major sections or before headings ('<h3>' or '<table>').
+`;
+
+
+
+// === IMAGE PROMPT SPLIT FOR HISTORY ===
+function buildImagePromptPart() {
   return {
-    inlineData: {
-      data: Buffer.from(fs.readFileSync(filePath)).toString('base64'),
-      mimeType,
-    },
+    text: `
+Carefully analyze the image in full detail.
+
+Extract all visible content, including but not limited to:
+
+- Text (Sanskrit, Hindi, or English)
+- Lists or tabulated data
+- Symbols, mantras, yantras, charts, or illustrations
+- Diagrams, deities, astrological or cosmological figures
+- Numbered elements, headings, or marked sections
+- Handwritten or printed annotations
+
+Present this extracted content in a clear, structured format (use bullet points, numbered lists, or tables where appropriate).
+
+Offer an in-depth interpretation or explanation of the content, guided by its cultural, scriptural, or historical relevance.
+
+If the image pertains to:
+
+- Jyotisha: Identify the chart type, planetary positions, and dasha or drishti systems if visible.
+- Scripture or Shloka: Translate the text and provide meanings, grammatical breakdown, and context.
+- Iconography or Mandala/Yantra: Describe symbolism, scriptural references, and significance in practice or worship.
+- Temple architecture: Explain layout, sculptures, inscriptions, or rituals related to what is shown.
+
+Add references to Shastra, where possible, and Sanskrit terminology with meanings for authenticity.
+
+Guiding Principles:
+- Be thorough and scholarly; avoid assumptions not grounded in visible data.
+- Maintain discipline-specific terminology (especially from Sanskrit/Hindu studies).
+- Politely refuse to interpret images outside the above knowledge systems with:
+  “This image lies outside the domain of Hindu knowledge systems, Sanskrit studies, or related dharmic traditions. Please provide an image within that scope.”`
   };
 }
 
-// Function to interact with the AI model based on user prompt and image
+// === CORE: getResponseToUserPrompt ===
 async function getResponseToUserPrompt(userInput, imagePath, history = []) {
-  try {
-    // If an image is uploaded, convert it and add to history
-    if (imagePath) {
-      const imagePart = fileToGenerativePart(imagePath, 'image/jpeg');
-      history.push({
-        role: 'user',
-        parts: [
-          {
-            text: `Default Instructional Prompt: Please analyze the provided image thoroughly first and extract all visible content (such as text, lists, symbols, diagrams, illustrations, or any other relevant details) accurately. Once the extraction is complete, present the extracted content in full detail. After that, generate an in-depth, detailed response or insights based on the extracted content, correlating it with the context and relevant interpretations or references.`
-          },
-          imagePart
-        ],
+  // 1) Push image part if exists
+  if (imagePath) {
+    const mimeType = 'image/jpeg';
+    const data = fs.readFileSync(imagePath);
+    const base64 = data.toString('base64');
+    history.push({ role: 'user', parts: [buildImagePromptPart(), { inlineData: { mimeType, data: base64 } }] });
+  }
+
+  // 2) Push text input
+  if (userInput && userInput.trim()) {
+    history.push({ role: 'user', parts: [{ text: userInput }] });
+  }
+
+  let answer = null;
+
+  // 3) Rotate through API keys until success
+  for (let i = 0; i < API_KEYS.length; i++) {
+    const apiKey = getNextApiKey();
+    const ai = new GoogleGenAI({ apiKey });
+
+    try {
+      // Create chat session with system instruction
+      const chat = await ai.chats.create({
+        model: 'gemini-2.5-flash-preview-04-17',
+        config: { systemInstruction: SYSTEM_INSTRUCTION, tools },
+        history,  // pass accumulated history
       });
-    }
 
-    // If user input is provided, add it to history
-    if (userInput && userInput.trim() !== '') {
-      history.push({
-        role: 'user',
-        parts: [
-          { text: userInput }
-        ],
-      });
-    }
-
-    // Get a random API key that hasn't been used yet
-    const apiKey = getRandomApiKey();
-    const genAI = createGoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-pro',
-      systemInstruction: "- Acts as a scholar with deep-rooted knowledge and insights into Hinduism, Sanatan Dharma, Sanskrit, and other Devanagari languages and dialects, exploring the wisdom of Hindu scriptures and traditions.\n- Provides comprehensive and insightful responses to inquiries related to these topics.\n- Does not respond to prompts or inputs that are not related to these topics.\n- If the user asks a comparison or difference-type question/query, respond with the answer in a table format using HTML. This formatting is applied only for comparison or difference-related questions/queries, not for other general inquiries.",
-    });
-
-    // Start a chat session with the AI model
-    const chatSession = model.startChat({ history });
-    const result = await chatSession.sendMessage(userInput || '');
-
-    return result.response.text(); // Return AI response
-  } catch (error) {
-    console.error("Error:", error);
-
-    // Check if error is due to rate limit and retry with another key
-    if (error.status === 429) {
-      const errorDetails = error.details || {}; // Safely handle missing details
-      const apiKey = errorDetails.apiKey || 'Unknown API Key'; // Handle undefined apiKey
-      console.error(`Rate limit exceeded for API key: ${apiKey}`);
-
-      // Retry with another key
-      return getResponseToUserPrompt(userInput, imagePath, history);
-    } else {
-      // For other errors, re-throw them
-      throw error;
+      // Send the latest user message
+      const lastParts = history[history.length - 1].parts;
+      const resp = await chat.sendMessage({ message: { parts: lastParts } });
+      answer = resp.text;
+      break;
+    } catch (err) {
+      // on 429, continue to next key
+      if (err.code === 429 || err.status === 429 || (err.message || '').includes('429')) {
+        console.warn(`Key rate-limited, trying next key…`);
+        continue;
+      }
+      throw err;
     }
   }
+
+  if (answer === null) {
+    throw new Error('All Gemini API keys are rate-limited.');
+  }
+
+  return answer;
 }
 
-
-// Endpoint to handle user questions with optional image upload
+// === ROUTE: /ask ===
 app.post('/ask', upload.single('image'), async (req, res) => {
+  const userInput = req.body.prompt;
+  const imagePath = req.file ? req.file.path : null;
+
   try {
-    const userInput = req.body.prompt; // Extract the user input from the request body
-    const imagePath = req.file ? req.file.path : null; // Get uploaded image path
-
-    // Fetch AI response
-    const response = await getResponseToUserPrompt(userInput, imagePath);
-
-    // If an image was uploaded, delete it after processing
-    if (imagePath) {
-      fs.unlinkSync(imagePath); // Remove the file after processing
-    }
-
-    res.json({ answer: response }); // Send back the response as JSON
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred while processing your request: ' + error.message });
+    const answer = await getResponseToUserPrompt(userInput, imagePath);
+    if (imagePath) fs.unlinkSync(imagePath);
+    res.json({ answer });
+  } catch (err) {
+    console.error('Error processing /ask:', err);
+    res.status(500).json({ error: err.message });
   }
 });
 

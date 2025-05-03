@@ -164,6 +164,12 @@
             overflow-y: auto;
             display: none;
             color: black;
+            list-style-position: inside;
+
+            li::marker {
+                font-weight: 500;
+            }
+
         }
 
         .message {
@@ -214,9 +220,9 @@
             animation: spin 1s linear infinite;
         }
 
-        li::marker {
+        /*li::marker {
             color: #00000000;
-        }
+        }*/
 
         table {
             border-collapse: collapse;
@@ -338,7 +344,8 @@
 
             if (imageInput) {
                 const imageUrl = URL.createObjectURL(imageInput);
-                const imageMessage = `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 50%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div><br>`;
+                const imageMessage =
+                    `<div class="user-message"><strong>Uploaded Image:</strong> <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 50%; height: auto; margin-top: 5px;"/><br/><strong>Filename:</strong> ${imageInput.name}</div><br>`;
                 chatLog.innerHTML += imageMessage;
             }
 
@@ -358,13 +365,13 @@
                 if (response.ok) {
                     const answerMessage = `
                         <div class="response-message">
-                            <strong>AI Scholar:</strong>
                             <div class="response-content">${formatResponse(data.answer)}</div>
-                        </div>
+                        </div><br><br>
                     `;
                     chatLog.innerHTML += answerMessage;
                 } else {
-                    chatLog.innerHTML += `<div class="error-message">Error: ${data.error || 'Failed to get response.'}</div>`;
+                    chatLog.innerHTML +=
+                        `<div class="error-message">Error: ${data.error || 'Failed to get response.'}</div>`;
                 }
             } catch (error) {
                 chatLog.innerHTML += `<div class="error-message">Error: Failed to get response.</div>`;
@@ -417,33 +424,13 @@
             }
         }
 
-        function formatResponse(text) {
-            console.log("Raw unformatted text:", text);
-
-            // Add a newline before each numbered item for consistent formatting
-            text = text.replace(/(\d+)\.\s/g, '\n$1. ');
-
-            text = text
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-            let formattedText = text
-                .replace(/(.*?)\:\s/g, '<strong>$1:</strong>')
-                // .replace(/\n/g, '<br/>')
-                .replace(/\n{2,}/g, '<br/><br/>')  // Replace 2 or more newlines with 2 <br> tags
-                .replace(/^\*\s/gm, '<li>')
-                .replace(/<\/li><br\/>/g, '</li>')
-                .replace(/<li><strong>(.*?)<\/strong><\/li>/g, '<li>$1</li>')
-                .replace(/<\/li>\s*<li>/g, '</li><li>')
-
-               // .replace(/(\d+)\.\s(.*?)(?=\n|$)/g, '<li>$2</li>') // Format each numbered item as a <li>
-               // .replace(/\n+/g, ''); // Remove extra newlines
-
-            formattedText = `<ul>${formattedText}</ul>`;
-            formattedText = formattedText.replace(/\* /g, '<li>') + '</li>';
-
-            return formattedText;
+        function formatResponse(response) {
+            // The AI is already returning a fully formed HTML fragment.
+            // We simply return it as-is, so the browser can render it.
+            console.log(response);
+            return response;
         }
+
     </script>
 </body>
 
