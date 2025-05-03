@@ -95,6 +95,27 @@
                 margin: 0 auto;
             }
         }
+
+        #ati-puranas {
+            width: 90%;
+            display: grid;
+            justify-content: left;
+            margin-bottom: 2rem;
+
+            h2 {
+                width: 100%;
+            }
+
+            li {
+                display: revert !important;
+                color: #ddd;
+                list-style-position: inside;
+
+                &::marker {
+                    color: #ddd;
+                }
+            }
+        }
     </style>
 </head>
 
@@ -508,8 +529,8 @@
             </tbody>
         </table>
         <br><br>
-        <div style="padding-left:1.1rem; position: relative;color: #ddd; margin-right: 100%;width: max-content;">
-            <h2 style="padding-left:1.3rem">Ati-Puranas:</h2><br>
+        <div id="ati-puranas">
+            <h2>Ati-Puranas:</h2><br>
             <ol>
                 <li>Bṛihaddharma Purāṇa</li>
                 <li>Ṣivarahasya Purāṇa</li>
