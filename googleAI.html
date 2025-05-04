@@ -81,7 +81,7 @@
             transition: padding-bottom var(--transition-speed) ease-out;
 
             &:has(div#loading[style="display: flex;"]) {
-                #chat-log{
+                #chat-log {
                     max-height: 75%;
                 }
             }
@@ -311,6 +311,10 @@
             gap: 1rem;
             position: fixed;
             bottom: 8rem;
+
+            @media (width<768px) {
+                bottom: 9rem;
+            }
 
             span {
                 color: var(--accent-color);
@@ -739,6 +743,7 @@
                     &.file-selected {
                         background: rgba(76, 175, 80, 0.2);
                         anchor-name: --ref;
+                        align-items: center;
                     }
                 }
 
@@ -773,7 +778,7 @@
             }
         }
 
-        .fa-pen-to-square{
+        .fa-pen-to-square {
             font-weight: 900;
             position: absolute;
             left: 1rem;
@@ -783,8 +788,8 @@
             font-size: 1.1rem;
             transition: color var(--transition-speed);
 
-            body.is-chat-active &{
-                display:none;
+            body.is-chat-active & {
+                display: none;
             }
         }
 
@@ -1000,7 +1005,7 @@
     </div>
 
     <script src="/fontawesome.min.js" defer></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
