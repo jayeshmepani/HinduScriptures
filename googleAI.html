@@ -15,10 +15,8 @@
             --secondary-color: #2575fc;
             --accent-color: #ffcb6b;
             --text-light: #f0f0f5;
-            --text-dark: #333;
             --text-muted: hsl(0, 0%, 67%);
             --bg-light-alpha: rgba(255, 255, 255, 0.1);
-            --bg-light-solid: #ffffff;
             --bg-dark-alpha: rgba(10, 20, 40, 0.8);
             --bg-user-msg: linear-gradient(135deg, rgba(37, 117, 252, 0.2), rgba(106, 17, 203, 0.2));
             --bg-ai-msg: rgba(255, 255, 255, 0.08);
@@ -33,8 +31,6 @@
             --border-radius-lg: 1rem;
             --transition-speed: 0.3s;
             --cubic-bezier: cubic-bezier(0.25, 0.8, 0.25, 1);
-
-            interpolate-size: allow-keywords;
         }
 
         *,
@@ -453,6 +449,10 @@
             @media (width < 768px) {
                 margin-inline: .5rem;
             }
+
+            @media (width < 480px) {
+                width: calc(100% - 1rem);
+            }
         }
 
         .message {
@@ -554,7 +554,7 @@
                 height: auto;
                 opacity: 1;
                 visibility: visible;
-                overflow: hidden;
+                overflow-y: hidden;
                 transform-origin: top center;
                 transition: all 1.5s ease-in allow-discrete;
 
@@ -614,10 +614,14 @@
                     }
                 }
 
+                .table-wrapper {
+                    overflow-x: auto;
+                    margin: 1rem 0;
+                }
+
                 table {
                     width: 100%;
                     border-collapse: collapse;
-                    margin: 1rem 0;
                     font-size: 0.95em;
 
                     th,
@@ -828,7 +832,7 @@
             }
 
             .message {
-                max-width: 95%;
+                max-width: 100%;
             }
 
             .textarea-wrapper textarea {
@@ -890,12 +894,6 @@
                 p {
                     font-size: 0.9rem;
                 }
-            }
-
-            .file-upload {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
             }
 
             .file-upload-label {
@@ -1009,7 +1007,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
-            const container = document.getElementById('container');
             const form = document.getElementById('userInputForm');
             const userInput = document.getElementById('userInput');
             const imageInput = document.getElementById('imageInput');
@@ -1150,6 +1147,19 @@
                 }
 
                 chatLog.appendChild(messageDiv);
+
+                if (type === 'ai') {
+                    const bubble = messageDiv.querySelector('.message-bubble');
+                    if (bubble) {
+                        const tables = bubble.querySelectorAll('table');
+                        tables.forEach(table => {
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'table-wrapper';
+                            table.parentNode.insertBefore(wrapper, table);
+                            wrapper.appendChild(table);
+                        });
+                    }
+                }
                 scrollToBottom();
             }
 
@@ -1157,13 +1167,6 @@
                 if (!body.classList.contains('is-chat-active')) {
                     body.classList.add('is-chat-active');
                     if (submitButtonText) submitButtonText.style.display = 'none';
-                }
-            }
-
-            function deactivateChatMode() {
-                if (body.classList.contains('is-chat-active')) {
-                    body.classList.remove('is-chat-active');
-                    if (submitButtonText) submitButtonText.style.display = 'inline';
                 }
             }
 
