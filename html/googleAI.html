@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Hindu Scriptures AI</title>
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/googleAI.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+</head>
+
+<body>
+    <div id="container" class="container">
+        <header class="header">
+            <h1>Explore the Wisdom of Hindu Scriptures and Traditions</h1>
+            <p>Explore Hindu scriptures & traditions through AI conversation</p>
+        </header>
+
+        <div class="input-card glass-card">
+            <form id="userInputForm" enctype="multipart/form-data">
+                <div class="textarea-wrapper">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <textarea id="userInput"
+                        placeholder="Ask about dharma, a specific verse, a festival, or upload an image..."></textarea>
+                </div>
+
+                <label class="file-upload" for="imageInput" id="fileUploadArea">
+                    <i class="fa-solid fa-image"></i>
+                    <div class="file-upload-label" id="fileUploadLabel">
+                        <strong>Upload an Image (Optional)</strong>
+                        <p>Drag & drop or click to choose</p>
+                    </div>
+                    <input type="file" id="imageInput" name="image" accept="image/*" />
+                </label>
+
+                <button type="submit" id="askButton" class="submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i> <span class="submit-btn-text">Send Inquiry</span>
+                </button>
+            </form>
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> AI responses are generated based on trained data and may not reflect the
+                    full nuance or specific interpretations found on this platform. Always consult original texts for
+                    authoritative understanding.</p>
+            </div>
+        </div>
+
+        <div class="loader-container" id="loading" style="display: none;">
+            <div class="spinner">
+                <div class="sphere-core"></div>
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+            </div>
+            <span>Invoking scholarly insight...</span>
+        </div>
+
+        <div id="chat-log" class="chat-container" aria-live="polite" style="display: none;">
+        </div>
+    </div>
+
+    <script src="/js/fontawesome.min.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const form = document.getElementById('userInputForm');
+            const userInput = document.getElementById('userInput');
+            const imageInput = document.getElementById('imageInput');
+            const chatLog = document.getElementById('chat-log');
+            const loadingIndicator = document.getElementById('loading');
+            const fileUploadArea = document.getElementById('fileUploadArea');
+            const fileUploadLabel = document.getElementById('fileUploadLabel');
+            const submitButtonText = form.querySelector('.submit-btn-text');
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const userText = userInput.value.trim();
+                const imageFile = imageInput.files[0];
+
+                if (!userText && !imageFile) {
+                    userInput.focus();
+                    userInput.style.borderColor = 'var(--error-color)';
+                    setTimeout(() => { userInput.style.borderColor = ''; }, 2000);
+                    return;
+                }
+
+                loadingIndicator.style.display = 'flex';
+                chatLog.style.display = 'flex';
+                activateChatMode();
+
+                let userMessageHTML = '';
+                if (userText) {
+                    userMessageHTML += `<strong>You:</strong> ${escapeHTML(userText)}`;
+                }
+                if (imageFile) {
+                    const imageUrl = URL.createObjectURL(imageFile);
+                    if (userText) userMessageHTML += '<br/>';
+                    userMessageHTML += `
+                        <img src="${imageUrl}" alt="Uploaded Image: ${escapeHTML(imageFile.name)}" style="max-width: 100%; max-height: 250px; height: auto; margin-top: 8px; border-radius: 4px; display: block;" />
+                        <span class="image-caption">Uploaded: ${escapeHTML(imageFile.name)}</span>
+                    `;
+                }
+
+                appendMessage(userMessageHTML, 'user');
+
+                userInput.value = '';
+                imageInput.value = '';
+                updateFileLabel();
+
+
+                const formData = new FormData();
+                if (userText) formData.append('prompt', userText);
+                if (imageFile) formData.append('image', imageFile);
+
+                try {
+                    const response = await fetch('/ask', {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok && data.answer) {
+                        appendMessage(formatResponse(data.answer), 'ai');
+                    } else {
+                        const errorMessage = data.error || 'Sorry, an error occurred while fetching the response.';
+                        appendMessage(escapeHTML(errorMessage), 'error');
+                    }
+                } catch (error) {
+                    console.error('Fetch Error:', error);
+                    appendMessage('Failed to connect to the server. Please try again later.', 'error');
+                } finally {
+                    loadingIndicator.style.display = 'none';
+                    scrollToBottom();
+                    userInput.focus();
+                }
+            });
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                fileUploadArea.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                fileUploadArea.addEventListener(eventName, () => fileUploadArea.classList.add('drag-over'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                fileUploadArea.addEventListener(eventName, () => fileUploadArea.classList.remove('drag-over'), false);
+            });
+
+            fileUploadArea.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    imageInput.files = files;
+                    updateFileLabel(files[0].name);
+                }
+            }, false);
+
+            imageInput.addEventListener('change', (e) => {
+                updateFileLabel(e.target.files.length > 0 ? e.target.files[0].name : null);
+            });
+
+            function updateFileLabel(filename = null) {
+                if (filename) {
+                    fileUploadLabel.innerHTML = `
+                        <strong>File Selected:</strong>
+                        <p>${escapeHTML(filename)}</p>`;
+                    fileUploadArea.classList.add('file-selected');
+                } else {
+                    fileUploadLabel.innerHTML = `
+                        <strong>Upload an Image (Optional)</strong>
+                        <p>Drag & drop or click to choose</p>`;
+                    fileUploadArea.classList.remove('file-selected');
+                }
+            }
+
+            function appendMessage(content, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+
+                if (type === 'user') {
+                    messageDiv.classList.add('user-message');
+                    messageDiv.innerHTML = `
+                        <div class="message-bubble">${content}</div>
+                        <div class="message-avatar"><i class="fa-solid fa-user"></i></div>
+                    `;
+                } else if (type === 'ai') {
+                    messageDiv.classList.add('ai-message');
+                    messageDiv.innerHTML = `
+                         <div class="message-avatar"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                         <div class="message-bubble">${content}</div>
+                    `;
+                } else if (type === 'error') {
+                    messageDiv.classList.add('error-message');
+                    messageDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${content}`;
+                }
+
+                chatLog.appendChild(messageDiv);
+
+                if (type === 'ai') {
+                    const bubble = messageDiv.querySelector('.message-bubble');
+                    if (bubble) {
+                        const tables = bubble.querySelectorAll('table');
+                        tables.forEach(table => {
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'table-wrapper';
+                            table.parentNode.insertBefore(wrapper, table);
+                            wrapper.appendChild(table);
+                        });
+                    }
+                }
+                scrollToBottom();
+            }
+
+            function activateChatMode() {
+                if (!body.classList.contains('is-chat-active')) {
+                    body.classList.add('is-chat-active');
+                    if (submitButtonText) submitButtonText.style.display = 'none';
+                }
+            }
+
+            function scrollToBottom() {
+                setTimeout(() => {
+                    chatLog.scrollTop = chatLog.scrollHeight;
+                }, 50);
+            }
+
+            function formatResponse(response) {
+                return response;
+            }
+
+            function escapeHTML(str) {
+                const div = document.createElement('div');
+                div.appendChild(document.createTextNode(str));
+                return div.innerHTML;
+            }
+
+            userInput.addEventListener('input', () => {
+                if (body.classList.contains('is-chat-active')) {
+                    userInput.style.height = 'auto';
+                    let newHeight = userInput.scrollHeight;
+                    userInput.style.height = `${newHeight}px`;
+                } else {
+                    userInput.style.height = '';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

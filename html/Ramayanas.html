@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramayanas</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/download.png">
+
+  <style>
+    .Ramayanas {
+      display: grid;
+      gap: 1rem;
+      width: min(100%, 600px);
+      margin: 2rem auto;
+      font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+      a {
+        text-decoration: none;
+        color: rgba(255, 217, 0, 0.91);
+
+        &:hover {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          display: block;
+        }
+      }
+    }
+
+    ol#RamayanasList {
+      display: grid;
+      gap: 0.7rem;
+      width: min(85%, 600px);
+      color: rgba(255, 217, 0, 0.91);
+
+      li {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 217, 0, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0;
+        padding: 0.7rem;
+        display: block;
+
+        &:hover {
+          padding: 0.55rem;
+          background-color: rgba(255, 217, 0, 0.2);
+          border-color: rgba(255, 217, 0, 0.7);
+          transform: scale(1.05);
+          -webkit-backdrop-filter: blur(1rem) saturate(222%);
+          backdrop-filter: blur(1rem) saturate(222%);
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Ramayanas">
+      <ol id="RamayanasList">
+        <li><a href="ramayanaKandaList">Valmiki Ramayana</a></li>
+        <li><a href="adbhutRamayana">Adbhuta Ramayana</a></li>
+        <li><a href="adhyatmaRamayana">Adhyatma Ramayana</a></li>
+        <li><a href="Ramcharitmanas">Ramcharitmanas</a></li>
+        <li><a href="YogaVasistha">Yoga Vasistha</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    // List of filenames to exclude
+    const excludedFiles = ['AdhyatmaRamayanaBook', 'AdbhutRamayanBook'];
+
+    // Function to fetch main PDF filenames
+    async function fetchMainPdfs() {
+      const response = await fetch('/fetchMainPdfsRamayanas');
+      if (!response.ok) {
+        console.error('Error fetching main PDFs:', response.statusText);
+        return [];
+      }
+      const pdfs = await response.json();
+      console.log('Fetched PDFs from backend:', pdfs); // Log the fetched files here
+      return pdfs;
+    }
+
+    // Fetch parts for a selected main PDF
+    async function fetchPdfParts(pdfName) {
+      const response = await fetch(`/fetchPdfPartsRamayanas?pdfName=${encodeURIComponent(pdfName)}`);
+      if (!response.ok) {
+        console.error('Error fetching PDF parts:', response.statusText);
+        return [];
+      }
+      return response.json();
+    }
+
+    // Initialize the script to fetch and display main PDFs
+    async function initialize() {
+      const mainPdfs = await fetchMainPdfs();
+      if (!Array.isArray(mainPdfs)) {
+        console.error('Expected an array of main PDFs, got:', mainPdfs);
+        return;
+      }
+
+      const filteredFilenames = mainPdfs.filter(pdf => {
+        // Remove the excluded files
+        return !excludedFiles.includes(pdf);
+      });
+
+      const ramayanasList = document.getElementById("RamayanasList"); // Get the correct list
+
+      filteredFilenames.forEach(pdf => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = "#"; // Placeholder URL, will handle click
+        a.textContent = pdf.replace(".pdf", ""); // Remove the .pdf extension for display
+
+        // Add event listener for when a PDF is clicked
+        a.addEventListener("click", async () => {
+          const parts = await fetchPdfParts(pdf);
+          if (parts.length > 0) {
+            redirectToContent(parts); // Pass the array of parts
+          } else {
+            console.error('No parts found for:', pdf);
+          }
+        });
+
+        li.appendChild(a);
+        ramayanasList.appendChild(li);
+      });
+    }
+
+    // Redirect to content viewing page with all parts
+    function redirectToContent(parts) {
+      const combinedParts = parts.join(','); // Combine parts for URL
+      window.location.href = `book?filename=${encodeURIComponent(combinedParts)}`;
+    }
+
+    // Call the initialize function to display the main PDFs
+    initialize();
+  </script>
+
+</body>
+
+</html>
