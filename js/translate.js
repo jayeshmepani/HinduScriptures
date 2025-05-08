@@ -49,8 +49,8 @@ function initiateTranslation() {
 
     // Generate translation URL
     const extendedUrl = filename
-        ? `${translatedBaseUrl}${currentPath}.html?filename=${encodeURIComponent(filename)}&${additionalParams}`
-        : `${translatedBaseUrl}${currentPath}.html?${additionalParams}`;
+        ? `${translatedBaseUrl}${currentPath}?filename=${encodeURIComponent(filename)}&${additionalParams}`
+        : `${translatedBaseUrl}${currentPath}?${additionalParams}`;
 
     console.log(`Extended URL: ${extendedUrl}`);
     window.open(extendedUrl, '_blank');
