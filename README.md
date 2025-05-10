@@ -27,8 +27,8 @@ Whether you are a lifelong practitioner, a student of religion, or simply curiou
     *   **Sect-Specific Texts**: Resources from traditions like the Swaminarayan Sampradaya.
 *   **Multiple Navigation & Search Methods**:
     *   **Categorized Browsing**: Navigate scriptures via logical groupings on the main page.
-    *   **Sitemap Search & Browse (`/search`, `/browse`)**: Explore the `DharmicData` directory structure directly or search for specific folders/files.
-    *   **AI-Powered Scholar (`/ai`, `/ask`)**: Ask questions in natural language about any aspect of Sanātana Dharma.
+    *   **Sitemap Search & Browse**: Explore the `DharmicData` directory structure directly or search for specific folders/files.
+    *   **AI-Powered Scholar**: Ask questions in natural language about any aspect of Sanātana Dharma.
 *   **Integrated PDF Viewer**:
     *   Read single PDF documents seamlessly within the browser.
     *   Features intuitive page navigation (page number input, arrows, scrolling, touch swipes).
