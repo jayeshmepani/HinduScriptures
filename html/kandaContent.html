@@ -5,115 +5,317 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanda Content</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        * {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        :root {
+            --primary-color: #3b5998;
+            --secondary-color: #8b9dc3;
+            --accent-color: #ffcb6b;
+            --text-light: #f0f0f5;
+            --text-muted: #dfe3ee;
+            --bg-main-start: hsla(225, 50%, 15%, 0.95);
+            --bg-main-end: hsla(230, 60%, 10%, 0.9);
+            --bg-container: rgba(20, 30, 55, 0.85);
+            --bg-element: rgba(30, 45, 70, 0.9);
+            --border-color: rgba(139, 157, 195, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+
+            --min-font-size: 0.8em;
+            --max-font-size: 1.1em;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 0.5vw), var(--max-font-size));
+
+            background: linear-gradient(var(--bg-main-start), var(--bg-main-end)),
+                url('/images/bg.png') center/cover fixed no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100dvh;
+            width: 100%;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 950px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header-controls {
+            background-color: var(--bg-container);
+            padding: 20px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            width: 100%;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+
+            h1#kandaTitle {
+                color: var(--accent-color);
+                text-align: center;
+                margin-top: 0;
+                margin-bottom: 20px;
+                font-size: 2em;
+                font-weight: 600;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            }
+
+            .search-area {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+                align-items: center;
+
+                input[type="search"] {
+                    flex-grow: 1;
+                    padding: 12px 18px;
+                    border-radius: 8px;
+                    border: 1px solid var(--border-color);
+                    background-color: var(--bg-element);
+                    color: var(--text-light);
+                    font-size: 0.95em;
+                    transition: all 0.3s ease;
+
+                    &:focus {
+                        outline: none;
+                        border-color: var(--accent-color);
+                        box-shadow: 0 0 0 3px hsla(43, 100%, 71%, 0.3);
+                        background-color: rgba(40, 55, 80, 0.95);
+                    }
+
+                    &::placeholder {
+                        color: var(--text-muted);
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            .selectors-container {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                .dropdown-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    min-width: 220px;
+                    flex-grow: 1;
+
+                    label {
+                        font-weight: 500;
+                        font-size: 0.9em;
+                        color: var(--accent-color);
+                        opacity: 0.9;
+                    }
+
+                    select {
+                        padding: 12px 15px;
+                        border: 1px solid var(--border-color);
+                        border-radius: 8px;
+                        background-color: var(--bg-element);
+                        color: var(--text-light);
+                        font-size: 0.95em;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        appearance: none;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dfe3ee'%3E%3Cpath fill-rule='evenodd' d='M8 11.293l-4.146-4.147a.5.5 0 0 1 .708-.708L8 9.879l3.438-3.438a.5.5 0 0 1 .707.707L8 11.293z'/%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: right 15px center;
+                        background-size: 16px 12px;
+
+                        &:hover {
+                            border-color: var(--accent-color);
+                            background-color: rgba(40, 55, 80, 0.95);
+                        }
+
+                        &:disabled {
+                            opacity: 0.5;
+                            cursor: not-allowed;
+                            background-color: rgba(30, 45, 70, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+
+        .content-area {
+            width: 100%;
+            background-color: var(--bg-container);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            overflow-y: auto;
+            max-height: calc(100dvh - 280px);
+            border: 1px solid var(--border-color);
+        }
+
+        #jsonContent {
+
+            .loader,
+            .no-results {
+                text-align: center;
+                padding: 30px;
+                font-style: italic;
+                color: var(--accent-color);
+                font-size: 1.1em;
+            }
+
+            .shloka-entry {
+                background-color: var(--bg-element);
+                padding: 17px;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                border-left: 5px solid var(--accent-color);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.2s ease-in-out;
+
+                &:hover {
+                    transform: translateY(-3px);
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                .shloka-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 12px;
+
+                    .shloka-meta {
+                        font-size: 0.85em;
+                        color: var(--text-muted);
+                    }
+                }
+
+                .shloka-text {
+                    font-size: 1.15em;
+                    line-height: 1.9;
+                    color: var(--text-light);
+
+                    .highlight {
+                        background-color: var(--accent-color);
+                        color: darkred;
+                        padding: 0.1em 0em;
+                        border-radius: 4px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 15px;
+            }
+
+            .header-controls {
+                padding: 15px;
+                width: 90%;
+
+                .search-area {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .selectors-container {
+                    flex-direction: column;
+
+                    .dropdown-group {
+                        min-width: 100%;
+                    }
+                }
+            }
+
+            .content-area {
+                padding: 15px;
+                max-height: 100dvh;
+                width: 92.5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: calc(var(--min-font-size) + 0.5vw);
+            }
+
+            .header-controls h1#kandaTitle {
+                font-size: 1.6em;
+            }
+
+            .shloka-entry .shloka-text {
+                font-size: 1.05em;
+            }
+
+            .content-area {
+                padding: 10px;
+                width: 92.5%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="search-results">
-            <!-- Chapter and Shloka selection dropdowns -->
-            <div class="selector">
-                <div class="dropdown">
+    <div class="page-container">
+        <div class="header-controls">
+            <h1 id="kandaTitle">Kanda Name</h1>
+            <div class="search-area">
+                <input type="search" id="searchInput" placeholder="Search within this Kanda...">
+            </div>
+            <div class="selectors-container">
+                <div class="dropdown-group">
                     <label for="sargSelector">Select Sarg:</label>
                     <select id="sargSelector">
-                        <option value="all">All</option>
-                        <!-- Chapter options will be populated dynamically -->
+                        <option value="all">All Sargas</option>
                     </select>
                 </div>
-                <div class="dropdown">
+                <div class="dropdown-group">
                     <label for="shlokaSelector">Select Shloka:</label>
                     <select id="shlokaSelector">
-                        <option value="all">All</option>
-                        <!-- Shloka options will be populated dynamically -->
+                        <option value="all">All Shlokas</option>
                     </select>
                 </div>
             </div>
+        </div>
 
-            <!-- Content of the selected Parva will be displayed here -->
+        <div class="content-area">
             <div id="jsonContent">
-                <br><br>
+                <div class="loader">Loading content...</div>
             </div>
         </div>
     </div>
 
-    <style>
-        .search-results {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 2vw), var(--max-font-size));
-            justify-content: flex-start;
-            width: auto;
-            height: 100dvh;
-        }
+    <div class="translate-button-container">
+    </div>
 
-        :root {
-            --min-font-size: 0.8em;
-            --max-font-size: 1.6em;
-            --min-width: 300px;
-            --max-width: 1920px;
-        }
-
-        /* Container for the dropdowns */
-        .selector {
-            display: flex;
-            gap: 15px;
-            top: -3.7%;
-            position: relative;
-            flex-direction: row;
-            width: 23rem;
-            padding-top: 0.14rem;
-        }
-
-        /* Styling for each dropdown container */
-        .dropdown {
-            display: flex;
-            font-size: 13px;
-            width: 100%;
-            max-width: 250px;
-        }
-
-        /* Label styling */
-        .dropdown label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: aliceblue;
-        }
-
-        /* Select element styling */
-        select {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 13px;
-            background-color: #fff;
-            transition: border-color 0.3s;
-            cursor: pointer;
-        }
-
-        /* Hover effect for select elements */
-        select:hover {
-            border-color: #00796b;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .selector {
-                flex-direction: column;
-                padding-top: 0.14rem;
-            }
-        }
-
-        #jsonContent {
-            overflow: auto;
-        }
-    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/kandaContent.js"></script>
-
-    <script src="/js/AdbhutRamayanBook.js"></script>
 </body>
 
 </html>

@@ -1,167 +1,242 @@
 const filenameToBook = {
-  '1.json': 'Adi Parva',
-  '2.json': 'Sabha Parva',
-  '3.json': 'Vana Parva',
-  '4.json': 'Virata Parva',
-  '5.json': 'Udyoga Parva',
-  '6.json': 'Bhishma Parva',
-  '7.json': 'Drona Parva',
-  '8.json': 'Karna Parva',
-  '9.json': 'Shalya Parva',
-  '10.json': 'Sauptika Parva',
-  '11.json': 'Stri Parva',
-  '12.json': 'Shanti Parva',
-  '13.json': 'Anushasana Parva',
-  '14.json': 'Ashvamedhika Parva',
-  '15.json': 'Ashramavasika Parva',
-  '16.json': 'Mausala Parva',
-  '17.json': 'Mahaprasthanika Parva',
-  '18.json': 'Swargarohanika Parva',
+    '1.json': 'Adi Parva',
+    '2.json': 'Sabha Parva',
+    '3.json': 'Vana Parva',
+    '4.json': 'Virata Parva',
+    '5.json': 'Udyoga Parva',
+    '6.json': 'Bhishma Parva',
+    '7.json': 'Drona Parva',
+    '8.json': 'Karna Parva',
+    '9.json': 'Shalya Parva',
+    '10.json': 'Sauptika Parva',
+    '11.json': 'Stri Parva',
+    '12.json': 'Shanti Parva',
+    '13.json': 'Anushasana Parva',
+    '14.json': 'Ashvamedhika Parva',
+    '15.json': 'Ashramavasika Parva',
+    '16.json': 'Mausala Parva',
+    '17.json': 'Mahaprasthanika Parva',
+    '18.json': 'Swargarohanika Parva',
 };
 
-// Get the filename from the query parameters
 const urlParams = new URLSearchParams(window.location.search);
 const filename = urlParams.get('filename');
-console.log('Filename:', filename);
 
-fetch(`/DharmicData/Mahabharata/${filename}`)
-  .then(response => {
-      if (!response.ok) {
-          throw new Error(`Failed to fetch JSON file: ${filename}`);
-      }
-      return response.json();
-  })
-  .then(data => {
-      console.log('JSON Data:', data);
+let allParvaData = [];
+let currentBookName = '';
+let debounceTimeout;
+let synthVoices = [];
+const HARDCODED_VOICE_NAME = "Microsoft Madhur Online (Natural) - Hindi (India)";
+const HARDCODED_PITCH = 0.75;
+const HARDCODED_RATE = 0.83;
 
-      const jsonContentDiv = document.getElementById('jsonContent');
-      const chapterSelector = document.getElementById('chapterSelector');
-      const shlokaSelector = document.getElementById('shlokaSelector');
+const jsonContentDiv = document.getElementById('jsonContent');
+const chapterSelector = document.getElementById('chapterSelector');
+const shlokaSelector = document.getElementById('shlokaSelector');
+const searchInput = document.getElementById('searchInput');
+const parvaTitleElement = document.getElementById('parvaTitle');
 
-      // Get the book name from the filenameToBook mapping
-      const bookName = filenameToBook[filename] || filename;
+function formatTextForDisplay(text) {
+    let formatted = text.replace(/\n/g, ' ।<br>');
 
-      // Populate chapter selector dynamically
-      const chapters = Array.from(new Set(data.map(entry => entry.chapter)));
-      chapters.forEach(chapter => {
-          const option = document.createElement('option');
-          option.value = chapter;
-          option.innerText = `Chapter ${chapter}`;
-          chapterSelector.appendChild(option);
-      });
+    formatted = formatted.trim(); // Trim entire string first
 
-      // Function to populate the shloka selector based on the selected chapter
-      function populateShlokaSelector(selectedChapter) {
-          // Clear existing shloka options
-          shlokaSelector.innerHTML = '<option value="all">All</option>';
+    if (formatted.endsWith('।')) {
+        formatted = formatted.slice(0, -1).trim();
+    }
+    if (formatted.endsWith('॥')) { 
+        formatted = formatted.slice(0, -2).trim();
+    }
+    
+    formatted += ' ॥';
+    
+    return formatted;
+}
 
-          // Find the number of shlokas for the selected chapter
-          const shlokasInChapter = data.filter(entry => entry.chapter === selectedChapter);
-          const numShlokas = Math.max(...shlokasInChapter.map(entry => entry.shloka));
 
-          // Populate the shloka selector with appropriate range based on the number of shlokas in the chapter
-          for (let i = 1; i <= numShlokas; i++) {
-              const option = document.createElement('option');
-              option.value = i;
-              option.innerText = `Shloka ${i}`;
-              shlokaSelector.appendChild(option);
-          }
-      }
+function populateChapterSelector() {
+    const chapters = [...new Set(allParvaData.map(entry => entry.chapter))].sort((a, b) => a - b);
+    chapterSelector.innerHTML = '<option value="all">All Chapters</option>';
+    chapters.forEach(chapter => {
+        const option = document.createElement('option');
+        option.value = chapter;
+        option.innerText = `Chapter ${chapter}`;
+        chapterSelector.appendChild(option);
+    });
+}
 
-      // Function to filter and display content based on selected chapter and shloka
-      function filterContent() {
-          const selectedChapter = chapterSelector.value;
-          const selectedShloka = shlokaSelector.value;
+function populateShlokaSelector(selectedChapterValue) {
+    const currentShlokaVal = shlokaSelector.value;
+    shlokaSelector.innerHTML = '<option value="all">All Shlokas</option>';
 
-          // Filter data based on selected chapter and shloka
-          const filteredData = data.filter(entry => {
-              const chapterMatch = selectedChapter === 'all' || entry.chapter === parseInt(selectedChapter);
-              const shlokaMatch = selectedShloka === 'all' || entry.shloka === parseInt(selectedShloka);
-              return chapterMatch && shlokaMatch;
-          });
+    if (selectedChapterValue === 'all' || !allParvaData.length) {
+        shlokaSelector.value = 'all';
+        shlokaSelector.disabled = true;
+    } else {
+        shlokaSelector.disabled = false;
+        const chapterNumber = parseInt(selectedChapterValue);
+        const shlokaNumbersInChapter = [...new Set(
+            allParvaData
+                .filter(entry => entry.chapter === chapterNumber)
+                .map(entry => entry.shloka)
+        )].sort((a, b) => a - b);
 
-          // Clear existing content
-          jsonContentDiv.innerHTML = '';
+        if (shlokaNumbersInChapter.length > 0) {
+            shlokaNumbersInChapter.forEach(shlokaNum => {
+                const option = document.createElement('option');
+                option.value = shlokaNum;
+                option.innerText = `Shloka ${shlokaNum}`;
+                shlokaSelector.appendChild(option);
+            });
+            if (shlokaNumbersInChapter.includes(parseInt(currentShlokaVal))) {
+                shlokaSelector.value = currentShlokaVal;
+            } else {
+                shlokaSelector.value = 'all';
+            }
+        } else {
+            shlokaSelector.value = 'all';
+        }
+    }
+}
 
-          // Display filtered content
-          filteredData.forEach(entry => {
-              const entryDiv = document.createElement('div');
-              entryDiv.innerHTML = `
-                  <div style="display: grid; align-items: center; justify-content: center;">
-                      <p style="color: yellow;">Book: ${bookName}</p>
-                      <p style="color: white;">Chapter: ${entry.chapter}</p>
-                      <p style="color: white;">Shloka: ${entry.shloka}</p>
-                      <p style="color: orange;">${entry.text.replace(/\n/g, ' ।<br> ').trim()} ॥</p>
-                      <br><br>
-                  </div>
-              `;
-              jsonContentDiv.appendChild(entryDiv);
-          });
-      }
+function filterAndDisplayContent() {
+    const selectedChapter = chapterSelector.value;
+    const selectedShloka = shlokaSelector.value;
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    jsonContentDiv.innerHTML = '<div class="loader">Filtering content...</div>';
 
-      // Add event listeners for selectors
-      chapterSelector.addEventListener('change', (e) => {
-          const selectedChapter = parseInt(e.target.value);
-          populateShlokaSelector(selectedChapter);
-          filterContent(); // Re-filter content when chapter changes
-      });
+    setTimeout(() => {
+        let filteredData = allParvaData;
+        if (selectedChapter !== 'all') {
+            filteredData = filteredData.filter(entry => entry.chapter === parseInt(selectedChapter));
+        }
+        if (selectedShloka !== 'all' && !shlokaSelector.disabled) {
+            filteredData = filteredData.filter(entry => entry.shloka === parseInt(selectedShloka));
+        }
+        if (searchTerm) {
+            filteredData = filteredData.filter(entry => entry.text.toLowerCase().includes(searchTerm));
+        }
+        jsonContentDiv.innerHTML = '';
 
-      shlokaSelector.addEventListener('change', filterContent);
+        if (filteredData.length === 0) {
+            jsonContentDiv.innerHTML = '<p class="no-results">No shlokas found matching your criteria.</p>';
+            return;
+        }
 
-      // Initial population of shloka options when page loads
-      populateShlokaSelector('all');
-      filterContent(); // Initial content display
-  })
-  .catch(error => {
-      console.error(`Error fetching or displaying JSON file ${filename}:`, error);
-  });
+        const fragment = document.createDocumentFragment();
+        filteredData.forEach(entry => {
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'shloka-entry';
+            
+            let displayText = formatTextForDisplay(entry.text);
+            if (searchTerm) {
+                const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                displayText = displayText.replace(regex, match => `<span class="highlight">${match}</span>`);
+            }
 
-// Function to create and handle the "Translate" button
+            entryDiv.innerHTML = `
+                <div class="shloka-header">
+                    <span class="shloka-meta">Chapter: ${entry.chapter}, Shloka: ${entry.shloka}</span>
+                </div>
+                <p class="shloka-text">${displayText}</p>
+            `;
+            fragment.appendChild(entryDiv);
+        });
+        jsonContentDiv.appendChild(fragment);
+    }, 50);
+}
+
+if (!filename) {
+    jsonContentDiv.innerHTML = '<p class="no-results" style="color:red;">Error: Parva data file not specified in URL.</p>';
+    if (parvaTitleElement) parvaTitleElement.textContent = "Error";
+} else {
+    fetch(`/DharmicData/Mahabharata/${filename}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch JSON file: ${filename}. Status: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            allParvaData = data;
+            currentBookName = filenameToBook[filename] || filename.replace('.json', '');
+            document.title = `${currentBookName} - Content`;
+            if (parvaTitleElement) parvaTitleElement.textContent = currentBookName;
+            
+            populateChapterSelector();
+            populateShlokaSelector(chapterSelector.value); 
+            filterAndDisplayContent();
+        })
+        .catch(error => {
+            jsonContentDiv.innerHTML = `<p class="no-results" style="color:red;">Error loading Parva data: ${error.message}</p>`;
+            if (parvaTitleElement) parvaTitleElement.textContent = "Error Loading Data";
+            console.error(`Error loading Parva data: ${error.message}`);
+        });
+}
+
+chapterSelector.addEventListener('change', (e) => {
+    populateShlokaSelector(e.target.value);
+    filterAndDisplayContent();
+});
+
+shlokaSelector.addEventListener('change', filterAndDisplayContent);
+
+searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+        filterAndDisplayContent();
+    }, 300);
+});
+
 function createTranslateButton() {
-  const button = document.createElement('button');
-  button.innerText = 'Translate';
-  button.type = 'submit';
-  button.className = 'btn waves-effect waves-light';
-  
-  button.style.position = 'fixed';
-  button.style.top = '10px';
-  button.style.right = '10px';
-  button.style.padding = '10px';
-  button.style.borderRadius = '13px';
-  button.style.background = '#00796b';
-  button.style.color = 'white';
-  button.style.border = 'none';
-  button.style.cursor = 'pointer';
-  button.style.transition = 'all 0.3s ease';
+    const translateButtonContainer = document.querySelector('.translate-button-container');
+    if (!translateButtonContainer) return;
 
-  button.addEventListener('mouseover', () => {
-      button.style.boxShadow = 'inset 9.61px 9.61px 16px hsl(179, 91%, 23%), inset -9.61px -9.61px 16px hsl(179, 91%, 37%)';
-  });
-  button.addEventListener('mouseout', () => {
-      button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
-  });
+    const button = document.createElement('button');
+    button.innerText = 'Translate';
+    button.type = 'submit'; 
+    button.className = 'btn waves-effect waves-light';
 
-  button.addEventListener('click', initiateTranslation);
+    button.style.position = 'fixed';
+    button.style.top = '10px';
+    button.style.right = '10px';
+    button.style.padding = '10px';
+    button.style.borderRadius = '13px';
+    button.style.background = '#00796b';
+    button.style.color = 'white';
+    button.style.border = 'none';
+    button.style.cursor = 'pointer';
+    button.style.transition = 'all 0.3s ease';
+    button.style.zIndex = '1001';
 
-  document.body.appendChild(button);
+    button.addEventListener('mouseover', () => {
+        button.style.boxShadow = 'inset 9.61px 9.61px 16px hsl(179, 91%, 23%), inset -9.61px -9.61px 16px hsl(179, 91%, 37%)';
+    });
+    button.addEventListener('mouseout', () => {
+        button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
+    });
+    
+    button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
+
+    button.addEventListener('click', initiateTranslation);
+    
+    translateButtonContainer.innerHTML = ''; 
+    translateButtonContainer.appendChild(button);
 }
 
-// Function to handle translation URL generation and opening
 function initiateTranslation() {
-  const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
-  const originalBaseUrl = 'https://hinduscriptures.onrender.com';
-  const translatedBaseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
-  const currentPath = window.location.pathname;
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const filename = urlParams.get('filename');
-
-  const extendedUrl = filename
-      ? `${translatedBaseUrl}${currentPath}?filename=${encodeURIComponent(filename)}&${additionalParams}`
-      : `${translatedBaseUrl}${currentPath}?${additionalParams}`;
-
-  console.log(`Extended URL: ${extendedUrl}`);
-  window.open(extendedUrl, '_blank');
+    const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
+    const currentPath = window.location.pathname;
+    const queryString = window.location.search;
+    const currentUrlParams = new URLSearchParams(queryString);
+    const currentFilename = currentUrlParams.get('filename');
+    const translatedBaseUrl = `https://${window.location.hostname.replace(/\./g, '-')}.translate.goog`;
+    const extendedUrl = currentFilename
+        ? `${translatedBaseUrl}${currentPath}?filename=${encodeURIComponent(currentFilename)}&${additionalParams}`
+        : `${translatedBaseUrl}${currentPath}?${additionalParams}`;
+    window.open(extendedUrl, '_blank');
 }
 
-window.onload = createTranslateButton;
+window.onload = () => {
+    createTranslateButton();
+};

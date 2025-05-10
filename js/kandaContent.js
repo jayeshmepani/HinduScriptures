@@ -8,118 +8,165 @@ const filenameToBook = {
     '7.json': 'Uttara Kanda'
 };
 
-// Get the filename from the query parameters
 const urlParams = new URLSearchParams(window.location.search);
 const filename = urlParams.get('filename');
-console.log('Filename:', filename);
 
-fetch(`/DharmicData/Ramayanas/ValmikiRamayana/${filename}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Failed to fetch JSON file: ${filename}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('JSON Data:', data);
+let allKandaData = [];
+let currentBookName = '';
+let debounceTimeout;
+let synthVoices = [];
+const HARDCODED_VOICE_NAME = "Microsoft Madhur Online (Natural) - Hindi (India)";
+const HARDCODED_PITCH = 0.75;
+const HARDCODED_RATE = 0.83;
 
-        const jsonContentDiv = document.getElementById('jsonContent');
-        const sargSelector = document.getElementById('sargSelector');
-        const shlokaSelector = document.getElementById('shlokaSelector');
+const jsonContentDiv = document.getElementById('jsonContent');
+const sargSelector = document.getElementById('sargSelector');
+const shlokaSelector = document.getElementById('shlokaSelector');
+const searchInput = document.getElementById('searchInput');
+const kandaTitleElement = document.getElementById('kandaTitle');
 
-        // Get the book name from the filenameToBook mapping
-        const bookName = filenameToBook[filename] || filename;
+function formatText(text) {
+    return text.replace(/।/g, ' ।<br>');
+}
 
-        // Populate sarg selector dynamically
-        const sargs = Array.from(new Set(data.map(entry => entry.sarg)));
-        sargs.forEach(sarg => {
-            const option = document.createElement('option');
-            option.value = sarg;
-            option.innerText = `sarg ${sarg}`;
-            sargSelector.appendChild(option);
-        });
-
-        // Function to populate the shloka selector based on the selected sarg
-        function populateshlokaSelector(selectedsarg) {
-            // Clear existing shloka options
-            shlokaSelector.innerHTML = '<option value="all">All</option>';
-
-            // Find the number of shlokas for the selected sarg
-            const shlokasInsarg = data.filter(entry => entry.sarg === selectedsarg);
-            const numshlokas = Math.max(...shlokasInsarg.map(entry => entry.shloka));
-
-            // Populate the shloka selector with appropriate range based on the number of shlokas in the sarg
-            for (let i = 1; i <= numshlokas; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.innerText = `shloka ${i}`;
-                shlokaSelector.appendChild(option);
-            }
-        }
-
-        // Function to filter and display content based on selected sarg and shloka
-        function filterContent() {
-            const selectedsarg = sargSelector.value;
-            const selectedshloka = shlokaSelector.value;
-
-            // Filter data based on selected sarg and shloka
-            const filteredData = data.filter(entry => {
-                const sargMatch = selectedsarg === 'all' || entry.sarg === parseInt(selectedsarg);
-                const shlokaMatch = selectedshloka === 'all' || entry.shloka === parseInt(selectedshloka);
-                return sargMatch && shlokaMatch;
-            });
-
-            // Clear existing content
-            jsonContentDiv.innerHTML = '';
-
-            // Display filtered content
-            filteredData.forEach(entry => {
-                const entryDiv = document.createElement('div');
-                entryDiv.innerHTML = `
-                    <div style="display: grid; align-items: center; justify-content: center;">
-                        <p style="color: yellow;">Kaanda: ${entry.kaanda.charAt(0).toUpperCase() + entry.kaanda.slice(1)}</p>
-                        <p style="color: white;">Sarg: ${entry.sarg}</p>
-                        <p style="color: white;">shloka: ${entry.shloka}</p>
-                        <p style="color: orange;">${formatText(entry.text)}</p>
-                        <br><br>
-                    </div>
-                `;
-                jsonContentDiv.appendChild(entryDiv);
-            });
-        }
-
-        // Function to format text
-        function formatText(text) {
-            const indexOfPipe = text.indexOf('।');
-            if (indexOfPipe !== -1) {
-                return text.replace('।', ' ।<br>');
-            }
-            return text;
-        }
-
-        // Add event listeners for selectors
-        sargSelector.addEventListener('change', (e) => {
-            const selectedsarg = parseInt(e.target.value);
-            populateshlokaSelector(selectedsarg);
-            filterContent(); // Re-filter content when sarg changes
-        });
-
-        shlokaSelector.addEventListener('change', filterContent);
-
-        // Initial population of shloka options when page loads
-        populateshlokaSelector('all');
-        filterContent(); // Initial content display
-    })
-    .catch(error => {
-        console.error(`Error fetching or displaying JSON file ${filename}:`, error);
+function populateSargSelector() {
+    const sargs = [...new Set(allKandaData.map(entry => entry.sarg))].sort((a, b) => a - b);
+    sargSelector.innerHTML = '<option value="all">All Sargas</option>';
+    sargs.forEach(sarg => {
+        const option = document.createElement('option');
+        option.value = sarg;
+        option.innerText = `Sarg ${sarg}`;
+        sargSelector.appendChild(option);
     });
+}
+
+function populateShlokaSelector(selectedSargValue) {
+    const currentShlokaVal = shlokaSelector.value;
+    shlokaSelector.innerHTML = '<option value="all">All Shlokas</option>';
+
+    if (selectedSargValue === 'all' || !allKandaData.length) {
+        shlokaSelector.value = 'all';
+        shlokaSelector.disabled = true;
+    } else {
+        shlokaSelector.disabled = false;
+        const sargNumber = parseInt(selectedSargValue);
+        const shlokaNumbersInSarg = [...new Set(
+            allKandaData
+                .filter(entry => entry.sarg === sargNumber)
+                .map(entry => entry.shloka)
+        )].sort((a, b) => a - b);
+
+        if (shlokaNumbersInSarg.length > 0) {
+            shlokaNumbersInSarg.forEach(shlokaNum => {
+                const option = document.createElement('option');
+                option.value = shlokaNum;
+                option.innerText = `Shloka ${shlokaNum}`;
+                shlokaSelector.appendChild(option);
+            });
+            if (shlokaNumbersInSarg.includes(parseInt(currentShlokaVal))) {
+                shlokaSelector.value = currentShlokaVal;
+            } else {
+                shlokaSelector.value = 'all';
+            }
+        } else {
+            shlokaSelector.value = 'all';
+        }
+    }
+}
+
+function filterAndDisplayContent() {
+    const selectedSarg = sargSelector.value;
+    const selectedShloka = shlokaSelector.value;
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    jsonContentDiv.innerHTML = '<div class="loader">Filtering content...</div>';
+
+    setTimeout(() => {
+        let filteredData = allKandaData;
+        if (selectedSarg !== 'all') {
+            filteredData = filteredData.filter(entry => entry.sarg === parseInt(selectedSarg));
+        }
+        if (selectedShloka !== 'all' && !shlokaSelector.disabled) {
+            filteredData = filteredData.filter(entry => entry.shloka === parseInt(selectedShloka));
+        }
+        if (searchTerm) {
+            filteredData = filteredData.filter(entry => entry.text.toLowerCase().includes(searchTerm));
+        }
+        jsonContentDiv.innerHTML = '';
+
+        if (filteredData.length === 0) {
+            jsonContentDiv.innerHTML = '<p class="no-results">No shlokas found matching your criteria.</p>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        filteredData.forEach(entry => {
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'shloka-entry';
+            let displayText = formatText(entry.text);
+            if (searchTerm) {
+                const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                displayText = displayText.replace(regex, match => `<span class="highlight">${match}</span>`);
+            }
+
+            entryDiv.innerHTML = `
+                <div class="shloka-header">
+                    <span class="shloka-meta">Sarg: ${entry.sarg}, Shloka: ${entry.shloka}</span>
+                </div>
+                <p class="shloka-text">${displayText}</p>
+            `;
+            fragment.appendChild(entryDiv);
+        });
+        jsonContentDiv.appendChild(fragment);
+    }, 50);
+}
+
+if (!filename) {
+    jsonContentDiv.innerHTML = '<p class="no-results" style="color:red;">Error: Kanda data file not specified in URL.</p>';
+} else {
+    fetch(`/DharmicData/Ramayanas/ValmikiRamayana/${filename}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch JSON file: ${filename}. Status: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            allKandaData = data;
+            currentBookName = filenameToBook[filename] || filename.replace('.json', '');
+            document.title = `${currentBookName} - Content`;
+            kandaTitleElement.textContent = currentBookName;
+            populateSargSelector();
+            populateShlokaSelector(sargSelector.value);
+            filterAndDisplayContent();
+        })
+        .catch(error => {
+            jsonContentDiv.innerHTML = `<p class="no-results" style="color:red;">Error loading Kanda data: ${error.message}</p>`;
+            console.error(`Error loading Kanda data: ${error.message}`);
+        });
+}
+
+sargSelector.addEventListener('change', (e) => {
+    populateShlokaSelector(e.target.value);
+    filterAndDisplayContent();
+});
+
+shlokaSelector.addEventListener('change', filterAndDisplayContent);
+
+searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+        filterAndDisplayContent();
+    }, 300);
+});
 
 
-// Function to create and handle the "Translate" button
 function createTranslateButton() {
+    const translateButtonContainer = document.querySelector('.translate-button-container');
+    if (!translateButtonContainer) return;
+
     const button = document.createElement('button');
     button.innerText = 'Translate';
-    button.type = 'submit';
+    button.type = 'submit'; 
     button.className = 'btn waves-effect waves-light';
 
     button.style.position = 'fixed';
@@ -132,6 +179,7 @@ function createTranslateButton() {
     button.style.border = 'none';
     button.style.cursor = 'pointer';
     button.style.transition = 'all 0.3s ease';
+    button.style.zIndex = '1001';
 
     button.addEventListener('mouseover', () => {
         button.style.boxShadow = 'inset 9.61px 9.61px 16px hsl(179, 91%, 23%), inset -9.61px -9.61px 16px hsl(179, 91%, 37%)';
@@ -139,28 +187,28 @@ function createTranslateButton() {
     button.addEventListener('mouseout', () => {
         button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
     });
+    
+    button.style.boxShadow = 'inset 9.61px 9.61px 16px #047471, inset -9.61px -9.61px 16px #06aaa7';
 
     button.addEventListener('click', initiateTranslation);
-
-    document.body.appendChild(button);
+    
+    translateButtonContainer.innerHTML = ''; 
+    translateButtonContainer.appendChild(button);
 }
 
-// Function to handle translation URL generation and opening
 function initiateTranslation() {
     const additionalParams = `_x_tr_sl=sa&_x_tr_tl=en&_x_tr_hl=en-GB`;
-    const originalBaseUrl = 'https://hinduscriptures.onrender.com';
-    const translatedBaseUrl = 'https://hinduscriptures-onrender-com.translate.goog';
     const currentPath = window.location.pathname;
     const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const filename = urlParams.get('filename');
-
-    const extendedUrl = filename
-        ? `${translatedBaseUrl}${currentPath}?filename=${encodeURIComponent(filename)}&${additionalParams}`
+    const currentUrlParams = new URLSearchParams(queryString);
+    const currentFilename = currentUrlParams.get('filename');
+    const translatedBaseUrl = `https://${window.location.hostname.replace(/\./g, '-')}.translate.goog`;
+    const extendedUrl = currentFilename
+        ? `${translatedBaseUrl}${currentPath}?filename=${encodeURIComponent(currentFilename)}&${additionalParams}`
         : `${translatedBaseUrl}${currentPath}?${additionalParams}`;
-
-    console.log(`Extended URL: ${extendedUrl}`);
     window.open(extendedUrl, '_blank');
 }
 
-window.onload = createTranslateButton;
+window.onload = () => {
+    createTranslateButton();
+};

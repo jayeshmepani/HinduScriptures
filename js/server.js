@@ -339,9 +339,9 @@ app.get('/content', (req, res) => {
   const fileType = filename.split('.').pop();
 
   if (fileType === 'json') {
-    res.sendFile(path.join(__dirname, 'Content(json).html'));
+    res.sendFile(path.join(__dirname, '../html/Content(json).html'));
   } else if (fileType === 'pdf') {
-    res.sendFile(path.join(__dirname, 'Content(pdf).html'));
+    res.sendFile(path.join(__dirname, '../html/Content(pdf).html'));
   } else {
     return res.status(406).send('Not Acceptable: Supported formats are JSON or PDF');
   }
@@ -416,6 +416,7 @@ app.get('/search', async (req, res) => {
         cleanDisplayName = cleanDisplayName
           .replace(/\.\.[\/\\]/g, '')
           .replace(/\\/g, '/')
+          .replace('DharmicData/', '')
           .replace(/^\/+/, '');
 
         return `<div class="result-item"><a href="${result}">${cleanDisplayName}</a></div>`;
