@@ -110,6 +110,13 @@
         }
       }
 
+      .search-result-count-container {
+        text-align: left;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+        color: var(--text-muted);
+      }
+
       .selectors-container {
         display: flex;
         gap: 20px;
@@ -161,6 +168,14 @@
       }
     }
 
+    #loadingIndicator {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1em;
+      color: var(--accent-color);
+      display: none;
+    }
+
     .content-area {
       width: 100%;
       background-color: var(--bg-container);
@@ -168,7 +183,7 @@
       border-radius: 12px;
       box-shadow: 0 5px 20px var(--shadow-color);
       overflow-y: auto;
-      max-height: calc(100dvh - 250px);
+      max-height: calc(100dvh - 280px);
       border: 1px solid var(--border-color);
     }
 
@@ -217,15 +232,6 @@
           font-size: 0.85em;
           color: var(--text-muted);
         }
-      }
-
-      .yajurveda-metadata-display {
-        font-size: 0.9em;
-        color: var(--text-muted);
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px dashed var(--border-color);
-        line-height: 1.5;
       }
 
       .adhyaya-text-content {
@@ -280,7 +286,7 @@
 
       .content-area {
         padding: 15px;
-        max-height: calc(100dvh - 220px);
+        max-height: calc(100dvh - 250px);
         width: 92.5%;
       }
     }
@@ -298,11 +304,13 @@
 
       #jsonContent {
         .adhyaya-text-content {
+          /* Changed */
           font-size: 1.1em;
           line-height: 2.1;
         }
 
         .adhyaya-header {
+          /* Changed */
           flex-direction: column;
           align-items: flex-start;
         }
@@ -310,7 +318,7 @@
 
       .content-area {
         padding: 10px;
-        max-height: calc(100dvh - 200px);
+        max-height: calc(100dvh - 230px);
         width: 92.5%;
       }
     }
@@ -324,6 +332,9 @@
       <div class="search-area">
         <input type="search" id="searchInput" placeholder="Search within YajurVeda...">
       </div>
+      <div class="search-result-count-container">
+        <span id="searchResultCount"></span>
+      </div>
       <div class="selectors-container">
         <div class="dropdown-group">
           <label for="adhyayaSelector">Select Adhyāya:</label>
@@ -333,6 +344,8 @@
         </div>
       </div>
     </div>
+
+    <div id="loadingIndicator">Loading YajurVeda content...</div>
 
     <div class="content-area">
       <div id="jsonContent">
@@ -344,21 +357,44 @@
   <div class="translate-button-container">
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/sanscript.js"></script>
   <script id="yajurVedaMainScript">
-    const urlParams = new URLSearchParams(window.location.search);
-    const filename = urlParams.get('filename') || 'vajasneyi_madhyadina_samhita.json';
+    const IS_GOOGLE_TRANSLATED_YV = window.location.hostname.endsWith('.translate.goog');
+    const USE_WEB_WORKER_DEFAULT_YV = true;
+    const USE_WEB_WORKER_YV = !IS_GOOGLE_TRANSLATED_YV && USE_WEB_WORKER_DEFAULT_YV;
 
-    let allVedaData = [];
-    let debounceTimeout;
+    const urlParamsYV = new URLSearchParams(window.location.search);
+    const filenameYV = urlParamsYV.get('filename') || 'vajasneyi_madhyadina_samhita.json'; // Default filename
 
-    const jsonContentDiv = document.getElementById('jsonContent');
-    const adhyayaSelector = document.getElementById('adhyayaSelector');
-    const searchInput = document.getElementById('searchInput');
-    const vedaTitleElement = document.getElementById('vedaTitle');
+    let allVedaDataYV = [];
+    let debounceTimeoutYV;
+    let dataWorkerYV;
 
-    function formatName(nameString) {
-      if (!nameString) return '';
+    const jsonContentDivYV = document.getElementById('jsonContent');
+    const adhyayaSelectorYV = document.getElementById('adhyayaSelector');
+    const searchInputYV = document.getElementById('searchInput');
+    const vedaTitleElementYV = document.getElementById('vedaTitle');
+    const searchResultCountElementYV = document.getElementById('searchResultCount');
+    const loadingIndicatorYV = document.getElementById('loadingIndicator');
+
+    function showLoadingYV(message) {
+      if (loadingIndicatorYV) {
+        loadingIndicatorYV.textContent = message;
+        loadingIndicatorYV.style.display = 'block';
+      }
+      if (jsonContentDivYV) jsonContentDivYV.innerHTML = '';
+    }
+
+    function hideLoadingYV() {
+      if (loadingIndicatorYV) {
+        loadingIndicatorYV.style.display = 'none';
+      }
+    }
+
+    function formatNameYV(nameString) {
+      if (typeof nameString !== 'string' || !nameString) {
+        return '';
+      }
       return nameString
         .replace(/[_-]/g, ' ')
         .toLowerCase()
@@ -367,135 +403,274 @@
         .join(' ');
     }
 
-    function parseYajurVedaAdhyayaText(rawAdhyayaText) {
+    function parseYajurVedaAdhyayaTextYV(rawAdhyayaText) {
       const lines = rawAdhyayaText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
       const verseHTMLParts = [];
-
       for (const line of lines) {
+
         verseHTMLParts.push(`<p class="yajurveda-verse">${line.replace(/<[^>]+>/g, '')}</p>`);
       }
-
       const versesHTML = verseHTMLParts.join('');
+
       return { metadataHTML: '', versesHTML };
     }
 
-    function populateAdhyayaSelector() {
-      const adhyayas = [...new Set(allVedaData.map(entry => entry.adhyaya))].sort((a, b) => a - b);
-      adhyayaSelector.innerHTML = '<option value="all">All Adhyāyas</option>';
-      adhyayaSelector.disabled = false;
+    function populateAdhyayaSelectorYV() {
+      if (!adhyayaSelectorYV || !allVedaDataYV || allVedaDataYV.length === 0) return;
+      const adhyayas = [...new Set(allVedaDataYV.map(entry => entry.adhyaya))].sort((a, b) => {
+        const numA = parseInt(a);
+        const numB = parseInt(b);
+        if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+        return String(a).localeCompare(String(b));
+      });
+
+      adhyayaSelectorYV.innerHTML = '<option value="all">All Adhyāyas</option>';
       adhyayas.forEach(adhyayaNum => {
         const option = document.createElement('option');
         option.value = adhyayaNum;
         option.innerText = `Adhyāya ${adhyayaNum}`;
-        adhyayaSelector.appendChild(option);
+        adhyayaSelectorYV.appendChild(option);
       });
+      adhyayaSelectorYV.disabled = false;
     }
 
-    function filterAndDisplayContent() {
-      const selectedAdhyaya = adhyayaSelector.value;
-      const searchTerm = searchInput.value.trim().toLowerCase();
-      jsonContentDiv.innerHTML = '<div class="loader">Filtering YajurVeda content...</div>';
+    function filterAndDisplayContentYV() {
+      const selectedAdhyaya = adhyayaSelectorYV ? adhyayaSelectorYV.value : 'all';
+      const searchTerm = searchInputYV ? searchInputYV.value.trim() : '';
+
+      if (!allVedaDataYV || allVedaDataYV.length === 0) {
+        if (jsonContentDivYV) jsonContentDivYV.innerHTML = '<p class="no-results">Data not loaded yet or is empty.</p>';
+        if (searchResultCountElementYV) searchResultCountElementYV.textContent = '';
+        return;
+      }
+
+      if (jsonContentDivYV) jsonContentDivYV.innerHTML = '<div class="loader">Filtering YajurVeda content...</div>';
+      if (searchResultCountElementYV) searchResultCountElementYV.textContent = '';
 
       setTimeout(() => {
-        let filteredData = allVedaData;
+        let filteredData = allVedaDataYV;
         if (selectedAdhyaya !== 'all') {
-          filteredData = filteredData.filter(entry => entry.adhyaya === parseInt(selectedAdhyaya));
+          const selectedAdhyayaNum = parseInt(selectedAdhyaya);
+          filteredData = filteredData.filter(entry => {
+            const entryAdhyayaNum = parseInt(entry.adhyaya);
+            if (!isNaN(selectedAdhyayaNum) && !isNaN(entryAdhyayaNum)) {
+              return entryAdhyayaNum === selectedAdhyayaNum;
+            }
+            return String(entry.adhyaya) === selectedAdhyaya;
+          });
         }
+
+        let isDevanagariQuery = false;
+        let iastQueryForm = '';
+        let asciiQueryForm = '';
+        let devanagariQueryEquivalent = '';
+
         if (searchTerm) {
-          filteredData = filteredData.filter(entry => entry.text.toLowerCase().includes(searchTerm));
+          const qLower = searchTerm.toLowerCase();
+          isDevanagariQuery = /[\u0900-\u097F]/.test(searchTerm);
+          iastQueryForm = qLower;
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const transliterated = Sanscript.t(searchTerm, 'hk', 'iast');
+              if (transliterated) iastQueryForm = transliterated.toLowerCase();
+            } catch (e) { console.warn("Sanscript Error (HK to IAST for query):", searchTerm, e); }
+          }
+          asciiQueryForm = iastQueryForm.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const devEquiv = Sanscript.t(iastQueryForm, 'iast', 'devanagari');
+              if (devEquiv) devanagariQueryEquivalent = devEquiv;
+            } catch (e) { console.warn("Sanscript Error (IAST to Devanagari for query):", iastQueryForm, e); }
+          }
+          filteredData = filteredData.filter(entry => {
+            if (isDevanagariQuery) return entry.dev.includes(searchTerm);
+            const matchesAscii = entry.ascii.includes(asciiQueryForm);
+            const matchesIast = entry.iast.includes(iastQueryForm);
+            const matchesDevEquivalent = devanagariQueryEquivalent && entry.dev.includes(devanagariQueryEquivalent);
+            return matchesAscii || matchesIast || matchesDevEquivalent;
+          });
         }
-        jsonContentDiv.innerHTML = '';
+
+        if (jsonContentDivYV) jsonContentDivYV.innerHTML = '';
+        if (searchResultCountElementYV) {
+          if (searchTerm) searchResultCountElementYV.textContent = `${filteredData.length} result(s) found.`;
+          else searchResultCountElementYV.textContent = '';
+        }
+
         if (filteredData.length === 0) {
-          jsonContentDiv.innerHTML = '<p class="no-results">No Adhyāyas found.</p>';
+          if (jsonContentDivYV) jsonContentDivYV.innerHTML = '<p class="no-results">No Adhyāyas found matching your criteria.</p>';
           return;
         }
+
         const fragment = document.createDocumentFragment();
         filteredData.forEach(entry => {
           const entryDiv = document.createElement('div');
-          entryDiv.className = 'adhyaya-entry';
-          const { metadataHTML, versesHTML } = parseYajurVedaAdhyayaText(entry.text);
+          entryDiv.className = 'adhyaya-entry'; // Changed class
+          const { versesHTML } = parseYajurVedaAdhyayaTextYV(entry.text); // Using YV specific parser
           let finalVersesHTML = versesHTML;
-          if (searchTerm && versesHTML) {
-            const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-            finalVersesHTML = versesHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+
+          if (searchTerm) {
+            let termToHighlightInDevanagari = searchTerm;
+            if (!isDevanagariQuery && devanagariQueryEquivalent) termToHighlightInDevanagari = devanagariQueryEquivalent;
+            const finalHighlightTerm = termToHighlightInDevanagari.trim();
+            if (finalHighlightTerm) {
+              try {
+                const escapedTerm = finalHighlightTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(escapedTerm, 'gi');
+                if (finalVersesHTML) finalVersesHTML = finalVersesHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+              } catch (e) { console.warn("Regex error during highlighting:", finalHighlightTerm, e); }
+            }
           }
 
-          const displaySamhita = entry.samhita ? formatName(entry.samhita) : 'N/A';
+          const displaySamhita = entry.samhita ? formatNameYV(entry.samhita) : 'N/A';
+
+          let displayAdhyaya;
+          if (entry.adhyaya !== undefined && entry.adhyaya !== null) {
+            displayAdhyaya = (typeof entry.adhyaya === 'number') ? entry.adhyaya.toString() : formatNameYV(entry.adhyaya);
+            if (displayAdhyaya === '' && entry.adhyaya) displayAdhyaya = entry.adhyaya.toString();
+          } else {
+            displayAdhyaya = 'N/A';
+          }
 
           entryDiv.innerHTML = `
             <div class="adhyaya-header">
                 <div class="adhyaya-meta-info">
-                    <span class="adhyaya-meta">Samhita: ${displaySamhita}, Adhyāya: ${entry.adhyaya}</span>
+                    <span class="adhyaya-meta">Samhita: ${displaySamhita}, Adhyāya: ${displayAdhyaya}</span>
                 </div>
             </div>
-            ${metadataHTML ? `<div class="yajurveda-metadata-display">${metadataHTML}</div>` : ''}
             <div class="adhyaya-text-content">${finalVersesHTML || ''}</div>`;
           fragment.appendChild(entryDiv);
         });
-        jsonContentDiv.appendChild(fragment);
-      }, 50);
+        if (jsonContentDivYV) jsonContentDivYV.appendChild(fragment);
+      }, 10);
     }
 
-    if (!filename) {
-      jsonContentDiv.innerHTML = '<p class="no-results" style="color:red;">Error: Data file not specified.</p>';
-      if (vedaTitleElement) vedaTitleElement.textContent = "Error";
+    function preprocessVedaDataOnMainThreadYV(data) {
+      if (typeof Sanscript === 'undefined' || !Sanscript) {
+        console.error("MainThread: Sanscript library not loaded!");
+        throw new Error("Sanscript not available on main thread for preprocessing.");
+      }
+      return data.map(entry => {
+        const devText = entry.text;
+        let iastText = devText;
+        try { iastText = Sanscript.t(devText, 'devanagari', 'iast'); }
+        catch (e) { console.warn("MainThread Sanscript (dev->iast) error for:", devText.substring(0, 20), e.message); }
+        iastText = iastText.toLowerCase();
+        const asciiText = iastText.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        return { ...entry, dev: devText, iast: iastText, ascii: asciiText };
+      });
+    }
+
+    function initializePageYV(data) {
+      allVedaDataYV = data;
+      let vedaBaseName = "YajurVeda";
+      let samhitaFromFile = filenameYV.replace('.json', '');
+      const samhitaNameMappings = {
+        'vajasneyi_madhyadina_samhita': 'Vajasneyi Madhyadina Saṃhitā',
+      };
+      let formattedSamhitaName = samhitaNameMappings[samhitaFromFile.toLowerCase()] || formatNameYV(samhitaFromFile);
+
+      if (data.length > 0 && data[0].samhita) {
+        const dataSamhitaFormatted = formatNameYV(data[0].samhita);
+        if (dataSamhitaFormatted && dataSamhitaFormatted.toLowerCase() !== "unknown") {
+          formattedSamhitaName = dataSamhitaFormatted;
+        }
+        if (data[0].veda) vedaBaseName = formatNameYV(data[0].veda);
+      }
+      const fullPageTitle = `${vedaBaseName} (${formattedSamhitaName})`;
+      document.title = `${fullPageTitle} - Content`;
+      if (vedaTitleElementYV) vedaTitleElementYV.textContent = fullPageTitle;
+
+      populateAdhyayaSelectorYV();
+      filterAndDisplayContentYV();
+      hideLoadingYV();
+      if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = false;
+      if (searchInputYV) searchInputYV.disabled = false;
+    }
+
+    if (!filenameYV) {
+      if (jsonContentDivYV) jsonContentDivYV.innerHTML = '<p class="no-results" style="color:red;">Error: Data file not specified.</p>';
+      if (vedaTitleElementYV) vedaTitleElementYV.textContent = "Error";
+      hideLoadingYV();
     } else {
-      fetch(`/DharmicData/Veda/Yajurveda/${filename}`)
-        .then(response => {
-          if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          allVedaData = data;
+      showLoadingYV("Loading YajurVeda data...");
+      if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = true;
+      if (searchInputYV) searchInputYV.disabled = true;
 
-          let vedaBaseName = "YajurVeda";
-          let samhitaFromFile = filename.replace('.json', '');
-
-          const samhitaNameMappings = {
-            'vajasneyi_madhyadina_samhita': 'Vajasneyi Madhyadina Samhita',
-          };
-
-          let formattedSamhitaName;
-          if (samhitaNameMappings[samhitaFromFile]) {
-            formattedSamhitaName = samhitaNameMappings[samhitaFromFile];
-          } else {
-            formattedSamhitaName = formatName(samhitaFromFile);
+      if (USE_WEB_WORKER_YV && window.Worker) {
+        console.log("Using Web Worker (original domain) for Yajurveda.");
+        dataWorkerYV = new Worker('/js/data-worker.js');
+        dataWorkerYV.onmessage = function (e) {
+          if (e.data.type === 'SUCCESS') initializePageYV(e.data.payload);
+          else if (e.data.type === 'ERROR') {
+            console.error("Worker error (Yajurveda):", e.data.payload);
+            if (jsonContentDivYV) jsonContentDivYV.innerHTML = `<p class="no-results" style="color:red;">Error processing Veda data: ${e.data.payload.message || 'Unknown worker error'}</p>`;
+            if (vedaTitleElementYV) vedaTitleElementYV.textContent = "Error Processing Data";
+            hideLoadingYV();
+            if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = false;
+            if (searchInputYV) searchInputYV.disabled = false;
           }
+        };
+        dataWorkerYV.onerror = function (error) {
+          console.error(`Worker runtime error (Yajurveda): ${error.message}`, error);
+          if (jsonContentDivYV) jsonContentDivYV.innerHTML = `<p class="no-results" style="color:red;">A critical error occurred: ${error.message}</p>`;
+          if (vedaTitleElementYV) vedaTitleElementYV.textContent = "Critical Worker Error";
+          hideLoadingYV();
+          if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = false;
+          if (searchInputYV) searchInputYV.disabled = false;
+        };
+        fetch(`/DharmicData/Veda/Yajurveda/${filenameYV}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            return response.text();
+          })
+          .then(jsonText => {
+            showLoadingYV("Processing Veda data in background...");
+            dataWorkerYV.postMessage({ type: 'PROCESS_DATA', payload: jsonText, sanscriptPath: '/js/sanscript.js' });
+          })
+          .catch(error => {
+            console.error(`Error loading Veda data (Yajurveda):`, error);
+            if (jsonContentDivYV) jsonContentDivYV.innerHTML = `<p class="no-results" style="color:red;">Error loading Veda data: ${error.message}</p>`;
+            if (vedaTitleElementYV) vedaTitleElementYV.textContent = "Error Loading Data";
+            hideLoadingYV();
+            if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = false;
+            if (searchInputYV) searchInputYV.disabled = false;
+            if (dataWorkerYV) dataWorkerYV.terminate();
+          });
+      } else {
+        if (IS_GOOGLE_TRANSLATED_YV) console.warn("Page is translated. Falling back to main thread for Yajurveda.");
+        else if (!window.Worker && USE_WEB_WORKER_DEFAULT_YV) console.warn("Web Workers not supported. Falling back to main thread for Yajurveda.");
+        else if (!USE_WEB_WORKER_DEFAULT_YV) console.log("Processing Yajurveda on Main Thread (USE_WEB_WORKER_DEFAULT_YV is false).");
 
-          if (data.length > 0 && data[0].samhita) {
-            const dataSamhitaFormatted = formatName(data[0].samhita);
-            if (dataSamhitaFormatted && dataSamhitaFormatted.toLowerCase() !== "unknown") {
-              formattedSamhitaName = dataSamhitaFormatted;
-            }
-            if (data[0].veda) {
-              vedaBaseName = formatName(data[0].veda);
-            }
-          }
-
-          const fullPageTitle = `${vedaBaseName} (${formattedSamhitaName})`;
-
-          document.title = `${fullPageTitle} - Content`;
-          if (vedaTitleElement) {
-            vedaTitleElement.textContent = fullPageTitle;
-          }
-
-          populateAdhyayaSelector();
-          filterAndDisplayContent();
-        })
-        .catch(error => {
-          jsonContentDiv.innerHTML = `<p class="no-results" style="color:red;">Error loading data: ${error.message}</p>`;
-          if (vedaTitleElement) vedaTitleElement.textContent = "Error Loading";
-        });
+        fetch(`/DharmicData/Veda/Yajurveda/${filenameYV}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            showLoadingYV("Parsing Veda JSON (Main Thread)...");
+            return response.json();
+          })
+          .then(data => {
+            showLoadingYV("Preprocessing Veda Data (Main Thread)...");
+            const processedData = preprocessVedaDataOnMainThreadYV(data);
+            initializePageYV(processedData);
+          })
+          .catch(error => {
+            console.error(`Error loading Veda data (Main Thread, Yajurveda):`, error);
+            if (jsonContentDivYV) jsonContentDivYV.innerHTML = `<p class="no-results" style="color:red;">Error loading Veda data: ${error.message}</p>`;
+            if (vedaTitleElementYV) vedaTitleElementYV.textContent = "Error Loading Data";
+            hideLoadingYV();
+            if (adhyayaSelectorYV) adhyayaSelectorYV.disabled = false;
+            if (searchInputYV) searchInputYV.disabled = false;
+          });
+      }
     }
 
-    adhyayaSelector.addEventListener('change', filterAndDisplayContent);
-    searchInput.addEventListener('input', () => {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(filterAndDisplayContent, 300);
-    });
-
-    window.onload = () => {
-    };
+    if (adhyayaSelectorYV) adhyayaSelectorYV.addEventListener('change', filterAndDisplayContentYV);
+    if (searchInputYV) {
+      searchInputYV.addEventListener('input', () => {
+        clearTimeout(debounceTimeoutYV);
+        debounceTimeoutYV = setTimeout(filterAndDisplayContentYV, 300);
+      });
+    }
   </script>
   <script src="/js/translate.js"></script>
 </body>
