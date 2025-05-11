@@ -110,6 +110,13 @@
         }
       }
 
+      .search-result-count-container {
+        text-align: left;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+        color: var(--text-muted);
+      }
+
       .selectors-container {
         display: flex;
         gap: 20px;
@@ -161,6 +168,14 @@
       }
     }
 
+    #loadingIndicator {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1em;
+      color: var(--accent-color);
+      display: none;
+    }
+
     .content-area {
       width: 100%;
       background-color: var(--bg-container);
@@ -168,7 +183,7 @@
       border-radius: 12px;
       box-shadow: 0 5px 20px var(--shadow-color);
       overflow-y: auto;
-      max-height: calc(100dvh - 250px);
+      max-height: calc(100dvh - 280px);
       border: 1px solid var(--border-color);
     }
 
@@ -280,7 +295,7 @@
 
       .content-area {
         padding: 15px;
-        max-height: calc(100dvh - 220px);
+        max-height: calc(100dvh - 250px);
         width: 92.5%;
       }
     }
@@ -310,7 +325,7 @@
 
       .content-area {
         padding: 10px;
-        max-height: calc(100dvh - 200px);
+        max-height: calc(100dvh - 230px);
         width: 92.5%;
       }
     }
@@ -324,8 +339,10 @@
       <div class="search-area">
         <input type="search" id="searchInput" placeholder="Search within AtharvaVeda...">
       </div>
+      <div class="search-result-count-container">
+        <span id="searchResultCount"></span>
+      </div>
       <div class="selectors-container">
-        <!-- Kaanda Selector Removed -->
         <div class="dropdown-group">
           <label for="suktaSelector">Select Sūkta:</label>
           <select id="suktaSelector">
@@ -334,6 +351,8 @@
         </div>
       </div>
     </div>
+
+    <div id="loadingIndicator">Loading AtharvaVeda content...</div>
 
     <div class="content-area">
       <div id="jsonContent">
@@ -345,21 +364,45 @@
   <div class="translate-button-container">
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/sanscript.js"></script>
+
   <script id="atharvaVedaMainScript">
-    const urlParams = new URLSearchParams(window.location.search);
-    const filename = urlParams.get('filename') || 'shaunak.json';
+    const IS_GOOGLE_TRANSLATED = window.location.hostname.endsWith('.translate.goog');
+    const USE_WEB_WORKER_DEFAULT = true;
+    const USE_WEB_WORKER = !IS_GOOGLE_TRANSLATED && USE_WEB_WORKER_DEFAULT;
 
-    let allVedaData = [];
-    let debounceTimeout;
+    const urlParamsAtharva = new URLSearchParams(window.location.search);
+    const filenameAtharva = urlParamsAtharva.get('filename') || 'shaunak.json';
 
-    const jsonContentDiv = document.getElementById('jsonContent');
-    const suktaSelector = document.getElementById('suktaSelector');
-    const searchInput = document.getElementById('searchInput');
-    const vedaTitleElement = document.getElementById('vedaTitle');
+    let allVedaDataAtharva = [];
+    let debounceTimeoutAtharva;
+    let dataWorkerAtharva;
 
-    function formatName(nameString) {
-      if (!nameString) return '';
+    const jsonContentDivAtharva = document.getElementById('jsonContent');
+    const suktaSelectorAtharva = document.getElementById('suktaSelector');
+    const searchInputAtharva = document.getElementById('searchInput');
+    const vedaTitleElementAtharva = document.getElementById('vedaTitle');
+    const searchResultCountElementAtharva = document.getElementById('searchResultCount');
+    const loadingIndicatorAtharva = document.getElementById('loadingIndicator');
+
+    function showLoadingAtharva(message) {
+      if (loadingIndicatorAtharva) {
+        loadingIndicatorAtharva.textContent = message;
+        loadingIndicatorAtharva.style.display = 'block';
+      }
+      if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '';
+    }
+
+    function hideLoadingAtharva() {
+      if (loadingIndicatorAtharva) {
+        loadingIndicatorAtharva.style.display = 'none';
+      }
+    }
+
+    function formatNameAtharva(nameString) {
+      if (typeof nameString !== 'string' || !nameString) {
+        return '';
+      }
       return nameString
         .replace(/[_-]/g, ' ')
         .toLowerCase()
@@ -368,7 +411,7 @@
         .join(' ');
     }
 
-    function parseAtharvaVedaSuktaText(rawSuktaText) {
+    function parseAtharvaVedaSuktaTextAtharva(rawSuktaText) {
       const lines = rawSuktaText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
       let metadataHTML = '';
       const verseHTMLParts = [];
@@ -406,128 +449,287 @@
       return { metadataHTML, versesHTML };
     }
 
-    function populateSuktaSelector() {
-      const suktas = [...new Set(allVedaData.map(entry => entry.sukta))].sort((a, b) => a - b);
+    function populateSuktaSelectorAtharva() {
+      if (!suktaSelectorAtharva || !allVedaDataAtharva || allVedaDataAtharva.length === 0) return;
+      const suktas = [...new Set(allVedaDataAtharva.map(entry => entry.sukta))].sort((a, b) => a - b);
 
-      suktaSelector.innerHTML = '<option value="all">All Sūktas</option>';
-      suktas.forEach(suktaIdentifier => { // suktaIdentifier could be just sukta number or "kaanda.sukta"
+      suktaSelectorAtharva.innerHTML = '<option value="all">All Sūktas</option>';
+      suktas.forEach(suktaIdentifier => {
         const option = document.createElement('option');
-        option.value = suktaIdentifier; // If combined, value would be "kaanda.sukta"
-        option.innerText = `Sūkta ${suktaIdentifier}`; // Adjust display if combined
-        suktaSelector.appendChild(option);
+        option.value = suktaIdentifier;
+        option.innerText = `Sūkta ${suktaIdentifier}`;
+        suktaSelectorAtharva.appendChild(option);
       });
-      suktaSelector.disabled = false;
+      suktaSelectorAtharva.disabled = false;
     }
 
+    function filterAndDisplayContentAtharva() {
+      const selectedSuktaIdentifier = suktaSelectorAtharva ? suktaSelectorAtharva.value : 'all';
+      const searchTerm = searchInputAtharva ? searchInputAtharva.value.trim() : '';
 
-    function filterAndDisplayContent() {
-      const selectedSuktaIdentifier = suktaSelector.value;
-      const searchTerm = searchInput.value.trim().toLowerCase();
-      jsonContentDiv.innerHTML = '<div class="loader">Filtering AtharvaVeda content...</div>';
+      if (!allVedaDataAtharva || allVedaDataAtharva.length === 0) {
+        if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '<p class="no-results">Data not loaded yet or is empty.</p>';
+        if (searchResultCountElementAtharva) searchResultCountElementAtharva.textContent = '';
+        return;
+      }
+
+      if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '<div class="loader">Filtering AtharvaVeda content...</div>';
+      if (searchResultCountElementAtharva) searchResultCountElementAtharva.textContent = '';
 
       setTimeout(() => {
-        let filteredData = allVedaData;
+        let filteredData = allVedaDataAtharva;
 
         if (selectedSuktaIdentifier !== 'all') {
           filteredData = filteredData.filter(entry => entry.sukta === parseInt(selectedSuktaIdentifier));
         }
 
+        let isDevanagariQuery = false;
+        let iastQueryForm = '';
+        let asciiQueryForm = '';
+        let devanagariQueryEquivalent = '';
+
         if (searchTerm) {
-          filteredData = filteredData.filter(entry => entry.text.toLowerCase().includes(searchTerm));
+          const qLower = searchTerm.toLowerCase();
+          isDevanagariQuery = /[\u0900-\u097F]/.test(searchTerm);
+
+          iastQueryForm = qLower;
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const transliterated = Sanscript.t(searchTerm, 'hk', 'iast');
+              if (transliterated) iastQueryForm = transliterated.toLowerCase();
+            } catch (e) { console.warn("Sanscript Error (HK to IAST for query):", searchTerm, e); }
+          }
+          asciiQueryForm = iastQueryForm.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const devEquiv = Sanscript.t(iastQueryForm, 'iast', 'devanagari');
+              if (devEquiv) devanagariQueryEquivalent = devEquiv;
+            } catch (e) { console.warn("Sanscript Error (IAST to Devanagari for query):", iastQueryForm, e); }
+          }
+
+          filteredData = filteredData.filter(entry => {
+            if (isDevanagariQuery) {
+              return entry.dev.includes(searchTerm);
+            } else {
+              const matchesAscii = entry.ascii.includes(asciiQueryForm);
+              const matchesIast = entry.iast.includes(iastQueryForm);
+              const matchesDevEquivalent = devanagariQueryEquivalent && entry.dev.includes(devanagariQueryEquivalent);
+              return matchesAscii || matchesIast || matchesDevEquivalent;
+            }
+          });
         }
-        jsonContentDiv.innerHTML = '';
+
+        if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '';
+
+        if (searchResultCountElementAtharva) {
+          if (searchTerm) {
+            searchResultCountElementAtharva.textContent = `${filteredData.length} result(s) found.`;
+          } else {
+            searchResultCountElementAtharva.textContent = '';
+          }
+        }
+
         if (filteredData.length === 0) {
-          jsonContentDiv.innerHTML = '<p class="no-results">No Sūktas found.</p>';
+          if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '<p class="no-results">No Sūktas found matching your criteria.</p>';
           return;
         }
+
         const fragment = document.createDocumentFragment();
         filteredData.forEach(entry => {
           const entryDiv = document.createElement('div');
           entryDiv.className = 'sukta-entry';
-          const { metadataHTML, versesHTML } = parseAtharvaVedaSuktaText(entry.text);
+
+          const { metadataHTML, versesHTML } = parseAtharvaVedaSuktaTextAtharva(entry.text);
           let finalVersesHTML = versesHTML;
-          if (searchTerm && versesHTML) {
-            const regex = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-            finalVersesHTML = versesHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+          let finalMetadataHTML = metadataHTML;
+
+          if (searchTerm) {
+            let termToHighlightInDevanagari = searchTerm;
+            if (!isDevanagariQuery && devanagariQueryEquivalent) {
+              termToHighlightInDevanagari = devanagariQueryEquivalent;
+            }
+            const finalHighlightTerm = termToHighlightInDevanagari.trim();
+
+            if (finalHighlightTerm) {
+              try {
+                const escapedTerm = finalHighlightTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(escapedTerm, 'gi');
+                if (finalVersesHTML) {
+                  finalVersesHTML = finalVersesHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+                }
+                if (finalMetadataHTML) {
+                  finalMetadataHTML = finalMetadataHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+                }
+              } catch (e) { console.warn("Regex error during highlighting:", finalHighlightTerm, e); }
+            }
           }
 
-          const displaySamhita = entry.samhita ? formatName(entry.samhita) : 'N/A';
-          const displayKaanda = entry.kaanda || 'N/A';
+          const displaySamhita = entry.samhita ? formatNameAtharva(entry.samhita) : 'N/A';
+
+          let displayKaanda;
+          if (entry.kaanda !== undefined && entry.kaanda !== null) {
+            if (typeof entry.kaanda === 'string') {
+              displayKaanda = formatNameAtharva(entry.kaanda);
+              if (displayKaanda === '') displayKaanda = entry.kaanda;
+            } else if (typeof entry.kaanda === 'number') {
+              displayKaanda = entry.kaanda.toString();
+            } else {
+              displayKaanda = 'N/A';
+            }
+          } else {
+            displayKaanda = 'N/A';
+          }
+          if (displayKaanda === '' && entry.kaanda) displayKaanda = entry.kaanda.toString();
 
 
           entryDiv.innerHTML = `
-            <div class="sukta-header">
-                <div class="sukta-meta-info">
-                    <span class="sukta-meta">Samhita: ${displaySamhita}, Kāṇḍa: ${displayKaanda}, Sūkta: ${entry.sukta}</span>
-                </div>
-            </div>
-            ${metadataHTML ? `<div class="atharvaveda-metadata-display">${metadataHTML}</div>` : ''}
-            <div class="sukta-text-content">${finalVersesHTML || ''}</div>`;
+              <div class="sukta-header">
+                  <div class="sukta-meta-info">
+                      <span class="sukta-meta">Samhita: ${displaySamhita}, Kāṇḍa: ${displayKaanda}, Sūkta: ${entry.sukta}</span>
+                  </div>
+              </div>
+              ${finalMetadataHTML ? `<div class="atharvaveda-metadata-display">${finalMetadataHTML}</div>` : ''}
+              <div class="sukta-text-content">${finalVersesHTML || ''}</div>`;
           fragment.appendChild(entryDiv);
         });
-        jsonContentDiv.appendChild(fragment);
-      }, 50);
+        if (jsonContentDivAtharva) jsonContentDivAtharva.appendChild(fragment);
+      }, 10);
     }
 
-    if (!filename) {
-      jsonContentDiv.innerHTML = '<p class="no-results" style="color:red;">Error: Data file not specified.</p>';
-      if (vedaTitleElement) vedaTitleElement.textContent = "Error";
+    function preprocessVedaDataOnMainThreadAtharva(data) {
+      if (typeof Sanscript === 'undefined' || !Sanscript) {
+        console.error("MainThread: Sanscript library not loaded!");
+        throw new Error("Sanscript not available on main thread for preprocessing.");
+      }
+      return data.map(entry => {
+        const devText = entry.text;
+        let iastText = devText;
+        try {
+          iastText = Sanscript.t(devText, 'devanagari', 'iast');
+        } catch (e) { console.warn("MainThread Sanscript (dev->iast) error for:", devText.substring(0, 20), e.message); }
+        iastText = iastText.toLowerCase();
+        const asciiText = iastText.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        return { ...entry, dev: devText, iast: iastText, ascii: asciiText };
+      });
+    }
+
+    function initializePageAtharva(data) {
+      allVedaDataAtharva = data;
+      let vedaBaseName = "AtharvaVeda";
+      let samhitaFromFile = filenameAtharva.replace('.json', '');
+      const samhitaNameMappings = { 'shaunak': 'Shaunaka' };
+      let formattedSamhitaName = samhitaNameMappings[samhitaFromFile.toLowerCase()] || formatNameAtharva(samhitaFromFile);
+
+      if (data.length > 0 && data[0].samhita) {
+        const dataSamhitaFormatted = formatNameAtharva(data[0].samhita);
+        if (dataSamhitaFormatted && dataSamhitaFormatted.toLowerCase() !== "unknown") {
+          formattedSamhitaName = dataSamhitaFormatted;
+        }
+        if (data[0].veda) vedaBaseName = formatNameAtharva(data[0].veda);
+      }
+      const fullPageTitle = `${vedaBaseName} (${formattedSamhitaName} Saṃhitā)`;
+      document.title = `${fullPageTitle} - Content`;
+      if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = fullPageTitle;
+
+      populateSuktaSelectorAtharva();
+      filterAndDisplayContentAtharva();
+      hideLoadingAtharva();
+      if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = false;
+      if (searchInputAtharva) searchInputAtharva.disabled = false;
+    }
+
+    if (!filenameAtharva) {
+      if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = '<p class="no-results" style="color:red;">Error: Data file not specified.</p>';
+      if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = "Error";
+      hideLoadingAtharva();
     } else {
-      fetch(`/DharmicData/Veda/AtharvaVeda/${filename}`)
-        .then(response => {
-          if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
-          return response.json();
-        })
-        .then(data => {
-          allVedaData = data;
-          let vedaBaseName = "AtharvaVeda";
-          let samhitaFromFile = filename.replace('.json', '');
+      showLoadingAtharva("Loading AtharvaVeda data...");
+      if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = true;
+      if (searchInputAtharva) searchInputAtharva.disabled = true;
 
-          const samhitaNameMappings = {
-            'shaunak': 'Shaunaka',
-          };
+      if (USE_WEB_WORKER && window.Worker) {
+        console.log("Using Web Worker (original domain).");
+        dataWorkerAtharva = new Worker('/js/data-worker.js');
 
-          let formattedSamhitaName;
-          if (samhitaNameMappings[samhitaFromFile.toLowerCase()]) {
-            formattedSamhitaName = samhitaNameMappings[samhitaFromFile.toLowerCase()];
-          } else {
-            formattedSamhitaName = formatName(samhitaFromFile);
+        dataWorkerAtharva.onmessage = function (e) {
+          if (e.data.type === 'SUCCESS') {
+            initializePageAtharva(e.data.payload);
+          } else if (e.data.type === 'ERROR') {
+            console.error("Worker error:", e.data.payload);
+            if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = `<p class="no-results" style="color:red;">Error processing Veda data: ${e.data.payload.message || 'Unknown worker error'}</p>`;
+            if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = "Error Processing Data";
+            hideLoadingAtharva();
+            if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = false;
+            if (searchInputAtharva) searchInputAtharva.disabled = false;
           }
+        };
+        dataWorkerAtharva.onerror = function (error) {
+          console.error(`Worker runtime error: ${error.message}`, error);
+          if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = `<p class="no-results" style="color:red;">A critical error occurred with the data processor: ${error.message}</p>`;
+          if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = "Critical Worker Error";
+          hideLoadingAtharva();
+          if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = false;
+          if (searchInputAtharva) searchInputAtharva.disabled = false;
+        };
 
-          if (data.length > 0 && data[0].samhita) {
-            const dataSamhitaFormatted = formatName(data[0].samhita);
-            if (dataSamhitaFormatted && dataSamhitaFormatted.toLowerCase() !== "unknown") {
-              formattedSamhitaName = dataSamhitaFormatted;
-            }
-            if (data[0].veda) {
-              vedaBaseName = formatName(data[0].veda);
-            }
-          }
+        fetch(`/DharmicData/Veda/AtharvaVeda/${filenameAtharva}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            return response.text();
+          })
+          .then(jsonText => {
+            showLoadingAtharva("Processing Veda data in background...");
+            dataWorkerAtharva.postMessage({
+              type: 'PROCESS_DATA',
+              payload: jsonText,
+              sanscriptPath: '/js/sanscript.js'
+            });
+          })
+          .catch(error => {
+            console.error(`Error loading Veda data:`, error);
+            if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = `<p class="no-results" style="color:red;">Error loading Veda data: ${error.message}</p>`;
+            if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = "Error Loading Data";
+            hideLoadingAtharva();
+            if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = false;
+            if (searchInputAtharva) searchInputAtharva.disabled = false;
+            if (dataWorkerAtharva) dataWorkerAtharva.terminate();
+          });
+      } else {
+        if (IS_GOOGLE_TRANSLATED) console.warn("Page is translated by Google. Falling back to main thread processing.");
+        else if (!window.Worker && USE_WEB_WORKER_DEFAULT) console.warn("Web Workers not supported. Falling back to main thread processing.");
+        else if (!USE_WEB_WORKER_DEFAULT) console.log("Processing on Main Thread (USE_WEB_WORKER_DEFAULT is false).");
 
-          const fullPageTitle = `${vedaBaseName} (${formattedSamhitaName} Saṃhitā)`;
-
-          document.title = `${fullPageTitle} - Content`;
-          if (vedaTitleElement) {
-            vedaTitleElement.textContent = fullPageTitle;
-          }
-
-          populateSuktaSelector(); // Directly populate Suktas
-          filterAndDisplayContent();
-        })
-        .catch(error => {
-          jsonContentDiv.innerHTML = `<p class="no-results" style="color:red;">Error loading data: ${error.message}</p>`;
-          if (vedaTitleElement) vedaTitleElement.textContent = "Error Loading";
-        });
+        fetch(`/DharmicData/Veda/AtharvaVeda/${filenameAtharva}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            showLoadingAtharva("Parsing Veda JSON (Main Thread)...");
+            return response.json();
+          })
+          .then(data => {
+            showLoadingAtharva("Preprocessing Veda Data (Main Thread)...");
+            const processedData = preprocessVedaDataOnMainThreadAtharva(data);
+            initializePageAtharva(processedData);
+          })
+          .catch(error => {
+            console.error(`Error loading Veda data (Main Thread):`, error);
+            if (jsonContentDivAtharva) jsonContentDivAtharva.innerHTML = `<p class="no-results" style="color:red;">Error loading Veda data: ${error.message}</p>`;
+            if (vedaTitleElementAtharva) vedaTitleElementAtharva.textContent = "Error Loading Data";
+            hideLoadingAtharva();
+            if (suktaSelectorAtharva) suktaSelectorAtharva.disabled = false;
+            if (searchInputAtharva) searchInputAtharva.disabled = false;
+          });
+      }
     }
 
-    suktaSelector.addEventListener('change', filterAndDisplayContent);
-    searchInput.addEventListener('input', () => {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(filterAndDisplayContent, 300);
-    });
-
-    window.onload = () => {
-    };
+    if (suktaSelectorAtharva) {
+      suktaSelectorAtharva.addEventListener('change', filterAndDisplayContentAtharva);
+    }
+    if (searchInputAtharva) {
+      searchInputAtharva.addEventListener('input', () => {
+        clearTimeout(debounceTimeoutAtharva);
+        debounceTimeoutAtharva = setTimeout(filterAndDisplayContentAtharva, 300);
+      });
+    }
   </script>
   <script src="/js/translate.js"></script>
 </body>
