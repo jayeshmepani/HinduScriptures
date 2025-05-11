@@ -4,81 +4,633 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhagavata Purana</title>
+  <title>Bhāgavata Purāṇa</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" type="image/x-icon" href="/download.png">
+  <style>
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    :root {
+      --primary-color: #3b5998;
+      --secondary-color: #8b9dc3;
+      --accent-color: #ffcb6b;
+      --text-light: #f0f0f5;
+      --text-muted: #dfe3ee;
+      --bg-main-start: hsla(225, 50%, 15%, 0.95);
+      --bg-main-end: hsla(230, 60%, 10%, 0.9);
+      --bg-container: rgba(20, 30, 55, 0.85);
+      --bg-element: rgba(30, 45, 70, 0.9);
+      --border-color: rgba(139, 157, 195, 0.3);
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --min-font-size: 0.8rem;
+      --max-font-size: 1rem;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-light);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      font-size: clamp(var(--min-font-size), calc(var(--min-font-size) + 0.5vw), var(--max-font-size));
+      background: linear-gradient(var(--bg-main-start), var(--bg-main-end)),
+        url('/images/bg.png') center/cover fixed no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100dvh;
+      width: 100%;
+      overflow: auto;
+      box-sizing: border-box;
+    }
+
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 950px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .header-controls {
+      background-color: var(--bg-container);
+      padding: 20px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px var(--shadow-color);
+      width: 100%;
+      margin-bottom: 25px;
+      border: 1px solid var(--border-color);
+    }
+
+    h1#puranaTitle {
+      color: var(--accent-color);
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 2em;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .search-area {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .search-area input[type="search"] {
+      flex-grow: 1;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-element);
+      color: var(--text-light);
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+    }
+
+    .search-area input[type="search"]:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px hsla(43, 100%, 71%, 0.3);
+      background-color: rgba(40, 55, 80, 0.95);
+    }
+
+    .search-area input[type="search"]::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+
+    .search-result-count-container {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: var(--text-muted);
+    }
+
+    .selectors-container-bp {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .dropdown-group-bp {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 220px;
+      flex-grow: 1;
+      max-width: 400px;
+    }
+
+    .dropdown-group-bp label {
+      font-weight: 500;
+      font-size: 0.9em;
+      color: var(--accent-color);
+      opacity: 0.9;
+    }
+
+    .dropdown-group-bp select {
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--bg-element);
+      color: var(--text-light);
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dfe3ee'%3E%3Cpath fill-rule='evenodd' d='M8 11.293l-4.146-4.147a.5.5 0 0 1 .708-.708L8 9.879l3.438-3.438a.5.5 0 0 1 .707.707L8 11.293z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 16px 12px;
+    }
+
+    .dropdown-group-bp select:hover {
+      border-color: var(--accent-color);
+      background-color: rgba(40, 55, 80, 0.95);
+    }
+
+    .dropdown-group-bp select:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: rgba(30, 45, 70, 0.5);
+    }
+
+
+    #loadingIndicator {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1em;
+      color: var(--accent-color);
+      display: none;
+    }
+
+    .search-results {
+      width: 100%;
+      background-color: var(--bg-container);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px var(--shadow-color);
+      overflow-y: auto;
+      max-height: calc(100dvh - 320px);
+      border: 1px solid var(--border-color);
+    }
+
+
+    .verse-entry {
+      background-color: var(--bg-element);
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      border-left: 5px solid var(--accent-color);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .verse-entry p {
+      font-size: 1.1rem;
+      margin-bottom: 1em;
+      line-height: 1.7;
+    }
+
+    .verse-number {
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .devanagari-text {
+      color: var(--text-light);
+      font-size: 1.2em;
+      line-height: 2;
+    }
+
+    .translation-text {
+      color: #e0e0e0;
+      font-style: italic;
+    }
+
+    .purport-text {
+      color: hsl(37deg 100% 83%);
+    }
+
+    .highlight {
+      background-color: var(--accent-color);
+      color: #1a1a2e;
+      padding: 0.1em 0.2em;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    .loader,
+    .no-results {
+      text-align: center;
+      padding: 30px;
+      font-style: italic;
+      color: var(--accent-color);
+      font-size: 1.1em;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 15px;
+      }
+
+      .header-controls {
+        padding: 15px;
+      }
+
+      .search-area input[type="search"],
+      .dropdown-group-bp select {
+        font-size: 0.9em;
+      }
+
+      .search-results {
+        padding: 15px;
+        max-height: calc(100dvh - 300px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1#puranaTitle {
+        font-size: 1.6em;
+      }
+
+      .verse-entry p {
+        font-size: 1rem;
+      }
+
+      .devanagari-text {
+        font-size: 1.1em;
+      }
+
+      .search-results {
+        max-height: calc(100dvh - 280px);
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="page-container">
+    <div class="header-controls">
+      <h1 id="puranaTitle">Bhāgavata Purāṇa</h1>
+      <div class="search-area">
+        <input type="search" id="searchInputBP" placeholder="Search in Devanagari, Translation, or Purport...">
+      </div>
+      <div class="search-result-count-container">
+        <span id="searchResultCountBP"></span>
+      </div>
+      <div class="selectors-container-bp">
+        <div class="dropdown-group-bp">
+          <label for="verseSelectorBP">Select Verse:</label>
+          <select id="verseSelectorBP">
+            <option value="all">All Verses</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="loadingIndicator">Loading Bhāgavata Purāṇa content...</div>
+
     <div class="search-results">
       <div id="jsonContent">
-        <br>
-        <br>
       </div>
-      <!-- Content will be displayed here -->
     </div>
   </div>
 
-  <script>
-    // Get the filename from the query parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const filename = urlParams.get('filename');
-    console.log('Filename:', filename);
+  <script src="/js/sanscript.js"></script>
+  <script id="bhagavataPuranaMainScript">
+    const IS_GOOGLE_TRANSLATED_BP = false;
+    const USE_WEB_WORKER_DEFAULT_BP = true;
+    const USE_WEB_WORKER_BP = USE_WEB_WORKER_DEFAULT_BP;
 
-    // Fetch and display the selected JSON file from the corresponding directory
-    fetch(`/DharmicData/Purana/Bhagavata Purana/${filename}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Failed to fetch JSON file: ${filename}`);
+    const urlParamsBP = new URLSearchParams(window.location.search);
+    const filenameBP = urlParamsBP.get('filename');
+
+    let allPuranaDataBP = [];
+    let debounceTimeoutBP;
+    let dataWorkerBP;
+
+    const jsonContentDivBP = document.getElementById('jsonContent');
+    const searchInputBP = document.getElementById('searchInputBP');
+    const puranaTitleElementBP = document.getElementById('puranaTitle');
+    const searchResultCountElementBP = document.getElementById('searchResultCountBP');
+    const loadingIndicatorBP = document.getElementById('loadingIndicator');
+    const verseSelectorBP = document.getElementById('verseSelectorBP');
+
+
+    function showLoadingBP(message) {
+      if (loadingIndicatorBP) {
+        loadingIndicatorBP.textContent = message;
+        loadingIndicatorBP.style.display = 'block';
+      }
+      if (jsonContentDivBP) jsonContentDivBP.innerHTML = '';
+    }
+
+    function hideLoadingBP() {
+      if (loadingIndicatorBP) {
+        loadingIndicatorBP.style.display = 'none';
+      }
+    }
+
+    function formatDevanagariForDisplayBP(text) {
+      if (typeof text !== 'string') return '';
+      return text.replace(/\n/g, ' <br> ').trim();
+    }
+
+    function populateVerseSelectorBP() {
+      if (!verseSelectorBP || !allPuranaDataBP || allPuranaDataBP.length === 0) return;
+
+      const verseNumbers = [...new Set(allPuranaDataBP.map(entry => entry.verse))]
+        .sort((a, b) => {
+          const parseVerse = (vStr) => {
+            if (typeof vStr !== 'string') vStr = String(vStr);
+            const parts = vStr.split('-');
+            return parseInt(parts[0], 10);
+          };
+          return parseVerse(a) - parseVerse(b);
+        });
+
+      verseSelectorBP.innerHTML = '<option value="all">All Verses</option>';
+      verseNumbers.forEach(verseNum => {
+        const option = document.createElement('option');
+        option.value = verseNum;
+        option.innerText = `Verse ${verseNum}`;
+        verseSelectorBP.appendChild(option);
+      });
+      verseSelectorBP.disabled = false;
+    }
+
+
+    function filterAndDisplayContentBP() {
+      const searchTerm = searchInputBP ? searchInputBP.value.trim() : '';
+      const selectedVerse = verseSelectorBP ? verseSelectorBP.value : 'all';
+
+      if (!allPuranaDataBP || allPuranaDataBP.length === 0) {
+        if (jsonContentDivBP) jsonContentDivBP.innerHTML = '<p class="no-results">Data not loaded yet or is empty.</p>';
+        if (searchResultCountElementBP) searchResultCountElementBP.textContent = '';
+        return;
+      }
+
+      if (jsonContentDivBP) jsonContentDivBP.innerHTML = '<div class="loader">Filtering content...</div>';
+      if (searchResultCountElementBP) searchResultCountElementBP.textContent = '';
+
+      setTimeout(() => {
+        let filteredData = allPuranaDataBP;
+
+        if (selectedVerse !== 'all') {
+          filteredData = filteredData.filter(entry => entry.verse === selectedVerse);
         }
-        return response.json();
-      })
-      .then(data => {
-        console.log('JSON Data:', data);
 
-        // Handle the JSON data here (e.g., display it on the page)
-        const jsonContentDiv = document.getElementById('jsonContent');
+        let isDevanagariQuery = false;
+        let iastQueryForm = '';
+        let asciiQueryForm = '';
+        let devanagariQueryEquivalent = '';
 
-        // Check if the data is an array of objects with a "text" property
-        if (Array.isArray(data) && data.length > 0 && data[0].verse) {
-          // Iterate over each entry in the array
-          data.forEach(entry => {
-            // Create a new div for each entry
-            const entryDiv = document.createElement('div');
+        if (searchTerm) {
+          const qLower = searchTerm.toLowerCase();
+          isDevanagariQuery = /[\u0900-\u097F]/.test(searchTerm);
+          iastQueryForm = qLower;
 
-            // Text
-            entryDiv.innerHTML = `
-                      <div style="display: grid; align-items: center; justify-content: center;">
-                          <!-- <p style="color: yellow;">Verse: ${entry.verse}</p> -->
-                          <p style="color: yellow;">${entry.devanagari.replace(/\n/g, ' <br> ').trim()}</p>
-                          <p style="color: white;">Translation: ${entry.translation}</p>
-                          <p style="color: hsl(37deg 100% 83%);">Purport: ${entry.purport}</p>
-                          <br><br>
-                      </div>
-                  `;
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const transliterated = Sanscript.t(searchTerm, 'hk', 'iast');
+              if (transliterated) iastQueryForm = transliterated.toLowerCase();
+            } catch (e) { console.warn("Sanscript Error (HK to IAST for query):", searchTerm, e); }
+          }
+          asciiQueryForm = iastQueryForm.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          if (!isDevanagariQuery && window.Sanscript) {
+            try {
+              const devEquiv = Sanscript.t(iastQueryForm, 'iast', 'devanagari');
+              if (devEquiv) devanagariQueryEquivalent = devEquiv;
+            } catch (e) { console.warn("Sanscript Error (IAST to Devanagari for query):", iastQueryForm, e); }
+          }
 
-            jsonContentDiv.appendChild(entryDiv);
+          filteredData = filteredData.filter(entry => {
+            if (isDevanagariQuery) {
+              return (entry.devanagari_dev && entry.devanagari_dev.includes(searchTerm)) ||
+                (entry.translation_dev && entry.translation_dev.includes(searchTerm)) ||
+                (entry.purport_dev && entry.purport_dev.includes(searchTerm));
+            } else {
+              const matchesDev = (entry.devanagari_ascii && entry.devanagari_ascii.includes(asciiQueryForm)) || (entry.devanagari_iast && entry.devanagari_iast.includes(iastQueryForm)) || (devanagariQueryEquivalent && entry.devanagari_dev && entry.devanagari_dev.includes(devanagariQueryEquivalent));
+              const matchesTrans = (entry.translation_ascii && entry.translation_ascii.includes(asciiQueryForm)) || (entry.translation_iast && entry.translation_iast.includes(iastQueryForm));
+              const matchesPurp = (entry.purport_ascii && entry.purport_ascii.includes(asciiQueryForm)) || (entry.purport_iast && entry.purport_iast.includes(iastQueryForm));
+              return matchesDev || matchesTrans || matchesPurp;
+            }
           });
         }
-        else {
-          // If the expected structure is not found, handle it accordingly
-          console.error(`Error: Unexpected JSON structure.`);
-        }
-      })
-      .catch(error => {
-        // Handle errors here
-        console.error(`Error fetching or displaying JSON file ${filename}:`, error);
-      });
-  </script>
 
-  <style>
-    p {
-      font-size: 1.3rem;
+        if (jsonContentDivBP) jsonContentDivBP.innerHTML = '';
+        if (searchResultCountElementBP) {
+          if (searchTerm || selectedVerse !== 'all') searchResultCountElementBP.textContent = `${filteredData.length} result(s) found.`;
+          else searchResultCountElementBP.textContent = '';
+        }
+
+        if (filteredData.length === 0) {
+          if (jsonContentDivBP) jsonContentDivBP.innerHTML = '<p class="no-results">No entries found matching your criteria.</p>';
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        filteredData.forEach(entry => {
+          const entryDiv = document.createElement('div');
+          entryDiv.className = 'verse-entry';
+
+          let displayDevanagari = formatDevanagariForDisplayBP(entry.devanagari);
+          let displayTranslation = entry.translation || '';
+          let displayPurport = entry.purport || '';
+
+          if (searchTerm) {
+            let termToHighlightDev = searchTerm;
+            let termToHighlightEng = searchTerm;
+
+            if (!isDevanagariQuery) {
+              if (devanagariQueryEquivalent) termToHighlightDev = devanagariQueryEquivalent;
+            }
+
+            const finalHighlightTermDev = termToHighlightDev.trim();
+            const finalHighlightTermEng = termToHighlightEng.trim();
+
+            try {
+              if (finalHighlightTermDev && displayDevanagari) {
+                const regexDev = new RegExp(finalHighlightTermDev.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                displayDevanagari = displayDevanagari.replace(regexDev, match => `<span class="highlight">${match}</span>`);
+              }
+              if (finalHighlightTermEng) {
+                if (displayTranslation) {
+                  const regexEngTrans = new RegExp(finalHighlightTermEng.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                  displayTranslation = displayTranslation.replace(regexEngTrans, match => `<span class="highlight">${match}</span>`);
+                }
+                if (displayPurport) {
+                  const regexEngPurp = new RegExp(finalHighlightTermEng.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                  displayPurport = displayPurport.replace(regexEngPurp, match => `<span class="highlight">${match}</span>`);
+                }
+              }
+            } catch (e) { console.warn("Regex error during highlighting:", e); }
+          }
+
+          entryDiv.innerHTML = `
+              <p class="verse-number">Verse: ${entry.verse || 'N/A'}</p>
+              <p class="devanagari-text">${displayDevanagari}</p>
+              <p class="translation-text"><strong>Translation:</strong> ${displayTranslation}</p>
+              <p class="purport-text"><strong>Purport:</strong> ${displayPurport}</p>
+          `;
+          fragment.appendChild(entryDiv);
+        });
+        if (jsonContentDivBP) jsonContentDivBP.appendChild(fragment);
+      }, 10);
     }
-  </style>
-  <script src="/js/translate.js"></script>
-  
+
+    function preprocessPuranaDataOnMainThreadBP(data) {
+      if (typeof Sanscript === 'undefined' || !Sanscript) {
+        console.error("MainThread: Sanscript library not loaded!");
+        throw new Error("Sanscript not available on main thread for preprocessing.");
+      }
+      return data.map(entry => {
+        const processedEntry = { ...entry };
+
+        if (entry.devanagari && typeof entry.devanagari === 'string') {
+          processedEntry.devanagari_dev = entry.devanagari;
+          try { processedEntry.devanagari_iast = Sanscript.t(entry.devanagari, 'devanagari', 'iast').toLowerCase(); } catch (e) { processedEntry.devanagari_iast = entry.devanagari.toLowerCase(); }
+          processedEntry.devanagari_ascii = processedEntry.devanagari_iast.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } else {
+          processedEntry.devanagari_dev = ''; processedEntry.devanagari_iast = ''; processedEntry.devanagari_ascii = '';
+        }
+
+        if (entry.translation && typeof entry.translation === 'string') {
+          processedEntry.translation_iast = entry.translation.toLowerCase();
+          processedEntry.translation_ascii = processedEntry.translation_iast.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } else {
+          processedEntry.translation_iast = ''; processedEntry.translation_ascii = '';
+        }
+
+        if (entry.purport && typeof entry.purport === 'string') {
+          processedEntry.purport_iast = entry.purport.toLowerCase();
+          processedEntry.purport_ascii = processedEntry.purport_iast.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } else {
+          processedEntry.purport_iast = ''; processedEntry.purport_ascii = '';
+        }
+        return processedEntry;
+      });
+    }
+
+    function initializePageBP(data) {
+      allPuranaDataBP = data;
+      const puranaName = filenameBP ? filenameBP.split('.')[0].replace(/_/g, ' ') : "Bhāgavata Purāṇa";
+      const displayTitle = puranaName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+      document.title = `${displayTitle} - Content`;
+      if (puranaTitleElementBP) puranaTitleElementBP.textContent = displayTitle;
+
+      populateVerseSelectorBP();
+      filterAndDisplayContentBP();
+      hideLoadingBP();
+      if (searchInputBP) searchInputBP.disabled = false;
+      if (verseSelectorBP) verseSelectorBP.disabled = false;
+    }
+
+    if (!filenameBP) {
+      if (jsonContentDivBP) jsonContentDivBP.innerHTML = '<p class="no-results" style="color:red;">Error: Data file not specified in URL.</p>';
+      if (puranaTitleElementBP) puranaTitleElementBP.textContent = "Error";
+      hideLoadingBP();
+    } else {
+      showLoadingBP("Loading Bhāgavata Purāṇa data...");
+      if (searchInputBP) searchInputBP.disabled = true;
+      if (verseSelectorBP) verseSelectorBP.disabled = true;
+
+      if (USE_WEB_WORKER_BP && window.Worker) {
+        console.log("Using Web Worker (original domain) for Bhagavata Purana.");
+        dataWorkerBP = new Worker('/js/data-worker-bhagavata.js');
+        dataWorkerBP.onmessage = function (e) {
+          if (e.data.type === 'SUCCESS') initializePageBP(e.data.payload);
+          else if (e.data.type === 'ERROR') {
+            console.error("Worker error (Bhagavata Purana):", e.data.payload);
+            if (jsonContentDivBP) jsonContentDivBP.innerHTML = `<p class="no-results" style="color:red;">Error processing Purana data: ${e.data.payload.message || 'Unknown worker error'}</p>`;
+            if (puranaTitleElementBP) puranaTitleElementBP.textContent = "Error Processing Data";
+            hideLoadingBP();
+            if (searchInputBP) searchInputBP.disabled = false;
+            if (verseSelectorBP) verseSelectorBP.disabled = false;
+          }
+        };
+        dataWorkerBP.onerror = function (error) {
+          console.error(`Worker runtime error (Bhagavata Purana): ${error.message}`, error);
+          if (jsonContentDivBP) jsonContentDivBP.innerHTML = `<p class="no-results" style="color:red;">A critical error occurred: ${error.message}</p>`;
+          if (puranaTitleElementBP) puranaTitleElementBP.textContent = "Critical Worker Error";
+          hideLoadingBP();
+          if (searchInputBP) searchInputBP.disabled = false;
+          if (verseSelectorBP) verseSelectorBP.disabled = false;
+        };
+        fetch(`/DharmicData/Purana/Bhagavata Purana/${filenameBP}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            return response.text();
+          })
+          .then(jsonText => {
+            showLoadingBP("Processing Purana data in background...");
+            dataWorkerBP.postMessage({ type: 'PROCESS_DATA', payload: jsonText, sanscriptPath: '/js/sanscript.js' });
+          })
+          .catch(error => {
+            console.error(`Error loading Purana data (Bhagavata Purana):`, error);
+            if (jsonContentDivBP) jsonContentDivBP.innerHTML = `<p class="no-results" style="color:red;">Error loading Purana data: ${error.message}</p>`;
+            if (puranaTitleElementBP) puranaTitleElementBP.textContent = "Error Loading Data";
+            hideLoadingBP();
+            if (searchInputBP) searchInputBP.disabled = false;
+            if (verseSelectorBP) verseSelectorBP.disabled = false;
+            if (dataWorkerBP) dataWorkerBP.terminate();
+          });
+      } else {
+        if (!window.Worker && USE_WEB_WORKER_DEFAULT_BP) console.warn("Web Workers not supported. Falling back to main thread for Bhagavata Purana.");
+        else if (!USE_WEB_WORKER_DEFAULT_BP) console.log("Processing Bhagavata Purana on Main Thread (USE_WEB_WORKER_DEFAULT_BP is false).");
+
+        fetch(`/DharmicData/Purana/Bhagavata Purana/${filenameBP}`)
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+            showLoadingBP("Parsing Purana JSON (Main Thread)...");
+            return response.json();
+          })
+          .then(data => {
+            showLoadingBP("Preprocessing Purana Data (Main Thread)...");
+            const processedData = preprocessPuranaDataOnMainThreadBP(data);
+            initializePageBP(processedData);
+          })
+          .catch(error => {
+            console.error(`Error loading Purana data (Main Thread, Bhagavata Purana):`, error);
+            if (jsonContentDivBP) jsonContentDivBP.innerHTML = `<p class="no-results" style="color:red;">Error loading Purana data: ${error.message}</p>`;
+            if (puranaTitleElementBP) puranaTitleElementBP.textContent = "Error Loading Data";
+            hideLoadingBP();
+            if (searchInputBP) searchInputBP.disabled = false;
+            if (verseSelectorBP) verseSelectorBP.disabled = false;
+          });
+      }
+    }
+
+    if (searchInputBP) {
+      searchInputBP.addEventListener('input', () => {
+        clearTimeout(debounceTimeoutBP);
+        debounceTimeoutBP = setTimeout(filterAndDisplayContentBP, 300);
+      });
+    }
+
+    if (verseSelectorBP) {
+      verseSelectorBP.addEventListener('change', filterAndDisplayContentBP);
+    }
+
+  </script>
 </body>
 
 </html>
