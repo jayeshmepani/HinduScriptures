@@ -10,6 +10,11 @@ const filenameToBook = {
 const urlParams = new URLSearchParams(window.location.search);
 const filename = urlParams.get('filename');
 
+const IS_GOOGLE_TRANSLATED = window.location.hostname.endsWith('.translate.goog');
+const USE_WEB_WORKER_DEFAULT = true;
+const USE_WEB_WORKER = !IS_GOOGLE_TRANSLATED && USE_WEB_WORKER_DEFAULT;
+
+
 let allParvaData = [];
 let currentBookName = '';
 let debounceTimeout;
@@ -207,6 +212,24 @@ function filterAndDisplayContent() {
     }, 10);
 }
 
+function preprocessShlokasOnMainThread(data) {
+    if (typeof Sanscript === 'undefined' || !Sanscript) {
+        console.error("MainThread: Sanscript library not loaded!");
+        throw new Error("Sanscript not available on main thread for preprocessing.");
+    }
+    return data.map(entry => {
+        const devText = entry.text;
+        let iastText = devText;
+        try {
+            iastText = Sanscript.t(devText, 'devanagari', 'iast');
+        } catch (e) { console.warn("MainThread Sanscript (dev->iast) error for:", devText.substring(0, 20), e.message); }
+        iastText = iastText.toLowerCase();
+        const asciiText = iastText.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        return { ...entry, dev: devText, iast: iastText, ascii: asciiText };
+    });
+}
+
+
 if (!filename) {
     if (jsonContentDiv) jsonContentDiv.innerHTML = '<p class="no-results" style="color:red;">Error: Parva data file not specified in URL.</p>';
     if (parvaTitleElement) parvaTitleElement.textContent = "Error";
@@ -217,7 +240,8 @@ if (!filename) {
     if (shlokaSelector) shlokaSelector.disabled = true;
     if (searchInput) searchInput.disabled = true;
 
-    if (window.Worker) {
+    if (USE_WEB_WORKER && window.Worker) {
+        console.log("Using Web Worker (original domain).");
         dataWorker = new Worker('/js/data-worker.js');
 
         dataWorker.onmessage = function (e) {
@@ -279,11 +303,48 @@ if (!filename) {
                 if (searchInput) searchInput.disabled = false;
                 if (dataWorker) dataWorker.terminate();
             });
-
     } else {
-        console.warn("Web Workers not supported. Processing will be on the main thread and might be slow.");
-        if (jsonContentDiv) jsonContentDiv.innerHTML = "<p>Your browser doesn't support Web Workers, which are needed for optimal performance.</p>";
-        hideLoading();
+        if (IS_GOOGLE_TRANSLATED) {
+            console.warn("Page is translated by Google. Falling back to main thread processing for Web Worker compatibility.");
+        } else if (!window.Worker && USE_WEB_WORKER_DEFAULT) {
+            console.warn("Web Workers not supported by this browser. Falling back to main thread processing.");
+        } else if (!USE_WEB_WORKER_DEFAULT) {
+            console.log("Processing on Main Thread (USE_WEB_WORKER_DEFAULT is false).");
+        }
+
+        fetch(`/DharmicData/Mahabharata/${filename}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error ${response.status}: ${response.statusText} while fetching ${filename}`);
+                }
+                showLoading("Parsing JSON (Main Thread)...");
+                return response.json();
+            })
+            .then(data => {
+                showLoading("Preprocessing Shlokas (Main Thread)...");
+                allParvaData = preprocessShlokasOnMainThread(data);
+
+                currentBookName = filenameToBook[filename] || filename.replace('.json', '');
+                document.title = `${currentBookName} - Content`;
+                if (parvaTitleElement) parvaTitleElement.textContent = currentBookName;
+
+                populateChapterSelector();
+                populateShlokaSelector(chapterSelector ? chapterSelector.value : 'all');
+                filterAndDisplayContent();
+                hideLoading();
+                if (chapterSelector) chapterSelector.disabled = false;
+                if (shlokaSelector) shlokaSelector.disabled = false;
+                if (searchInput) searchInput.disabled = false;
+            })
+            .catch(error => {
+                console.error(`Error loading Parva data (Main Thread):`, error);
+                if (jsonContentDiv) jsonContentDiv.innerHTML = `<p class="no-results" style="color:red;">Error loading Parva data: ${error.message}</p>`;
+                if (parvaTitleElement) parvaTitleElement.textContent = "Error Loading Data";
+                hideLoading();
+                if (chapterSelector) chapterSelector.disabled = false;
+                if (shlokaSelector) shlokaSelector.disabled = false;
+                if (searchInput) searchInput.disabled = false;
+            });
     }
 }
 
