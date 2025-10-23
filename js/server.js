@@ -313,7 +313,13 @@ const simpleHtmlRoutes = {
   '/rigVeda': 'RigVeda.html',
   '/yajurVeda': 'YajurVeda.html',
   '/samaVeda': 'Samaveda.html',
-  '/atharvaVeda': 'AtharvaVeda.html'
+  '/atharvaVeda': 'AtharvaVeda.html',
+  // START: New routes added based on index.html update
+  '/Upa-Veda': 'Upa-Veda.html',
+  '/Garga-Samhita': 'Garga-Samhita.html',
+  '/Agamas': 'Agamas.html',
+  '/Occult': 'Occult.html',
+  // END: New routes
 };
 
 for (const [route, fileName] of Object.entries(simpleHtmlRoutes)) {
@@ -330,7 +336,7 @@ for (const [route, fileName] of Object.entries(simpleHtmlRoutes)) {
 }
 
 app.get('/content', (req, res) => {
-  const filename = req.query.filename; 
+  const filename = req.query.filename;
 
   if (!filename) {
     return res.status(400).send('Filename is required');
@@ -364,7 +370,7 @@ app.get('/search', async (req, res) => {
 
     for (const item of items) {
       const itemPath = path.join(dir, item.name);
-      const fullPath = path.join(currentPath, item.name); 
+      const fullPath = path.join(currentPath, item.name);
 
       if (item.isDirectory()) {
         if (item.name.toLowerCase().includes(searchQuery)) {
@@ -456,13 +462,13 @@ app.get('/browse', (req, res) => {
     const dirName = path.basename(fullPath).toLowerCase();
     if (searchQuery && dirName.includes(searchQuery)) {
       items.forEach(item => {
-        filteredItems.add(item); 
+        filteredItems.add(item);
       });
     }
 
     const contentHtml = Array.from(filteredItems).map(item => {
       const itemLink = path.join(dirPath, item.name);
-      const itemNameWithoutExtension = item.isFile() ? item.name.replace(/\.[^/.]+$/, "") : item.name; 
+      const itemNameWithoutExtension = item.isFile() ? item.name.replace(/\.[^/.]+$/, "") : item.name;
 
       if (item.isDirectory()) {
         return `<div class="result-item">
@@ -514,37 +520,65 @@ app.get('/browse', (req, res) => {
   }
 });
 
+// Keep everything in your server.js from the top until this point...
+
 app.get('/fetchFiles', (req, res) => {
   const section = req.query.section || '';
   const referrer = req.get('Referer') || '';
   let relativeBasePath = '';
-  if (referrer.includes('Namavali')) relativeBasePath = path.join('Namavalis', section);
-  else if (referrer.includes('Stotra')) relativeBasePath = path.join('Stotras', section);
-  else if (referrer.includes('Gitas')) relativeBasePath = 'Gitas';
-  else if (referrer.includes('BhagvadGita')) relativeBasePath = path.join('Gitas', 'Bhagvad Gita');
-  else if (referrer.includes('Chalisas')) relativeBasePath = 'Chalisa';
-  else if (referrer.includes('Stutis')) relativeBasePath = 'Stuti';
-  else if (referrer.includes('Smritis')) relativeBasePath = 'Smritis';
-  else if (referrer.includes('upa-smritis')) relativeBasePath = 'UpaSmritis';
-  else if (referrer.includes('Ashtakas')) relativeBasePath = 'Ashtaka';
-  else if (referrer.includes('Kavachas')) relativeBasePath = 'Kavacha';
-  else if (referrer.includes('UpaPuranas')) relativeBasePath = 'UpaPuranas';
-  else if (referrer.includes('Ramayanas')) relativeBasePath = 'Ramayanas';
-  else if (referrer.includes('YogaVasistha')) relativeBasePath = path.join('Ramayanas', 'Yoga Vasistha', section);
-  else if (referrer.includes('Vedanga')) relativeBasePath = path.join('Vedanga', section);
-  else if (referrer.includes('Upanga')) relativeBasePath = 'Upanga';
-  else if (referrer.includes('Upnishad')) relativeBasePath = 'Upnishad';
-  else if (referrer.includes('Aarati')) relativeBasePath = 'Aartis';
-  else if (referrer.includes('Bhajan')) relativeBasePath = 'Bhajan';
-  else if (referrer.includes('Swaminarayan-Sect')) relativeBasePath = path.join('Swaminarayan Sect', section);
-  else {
+  const lowerCaseReferrer = referrer.toLowerCase();
+
+  const referrerMap = {
+    'namavali': path.join('Namavalis', section),
+    'stotra': path.join('Stotras', section),
+    'gitas': 'Gitas',
+    'bhagvadgita': path.join('Gitas', 'Bhagvad Gita'),
+    'chalisas': 'Chalisa',
+    'stutis': 'Stuti',
+    'smritis': 'Smritis',
+    'upa-smritis': 'UpaSmritis',
+    'ashtakas': 'Ashtaka',
+    'kavachas': 'Kavacha',
+    'upapuranas': 'UpaPuranas',
+    'ramayanas': 'Ramayanas',
+    'yogavasistha': path.join('Ramayanas', 'Yoga Vasistha', section),
+    'vedanga': path.join('Vedanga', section),
+    'upanga': 'Upanga',
+    'upnishad': 'Upnishad',
+    'aarati': 'Aartis',
+    'bhajan': 'Bhajan',
+    'swaminarayan-sect': path.join('Swaminarayan Sect', section),
+    'upa-veda': path.join('Upa-Veda', section),
+    'garga-samhita': path.join('Garga Samhita', section),
+    'agamas': 'Agamas',
+
+    // ==========================================================
+    // THE FIX IS HERE:
+    // We now correctly join the 'Occult' base path with the
+    // section variable passed from the client.
+    // ==========================================================
+    'occult': path.join('Occult', section)
+  };
+
+  let found = false;
+  for (const key in referrerMap) {
+    if (lowerCaseReferrer.includes(key)) {
+      relativeBasePath = referrerMap[key];
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
     return res.status(400).json({ error: 'Invalid or missing referrer to determine data section' });
   }
+
   const fullBaseDir = path.join(projectRoot, 'DharmicData', relativeBasePath);
   if (!fs.existsSync(fullBaseDir)) {
     console.error(`Directory not found for fetchFiles: ${fullBaseDir} (Referrer: ${referrer}, Section: ${section})`);
     return res.status(404).json({ error: 'Invalid directory or section' });
   }
+
   fs.readdir(fullBaseDir, { withFileTypes: true }, (err, items) => {
     if (err) {
       console.error(`Error reading directory ${fullBaseDir}:`, err);
@@ -559,21 +593,38 @@ app.get('/fetchFiles', (req, res) => {
         files.push(item.name);
       }
     });
-    folders.sort((a, b) => a.localeCompare(b));
-    files.sort((a, b) => a.localeCompare(b));
+    folders.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+    files.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
     res.json({ folders, files, currentPath: path.join('DharmicData', relativeBasePath).replace(/\\/g, '/') });
   });
 });
 
-function generatePdfMapping(directory) {
-  const directoryPath = path.join(__dirname, '../DharmicData', directory);
-  const files = fs.readdirSync(directoryPath);
+
+// =================================================================
+// START: REFACTORED PDF MAPPING LOGIC
+// =================================================================
+
+/**
+ * Scans a directory and groups PDF files that are part of a series.
+ * e.g., "Book 1.pdf", "Book 2.pdf" are grouped under "Book".
+ * @param {string} relativeDir - The directory relative to DharmicData (e.g., 'Occult' or 'Upa-Veda/Āyur Veda')
+ * @returns {object} - An object mapping the main title to an array of its part-files.
+ */
+function generatePdfMapping(relativeDir) {
+  const fullDirectoryPath = path.join(__dirname, '../DharmicData', relativeDir);
+  if (!fs.existsSync(fullDirectoryPath)) {
+    console.error(`generatePdfMapping: Directory not found at ${fullDirectoryPath}`);
+    return {};
+  }
+
+  const files = fs.readdirSync(fullDirectoryPath);
   const pdfMapping = {};
 
   files.forEach(file => {
-    const match = file.match(/(.*?)( \d+)?\.pdf$/);
+    // This regex captures the base title of numbered PDFs
+    const match = file.match(/^(.*?)(?: \d+)?\.pdf$/i);
     if (match) {
-      const title = match[1];
+      const title = match[1].trim();
       if (!pdfMapping[title]) {
         pdfMapping[title] = [];
       }
@@ -581,33 +632,51 @@ function generatePdfMapping(directory) {
     }
   });
 
+  // Filter out entries that only have one part, as they are not a series
+  for (const title in pdfMapping) {
+    if (pdfMapping[title].length <= 1) {
+      delete pdfMapping[title];
+    }
+  }
+
   return pdfMapping;
 }
 
+/**
+ * NEW GENERIC ENDPOINT: Fetches the PDF mapping for a given directory.
+ * This replaces all the old /fetchMainPdfs... and /fetchPdfParts... endpoints.
+ */
+app.get('/fetch-pdf-mapping', (req, res) => {
+  const dir = req.query.dir;
+
+  if (!dir || dir.includes('..')) { // Basic security check
+    return res.status(400).json({ error: 'Invalid directory specified.' });
+  }
+
+  try {
+    const mapping = generatePdfMapping(dir);
+    res.json(mapping);
+  } catch (error) {
+    console.error(`Error generating PDF mapping for dir "${dir}":`, error);
+    res.status(500).json({ error: 'Failed to generate PDF mapping.' });
+  }
+});
+
+
+// The old specific endpoints below are now DEPRECATED and can be safely removed.
+/*
 const upnishadPdfMapping = generatePdfMapping('Upnishad');
-const ramayanasPdfMapping = generatePdfMapping('Ramayanas');
+...
+app.get('/fetchMainPdfsUpnishad', ...);
+app.get('/fetchPdfPartsUpnishad', ...);
+app.get('/fetchMainPdfsRamayanas', ...);
+app.get('/fetchPdfPartsRamayanas', ...);
+*/
 
-app.get('/fetchMainPdfsUpnishad', (req, res) => {
-  const mainPdfs = Object.keys(upnishadPdfMapping);
-  res.json(mainPdfs);
-});
+// =================================================================
+// END: REFACTORED PDF MAPPING LOGIC
+// =================================================================
 
-app.get('/fetchPdfPartsUpnishad', (req, res) => {
-  const { pdfName } = req.query;
-  const parts = upnishadPdfMapping[pdfName] || [];
-  res.json(parts);
-});
-
-app.get('/fetchMainPdfsRamayanas', (req, res) => {
-  const mainPdfs = Object.keys(ramayanasPdfMapping);
-  res.json(mainPdfs);
-});
-
-app.get('/fetchPdfPartsRamayanas', (req, res) => {
-  const { pdfName } = req.query;
-  const parts = ramayanasPdfMapping[pdfName] || [];
-  res.json(parts);
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

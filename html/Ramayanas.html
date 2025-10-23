@@ -7,7 +7,6 @@
   <title>Ramayanas</title>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" type="image/x-icon" href="/download.png">
-
   <style>
     .Ramayanas {
       display: grid;
@@ -61,89 +60,65 @@
 
 <body>
   <div class="container">
+    <!-- <h1>Ramayanas</h1> -->
     <div class="Ramayanas">
       <ol id="RamayanasList">
-        <li><a href="ramayanaKandaList">Valmiki Ramayana</a></li>
-        <li><a href="adbhutRamayana">Adbhuta Ramayana</a></li>
-        <li><a href="adhyatmaRamayana">Adhyatma Ramayana</a></li>
-        <li><a href="Ramcharitmanas">Ramcharitmanas</a></li>
-        <li><a href="YogaVasistha">Yoga Vasistha</a></li>
+        <!-- Static links remain for special cases -->
+        <li><a href="/ramayanaKandaList">Valmiki Ramayana</a></li>
+        <li><a href="/adbhutRamayana">Adbhuta Ramayana</a></li>
+        <li><a href="/adhyatmaRamayana">Adhyatma Ramayana</a></li>
+        <li><a href="/Ramcharitmanas">Ramcharitmanas</a></li>
+        <li><a href="/YogaVasistha">Yoga Vasistha</a></li>
       </ol>
     </div>
   </div>
-
   <script>
-    // List of filenames to exclude
-    const excludedFiles = ['AdhyatmaRamayanaBook', 'AdbhutRamayanBook'];
+    // List of titles that are already handled by static links
+    const excludedTitles = [
+      'Valmiki Ramayana', 'Adbhuta Ramayana', 'Adhyatma Ramayana',
+      'Ramcharitmanas', 'Yoga Vasistha'
+    ];
 
-    // Function to fetch main PDF filenames
-    async function fetchMainPdfs() {
-      const response = await fetch('/fetchMainPdfsRamayanas');
-      if (!response.ok) {
-        console.error('Error fetching main PDFs:', response.statusText);
-        return [];
-      }
-      const pdfs = await response.json();
-      console.log('Fetched PDFs from backend:', pdfs); // Log the fetched files here
-      return pdfs;
-    }
-
-    // Fetch parts for a selected main PDF
-    async function fetchPdfParts(pdfName) {
-      const response = await fetch(`/fetchPdfPartsRamayanas?pdfName=${encodeURIComponent(pdfName)}`);
-      if (!response.ok) {
-        console.error('Error fetching PDF parts:', response.statusText);
-        return [];
-      }
-      return response.json();
-    }
-
-    // Initialize the script to fetch and display main PDFs
     async function initialize() {
-      const mainPdfs = await fetchMainPdfs();
-      if (!Array.isArray(mainPdfs)) {
-        console.error('Expected an array of main PDFs, got:', mainPdfs);
-        return;
-      }
+      try {
+        // Use the new generic endpoint
+        const response = await fetch('/fetch-pdf-mapping?dir=Ramayanas');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch PDF mapping: ${response.statusText}`);
+        }
+        const pdfMapping = await response.json();
 
-      const filteredFilenames = mainPdfs.filter(pdf => {
-        // Remove the excluded files
-        return !excludedFiles.includes(pdf);
-      });
+        const ramayanasList = document.getElementById("RamayanasList");
 
-      const ramayanasList = document.getElementById("RamayanasList"); // Get the correct list
+        const bookTitles = Object.keys(pdfMapping).sort((a, b) => a.localeCompare(b));
 
-      filteredFilenames.forEach(pdf => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = "#"; // Placeholder URL, will handle click
-        a.textContent = pdf.replace(".pdf", ""); // Remove the .pdf extension for display
+        bookTitles.forEach(title => {
+          // Only add the book if it's not in our excluded list
+          if (!excludedTitles.includes(title)) {
+            const parts = pdfMapping[title];
+            if (parts.length > 0) {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              a.textContent = title;
 
-        // Add event listener for when a PDF is clicked
-        a.addEventListener("click", async () => {
-          const parts = await fetchPdfParts(pdf);
-          if (parts.length > 0) {
-            redirectToContent(parts); // Pass the array of parts
-          } else {
-            console.error('No parts found for:', pdf);
+              const sortedParts = parts.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+
+              // Create the correct link for the generic book viewer
+              a.href = `/book?filename=${encodeURIComponent(sortedParts.join(','))}&dir=Ramayanas`;
+
+              li.appendChild(a);
+              ramayanasList.appendChild(li);
+            }
           }
         });
 
-        li.appendChild(a);
-        ramayanasList.appendChild(li);
-      });
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
 
-    // Redirect to content viewing page with all parts
-    function redirectToContent(parts) {
-      const combinedParts = parts.join(','); // Combine parts for URL
-      window.location.href = `book?filename=${encodeURIComponent(combinedParts)}`;
-    }
-
-    // Call the initialize function to display the main PDFs
     initialize();
   </script>
-
 </body>
 
 </html>

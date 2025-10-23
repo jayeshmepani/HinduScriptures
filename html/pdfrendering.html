@@ -17,6 +17,10 @@
             background-color: hsla(246, 97%, 7%, 0.83);
             color: #ffffff;
             padding: 0.37rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
         }
 
         .page-info {
@@ -25,7 +29,9 @@
 
         .error {
             background: orangered;
+            color: white;
             padding: 1rem;
+            text-align: center;
         }
 
         .center-container {
@@ -34,12 +40,15 @@
             align-items: center;
             justify-content: center;
             height: 100dvh;
+            padding-top: 3rem;
+            /* Account for fixed top-bar */
+            box-sizing: border-box;
             background-image: linear-gradient(hsla(246, 97%, 7%, 0.83), hsla(279, 97%, 9%, 0.83));
         }
 
         #the-canvas {
-            transform: translateY(-1.5rem);
-            height: 90dvh;
+            height: calc(100% - 3rem);
+            /* Adjust height for top-bar */
             width: 90%;
             object-fit: contain;
         }
@@ -53,7 +62,6 @@
             animation: spin 3s linear infinite;
             display: none;
             position: absolute;
-
         }
 
         @keyframes spin {
@@ -72,14 +80,8 @@
             font-style: italic;
             font-weight: bold;
             text-align: center;
-            top: 87%;
             position: absolute;
-
-            &::after {
-                content: 'please wait until load...';
-                display: flex;
-                flex-direction: column;
-            }
+            bottom: 5%;
         }
     </style>
 </head>
@@ -87,8 +89,7 @@
 <body>
     <div class="top-bar">
         <span class="page-info">
-            Page <span id="page-num" contenteditable="true" oninput="updatePageNum()"></span> of <span
-                id="page-count"></span>
+            Page <span id="page-num" contenteditable="true"></span> of <span id="page-count"></span>
         </span>
     </div>
 
@@ -104,33 +105,9 @@
         document.addEventListener("DOMContentLoaded", async function () {
             let isEditing = false;
 
-            // Extract filename from URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const filename = urlParams.get('filename');
-            console.log('Filename:', filename);
-
-            let url;
-            if (document.referrer.includes('Upnishad')) {
-                url = `/DharmicData/Upnishad/${filename}`;
-            } else if (document.referrer.includes('Ramayanas')) {
-                url = `/DharmicData/Ramayanas/${filename}`;
-            } else if (document.referrer.includes('upa-smritis')) {
-                url = `/DharmicData/UpaSmritis/${filename}`;
-            } else if (document.referrer.includes('Upa-Puranas')) {
-                url = `/DharmicData/UpaPuranas/${filename}`;
-            } else if (document.referrer.includes('Vedanga')) {
-                url = `/DharmicData/Vedanga/${filename}`;
-            } else if (document.referrer.includes('Aarati')) {
-                url = `/DharmicData/Aartis/${filename}`;
-            } else if (document.referrer.includes('Bhajan')) {
-                url = `/DharmicData/Bhajan/${filename}`;
-            } else if (document.referrer.includes('Swaminarayan-Sect')) {
-                url = `/DharmicData/Swaminarayan Sect/${filename}`;
-            } else {
-                console.error('Invalid referrer:', document.referrer);
-            }
-
-            console.log('URL:', url);
+            const dirParam = urlParams.get('dir'); // Used for generic multi-part PDFs
 
             let pdfDoc = null, pageNum = 1, pageIsRendering = false, pageNumIsPending = null;
             const scale = 5,
@@ -138,177 +115,38 @@
                 context = canvas.getContext('2d');
             const loader = document.getElementById('loader');
 
-            // Show loader and message
             loader.style.display = 'block';
             const loadingMessage = document.createElement('div');
             loadingMessage.className = 'loading-message';
-            loadingMessage.textContent = 'The file is huge and may take some time to load...';
             document.querySelector('.center-container').appendChild(loadingMessage);
-
-            // Function to fetch all parts for a selected PDF
-            async function fetchAllParts(filenamesParam) {
-                try {
-                    // Split the filenames if it's a comma-separated string
-                    const filenames = filenamesParam.split(',');
-                    console.log('Filenames:', filenames);
-                    return filenames;
-                } catch (error) {
-                    console.error('Error parsing filenames:', error);
-                    return [];
-                }
-            }
-
-            // Function to merge multiple PDFs into one
-            async function mergePdfs(parts, sourceDirectory) {
-
-                if (document.referrer.includes('Upnishad')) {
-                    sourceDirectory = 'Upnishad';
-                } else if (document.referrer.includes('Ramayanas')) {
-                    sourceDirectory = 'Ramayanas';
-                } else {
-                    console.error('Invalid referrer:', document.referrer);
-                    return null; // Or some default value
-                }
-
-                console.log('Source Directory:', sourceDirectory); // Debugging step
-                if (!sourceDirectory) {
-                    console.error('Source directory is undefined');
-                    return;
-                }
-
-                const { PDFDocument } = PDFLib;
-                const mergedPdf = await PDFDocument.create();
-
-                for (const part of parts) {
-                    try {
-                        const trimmedPart = part.trim();
-                        if (!trimmedPart) {
-                            console.warn('Skipping empty part:', part);
-                            continue;
-                        }
-
-                        const partUrl = `/DharmicData/${sourceDirectory}/${trimmedPart}`;
-                        console.log('Part URL:', partUrl); // Debugging step
-
-                        const partBytes = await fetch(partUrl).then(res => res.arrayBuffer());
-                        const partDoc = await PDFDocument.load(partBytes);
-
-                        const copiedPages = await mergedPdf.copyPages(partDoc, partDoc.getPageIndices());
-                        copiedPages.forEach(page => mergedPdf.addPage(page));
-                    } catch (error) {
-                        console.error('Error processing PDF part:', part, error);
-                    }
-                }
-
-                const mergedPdfBytes = await mergedPdf.save();
-                return mergedPdfBytes;
-            }
 
             const renderPage = (num) => {
                 pageIsRendering = true;
-
+                if (!pdfDoc) return;
                 pdfDoc.getPage(num).then((page) => {
                     const viewport = page.getViewport({ scale });
                     canvas.width = viewport.width;
                     canvas.height = viewport.height;
-
-                    const renderContext = {
-                        canvasContext: context,
-                        viewport: viewport
-                    };
-
+                    const renderContext = { canvasContext: context, viewport: viewport };
                     page.render(renderContext).promise.then(() => {
                         pageIsRendering = false;
-
-                        // Output current page with custom logic for Ekamra Purana
+                        if (pageNumIsPending !== null) {
+                            renderPage(pageNumIsPending);
+                            pageNumIsPending = null;
+                        }
                         document.getElementById('page-num').textContent = displayPageNumber(num);
                     });
                 });
             };
 
-            // Load the PDF document
-            if (document.referrer.includes('Upnishad') || document.referrer.includes('Ramayanas')) {
-                const parts = await fetchAllParts(filename);
-                if (parts.length > 0) {
-                    const mergedPdfBytes = await mergePdfs(parts);
-                    const pdfBlob = new Blob([mergedPdfBytes], { type: "application/pdf" });
-                    const pdfUrl = URL.createObjectURL(pdfBlob);
-
-                    pdfDoc = await pdfjsLib.getDocument({ data: mergedPdfBytes }).promise;
-                    document.getElementById("page-count").textContent = pdfDoc.numPages;
-                    loader.style.display = 'none';
-                    loadingMessage.style.display = 'none';
-                    renderPage(pageNum);
-                } else {
-                    console.error("No parts found for:", filename);
-                    loader.style.display = 'none';
-                    loadingMessage.style.display = 'none';
-                }
-            } else {
-                pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
-                    pdfDoc = pdfDoc_;
-                    // Set page count with adjustment for specific cases
-                    if (filename === "Ekamra Purana.pdf" && document.referrer.includes("Upa-Puranas")) {
-                        document.getElementById('page-count').textContent = pdfDoc.numPages - 4;
-                    } else {
-                        document.getElementById('page-count').textContent = pdfDoc.numPages;
-                    }
-                    loader.style.display = 'none';
-                    loadingMessage.style.display = 'none';
-                    renderPage(pageNum);
-                }).catch((err) => {
-                    const div = document.createElement('div');
-                    div.className = 'error';
-                    div.appendChild(document.createTextNode(err.message));
-                    const bodyElement = document.querySelector('body');
-                    const canvasElement = document.getElementById('the-canvas');
-                    if (canvasElement && bodyElement) {
-                        bodyElement.insertBefore(div, canvasElement);
-                    } else {
-                        bodyElement.appendChild(div);
-                    }
-                    loader.style.display = 'none';
-                    loadingMessage.style.display = 'none';
-                });
-            }
-
-            // Helper function to display page numbers correctly for Ekamra Purana
-            function displayPageNumber(num) {
-                if (filename === "Ekamra Purana.pdf" && document.referrer.includes("Upa-Puranas")) {
-                    const offset = 4; // Starting page for regular numbering
-                    const romanNumerals = {
-                        '-3': 'I',
-                        '-2': 'II',
-                        '-1': 'III',
-                        '0': 'IV'
-                    };
-                    const adjustedPageNum = num - offset; // Adjust the page number
-
-                    return adjustedPageNum in romanNumerals ? romanNumerals[adjustedPageNum] : adjustedPageNum > 0 ? adjustedPageNum : '';
-                }
-                return num; // Default behavior for other PDFs
-            }
-
-            // Function to handle page number updates
-            const updatePageNum = () => {
-                const inputElement = document.getElementById('page-num');
-                const newPageNum = parseInt(inputElement.textContent, 10);
-
-                if (!isNaN(newPageNum)) {
-                    const adjustedPageNum = filename === "Ekamra Purana.pdf" && document.referrer.includes("Upa-Puranas")
-                        ? newPageNum + 4
-                        : newPageNum;
-
-                    updateAndRenderPage(adjustedPageNum);
-                } else {
-                    inputElement.textContent = displayPageNumber(pageNum);
-                }
+            const queueRenderPage = (num) => {
+                if (pageIsRendering) { pageNumIsPending = num; }
+                else { renderPage(num); }
             };
 
-            // Function to update the page number and trigger rendering
             const updateAndRenderPage = (newPageNum) => {
+                if (!pdfDoc) return;
                 newPageNum = Math.max(1, Math.min(newPageNum, pdfDoc.numPages));
-
                 if (pageNum !== newPageNum) {
                     pageNum = newPageNum;
                     document.getElementById('page-num').textContent = displayPageNumber(pageNum);
@@ -316,20 +154,137 @@
                 }
             };
 
-            const queueRenderPage = (num) => {
-                if (pageIsRendering) {
-                    pageNumIsPending = num;
+            function displayPageNumber(num) {
+                if (filename === "Ekamra Purana.pdf" && document.referrer.includes("Upa-Puranas")) {
+                    const offset = 4;
+                    const romanNumerals = { '-3': 'I', '-2': 'II', '-1': 'III', '0': 'IV' };
+                    const adjustedPageNum = num - offset;
+                    return romanNumerals[adjustedPageNum] || (adjustedPageNum > 0 ? adjustedPageNum : '');
+                }
+                return num;
+            }
+
+            const updatePageNum = () => {
+                const inputElement = document.getElementById('page-num');
+                const newPageNum = parseInt(inputElement.textContent, 10);
+
+                if (!isNaN(newPageNum)) {
+                    const adjustedPageNum = (filename === "Ekamra Purana.pdf" && document.referrer.includes("Upa-Puranas"))
+                        ? newPageNum + 4
+                        : newPageNum;
+                    updateAndRenderPage(adjustedPageNum);
                 } else {
-                    renderPage(num);
+                    inputElement.textContent = displayPageNumber(pageNum);
                 }
             };
 
-            // Enable navigation using arrow keys and page keys
+            // =================================================================
+            // MAIN LOGIC: Decide whether to load a single PDF or merge multiple
+            // =================================================================
+            if (filename && filename.includes(',')) {
+                // --- MULTI-PART PDF MERGING LOGIC ---
+                loadingMessage.textContent = 'Merging files, this may take some time...';
+
+                async function mergePdfs(parts, baseDir) {
+                    const { PDFDocument } = PDFLib;
+                    const mergedPdf = await PDFDocument.create();
+                    for (const part of parts) {
+                        const trimmedPart = part.trim();
+                        if (!trimmedPart) continue;
+                        // The baseDir parameter tells us where to look for the files
+                        const partUrl = `/DharmicData/${baseDir}/${trimmedPart}`;
+                        console.log('Fetching part URL:', partUrl);
+                        try {
+                            const partBytes = await fetch(partUrl).then(res => res.arrayBuffer());
+                            const partDoc = await PDFDocument.load(partBytes);
+                            const copiedPages = await mergedPdf.copyPages(partDoc, partDoc.getPageIndices());
+                            copiedPages.forEach(page => mergedPdf.addPage(page));
+                        } catch (error) {
+                            console.error(`Error processing PDF part "${partUrl}":`, error);
+                        }
+                    }
+                    return await mergedPdf.save();
+                }
+
+                try {
+                    const parts = filename.split(',');
+                    const mergedPdfBytes = await mergePdfs(parts, dirParam); // Use the dir param from URL
+                    pdfDoc = await pdfjsLib.getDocument({ data: mergedPdfBytes }).promise;
+                    document.getElementById("page-count").textContent = pdfDoc.numPages;
+                    loader.style.display = 'none';
+                    loadingMessage.style.display = 'none';
+                    renderPage(pageNum);
+                } catch (err) {
+                    console.error("Failed to load and merge PDFs:", err);
+                    loader.style.display = 'none';
+                    loadingMessage.textContent = 'Error loading book.';
+                }
+
+            } else {
+                // SINGLE PDF LOADING LOGIC
+                loadingMessage.textContent = 'The file may take some time to load...';
+                let url;
+
+                // ==========================================================
+                // THE FIX IS HERE:
+                // Prioritize the 'dir' parameter if it exists. This makes
+                // the viewer truly generic and fixes the nested path issue.
+                // ==========================================================
+                if (dirParam) {
+                    url = `/DharmicData/${dirParam}/${filename}`;
+                } else {
+                    // Fallback to the old referrer logic if 'dir' is not provided
+                    const referrer = document.referrer;
+                    const lowerCaseReferrer = referrer.toLowerCase();
+                    const referrerMap = {
+                        'upnishad': 'Upnishad', 'ramayanas': 'Ramayanas', 'upa-smritis': 'UpaSmritis',
+                        'upapuranas': 'UpaPuranas', 'vedanga': 'Vedanga', 'aarati': 'Aartis',
+                        'bhajan': 'Bhajan', 'swaminarayan-sect': 'Swaminarayan Sect', 'occult': 'Occult',
+                        'upa-veda': 'Upa-Veda', 'agamas': 'Agamas'
+                    };
+                    let found = false;
+                    for (const key in referrerMap) {
+                        if (lowerCaseReferrer.includes(key)) {
+                            url = `/DharmicData/${referrerMap[key]}/${filename}`;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        console.error('Invalid referrer for single PDF:', referrer);
+                        loadingMessage.textContent = 'Error: Could not determine file location.';
+                        return;
+                    }
+                }
+
+                console.log('Loading single PDF from URL:', url);
+
+                pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
+                    pdfDoc = pdfDoc_;
+                    document.getElementById('page-count').textContent = (filename === "Ekamra Purana.pdf" && referrer.includes("Upa-Puranas"))
+                        ? pdfDoc.numPages - 4
+                        : pdfDoc.numPages;
+                    loader.style.display = 'none';
+                    loadingMessage.style.display = 'none';
+                    renderPage(pageNum);
+                }).catch((err) => {
+                    console.error('Error loading single PDF:', err);
+                    const div = document.createElement('div');
+                    div.className = 'error';
+                    div.textContent = `Error: ${err.message}`;
+                    document.body.insertBefore(div, document.querySelector('.center-container'));
+                    loader.style.display = 'none';
+                    loadingMessage.style.display = 'none';
+                });
+            }
+
+
+            // --- NAVIGATION EVENT LISTENERS (Remain Unchanged) ---
             window.addEventListener('keydown', function (e) {
                 if (isEditing) {
                     if (e.key === 'Enter') {
                         isEditing = false;
-                        updatePageNum(); // Unified update for all PDFs
+                        updatePageNum();
                         e.preventDefault();
                     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                         e.preventDefault();
@@ -345,87 +300,51 @@
                 }
             });
 
-            // Handle page number editing
             document.getElementById('page-num').addEventListener('click', function () {
                 isEditing = true;
-                this.textContent = ''; // Clear the content when clicked
+                this.textContent = '';
             });
 
             document.getElementById('page-num').addEventListener('keydown', function (e) {
                 if (e.key === 'Enter') {
                     isEditing = false;
-                    updatePageNum(); // Unified update for all PDFs
+                    updatePageNum();
                     e.preventDefault();
                 }
             });
 
-            // Enable scrolling using the cursor and keys
             window.addEventListener('wheel', function (e) {
-                const sensitivity = 0.1; // Adjust sensitivity
-                const deltaY = e.deltaY * sensitivity;
-
-                if (deltaY > 0) {
-                    updateAndRenderPage(pageNum + 1); // Scrolling down
-                } else {
-                    updateAndRenderPage(pageNum - 1); // Scrolling up
-                }
+                updateAndRenderPage(pageNum + (e.deltaY > 0 ? 1 : -1));
             });
 
-            // Enable touch-based scrolling for mobile and tablet devices
-            let touchStartY = 0;
-            let touchStartX = 0;
-            let isMultiTouch = false;
-
+            let touchStartY = 0, touchStartX = 0, isMultiTouch = false;
             window.addEventListener('touchstart', function (e) {
-                if (e.touches.length > 1) {
-                    isMultiTouch = true; // Multi-touch detected
-                    return;
+                isMultiTouch = e.touches.length > 1;
+                if (!isMultiTouch) {
+                    touchStartY = e.touches[0].clientY;
+                    touchStartX = e.touches[0].clientX;
                 }
-                isMultiTouch = false; // Single-touch only
-                touchStartY = e.touches[0].clientY;
-                touchStartX = e.touches[0].clientX;
             });
 
             window.addEventListener('touchend', function (e) {
-                if (isMultiTouch) {
-                    return; // Skip page navigation if it was a multi-touch event
-                }
-
+                if (isMultiTouch) return;
                 const touchEndY = e.changedTouches[0].clientY;
                 const touchEndX = e.changedTouches[0].clientX;
                 const deltaY = touchEndY - touchStartY;
                 const deltaX = touchEndX - touchStartX;
+                const thresholdY = window.innerHeight / 7.5;
+                const thresholdX = window.innerWidth / 7.5;
 
-                const touchSensitivity = 7.5; // Adjust touch sensitivity
-                const deltaThreshold = window.innerHeight / touchSensitivity;
-                const deltaThresholdX = window.innerWidth / touchSensitivity;
-
-                // Vertical scrolling (Y-axis)
-                if (Math.abs(deltaY) > Math.abs(deltaX)) { // Prioritize vertical over horizontal
-                    if (deltaY > deltaThreshold) {
-                        updateAndRenderPage(pageNum - 1); // Scrolling up
-                    } else if (deltaY < -deltaThreshold) {
-                        updateAndRenderPage(pageNum + 1); // Scrolling down
-                    }
-                }
-                // Horizontal scrolling (X-axis)
-                else {
-                    if (deltaX > deltaThresholdX) {
-                        updateAndRenderPage(pageNum - 1); // Scrolling left
-                    } else if (deltaX < -deltaThresholdX) {
-                        updateAndRenderPage(pageNum + 1); // Scrolling right
-                    }
-                }
-            });
-
-            window.addEventListener('touchmove', function (e) {
-                if (e.touches.length > 1) {
-                    isMultiTouch = true; // Mark as multi-touch during the move
+                if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                    if (deltaY > thresholdY) updateAndRenderPage(pageNum - 1);
+                    else if (deltaY < -thresholdY) updateAndRenderPage(pageNum + 1);
+                } else {
+                    if (deltaX > thresholdX) updateAndRenderPage(pageNum - 1);
+                    else if (deltaX < -thresholdX) updateAndRenderPage(pageNum + 1);
                 }
             });
         });
     </script>
-
 </body>
 
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divinatory & Occult Sciences</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png" />
+    <style>
+        .item-list-container {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#itemList {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+                display: block;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+
+        .back-link {
+            margin-top: 2rem;
+            color: #cac7ff;
+            text-decoration: none;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 217, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="pageTitle">Divinatory & Occult Sciences</h1>
+        <div class="item-list-container">
+            <ol id="itemList"></ol>
+        </div>
+        <a href="/Occult" id="backLink" class="back-link" style="display: none;">Back to Occult Sciences</a>
+    </div>
+    <script>
+        // List of Rasterized/Mixed PDFs that should use the /book route (canvas renderer)
+        const rasterizedPdfs = new Set([
+            "Dhruva Nadi.pdf",
+            "Garga Hora Shastra.pdf",
+            "Jaimini Sutras.pdf",
+            "Shiv Svarodaya.pdf"
+        ]);
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
+            const itemList = document.getElementById('itemList');
+            const pageTitle = document.getElementById('pageTitle');
+            const backLink = document.getElementById('backLink');
+
+            let fetchUrl = '/fetchFiles';
+            if (section) {
+                fetchUrl += `?section=${encodeURIComponent(section)}`;
+                pageTitle.textContent = decodeURIComponent(section);
+                backLink.style.display = 'inline-block';
+            }
+
+            try {
+                const response = await fetch(fetchUrl);
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+
+                if (section && data.files && data.files.length > 0) {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.textContent = `Open ${decodeURIComponent(section)}`;
+                    const sortedParts = data.files.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+                    const dirPath = `Occult/${decodeURIComponent(section)}`;
+                    a.href = `/book?filename=${encodeURIComponent(sortedParts.join(','))}&dir=${encodeURIComponent(dirPath)}`;
+                    li.appendChild(a);
+                    itemList.appendChild(li);
+                    return;
+                }
+
+                if (Array.isArray(data.folders)) {
+                    data.folders.forEach(folderName => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.textContent = folderName;
+                        a.href = `/Occult?section=${encodeURIComponent(folderName)}`;
+                        li.appendChild(a);
+                        itemList.appendChild(li);
+                    });
+                }
+
+                if (Array.isArray(data.files)) {
+                    data.files.forEach(filename => {
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        const displayName = filename.replace(/\.(pdf|json)$/i, "").replace(/_/g, ' ');
+                        a.textContent = displayName;
+
+                        // --- CONDITIONAL ROUTING LOGIC ---
+                        if (filename.endsWith('.pdf')) {
+                            if (rasterizedPdfs.has(filename)) {
+                                a.href = `/book?filename=${encodeURIComponent(filename)}&dir=Occult`;
+                            } else {
+                                a.href = `/content?filename=${encodeURIComponent(filename)}`;
+                            }
+                        } else {
+                            a.href = `/content?filename=${encodeURIComponent(filename)}`;
+                        }
+
+                        li.appendChild(a);
+                        itemList.appendChild(li);
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                itemList.innerHTML = `<li>Error loading content.</li>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

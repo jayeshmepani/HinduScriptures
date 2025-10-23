@@ -152,8 +152,13 @@ ol>a:hover {
 
 
 a,
-li {
+li,
+h1 {
     text-decoration: none;
     color: rgba(255, 217, 0, 0.91);
     display: block !important;
+}
+
+h1 {
+    text-align: center !important;
 }

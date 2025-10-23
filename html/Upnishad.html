@@ -7,7 +7,6 @@
     <title>Upnishad</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/download.png" />
-
     <style>
         .Upnishad {
             display: grid;
@@ -60,70 +59,52 @@
 
 <body>
     <div class="container">
+        <!-- <h1>Upanishads</h1> -->
         <div class="Upnishad">
             <ol id="UpnishadList"></ol>
         </div>
     </div>
-    </div>
     <script>
-        // Function to fetch main PDF filenames
-        async function fetchMainPdfs() {
-            const response = await fetch('/fetchMainPdfsUpnishad');
-            if (!response.ok) {
-                console.error('Error fetching main PDFs:', response.statusText);
-                return [];
-            }
-            return response.json();
-        }
-
-        // Fetch parts for a selected main PDF
-        async function fetchPdfParts(pdfName) {
-            const response =await fetch(`/fetchPdfPartsUpnishad?pdfName=${encodeURIComponent(pdfName)}`);
-            if (!response.ok) {
-                console.error('Error fetching PDF parts:', response.statusText);
-                return [];
-            }
-            return response.json();
-        }
-
-        // Initialize the script to fetch and display main PDFs
         async function initialize() {
-            const mainPdfs = await fetchMainPdfs();
-            if (!Array.isArray(mainPdfs)) {
-                console.error('Expected an array of main PDFs, got:', mainPdfs);
-                return;
-            }
+            try {
+                // Use the new generic endpoint, passing the directory name
+                const response = await fetch('/fetch-pdf-mapping?dir=Upnishad');
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch PDF mapping: ${response.statusText}`);
+                }
+                const pdfMapping = await response.json();
 
-            mainPdfs.forEach(pdf => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#";
-                a.textContent = pdf;
+                const upnishadList = document.getElementById("UpnishadList");
 
-                a.addEventListener("click", async () => {
-                    const parts = await fetchPdfParts(pdf);
+                // Get the keys (book titles) from the mapping and sort them
+                const bookTitles = Object.keys(pdfMapping).sort((a, b) => a.localeCompare(b));
+
+                bookTitles.forEach(title => {
+                    const parts = pdfMapping[title];
                     if (parts.length > 0) {
-                        redirectToContent(parts); // Pass the array of parts
-                    } else {
-                        console.error('No parts found for:', pdf);
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.textContent = title;
+
+                        // Sort the parts numerically to ensure correct order
+                        const sortedParts = parts.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+
+                        // Create the correct link for the generic book viewer
+                        a.href = `/book?filename=${encodeURIComponent(sortedParts.join(','))}&dir=Upnishad`;
+
+                        li.appendChild(a);
+                        upnishadList.appendChild(li);
                     }
                 });
 
-                li.appendChild(a);
-                document.getElementById("UpnishadList").appendChild(li);
-            });
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById("UpnishadList").innerHTML = '<li>Failed to load content.</li>';
+            }
         }
 
-        // Redirect to content viewing page with all parts
-        function redirectToContent(parts) {
-            const combinedParts = parts.join(','); // Combine parts for URL
-            window.location.href = `book?filename=${encodeURIComponent(combinedParts)}`;
-        }
-
-        // Call the initialize function to display the main PDFs
         initialize();
     </script>
-
 </body>
 
 </html>

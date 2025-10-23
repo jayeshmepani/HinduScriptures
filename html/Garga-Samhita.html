@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garga Samhita</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/download.png">
+    <style>
+        .item-list-container {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            margin: 2rem auto;
+            font-size: clamp(1.0625rem, 0.9236rem + 0.7407vw, 1.8125rem);
+
+            a {
+                text-decoration: none;
+                color: rgba(255, 217, 0, 0.91);
+
+                &:hover {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    -webkit-backdrop-filter: none;
+                    backdrop-filter: none;
+                    display: block;
+                }
+            }
+        }
+
+        ol#itemList {
+            display: grid;
+            gap: 0.7rem;
+            width: min(85%, 600px);
+
+            li {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 217, 0, 0.3);
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                margin: 0;
+                padding: 0.7rem;
+                display: block;
+
+                &:hover {
+                    padding: 0.55rem;
+                    background-color: rgba(255, 217, 0, 0.2);
+                    border-color: rgba(255, 217, 0, 0.7);
+                    transform: scale(1.05);
+                    -webkit-backdrop-filter: blur(1rem) saturate(222%);
+                    backdrop-filter: blur(1rem) saturate(222%);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 id="pageTitle">Garga Samhita</h1> -->
+        <div class="item-list-container">
+            <ol id="itemList"></ol>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const section = urlParams.get('section');
+            const itemList = document.getElementById('itemList');
+            // const pageTitle = document.getElementById('pageTitle');
+
+            if (section) {
+                // We are inside a Khanda, show the chapters (files)
+                // pageTitle.textContent = decodeURIComponent(section);
+                const response = await fetch(`/fetchFiles?section=${encodeURIComponent(section)}`);
+                const data = await response.json();
+
+                if (data.error || !Array.isArray(data.files)) {
+                    console.error('Error fetching files:', data.error || 'Invalid data');
+                    return;
+                }
+                
+                const sortedFiles = data.files.sort((a, b) => {
+                    const numA = parseInt(a, 10);
+                    const numB = parseInt(b, 10);
+                    return numA - numB;
+                });
+
+                sortedFiles.forEach(filename => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    const chapterNumber = filename.replace('.json', '');
+                    a.textContent = `Chapter ${chapterNumber}`;
+                    // Link to the generic /content route
+                    a.href = `/content?filename=${encodeURIComponent(filename)}&section=${encodeURIComponent(section)}`;
+                    
+                    li.appendChild(a);
+                    itemList.appendChild(li);
+                });
+
+            } else {
+                // Main Garga Samhita page, show the Khandas (folders)
+               // pageTitle.textContent = 'Garga Samhita - Khandas';
+                const response = await fetch('/fetchFiles');
+                const data = await response.json();
+
+                if (data.error || !Array.isArray(data.folders)) {
+                    console.error('Error fetching folders:', data.error || 'Invalid data');
+                    return;
+                }
+
+                data.folders.forEach(folderName => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.textContent = folderName;
+                    a.href = `/Garga-Samhita?section=${encodeURIComponent(folderName)}`;
+                    
+                    li.appendChild(a);
+                    itemList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
