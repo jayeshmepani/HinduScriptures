@@ -60,10 +60,10 @@
 
 <body>
   <div class="container">
-    <!-- <h1>Ramayanas</h1> -->
+    <h1>Ramayanas</h1>
     <div class="Ramayanas">
       <ol id="RamayanasList">
-        <!-- Static links remain for special cases -->
+        <!-- Static links for special pages with sub-menus -->
         <li><a href="/ramayanaKandaList">Valmiki Ramayana</a></li>
         <li><a href="/adbhutRamayana">Adbhuta Ramayana</a></li>
         <li><a href="/adhyatmaRamayana">Adhyatma Ramayana</a></li>
@@ -73,47 +73,68 @@
     </div>
   </div>
   <script>
-    // List of titles that are already handled by static links
+    // List of titles handled by static links. We will exclude these from the dynamic list.
     const excludedTitles = [
-      'Valmiki Ramayana', 'Adbhuta Ramayana', 'Adhyatma Ramayana',
-      'Ramcharitmanas', 'Yoga Vasistha'
+      'ValmikiRamayana', // Matching the folder name
+      'AdbhutRamayanBook',
+      'AdhyatmaRamayanaBook',
+      'Ramcharitmanas', // Matching the folder name
+      'Yoga Vasistha' // Matching the folder name
     ];
 
     async function initialize() {
       try {
-        // Use the new generic endpoint
-        const response = await fetch('/fetch-pdf-mapping?dir=Ramayanas');
-        if (!response.ok) {
-          throw new Error(`Failed to fetch PDF mapping: ${response.statusText}`);
-        }
-        const pdfMapping = await response.json();
+        const response = await fetch('/fetchFiles');
+        if (!response.ok) throw new Error(`Failed to fetch files: ${response.statusText}`);
+
+        const data = await response.json();
+        if (!data.files) throw new Error("No files found in response.");
 
         const ramayanasList = document.getElementById("RamayanasList");
+        const fileGroups = {};
 
-        const bookTitles = Object.keys(pdfMapping).sort((a, b) => a.localeCompare(b));
-
-        bookTitles.forEach(title => {
-          // Only add the book if it's not in our excluded list
-          if (!excludedTitles.includes(title)) {
-            const parts = pdfMapping[title];
-            if (parts.length > 0) {
-              const li = document.createElement("li");
-              const a = document.createElement("a");
-              a.textContent = title;
-
-              const sortedParts = parts.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
-
-              // Create the correct link for the generic book viewer
-              a.href = `/book?filename=${encodeURIComponent(sortedParts.join(','))}&dir=Ramayanas`;
-
-              li.appendChild(a);
-              ramayanasList.appendChild(li);
+        // Group all PDF files by their base name
+        data.files.forEach(filename => {
+          const match = filename.match(/^(.*?)(?: \d+)?\.pdf$/i);
+          if (match) {
+            const baseName = match[1].trim();
+            if (!fileGroups[baseName]) {
+              fileGroups[baseName] = [];
             }
+            fileGroups[baseName].push(filename);
           }
         });
 
+        const bookTitles = Object.keys(fileGroups).sort((a, b) => a.localeCompare(b));
+
+        bookTitles.forEach(title => {
+          // *** THE EXCLUSION LOGIC IS HERE ***
+          // If the current title is in the excluded list, skip it.
+          if (excludedTitles.includes(title)) {
+            return; // a.k.a. 'continue' in a forEach loop
+          }
+
+          const parts = fileGroups[title];
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.textContent = title;
+
+          if (parts.length > 1) {
+            // It's a MULTI-PART book
+            const sortedParts = parts.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+            a.href = `/book?filename=${encodeURIComponent(sortedParts.join(','))}&dir=Ramayanas`;
+          } else {
+            // It's a SINGLE-FILE book
+            const singleFile = parts[0];
+            a.href = `/book?filename=${encodeURIComponent(singleFile)}&dir=Ramayanas`;
+          }
+
+          li.appendChild(a);
+          ramayanasList.appendChild(li);
+        });
+
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error initializing Ramayanas list:', error);
       }
     }
 
