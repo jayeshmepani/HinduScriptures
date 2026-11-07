@@ -4,10 +4,10 @@ A consolidated list of the distinct works represented in the repository. Numbere
 
 ## Vedas
 
-- Ṛgveda — 10 Maṇḍalas.
+- Ṛgveda — 10 Maṇḍalas, subdivided into Sūktas and Ṛcs.
 - Yajurveda — Vājasaneyī Saṃhitā (Kāṇva recension) and Vājasaneyī Saṃhitā (Mādhyandina recension).
 - Sāmaveda — Kauthuma Saṃhitā.
-- Atharvaveda — Śaunaka Saṃhitā; 20 Kāṇḍas.
+- Atharvaveda — Śaunaka Saṃhitā; 20 Kāṇḍas, subdivided into Sūktas and mantras.
 
 ## Upaniṣad collection
 
@@ -200,7 +200,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Bhāgavata Purāṇa — 12 Skandhas.
 - Bhaviṣya Purāṇa — Brahma, Madhyama, Pratisarga, and Uttara Parvas; Madhyama and Pratisarga are subdivided in the repository.
 - Brahma Purāṇa — chaptered text.
-- Brahmāṇḍa Purāṇa — 3 Bhāgas: Pūर्वa, Madhya, Uttara.
+- Brahmāṇḍa Purāṇa — 3 Bhāgas: Pūrvabhāga, Madhyabhāga, Uttarabhāga.
 - Brahmavaivarta Purāṇa — 4 Khaṇḍas: Brahma, Prakṛti, Gaṇapati, Śrī Kṛṣṇa Janma.
 - Garuḍa Purāṇa — 3 Kāṇḍas: Ācāra, Brahma, Preta.
 - Kūrma Purāṇa — Pūrvabhāga and Uttarabhāga.
@@ -226,7 +226,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Datta Purāṇa — 8 Aṣṭakas.
 - Kalki Purāṇa.
 - Kapila Purāṇa.
-- Kālika Purāṇa — chaptered text.
+- Kālika Purāṇa — 89 chapters.
 - Mārīca Purāṇa.
 - Mudgala Purāṇa — 9 chapters.
 - Nandī Purāṇa.
@@ -248,7 +248,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Lakṣmī Purāṇa.
 - Devāṅga Purāṇa.
 - Nīlamata Purāṇa.
-- Malla Purāṇa.
+- Malla Purāṇa — 18 chapters.
 - Basava Purāṇa.
 - Periya Purāṇam.
 - Dharma Purāṇa.
@@ -520,7 +520,6 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Aarati Shrimadbhagavatamahapurana Ki
 - Aarati Yogeshvarichi 1
 - Aarati Yogeshvarichi 2
-- Aarti Sangrah 2
 - Amba Aarati
 - Bhagavata Aarati
 - Gayatri Aarati
@@ -534,9 +533,10 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Shrishakambhari Aarati 1
 - Shrishakambhari Aarati 2
 - Shristhala Devi Aarati
-- Amarasaṃvādaḥ — Sanskrit prayer/ārati anthology; 15 separately titled compositions:
--   - Śrī Gaṇapateḥ Āratiḥ.
--   - Śrī Gajānanasyāratiḥ.
+### Amarasaṃvādaḥ — 15 separately titled compositions
+
+Śrī Gaṇapateḥ Āratiḥ.
+- Śrī Gajānanasyāratiḥ.
 -   - Śrī Śaṅkarasyāratiḥ.
 -   - Śrī Durgāyāḥ Āratiḥ.
 -   - Śrī Viṭṭhalasyāratiḥ.
@@ -548,7 +548,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 -   - Śrī Akkalkoṭ Svāmi Āratiḥ — I.
 -   - Śrī Akkalkoṭ Svāmi Āratiḥ — II.
 -   - Mātṛbhūmeḥ Āratiḥ.
--   - Bhauṃ Lūṭheyam (Bhoum Luthayam).
+-   - Bhūmau Luṭheyam (Bhoum Luthayam).
 -   - Mantrapuṣpāñjali.
 
 ## Aṣṭakas
@@ -811,6 +811,8 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Vishnu Kavacham Brahmanda Pavana Kavacham
 
 ## Nāmāvalīs
+
+Nāmāvalī collections are grouped in the repository as 100/108-name, 300-name, and 1000/1008-name collections.
 
 - AdiShankaracharya Nāmāvalī
 - Anjaneya Nāmāvalī
@@ -1185,7 +1187,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Chosathapadi.
 - Ekadashi Mahatmya.
 - Ekadashi Letter Gujarati.
-- Funral Rites.
+- Funeral Rites.
 - Ghar Satsang 1.
 - Ghar Satsang 2.
 - Hari Kavach English Translation.
@@ -1235,6 +1237,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Satsangi Jivan — 5 volumes in English and 5 in Gujarati.
 - Shikshapatri — English, Gujarati, and Hindi editions.
 - Vachnamrut — English, Gujarati, and Gutko editions.
+- Kirtan collection — the repository contains an empty data file; individual kirtans are not yet present.
 
 ## Collections whose constituent contents remain bundled
 
@@ -1243,4 +1246,4 @@ A consolidated list of the distinct works represented in the repository. Numbere
 
 ---
 
-This list separates titles from repository file layout. Where the repository exposes numbered chapters or named divisions, those divisions are included beside the parent work. Repeated translations, editions, and volume files are grouped where they represent the same work.
+This list separates titles from repository file layout. Where the repository exposes numbered chapters or named divisions, those divisions are included beside the parent work. Repeated translations, editions, and volume files are grouped where they represent the same work. Some Ati-Purāṇas are physically stored inside the repository's Upa-Purāṇa data folder, but are listed separately here according to the project's Pūrāṇa overview.
