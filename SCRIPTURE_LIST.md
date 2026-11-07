@@ -51,10 +51,15 @@ These are the eight titles present in the repository's Upaniṣad collection; th
 - Brahma Rāmāyaṇa.
 - Mantra Rāmāyaṇa.
 - Satyopākhyāna — 3 volumes.
+- Ekāślokī Rāmāyaṇa.
+- Gāyatrī Rāmāyaṇa.
+- Nāma Rāmāyaṇa.
+- Saṅkṣepa Rāmāyaṇa.
 
 ## Other Purāṇic and Itihāsa Texts
 - Harivaṃśa — 3 Parvas: Harivaṃśa, Viṣṇu and Bhaviṣya. The repository contains two distinct data sets under its Purāṇa and Upa-Purāṇa collections; it is listed once here.
 - Vāyu Purāṇa — Pūrvadharma and Uttaradharma divisions.
+- Kaiśika Purāṇam.
 
 ## Mahāpurāṇas
 - Agni Purāṇa — 383 numbered chapter files.
@@ -523,7 +528,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Gayatri Chalisa
 - Giriraj Chalisa
 - Gopal Chalisa
-- Hanuman Chalisa
 - Krishna Chalisa
 - Laxmi Chalisa
 - Mahavir Chalisa
@@ -741,7 +745,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Durga Pancharatnam
 - Durga Stotram
 - Dwadasharya Surya Stuti
-- Ekashloki Ramayanam
 - Gakaradi Ganapati Sahasranama Stotram
 - Ganapati Ashtottara Shatanama Stotram
 - Ganapati Gakara Ashtottara Shatanama Stotram
@@ -755,7 +758,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Gangashtakam
 - Gauri Ashtottara Shatanama Stotram
 - Gauri Dashakam
-- Gayatri Ramayanam
 - Gayatri Stotram
 - Gita Govindam
 - Goda Ashtottara Shatanama Stotram
@@ -774,7 +776,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Jatayukrta Rama Stotram
 - Jnana Vijnanopadesha
 - Kabandhakrta Rama Stotram
-- Kaishika Puranam
 - Kalabhairavashtakam
 - Kalanemi Sambhashanam
 - Kalidoshanivarana Stotram
@@ -827,7 +828,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Muka Pancha Shati 10
 - Muka Sarah
 - Munikrta Rama Stotram
-- Nama Ramayanam
 - Narada Rama Samvada
 - Narada Stuti
 - Narayana Keshadipadanta Varnanam
@@ -847,7 +847,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Rama Ashtottara Shatanama Stotram
 - Rama Bhujangaprayata Stotram
 - Rama Dwadasha Nama Stotram
-- Rama Gita
 - Rama Hrdayam
 - Rama Sambhashanam
 - Rama Stava
@@ -865,7 +864,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Roga Nivarana Shloka
 - Rudra Stotram
 - Sadashivashtakam
-- Sankshepa Ramayanam
 - Santanagopala Stotram
 - Saraswati Ashtottara Shatanama Stotram
 - Saraswati Prarthana
@@ -1065,10 +1063,11 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Vishnusahasranam
 - Vrat Katha
 - Yamdand English
-Kīrtan is referenced by the application, but its current JSON file is empty and contains no listed text records.
+- Kīrtan collection — individual compositions are stored with Gujarati and English titles, Kīrtan groups and pad numbers.
 
 ## Composite or multi-text volumes
 - 6 Darśanas — expanded above as Nyāya, Vaiśeṣika, Sāṃkhya, Yoga, Pūrva Mīmāṃsā and Uttara Mīmāṃsā/Vedānta.
+- Kīrtan corpus — a large structured collection with individual Gujarati/English titles, grouping labels and pad numbers; its individual entries are not enumerated here.
 - Amarasaṃvādaḥ — expanded above as 15 separately titled Sanskrit Āratis / prayer pieces.
 - Ārati Saṅgraha, volume 2 — compiled PDF; its individual contents still require direct PDF text extraction.
 - Bhajan Saṅgraha — compiled PDF; its individual bhajan titles still require direct PDF text extraction.
@@ -1078,4 +1077,4 @@ Kīrtan is referenced by the application, but its current JSON file is empty and
 - Where the repository stores multiple translations or volumes of one text, the list groups them under the text's name and identifies the available editions or volume divisions.
 - Where a collection page itself names internal divisions, those divisions are listed with the work.
 - The Ati-Purāṇa names are transcribed from the repository's own Puranas Overview page, while the Upa-Purāṇa list is based on distinct works present in the UpaPuranas data collection.
-- PDF titles are taken from the committed filenames. The GitHub file connector does not return PDF binary contents for page-level text extraction; therefore, the two compiled devotional PDFs listed above have not been expanded into their internal song lists.
+- PDF titles are taken from the committed filenames. The GitHub file connector does not return PDF binary contents for page-level text extraction; therefore, Ārati Saṅgraha and Bhajan Saṅgraha remain identified as anthologies rather than expanded into every internal item. The Kīrtan JSON is present as a large structured dataset, but its full body is too large to retrieve through the repository text interface in one pass.
