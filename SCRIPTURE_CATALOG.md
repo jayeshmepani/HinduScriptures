@@ -1,0 +1,2328 @@
+# Hindu Scriptures — Complete Text Catalogue
+
+**Repository:** [`jayeshmepani/HinduScriptures`](https://github.com/jayeshmepani/HinduScriptures)  
+**Branch inspected:** `main`  
+**Repository tree snapshot:** `5ba7cbab3acffcbc7dbb23e46a3dd3d2ea725d9f`  
+**Catalogue purpose:** list the works and text collections represented in `DharmicData`, preserving their exact repository titles and source paths.
+
+## Scope and counting rules
+
+- A numbered JSON file such as `1.json`, `2.json`, etc. is treated as a chapter, section, parva, kāṇḍa, or verse-data segment of its parent work—not as a separate scripture.
+- Named JSON files are individually listed. Chaptered works are listed by their parent work/folder, with a separate manifest of every numbered-JSON folder and its file count.
+- Every PDF is individually listed by its exact repository filename and full relative path. The catalogue title is the filename with `.pdf` removed; it is not a transcription of a title page.
+- The complete recursive tree was inspected. All HTML pages were checked for page titles, headings, navigation labels, and embedded file references. App-specific JS modules and CSS files were reviewed for additional title references and routing.
+- **Content-reading limitation:** all 9,063 JSON paths and all 928 PDF paths are inventoried, but the body of every JSON file was not individually opened, and the 928 binary PDFs were not all text-extracted. Representative JSON payloads were opened to verify the chapter-file structure and title conventions. The PDF manifest therefore preserves filename-based titles rather than asserting title-page verification.
+
+## Repository inventory
+
+- **10,125 files** and **251 directories** in the recursive repository tree.
+- **9,989 files** in `DharmicData/`: **9,061 JSON** and **928 PDF**.
+- **100 HTML**, **19 JavaScript**, and **4 CSS** files.
+
+| `DharmicData` category | Files | JSON | PDF |
+|---|---:|---:|---:|
+| Aartis | 24 | 23 | 1 |
+| Agamas | 84 | 66 | 18 |
+| Ashtaka | 123 | 0 | 123 |
+| Bhajan | 1 | 0 | 1 |
+| Chalisa | 28 | 27 | 1 |
+| Garga Samhita | 263 | 263 | 0 |
+| Gitas | 97 | 74 | 23 |
+| Kavacha | 95 | 0 | 95 |
+| Mahabharata | 18 | 18 | 0 |
+| Namavalis | 50 | 0 | 50 |
+| Occult | 19 | 4 | 15 |
+| Purana | 6843 | 6843 | 0 |
+| Ramayanas | 704 | 688 | 16 |
+| Smritis | 18 | 0 | 18 |
+| SrimadBhagvadGita | 18 | 18 | 0 |
+| Stotras | 268 | 1 | 267 |
+| Stuti | 46 | 0 | 46 |
+| Swaminarayan Sect | 77 | 1 | 76 |
+| Upa-Veda | 74 | 0 | 74 |
+| UpaPuranas | 1016 | 1003 | 13 |
+| UpaSmritis | 16 | 0 | 16 |
+| Upanga | 1 | 0 | 1 |
+| Upnishad | 8 | 0 | 8 |
+| Veda | 33 | 32 | 1 |
+| Vedanga | 65 | 0 | 65 |
+| **Total** | **9989** | **9061** | **928** |
+
+## 1. Work and collection directory index
+
+The following are the first-level text/work/collection folders under each category. Folder names are preserved as found; depending on the category, a folder can denote a whole work, a recension, a volume group, or a topical/deity grouping.
+
+### Garga Samhita
+- **1. Goloka Khandaḥ** — 20 JSON file(s)
+- **10. Ashvamedha Khandaḥ** — 62 JSON file(s)
+- **2. Vrindavan Khandaḥ** — 26 JSON file(s)
+- **3. Giriraja Khandaḥ** — 11 JSON file(s)
+- **4. Madhurya Khandaḥ** — 24 JSON file(s)
+- **5. Mathura Khandaḥ** — 25 JSON file(s)
+- **6. Dvaraka Khandaḥ** — 22 JSON file(s)
+- **7. Vishvajita Khandaḥ** — 50 JSON file(s)
+- **8. Balabhadra Khandaḥ** — 13 JSON file(s)
+- **9. Vijnana Khandaḥ** — 10 JSON file(s)
+
+### Gitas
+- **Bhagvad Gita** — 18 JSON file(s)
+
+### Namavalis
+- **100, 108** — 41 PDF file(s)
+- **1000, 1008** — 7 PDF file(s)
+- **300** — 2 PDF file(s)
+
+### Occult
+- **Jātaka Parijāta** — 5 PDF file(s)
+- **Samudrika Shastra** — 6 PDF file(s)
+
+### Purana
+- **Agni Purana** — 383 JSON file(s)
+- **Bhagavata Purana** — 335 JSON file(s); nested sections: Skandhah 1; Skandhah 10; Skandhah 11; Skandhah 12; Skandhah 2; Skandhah 3; Skandhah 4; Skandhah 5; Skandhah 6; Skandhah 7; Skandhah 8; Skandhah 9
+- **Bhavishya Purana** — 584 JSON file(s); nested sections: 1. Brahma Parva; 2.1. Madhyama Parva; 2.2. Madhyama Parva; 2.3. Madhyama Parva; 3.1. Pratisarga Parva; 3.2. Pratisarga Parva; 3.3. Pratisarga Parva; 3.4. Pratisarga Parva; 4. Uttara Parva
+- **Brahma Purana** — 246 JSON file(s)
+- **Brahmaanda Purana** — 156 JSON file(s); nested sections: 1. Poorva Bhagah; 2. Madhya Bhagah; 3. Uttar Bhagah
+- **Brahmavaivarta Purana** — 276 JSON file(s); nested sections: 1. Brahmakhanda; 2. Prakriti Khanda; 3. Ganapati Khanda; 4. Shri Krishna Janma Khanda
+- **Garuda Purana** — 310 JSON file(s); nested sections: Achara Kanda; Brahma Kanda; Preta Kanda
+- **Harivansha Purana** — 318 JSON file(s); nested sections: 1. Harivamsha Parva; 2. Vishnu Parva; 3. Bhavishya Parva
+- **Kurma Purana** — 99 JSON file(s); nested sections: Purvabhag; Uttarbhag
+- **Linga Purana** — 163 JSON file(s); nested sections: Purvabhag; Uttarbhag
+- **Markandeya Purana** — 26 JSON file(s)
+- **Matsya Purana** — 290 JSON file(s)
+- **Narada Purana** — 207 JSON file(s); nested sections: Purvardhah; Uttarardhah
+- **Padma Purana** — 693 JSON file(s); nested sections: 1. Srishti Khanda; 2. Bhumi Khanda; 3. Svarga Khanda; 4. Brahmana Khanda; 5. Patala Khanda; 6. Uttara Khanda; 7. Kriya Khanda
+- **Shiva Purana** — 457 JSON file(s); nested sections: 1. Vishweshwara Samhita; 2. Rudra Samhita; 3. Shatarudra Samhita; 4. Koti Rudra Samhita; 5. Uma Samhita; 6. Kailasa Samhita; 7. Vayaviya Samhita
+- **Skanda Purana** — 1749 JSON file(s); nested sections: 1. Maheshwarkhanda; 2. Vaishnavakhanda; 3. Brahmakhanda; 4. Kashikhanda; 5. Avantikhanda; 6. Nagarakhanda; 7. Prabhasakhanda; 8. Ambikakhanda
+- **Vamana Purana** — 96 JSON file(s)
+- **Varaha Purana** — 218 JSON file(s)
+- **Vayu Purana** — 111 JSON file(s); nested sections: Purva Dharm; Uttara Dharm
+- **Vishnu Purana** — 126 JSON file(s); nested sections: 1. Prathamamshah; 2. Dvitiamshah; 3. Tritiamshah; 4. Chaturthamshah; 5. Panchamamshah; 6. Shashtamshah
+
+### Ramayanas
+- **Ramcharitmanas** — 7 JSON file(s)
+- **ValmikiRamayana** — 7 JSON file(s)
+- **Yoga Vasistha** — 674 JSON file(s); nested sections: 1. Vairagya Prakaranam; 2. Mumukshu Vyavahara Prakaranam; 3. Utpatti Prakaranam; 4. Sthiti Prakaranam; 5. Upashama Prakaranam; 6. Nirvana Prakaranasya Purvardham; 7. Nirvana Prakaranasya Uttarardham
+
+### Stotras
+- **Adhyatma-Ramayana-Stotras** — 41 PDF file(s)
+- **Dhyanam** — 11 PDF file(s)
+- **Ganesha** — 5 PDF file(s)
+- **Guru** — 1 PDF file(s)
+- **Hanuman** — 4 PDF file(s)
+- **Krishna** — 19 PDF file(s)
+- **Lakshmi** — 4 PDF file(s)
+- **Nadi** — 7 PDF file(s)
+- **Navagraha** — 21 PDF file(s)
+- **Other** — 21 PDF file(s)
+- **Purti** — 2 PDF file(s)
+- **Rama** — 15 PDF file(s)
+- **Saraswati** — 6 PDF file(s)
+- **Shakti** — 25 PDF file(s)
+- **Shasta** — 2 PDF file(s)
+- **Shatanama** — 33 PDF file(s)
+- **Shiva** — 1 JSON, 25 PDF file(s)
+- **Subrahmanya** — 7 PDF file(s)
+- **Venkatesha** — 8 PDF file(s)
+- **Vishnu** — 10 PDF file(s)
+
+### Swaminarayan Sect
+- **Ghanshyam-Leela** — 2 PDF file(s)
+- **Nishkulanand Kavya Amrutdhara** — 5 PDF file(s)
+- **Satsangi-Jivan** — 10 PDF file(s)
+- **Shikshapatri** — 3 PDF file(s)
+- **Vachnamrut** — 3 PDF file(s)
+
+### Upa-Veda
+- **Āyur Veda** — 58 PDF file(s)
+- **Dhanur Veda** — 3 PDF file(s)
+- **Gandharva Veda** — 4 PDF file(s)
+- **Sthapatya Veda** — 9 PDF file(s)
+
+### UpaPuranas
+- **Datt Purana** — 64 JSON file(s); nested sections: 1. Prathmashtak; 2. Dvityashtak; 3. Trityashtak; 4. Chaturthashtak; 5. Panchmashtak; 6. Shashthashtak; 7. Saptmashtak; 8. Ashtamashtak
+- **Harivansha Purana** — 318 JSON file(s); nested sections: 1. Harivamsha Parva; 2. Vishnu Parva; 3. Bhavishya Parva
+- **Kalika Purana** — 89 JSON file(s)
+- **Malla Purana** — 18 JSON file(s)
+- **Mudgala Purana** — 9 JSON file(s)
+- **Naradiya Purana** — 183 JSON file(s); nested sections: PurvaBhagah; UttaraBhagah
+- **Shivadharma Purana** — 12 JSON file(s)
+- **Srimad Devi Bhagwat Purana** — 12 JSON file(s)
+- **Vishnudharmottar Purana** — 298 JSON file(s); nested sections: 1; 2; 3
+
+### Veda
+- **AtharvaVeda** — 20 JSON file(s)
+- **Rigveda** — 10 JSON file(s)
+- **Samaved** — 1 PDF file(s)
+- **Yajurveda** — 2 JSON file(s)
+
+### Vedanga
+- **Jyotish** — 4 PDF file(s)
+- **Kalp** — 57 PDF file(s)
+
+## 2. Individually named JSON text files
+
+These are the non-numbered JSON files. The repository path is retained so similarly named works and translations can be distinguished.
+
+### Aartis
+- **Aarati Bhagavana Gangadhara** — `DharmicData/Aartis/Aarati Bhagavana Gangadhara.json`
+- **Aarati Bhagavana Kailasavasi** — `DharmicData/Aartis/Aarati Bhagavana Kailasavasi.json`
+- **Aarati Bhagavana Mahadeva** — `DharmicData/Aartis/Aarati Bhagavana Mahadeva.json`
+- **Aarati Bhagavana Shri Bholenathaji** — `DharmicData/Aartis/Aarati Bhagavana Shri Bholenathaji.json`
+- **Aarati Bhagavana Shri Shankara** — `DharmicData/Aartis/Aarati Bhagavana Shri Shankara.json`
+- **Aarati Bhagavana Shri Shivashankara** — `DharmicData/Aartis/Aarati Bhagavana Shri Shivashankara.json`
+- **Aarati Shrimadbhagavatamahapurana Ki** — `DharmicData/Aartis/Aarati Shrimadbhagavatamahapurana Ki.json`
+- **Aarati Yogeshvarichi 1** — `DharmicData/Aartis/Aarati Yogeshvarichi 1.json`
+- **Aarati Yogeshvarichi 2** — `DharmicData/Aartis/Aarati Yogeshvarichi 2.json`
+- **Amarasanvadah Sanskrit Prayer Aarati Collection** — `DharmicData/Aartis/Amarasanvadah Sanskrit Prayer Aarati Collection.json`
+- **Amba Aarati** — `DharmicData/Aartis/Amba Aarati.json`
+- **Bhagavata Aarati** — `DharmicData/Aartis/Bhagavata Aarati.json`
+- **Gayatri Aarati** — `DharmicData/Aartis/Gayatri Aarati.json`
+- **Jaya Jagadisha Hare Aarati** — `DharmicData/Aartis/Jaya Jagadisha Hare Aarati.json`
+- **Karpura Aarati Mantrah** — `DharmicData/Aartis/Karpura Aarati Mantrah.json`
+- **Samskrita Bhasha Nirajana Aarati** — `DharmicData/Aartis/Samskrita Bhasha Nirajana Aarati.json`
+- **Shiva Aarati** — `DharmicData/Aartis/Shiva Aarati.json`
+- **Shri Ganesha Sanskrit Aarati** — `DharmicData/Aartis/Shri Ganesha Sanskrit Aarati.json`
+- **Shri Shakanbhari Aarati 3 (Marathi)** — `DharmicData/Aartis/Shri Shakanbhari Aarati 3 (Marathi).json`
+- **Shri Vyadeshvara Aarati** — `DharmicData/Aartis/Shri Vyadeshvara Aarati.json`
+- **Shrishakambhari Aarati 1** — `DharmicData/Aartis/Shrishakambhari Aarati 1.json`
+- **Shrishakambhari Aarati 2** — `DharmicData/Aartis/Shrishakambhari Aarati 2.json`
+- **Shristhala Devi Aarati** — `DharmicData/Aartis/Shristhala Devi Aarati.json`
+
+### Agamas
+- **Ācārasāra Tantram** — `DharmicData/Agamas/Ācārasāra Tantram.json`
+- **Agastya Saṃhitā** — `DharmicData/Agamas/Agastya Saṃhitā.json`
+- **Ahirbudhna Saṃhitā** — `DharmicData/Agamas/Ahirbudhna Saṃhitā.json`
+- **Ajñānadhvāntadīpikā** — `DharmicData/Agamas/Ajñānadhvāntadīpikā.json`
+- **Akulavīra Tantram** — `DharmicData/Agamas/Akulavīra Tantram.json`
+- **Amṛteśa Tantram** — `DharmicData/Agamas/Amṛteśa Tantram.json`
+- **Aṃśumatkāśyap Āgamaḥ** — `DharmicData/Agamas/Aṃśumatkāśyap Āgamaḥ.json`
+- **Ānandakandaḥ** — `DharmicData/Agamas/Ānandakandaḥ.json`
+- **Aniruddha Saṃhitā** — `DharmicData/Agamas/Aniruddha Saṃhitā.json`
+- **Aśeṣakulavallarī** — `DharmicData/Agamas/Aśeṣakulavallarī.json`
+- **Bagalāmukhīpañcāṅgam** — `DharmicData/Agamas/Bagalāmukhīpañcāṅgam.json`
+- **Bhārgava Tantram** — `DharmicData/Agamas/Bhārgava Tantram.json`
+- **Bhṛgu Saṃhitā** — `DharmicData/Agamas/Bhṛgu Saṃhitā.json`
+- **Bhūtaśuddhi Tantram** — `DharmicData/Agamas/Bhūtaśuddhi Tantram.json`
+- **Bṛhannīla Tantram** — `DharmicData/Agamas/Bṛhannīla Tantram.json`
+- **Candrajñān Āgamaḥ (Śivaśāsane Caryā Pādaḥ)** — `DharmicData/Agamas/Candrajñān Āgamaḥ (Śivaśāsane Caryā Pādaḥ).json`
+- **Candrajñān Āgamaḥ** — `DharmicData/Agamas/Candrajñān Āgamaḥ.json`
+- **Candrajñānam** — `DharmicData/Agamas/Candrajñānam.json`
+- **Cinmantramālinī** — `DharmicData/Agamas/Cinmantramālinī.json`
+- **Cinmayadīkṣāvidhānam** — `DharmicData/Agamas/Cinmayadīkṣāvidhānam.json`
+- **Ḍākinī Kalpaḥ** — `DharmicData/Agamas/Ḍākinī Kalpaḥ.json`
+- **Dattātreya Tantram** — `DharmicData/Agamas/Dattātreya Tantram.json`
+- **Devīkālottar Āgamaḥ** — `DharmicData/Agamas/Devīkālottar Āgamaḥ.json`
+- **Dīkṣottaram (Niśśvāsa Kārikāyāḥ)** — `DharmicData/Agamas/Dīkṣottaram (Niśśvāsa Kārikāyāḥ).json`
+- **Gaṇa Kārikā** — `DharmicData/Agamas/Gaṇa Kārikā.json`
+- **Gandharva Tantram** — `DharmicData/Agamas/Gandharva Tantram.json`
+- **Gautama Tantram** — `DharmicData/Agamas/Gautama Tantram.json`
+- **Gorakṣaguṭikā** — `DharmicData/Agamas/Gorakṣaguṭikā.json`
+- **Guhyasamāja Tantram** — `DharmicData/Agamas/Guhyasamāja Tantram.json`
+- **Haṃsa Sāraḥ** — `DharmicData/Agamas/Haṃsa Sāraḥ.json`
+- **Hayaśīrṣa Pañcarātram** — `DharmicData/Agamas/Hayaśīrṣa Pañcarātram.json`
+- **Jayākhya Saṃhitā** — `DharmicData/Agamas/Jayākhya Saṃhitā.json`
+- **Jñānasaṅkalinī Tantram** — `DharmicData/Agamas/Jñānasaṅkalinī Tantram.json`
+- **Jñānasiddhy Āgamaḥ** — `DharmicData/Agamas/Jñānasiddhy Āgamaḥ.json`
+- **Kalasaṃkarṣiṇīmata Tantraṭippaṇī** — `DharmicData/Agamas/Kalasaṃkarṣiṇīmata Tantraṭippaṇī.json`
+- **Kālikā Rahasyam** — `DharmicData/Agamas/Kālikā Rahasyam.json`
+- **Kaṅkālamālinī Tantram** — `DharmicData/Agamas/Kaṅkālamālinī Tantram.json`
+- **Kiraṇa Tantram** — `DharmicData/Agamas/Kiraṇa Tantram.json`
+- **kriyā-Kairava-Candrikā** — `DharmicData/Agamas/kriyā-Kairava-Candrikā.json`
+- **Lakṣmī Tantram** — `DharmicData/Agamas/Lakṣmī Tantram.json`
+- **Mālinīvijayottara Tantram** — `DharmicData/Agamas/Mālinīvijayottara Tantram.json`
+- **Mātṛkābheda Tantram** — `DharmicData/Agamas/Mātṛkābheda Tantram.json`
+- **Mṛgendra Tantram** — `DharmicData/Agamas/Mṛgendra Tantram.json`
+- **Niruttara Tantram Dvitīyaḥ Paṭalaḥ** — `DharmicData/Agamas/Niruttara Tantram Dvitīyaḥ Paṭalaḥ.json`
+- **Niruttara Tantram Prathamaḥ Paṭalaḥ** — `DharmicData/Agamas/Niruttara Tantram Prathamaḥ Paṭalaḥ.json`
+- **Niruttara Tantram** — `DharmicData/Agamas/Niruttara Tantram.json`
+- **Padma Saṃhitā** — `DharmicData/Agamas/Padma Saṃhitā.json`
+- **Pāñcarātr Āgamaḥ** — `DharmicData/Agamas/Pāñcarātr Āgamaḥ.json`
+- **Paramapuruṣa Saṃhitā** — `DharmicData/Agamas/Paramapuruṣa Saṃhitā.json`
+- **Parameśvara Saṃhitā** — `DharmicData/Agamas/Parameśvara Saṃhitā.json`
+- **Prakāśa Saṃhitā** — `DharmicData/Agamas/Prakāśa Saṃhitā.json`
+- **Prakīrṇā'dhikāraḥ** — `DharmicData/Agamas/Prakīrṇā'dhikāraḥ.json`
+- **Praśna Saṃhitā** — `DharmicData/Agamas/Praśna Saṃhitā.json`
+- **Pratyabhijñā Darśanam** — `DharmicData/Agamas/Pratyabhijñā Darśanam.json`
+- **Puruṣottama Saṃhitā** — `DharmicData/Agamas/Puruṣottama Saṃhitā.json`
+- **Sārthatriśatikālottar Āgamaḥ** — `DharmicData/Agamas/Sārthatriśatikālottar Āgamaḥ.json`
+- **Sāttvata Saṃhitā** — `DharmicData/Agamas/Sāttvata Saṃhitā.json`
+- **Svacchanda Tantram** — `DharmicData/Agamas/Svacchanda Tantram.json`
+- **Tantrālokaḥ** — `DharmicData/Agamas/Tantrālokaḥ.json`
+- **Ṭoḍala Tantram** — `DharmicData/Agamas/Ṭoḍala Tantram.json`
+- **Ūḍḍāmareśvara Tantram** — `DharmicData/Agamas/Ūḍḍāmareśvara Tantram.json`
+- **Vijñānabhairavam** — `DharmicData/Agamas/Vijñānabhairavam.json`
+- **Vīṇāśikha Tantram** — `DharmicData/Agamas/Vīṇāśikha Tantram.json`
+- **Viṣṇu Saṃhitā** — `DharmicData/Agamas/Viṣṇu Saṃhitā.json`
+- **Viśvaksena Saṃhitā** — `DharmicData/Agamas/Viśvaksena Saṃhitā.json`
+- **Viśvāmitra Saṃhitā** — `DharmicData/Agamas/Viśvāmitra Saṃhitā.json`
+
+### Chalisa
+- **Bajrang Baan Chalisa** — `DharmicData/Chalisa/Bajrang Baan Chalisa.json`
+- **Batuk Bhairav Chalisa** — `DharmicData/Chalisa/Batuk Bhairav Chalisa.json`
+- **Bhairav Chalisa** — `DharmicData/Chalisa/Bhairav Chalisa.json`
+- **Brahma Chalisa** — `DharmicData/Chalisa/Brahma Chalisa.json`
+- **Durga Chalisa** — `DharmicData/Chalisa/Durga Chalisa.json`
+- **Ganesh Chalisa** — `DharmicData/Chalisa/Ganesh Chalisa.json`
+- **Gayatri Chalisa** — `DharmicData/Chalisa/Gayatri Chalisa.json`
+- **Giriraj Chalisa** — `DharmicData/Chalisa/Giriraj Chalisa.json`
+- **Gopal Chalisa** — `DharmicData/Chalisa/Gopal Chalisa.json`
+- **Hanuman Chalisa** — `DharmicData/Chalisa/Hanuman Chalisa.json`
+- **Krishna Chalisa** — `DharmicData/Chalisa/Krishna Chalisa.json`
+- **Laxmi Chalisa** — `DharmicData/Chalisa/Laxmi Chalisa.json`
+- **Mahavir Chalisa** — `DharmicData/Chalisa/Mahavir Chalisa.json`
+- **Manasa Chalisa** — `DharmicData/Chalisa/Manasa Chalisa.json`
+- **Rama Chalisa** — `DharmicData/Chalisa/Rama Chalisa.json`
+- **Sankata Chalisa** — `DharmicData/Chalisa/Sankata Chalisa.json`
+- **Santinath Chalisa** — `DharmicData/Chalisa/Santinath Chalisa.json`
+- **Santoshi Mata Chalisa** — `DharmicData/Chalisa/Santoshi Mata Chalisa.json`
+- **Sarasvati Chalisa** — `DharmicData/Chalisa/Sarasvati Chalisa.json`
+- **Shakambhari Chalisa** — `DharmicData/Chalisa/Shakambhari Chalisa.json`
+- **Shani Chalisa** — `DharmicData/Chalisa/Shani Chalisa.json`
+- **Shitala Chalisa** — `DharmicData/Chalisa/Shitala Chalisa.json`
+- **Shiva Chalisa** — `DharmicData/Chalisa/Shiva Chalisa.json`
+- **Tulsi Chalisa** — `DharmicData/Chalisa/Tulsi Chalisa.json`
+- **Vindhyeshvari Chalisa** — `DharmicData/Chalisa/Vindhyeshvari Chalisa.json`
+- **Vishnu Chalisa** — `DharmicData/Chalisa/Vishnu Chalisa.json`
+- **Vishwakarma Chalisa** — `DharmicData/Chalisa/Vishwakarma Chalisa.json`
+
+### Gitas
+- **Agastya Gita** — `DharmicData/Gitas/Agastya Gita.json`
+- **Aila Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Aila Gita (Shrimad Bhagwat Mahapurana).json`
+- **Anu Gita** — `DharmicData/Gitas/Anu Gita.json`
+- **Ashtavakra Gita (Dattatreyakrut)** — `DharmicData/Gitas/Ashtavakra Gita (Dattatreyakrut).json`
+- **Avadhuta Gita** — `DharmicData/Gitas/Avadhuta Gita.json`
+- **Bodhya Gita (Mahabharata)** — `DharmicData/Gitas/Bodhya Gita (Mahabharata).json`
+- **Brahma Gita (Skanda Purana)** — `DharmicData/Gitas/Brahma Gita (Skanda Purana).json`
+- **Brahma Gita (Yoga Vāsiṣṭha)** — `DharmicData/Gitas/Brahma Gita (Yoga Vāsiṣṭha).json`
+- **Brahman Gita (Mahabharata)** — `DharmicData/Gitas/Brahman Gita (Mahabharata).json`
+- **Devi Gita** — `DharmicData/Gitas/Devi Gita.json`
+- **Dharma Vyaadh Gita (Mahabharata)** — `DharmicData/Gitas/Dharma Vyaadh Gita (Mahabharata).json`
+- **Dhisha Gita** — `DharmicData/Gitas/Dhisha Gita.json`
+- **Ganesh Gita** — `DharmicData/Gitas/Ganesh Gita.json`
+- **Garbha Gita** — `DharmicData/Gitas/Garbha Gita.json`
+- **Gayatri Gita** — `DharmicData/Gitas/Gayatri Gita.json`
+- **Guha Gita** — `DharmicData/Gitas/Guha Gita.json`
+- **Hans Gita (Mahabharata)** — `DharmicData/Gitas/Hans Gita (Mahabharata).json`
+- **Isvara Gita** — `DharmicData/Gitas/Isvara Gita.json`
+- **Kaashyapa Gita** — `DharmicData/Gitas/Kaashyapa Gita.json`
+- **Kapil Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Kapil Gita (Shrimad Bhagwat Mahapurana).json`
+- **Karuna Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Karuna Gita (Shrimad Bhagwat Mahapurana).json`
+- **Lakshman Gita (Ramcharitamanas)** — `DharmicData/Gitas/Lakshman Gita (Ramcharitamanas).json`
+- **Nahusha Gita (Mahabharata)** — `DharmicData/Gitas/Nahusha Gita (Mahabharata).json`
+- **Pandava Gita** — `DharmicData/Gitas/Pandava Gita.json`
+- **Paraashara Gita (Mahabharata)** — `DharmicData/Gitas/Paraashara Gita (Mahabharata).json`
+- **Pitru Gita (Varaha Purana)** — `DharmicData/Gitas/Pitru Gita (Varaha Purana).json`
+- **Prithvi Gita** — `DharmicData/Gitas/Prithvi Gita.json`
+- **Raasa Gita** — `DharmicData/Gitas/Raasa Gita.json`
+- **Ram Gita (Adbhuta Ramayana)** — `DharmicData/Gitas/Ram Gita (Adbhuta Ramayana).json`
+- **Ram Gita (Adhyatma Ramayana)** — `DharmicData/Gitas/Ram Gita (Adhyatma Ramayana).json`
+- **Ribhu Gita** — `DharmicData/Gitas/Ribhu Gita.json`
+- **Rishabha Gita (Mahabharata)** — `DharmicData/Gitas/Rishabha Gita (Mahabharata).json`
+- **Rishabha Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Rishabha Gita (Shrimad Bhagwat Mahapurana).json`
+- **Rudra Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Rudra Gita (Shrimad Bhagwat Mahapurana).json`
+- **Saptaśatī Gītā** — `DharmicData/Gitas/Saptaśatī Gītā.json`
+- **Saraswati Gita** — `DharmicData/Gitas/Saraswati Gita.json`
+- **Shanti Gita** — `DharmicData/Gitas/Shanti Gita.json`
+- **Shaunaka Gita (Mahabharata)** — `DharmicData/Gitas/Shaunaka Gita (Mahabharata).json`
+- **Shiv Gita** — `DharmicData/Gitas/Shiv Gita.json`
+- **Shri Ramana Gita** — `DharmicData/Gitas/Shri Ramana Gita.json`
+- **Shri Vaanara Gita** — `DharmicData/Gitas/Shri Vaanara Gita.json`
+- **Shrigaala Gita (Mahabharata)** — `DharmicData/Gitas/Shrigaala Gita (Mahabharata).json`
+- **Shruti Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Shruti Gita (Shrimad Bhagwat Mahapurana).json`
+- **Siddha Gītā** — `DharmicData/Gitas/Siddha Gītā.json`
+- **Surya Gita** — `DharmicData/Gitas/Surya Gita.json`
+- **Suta Gita** — `DharmicData/Gitas/Suta Gita.json`
+- **Tulsi Gita** — `DharmicData/Gitas/Tulsi Gita.json`
+- **Uddhava Gita** — `DharmicData/Gitas/Uddhava Gita.json`
+- **Utathya Gita** — `DharmicData/Gitas/Utathya Gita.json`
+- **Uttara Gita** — `DharmicData/Gitas/Uttara Gita.json`
+- **Vaamadeva Gita (Mahabharata)** — `DharmicData/Gitas/Vaamadeva Gita (Mahabharata).json`
+- **Vaishnava Gita** — `DharmicData/Gitas/Vaishnava Gita.json`
+- **Vasishtha Gita** — `DharmicData/Gitas/Vasishtha Gita.json`
+- **Venu Gita** — `DharmicData/Gitas/Venu Gita.json`
+- **Yajnvalkya Gita (Mahabharata)** — `DharmicData/Gitas/Yajnvalkya Gita (Mahabharata).json`
+- **Yudhisthira Gita** — `DharmicData/Gitas/Yudhisthira Gita.json`
+
+### Occult
+- **Bhṛgu Saṁhitā** — `DharmicData/Occult/Bhṛgu Saṁhitā.json`
+- **Brihat Jataka** — `DharmicData/Occult/Brihat Jataka.json`
+- **Brihat Samhita** — `DharmicData/Occult/Brihat Samhita.json`
+- **Phala Dīpikā** — `DharmicData/Occult/Phala Dīpikā.json`
+
+### Ramayanas
+- **Aranya Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Aranya Kāṇḍa.json`
+- **Ayodhya Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Ayodhya Kāṇḍa.json`
+- **Baal Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Baal Kāṇḍa.json`
+- **Kishkindha Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Kishkindha Kāṇḍa.json`
+- **Lanka Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Lanka Kāṇḍa.json`
+- **Sundar Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Sundar Kāṇḍa.json`
+- **Uttar Kāṇḍa** — `DharmicData/Ramayanas/Ramcharitmanas/Uttar Kāṇḍa.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 10.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 11.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 12.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 20.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 21.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 33.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 4.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 5.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 6.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 7.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 8.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/1. Vairagya Prakaranam/Chapter 9.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 10.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 11.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 12.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 20.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 3.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 4.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 5.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 6.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 7.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 8.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/2. Mumukshu Vyavahara Prakaranam/Chapter 9.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 10.json`
+- **Chapter 100** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 100.json`
+- **Chapter 101** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 101.json`
+- **Chapter 102** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 102.json`
+- **Chapter 103** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 103.json`
+- **Chapter 104** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 104.json`
+- **Chapter 105** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 105.json`
+- **Chapter 106** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 106.json`
+- **Chapter 107** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 107.json`
+- **Chapter 108** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 108.json`
+- **Chapter 109** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 109.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 11.json`
+- **Chapter 110** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 110.json`
+- **Chapter 111** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 111.json`
+- **Chapter 112** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 112.json`
+- **Chapter 113** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 113.json`
+- **Chapter 114** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 114.json`
+- **Chapter 115** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 115.json`
+- **Chapter 116** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 116.json`
+- **Chapter 117** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 117.json`
+- **Chapter 118** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 118.json`
+- **Chapter 119** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 119.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 12.json`
+- **Chapter 120** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 120.json`
+- **Chapter 121** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 121.json`
+- **Chapter 122** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 122.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 20.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 21.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 33.json`
+- **Chapter 34** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 34.json`
+- **Chapter 35** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 35.json`
+- **Chapter 36** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 36.json`
+- **Chapter 37** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 37.json`
+- **Chapter 38** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 38.json`
+- **Chapter 39** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 39.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 4.json`
+- **Chapter 40** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 40.json`
+- **Chapter 41** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 41.json`
+- **Chapter 42** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 42.json`
+- **Chapter 43** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 43.json`
+- **Chapter 44** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 44.json`
+- **Chapter 45** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 45.json`
+- **Chapter 46** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 46.json`
+- **Chapter 47** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 47.json`
+- **Chapter 48** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 48.json`
+- **Chapter 49** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 49.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 5.json`
+- **Chapter 50** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 50.json`
+- **Chapter 51** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 51.json`
+- **Chapter 52** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 52.json`
+- **Chapter 53** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 53.json`
+- **Chapter 54** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 54.json`
+- **Chapter 55** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 55.json`
+- **Chapter 56** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 56.json`
+- **Chapter 57** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 57.json`
+- **Chapter 58** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 58.json`
+- **Chapter 59** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 59.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 6.json`
+- **Chapter 60** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 60.json`
+- **Chapter 61** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 61.json`
+- **Chapter 62** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 62.json`
+- **Chapter 63** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 63.json`
+- **Chapter 64** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 64.json`
+- **Chapter 65** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 65.json`
+- **Chapter 66** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 66.json`
+- **Chapter 67** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 67.json`
+- **Chapter 68** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 68.json`
+- **Chapter 69** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 69.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 7.json`
+- **Chapter 70** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 70.json`
+- **Chapter 71** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 71.json`
+- **Chapter 72** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 72.json`
+- **Chapter 73** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 73.json`
+- **Chapter 74** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 74.json`
+- **Chapter 75** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 75.json`
+- **Chapter 76** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 76.json`
+- **Chapter 77** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 77.json`
+- **Chapter 78** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 78.json`
+- **Chapter 79** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 79.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 8.json`
+- **Chapter 80** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 80.json`
+- **Chapter 81** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 81.json`
+- **Chapter 82** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 82.json`
+- **Chapter 83** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 83.json`
+- **Chapter 84** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 84.json`
+- **Chapter 85** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 85.json`
+- **Chapter 86** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 86.json`
+- **Chapter 87** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 87.json`
+- **Chapter 88** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 88.json`
+- **Chapter 89** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 89.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 9.json`
+- **Chapter 90** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 90.json`
+- **Chapter 91** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 91.json`
+- **Chapter 92** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 92.json`
+- **Chapter 93** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 93.json`
+- **Chapter 94** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 94.json`
+- **Chapter 95** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 95.json`
+- **Chapter 96** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 96.json`
+- **Chapter 97** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 97.json`
+- **Chapter 98** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 98.json`
+- **Chapter 99** — `DharmicData/Ramayanas/Yoga Vasistha/3. Utpatti Prakaranam/Chapter 99.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 10.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 11.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 12.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 20.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 21.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 33.json`
+- **Chapter 34** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 34.json`
+- **Chapter 35** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 35.json`
+- **Chapter 36** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 36.json`
+- **Chapter 37** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 37.json`
+- **Chapter 38** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 38.json`
+- **Chapter 39** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 39.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 4.json`
+- **Chapter 40** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 40.json`
+- **Chapter 41** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 41.json`
+- **Chapter 42** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 42.json`
+- **Chapter 43** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 43.json`
+- **Chapter 44** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 44.json`
+- **Chapter 45** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 45.json`
+- **Chapter 46** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 46.json`
+- **Chapter 47** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 47.json`
+- **Chapter 48** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 48.json`
+- **Chapter 49** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 49.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 5.json`
+- **Chapter 50** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 50.json`
+- **Chapter 51** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 51.json`
+- **Chapter 52** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 52.json`
+- **Chapter 53** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 53.json`
+- **Chapter 54** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 54.json`
+- **Chapter 55** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 55.json`
+- **Chapter 56** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 56.json`
+- **Chapter 57** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 57.json`
+- **Chapter 58** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 58.json`
+- **Chapter 59** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 59.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 6.json`
+- **Chapter 60** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 60.json`
+- **Chapter 61** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 61.json`
+- **Chapter 62** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 62.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 7.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 8.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/4. Sthiti Prakaranam/Chapter 9.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 10.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 11.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 12.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 20.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 21.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 33.json`
+- **Chapter 34** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 34.json`
+- **Chapter 35** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 35.json`
+- **Chapter 36** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 36.json`
+- **Chapter 37** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 37.json`
+- **Chapter 38** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 38.json`
+- **Chapter 39** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 39.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 4.json`
+- **Chapter 40** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 40.json`
+- **Chapter 41** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 41.json`
+- **Chapter 42** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 42.json`
+- **Chapter 43** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 43.json`
+- **Chapter 44** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 44.json`
+- **Chapter 45** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 45.json`
+- **Chapter 46** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 46.json`
+- **Chapter 47** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 47.json`
+- **Chapter 48** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 48.json`
+- **Chapter 49** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 49.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 5.json`
+- **Chapter 50** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 50.json`
+- **Chapter 51** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 51.json`
+- **Chapter 52** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 52.json`
+- **Chapter 53** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 53.json`
+- **Chapter 54** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 54.json`
+- **Chapter 55** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 55.json`
+- **Chapter 56** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 56.json`
+- **Chapter 57** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 57.json`
+- **Chapter 58** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 58.json`
+- **Chapter 59** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 59.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 6.json`
+- **Chapter 60** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 60.json`
+- **Chapter 61** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 61.json`
+- **Chapter 62** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 62.json`
+- **Chapter 63** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 63.json`
+- **Chapter 64** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 64.json`
+- **Chapter 65** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 65.json`
+- **Chapter 66** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 66.json`
+- **Chapter 67** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 67.json`
+- **Chapter 68** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 68.json`
+- **Chapter 69** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 69.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 7.json`
+- **Chapter 70** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 70.json`
+- **Chapter 71** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 71.json`
+- **Chapter 72** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 72.json`
+- **Chapter 73** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 73.json`
+- **Chapter 74** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 74.json`
+- **Chapter 75** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 75.json`
+- **Chapter 76** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 76.json`
+- **Chapter 77** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 77.json`
+- **Chapter 78** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 78.json`
+- **Chapter 79** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 79.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 8.json`
+- **Chapter 80** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 80.json`
+- **Chapter 81** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 81.json`
+- **Chapter 82** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 82.json`
+- **Chapter 83** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 83.json`
+- **Chapter 84** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 84.json`
+- **Chapter 85** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 85.json`
+- **Chapter 86** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 86.json`
+- **Chapter 87** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 87.json`
+- **Chapter 88** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 88.json`
+- **Chapter 89** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 89.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 9.json`
+- **Chapter 90** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 90.json`
+- **Chapter 91** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 91.json`
+- **Chapter 92** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 92.json`
+- **Chapter 93** — `DharmicData/Ramayanas/Yoga Vasistha/5. Upashama Prakaranam/Chapter 93.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 10.json`
+- **Chapter 100** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 100.json`
+- **Chapter 101** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 101.json`
+- **Chapter 102** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 102.json`
+- **Chapter 103** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 103.json`
+- **Chapter 104** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 104.json`
+- **Chapter 105** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 105.json`
+- **Chapter 106** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 106.json`
+- **Chapter 107** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 107.json`
+- **Chapter 108** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 108.json`
+- **Chapter 109** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 109.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 11.json`
+- **Chapter 110** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 110.json`
+- **Chapter 111** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 111.json`
+- **Chapter 112** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 112.json`
+- **Chapter 113** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 113.json`
+- **Chapter 114** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 114.json`
+- **Chapter 115** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 115.json`
+- **Chapter 116** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 116.json`
+- **Chapter 117** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 117.json`
+- **Chapter 118** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 118.json`
+- **Chapter 119** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 119.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 12.json`
+- **Chapter 120** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 120.json`
+- **Chapter 121** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 121.json`
+- **Chapter 122** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 122.json`
+- **Chapter 123** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 123.json`
+- **Chapter 124** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 124.json`
+- **Chapter 125** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 125.json`
+- **Chapter 126** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 126.json`
+- **Chapter 127** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 127.json`
+- **Chapter 128** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 128.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 13.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 14.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 15.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 16.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 17.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 18.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 19.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 20.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 21.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 33.json`
+- **Chapter 34** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 34.json`
+- **Chapter 35** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 35.json`
+- **Chapter 36** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 36.json`
+- **Chapter 37** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 37.json`
+- **Chapter 38** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 38.json`
+- **Chapter 39** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 39.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 4.json`
+- **Chapter 40** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 40.json`
+- **Chapter 41** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 41.json`
+- **Chapter 42** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 42.json`
+- **Chapter 43** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 43.json`
+- **Chapter 44** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 44.json`
+- **Chapter 45** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 45.json`
+- **Chapter 46** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 46.json`
+- **Chapter 47** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 47.json`
+- **Chapter 48** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 48.json`
+- **Chapter 49** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 49.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 5.json`
+- **Chapter 50** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 50.json`
+- **Chapter 51** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 51.json`
+- **Chapter 52** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 52.json`
+- **Chapter 53** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 53.json`
+- **Chapter 54** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 54.json`
+- **Chapter 55** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 55.json`
+- **Chapter 56** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 56.json`
+- **Chapter 57** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 57.json`
+- **Chapter 58** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 58.json`
+- **Chapter 59** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 59.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 6.json`
+- **Chapter 60** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 60.json`
+- **Chapter 61** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 61.json`
+- **Chapter 62** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 62.json`
+- **Chapter 63** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 63.json`
+- **Chapter 64** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 64.json`
+- **Chapter 65** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 65.json`
+- **Chapter 66** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 66.json`
+- **Chapter 67** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 67.json`
+- **Chapter 68** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 68.json`
+- **Chapter 69** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 69.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 7.json`
+- **Chapter 70** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 70.json`
+- **Chapter 71** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 71.json`
+- **Chapter 72** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 72.json`
+- **Chapter 73** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 73.json`
+- **Chapter 74** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 74.json`
+- **Chapter 75** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 75.json`
+- **Chapter 76** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 76.json`
+- **Chapter 77** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 77.json`
+- **Chapter 78** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 78.json`
+- **Chapter 79** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 79.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 8.json`
+- **Chapter 80** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 80.json`
+- **Chapter 81** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 81.json`
+- **Chapter 82** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 82.json`
+- **Chapter 83** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 83.json`
+- **Chapter 84** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 84.json`
+- **Chapter 85** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 85.json`
+- **Chapter 86** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 86.json`
+- **Chapter 87** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 87.json`
+- **Chapter 88** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 88.json`
+- **Chapter 89** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 89.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 9.json`
+- **Chapter 90** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 90.json`
+- **Chapter 91** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 91.json`
+- **Chapter 92** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 92.json`
+- **Chapter 93** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 93.json`
+- **Chapter 94** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 94.json`
+- **Chapter 95** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 95.json`
+- **Chapter 96** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 96.json`
+- **Chapter 97** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 97.json`
+- **Chapter 98** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 98.json`
+- **Chapter 99** — `DharmicData/Ramayanas/Yoga Vasistha/6. Nirvana Prakaranasya Purvardham/Chapter 99.json`
+- **Chapter 1** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 1.json`
+- **Chapter 10** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 10.json`
+- **Chapter 100** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 100.json`
+- **Chapter 101** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 101.json`
+- **Chapter 102** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 102.json`
+- **Chapter 103** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 103.json`
+- **Chapter 104** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 104.json`
+- **Chapter 105** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 105.json`
+- **Chapter 106** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 106.json`
+- **Chapter 107** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 107.json`
+- **Chapter 108** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 108.json`
+- **Chapter 109** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 109.json`
+- **Chapter 11** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 11.json`
+- **Chapter 110** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 110.json`
+- **Chapter 111** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 111.json`
+- **Chapter 112** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 112.json`
+- **Chapter 113** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 113.json`
+- **Chapter 114** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 114.json`
+- **Chapter 115** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 115.json`
+- **Chapter 116** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 116.json`
+- **Chapter 117** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 117.json`
+- **Chapter 118** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 118.json`
+- **Chapter 119** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 119.json`
+- **Chapter 12** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 12.json`
+- **Chapter 120** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 120.json`
+- **Chapter 121** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 121.json`
+- **Chapter 122** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 122.json`
+- **Chapter 123** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 123.json`
+- **Chapter 124** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 124.json`
+- **Chapter 125** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 125.json`
+- **Chapter 126** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 126.json`
+- **Chapter 127** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 127.json`
+- **Chapter 128** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 128.json`
+- **Chapter 129** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 129.json`
+- **Chapter 13** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 13.json`
+- **Chapter 130** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 130.json`
+- **Chapter 131** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 131.json`
+- **Chapter 132** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 132.json`
+- **Chapter 133** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 133.json`
+- **Chapter 134** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 134.json`
+- **Chapter 135** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 135.json`
+- **Chapter 136** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 136.json`
+- **Chapter 137** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 137.json`
+- **Chapter 138** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 138.json`
+- **Chapter 139** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 139.json`
+- **Chapter 14** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 14.json`
+- **Chapter 140** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 140.json`
+- **Chapter 141** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 141.json`
+- **Chapter 142** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 142.json`
+- **Chapter 143** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 143.json`
+- **Chapter 144** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 144.json`
+- **Chapter 145** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 145.json`
+- **Chapter 146** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 146.json`
+- **Chapter 147** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 147.json`
+- **Chapter 148** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 148.json`
+- **Chapter 149** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 149.json`
+- **Chapter 15** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 15.json`
+- **Chapter 150** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 150.json`
+- **Chapter 151** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 151.json`
+- **Chapter 152** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 152.json`
+- **Chapter 153** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 153.json`
+- **Chapter 154** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 154.json`
+- **Chapter 155** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 155.json`
+- **Chapter 156** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 156.json`
+- **Chapter 157** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 157.json`
+- **Chapter 158** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 158.json`
+- **Chapter 159** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 159.json`
+- **Chapter 16** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 16.json`
+- **Chapter 160** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 160.json`
+- **Chapter 161** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 161.json`
+- **Chapter 162** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 162.json`
+- **Chapter 163** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 163.json`
+- **Chapter 164** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 164.json`
+- **Chapter 165** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 165.json`
+- **Chapter 166** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 166.json`
+- **Chapter 167** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 167.json`
+- **Chapter 168** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 168.json`
+- **Chapter 169** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 169.json`
+- **Chapter 17** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 17.json`
+- **Chapter 170** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 170.json`
+- **Chapter 171** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 171.json`
+- **Chapter 172** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 172.json`
+- **Chapter 173** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 173.json`
+- **Chapter 174** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 174.json`
+- **Chapter 175** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 175.json`
+- **Chapter 176** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 176.json`
+- **Chapter 177** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 177.json`
+- **Chapter 178** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 178.json`
+- **Chapter 179** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 179.json`
+- **Chapter 18** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 18.json`
+- **Chapter 180** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 180.json`
+- **Chapter 181** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 181.json`
+- **Chapter 182** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 182.json`
+- **Chapter 183** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 183.json`
+- **Chapter 184** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 184.json`
+- **Chapter 185** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 185.json`
+- **Chapter 186** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 186.json`
+- **Chapter 187** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 187.json`
+- **Chapter 188** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 188.json`
+- **Chapter 189** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 189.json`
+- **Chapter 19** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 19.json`
+- **Chapter 190** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 190.json`
+- **Chapter 191** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 191.json`
+- **Chapter 192** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 192.json`
+- **Chapter 193** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 193.json`
+- **Chapter 194** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 194.json`
+- **Chapter 195** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 195.json`
+- **Chapter 196** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 196.json`
+- **Chapter 197** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 197.json`
+- **Chapter 198** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 198.json`
+- **Chapter 199** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 199.json`
+- **Chapter 2** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 2.json`
+- **Chapter 20** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 20.json`
+- **Chapter 200** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 200.json`
+- **Chapter 201** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 201.json`
+- **Chapter 202** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 202.json`
+- **Chapter 203** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 203.json`
+- **Chapter 204** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 204.json`
+- **Chapter 205** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 205.json`
+- **Chapter 206** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 206.json`
+- **Chapter 207** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 207.json`
+- **Chapter 208** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 208.json`
+- **Chapter 209** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 209.json`
+- **Chapter 21** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 21.json`
+- **Chapter 210** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 210.json`
+- **Chapter 211** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 211.json`
+- **Chapter 212** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 212.json`
+- **Chapter 213** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 213.json`
+- **Chapter 214** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 214.json`
+- **Chapter 215** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 215.json`
+- **Chapter 216** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 216.json`
+- **Chapter 22** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 22.json`
+- **Chapter 23** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 23.json`
+- **Chapter 24** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 24.json`
+- **Chapter 25** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 25.json`
+- **Chapter 26** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 26.json`
+- **Chapter 27** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 27.json`
+- **Chapter 28** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 28.json`
+- **Chapter 29** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 29.json`
+- **Chapter 3** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 3.json`
+- **Chapter 30** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 30.json`
+- **Chapter 31** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 31.json`
+- **Chapter 32** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 32.json`
+- **Chapter 33** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 33.json`
+- **Chapter 34** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 34.json`
+- **Chapter 35** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 35.json`
+- **Chapter 36** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 36.json`
+- **Chapter 37** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 37.json`
+- **Chapter 38** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 38.json`
+- **Chapter 39** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 39.json`
+- **Chapter 4** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 4.json`
+- **Chapter 40** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 40.json`
+- **Chapter 41** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 41.json`
+- **Chapter 42** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 42.json`
+- **Chapter 43** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 43.json`
+- **Chapter 44** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 44.json`
+- **Chapter 45** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 45.json`
+- **Chapter 46** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 46.json`
+- **Chapter 47** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 47.json`
+- **Chapter 48** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 48.json`
+- **Chapter 49** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 49.json`
+- **Chapter 5** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 5.json`
+- **Chapter 50** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 50.json`
+- **Chapter 51** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 51.json`
+- **Chapter 52** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 52.json`
+- **Chapter 53** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 53.json`
+- **Chapter 54** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 54.json`
+- **Chapter 55** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 55.json`
+- **Chapter 56** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 56.json`
+- **Chapter 57** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 57.json`
+- **Chapter 58** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 58.json`
+- **Chapter 59** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 59.json`
+- **Chapter 6** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 6.json`
+- **Chapter 60** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 60.json`
+- **Chapter 61** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 61.json`
+- **Chapter 62** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 62.json`
+- **Chapter 63** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 63.json`
+- **Chapter 64** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 64.json`
+- **Chapter 65** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 65.json`
+- **Chapter 66** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 66.json`
+- **Chapter 67** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 67.json`
+- **Chapter 68** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 68.json`
+- **Chapter 69** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 69.json`
+- **Chapter 7** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 7.json`
+- **Chapter 70** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 70.json`
+- **Chapter 71** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 71.json`
+- **Chapter 72** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 72.json`
+- **Chapter 73** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 73.json`
+- **Chapter 74** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 74.json`
+- **Chapter 75** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 75.json`
+- **Chapter 76** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 76.json`
+- **Chapter 77** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 77.json`
+- **Chapter 78** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 78.json`
+- **Chapter 79** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 79.json`
+- **Chapter 8** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 8.json`
+- **Chapter 80** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 80.json`
+- **Chapter 81** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 81.json`
+- **Chapter 82** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 82.json`
+- **Chapter 83** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 83.json`
+- **Chapter 84** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 84.json`
+- **Chapter 85** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 85.json`
+- **Chapter 86** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 86.json`
+- **Chapter 87** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 87.json`
+- **Chapter 88** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 88.json`
+- **Chapter 89** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 89.json`
+- **Chapter 9** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 9.json`
+- **Chapter 90** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 90.json`
+- **Chapter 91** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 91.json`
+- **Chapter 92** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 92.json`
+- **Chapter 93** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 93.json`
+- **Chapter 94** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 94.json`
+- **Chapter 95** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 95.json`
+- **Chapter 96** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 96.json`
+- **Chapter 97** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 97.json`
+- **Chapter 98** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 98.json`
+- **Chapter 99** — `DharmicData/Ramayanas/Yoga Vasistha/7. Nirvana Prakaranasya Uttarardham/Chapter 99.json`
+
+### Stotras
+- **Shiva Tandav Stotra** — `DharmicData/Stotras/Shiva/Shiva Tandav Stotra.json`
+
+### Swaminarayan Sect
+- **kirtan** — `DharmicData/Swaminarayan Sect/kirtan.json`
+
+### Veda
+- **vajasneyi_kanva_samhita_chapters** — `DharmicData/Veda/Yajurveda/vajasneyi_kanva_samhita_chapters.json`
+- **vajasneyi_madhyadina_samhita** — `DharmicData/Veda/Yajurveda/vajasneyi_madhyadina_samhita.json`
+
+## 3. Numbered JSON chapter/section folders
+
+Every folder below contains numbered JSON files. This map accounts for the chapter/section-based portion of the JSON corpus without falsely counting each numbered file as a separate work.
+
+### Garga Samhita
+- `DharmicData/Garga Samhita/1. Goloka Khandaḥ` — 20 numbered JSON file(s)
+- `DharmicData/Garga Samhita/10. Ashvamedha Khandaḥ` — 62 numbered JSON file(s)
+- `DharmicData/Garga Samhita/2. Vrindavan Khandaḥ` — 26 numbered JSON file(s)
+- `DharmicData/Garga Samhita/3. Giriraja Khandaḥ` — 11 numbered JSON file(s)
+- `DharmicData/Garga Samhita/4. Madhurya Khandaḥ` — 24 numbered JSON file(s)
+- `DharmicData/Garga Samhita/5. Mathura Khandaḥ` — 25 numbered JSON file(s)
+- `DharmicData/Garga Samhita/6. Dvaraka Khandaḥ` — 22 numbered JSON file(s)
+- `DharmicData/Garga Samhita/7. Vishvajita Khandaḥ` — 50 numbered JSON file(s)
+- `DharmicData/Garga Samhita/8. Balabhadra Khandaḥ` — 13 numbered JSON file(s)
+- `DharmicData/Garga Samhita/9. Vijnana Khandaḥ` — 10 numbered JSON file(s)
+
+### Gitas
+- `DharmicData/Gitas/Bhagvad Gita` — 18 numbered JSON file(s)
+
+### Purana
+- `DharmicData/Purana/Agni Purana` — 383 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 1` — 19 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 10` — 90 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 11` — 31 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 12` — 13 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 2` — 10 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 3` — 33 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 4` — 31 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 5` — 26 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 6` — 19 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 7` — 15 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 8` — 24 numbered JSON file(s)
+- `DharmicData/Purana/Bhagavata Purana/Skandhah 9` — 24 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/1. Brahma Parva` — 216 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/2.1. Madhyama Parva` — 21 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/2.2. Madhyama Parva` — 20 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/2.3. Madhyama Parva` — 20 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/3.1. Pratisarga Parva` — 7 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/3.2. Pratisarga Parva` — 35 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/3.3. Pratisarga Parva` — 32 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/3.4. Pratisarga Parva` — 25 numbered JSON file(s)
+- `DharmicData/Purana/Bhavishya Purana/4. Uttara Parva` — 208 numbered JSON file(s)
+- `DharmicData/Purana/Brahma Purana` — 246 numbered JSON file(s)
+- `DharmicData/Purana/Brahmaanda Purana/1. Poorva Bhagah` — 38 numbered JSON file(s)
+- `DharmicData/Purana/Brahmaanda Purana/2. Madhya Bhagah` — 74 numbered JSON file(s)
+- `DharmicData/Purana/Brahmaanda Purana/3. Uttar Bhagah` — 44 numbered JSON file(s)
+- `DharmicData/Purana/Brahmavaivarta Purana/1. Brahmakhanda` — 30 numbered JSON file(s)
+- `DharmicData/Purana/Brahmavaivarta Purana/2. Prakriti Khanda` — 67 numbered JSON file(s)
+- `DharmicData/Purana/Brahmavaivarta Purana/3. Ganapati Khanda` — 46 numbered JSON file(s)
+- `DharmicData/Purana/Brahmavaivarta Purana/4. Shri Krishna Janma Khanda` — 133 numbered JSON file(s)
+- `DharmicData/Purana/Garuda Purana/Achara Kanda` — 240 numbered JSON file(s)
+- `DharmicData/Purana/Garuda Purana/Brahma Kanda` — 21 numbered JSON file(s)
+- `DharmicData/Purana/Garuda Purana/Preta Kanda` — 49 numbered JSON file(s)
+- `DharmicData/Purana/Harivansha Purana/1. Harivamsha Parva` — 55 numbered JSON file(s)
+- `DharmicData/Purana/Harivansha Purana/2. Vishnu Parva` — 128 numbered JSON file(s)
+- `DharmicData/Purana/Harivansha Purana/3. Bhavishya Parva` — 135 numbered JSON file(s)
+- `DharmicData/Purana/Kurma Purana/Purvabhag` — 53 numbered JSON file(s)
+- `DharmicData/Purana/Kurma Purana/Uttarbhag` — 46 numbered JSON file(s)
+- `DharmicData/Purana/Linga Purana/Purvabhag` — 108 numbered JSON file(s)
+- `DharmicData/Purana/Linga Purana/Uttarbhag` — 55 numbered JSON file(s)
+- `DharmicData/Purana/Markandeya Purana` — 26 numbered JSON file(s)
+- `DharmicData/Purana/Matsya Purana` — 290 numbered JSON file(s)
+- `DharmicData/Purana/Narada Purana/Purvardhah` — 125 numbered JSON file(s)
+- `DharmicData/Purana/Narada Purana/Uttarardhah` — 82 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/1. Srishti Khanda` — 82 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/2. Bhumi Khanda` — 125 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/3. Svarga Khanda` — 62 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/4. Brahmana Khanda` — 26 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/5. Patala Khanda` — 117 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/6. Uttara Khanda` — 255 numbered JSON file(s)
+- `DharmicData/Purana/Padma Purana/7. Kriya Khanda` — 26 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/1. Vishweshwara Samhita` — 25 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/2. Rudra Samhita/2.1. Srishtikhanda` — 20 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/2. Rudra Samhita/2.2. Satikhanda` — 43 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/2. Rudra Samhita/2.3. Parvatikhanda` — 55 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/2. Rudra Samhita/2.4. Kumarakhanda` — 20 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/2. Rudra Samhita/2.5. Yuddhakhanda` — 59 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/3. Shatarudra Samhita` — 42 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/4. Koti Rudra Samhita` — 43 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/5. Uma Samhita` — 51 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/6. Kailasa Samhita` — 23 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/7. Vayaviya Samhita/Purva Bhag` — 35 numbered JSON file(s)
+- `DharmicData/Purana/Shiva Purana/7. Vayaviya Samhita/Uttar Bhag` — 41 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/1. Maheshwarkhanda/1.1. Kedarkhanda` — 35 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/1. Maheshwarkhanda/1.2. Kaumarikakhanda` — 66 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/1. Maheshwarkhanda/1.3.1. Arunachala Mahatmya Purvardham` — 13 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/1. Maheshwarkhanda/1.3.2. Arunachala Mahatmya Uttarardham` — 24 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/1. Venkatachalamahatmyam` — 40 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/2. Purusottamajagannathmahatmyam` — 49 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/3. Badrinathkshetramahatmyam` — 8 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/4. Kartikamasamahatmyam` — 36 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/5. Margashirshamasamahatmyam` — 17 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/6. Bhagavatmahatmyam` — 4 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/7. Vaishakhamasamahatmyam` — 26 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/8. Ayodhyamahatmyam` — 10 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/2. Vaishnavakhanda/9. Vasudevamahatmyam` — 32 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/3. Brahmakhanda/1. Setu Khanda` — 52 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/3. Brahmakhanda/2. Dharmaranya Khanda` — 40 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/3. Brahmakhanda/3. Brahmottara Khanda` — 22 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/4. Kashikhanda` — 100 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/5. Avantikhanda/1. Avantikshetramahatmyam` — 71 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/5. Avantikhanda/2. Avantishtachaturasitilingamahatmyam` — 84 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/5. Avantikhanda/3. Reva Khanda` — 232 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/6. Nagarakhanda` — 278 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/7. Prabhasakhanda/1. Prabhasakshetra Mahatmyam` — 365 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/7. Prabhasakhanda/2. Vastrapathakshetra Mahatmyam` — 19 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/7. Prabhasakhanda/3. Arbudakhanda` — 63 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/7. Prabhasakhanda/4. Dwarakamahatmyam` — 44 numbered JSON file(s)
+- `DharmicData/Purana/Skanda Purana/8. Ambikakhanda` — 19 numbered JSON file(s)
+- `DharmicData/Purana/Vamana Purana` — 96 numbered JSON file(s)
+- `DharmicData/Purana/Varaha Purana` — 218 numbered JSON file(s)
+- `DharmicData/Purana/Vayu Purana/Purva Dharm` — 61 numbered JSON file(s)
+- `DharmicData/Purana/Vayu Purana/Uttara Dharm` — 50 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/1. Prathamamshah` — 22 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/2. Dvitiamshah` — 16 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/3. Tritiamshah` — 18 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/4. Chaturthamshah` — 24 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/5. Panchamamshah` — 38 numbered JSON file(s)
+- `DharmicData/Purana/Vishnu Purana/6. Shashtamshah` — 8 numbered JSON file(s)
+
+### Ramayanas
+- `DharmicData/Ramayanas/ValmikiRamayana` — 7 numbered JSON file(s)
+
+### UpaPuranas
+- `DharmicData/UpaPuranas/Datt Purana/1. Prathmashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/2. Dvityashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/3. Trityashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/4. Chaturthashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/5. Panchmashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/6. Shashthashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/7. Saptmashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Datt Purana/8. Ashtamashtak` — 8 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Harivansha Purana/1. Harivamsha Parva` — 55 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Harivansha Purana/2. Vishnu Parva` — 128 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Harivansha Purana/3. Bhavishya Parva` — 135 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Kalika Purana` — 89 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Malla Purana` — 18 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Mudgala Purana` — 9 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Naradiya Purana/PurvaBhagah` — 101 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Naradiya Purana/UttaraBhagah` — 82 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Shivadharma Purana` — 12 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Srimad Devi Bhagwat Purana` — 12 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Vishnudharmottar Purana/1` — 190 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Vishnudharmottar Purana/2` — 37 numbered JSON file(s)
+- `DharmicData/UpaPuranas/Vishnudharmottar Purana/3` — 71 numbered JSON file(s)
+
+### Veda
+- `DharmicData/Veda/AtharvaVeda` — 20 numbered JSON file(s)
+- `DharmicData/Veda/Rigveda` — 10 numbered JSON file(s)
+
+## 4. Complete PDF inventory
+
+All **928 PDF files** are enumerated below, grouped by their actual `DharmicData` category. Volume numbers and alternate copies are kept separate exactly as named in the repository.
+
+### Aartis (1)
+- **Aarti Sangrah 2** — `DharmicData/Aartis/Aarti Sangrah 2.pdf`
+
+### Agamas (18)
+- **Ajit Agama** — `DharmicData/Agamas/Ajit Agama.pdf`
+- **Amshumad Agama** — `DharmicData/Agamas/Amshumad Agama.pdf`
+- **Anal Agama** — `DharmicData/Agamas/Anal Agama.pdf`
+- **Cinty Agama** — `DharmicData/Agamas/Cinty Agama.pdf`
+- **Dipt Agama** — `DharmicData/Agamas/Dipt Agama.pdf`
+- **Kamik Agama** — `DharmicData/Agamas/Kamik Agama.pdf`
+- **Karan Agama** — `DharmicData/Agamas/Karan Agama.pdf`
+- **Kiran Agama** — `DharmicData/Agamas/Kiran Agama.pdf`
+- **Kularnava Tantra** — `DharmicData/Agamas/Kularnava Tantra.pdf`
+- **Nishvas Agama** — `DharmicData/Agamas/Nishvas Agama.pdf`
+- **Sahasr Agama** — `DharmicData/Agamas/Sahasr Agama.pdf`
+- **Sukshm Agama** — `DharmicData/Agamas/Sukshm Agama.pdf`
+- **Suprabhed Agama** — `DharmicData/Agamas/Suprabhed Agama.pdf`
+- **Svayambhuv Agama** — `DharmicData/Agamas/Svayambhuv Agama.pdf`
+- **Tantraloka** — `DharmicData/Agamas/Tantraloka.pdf`
+- **Vijay Agama** — `DharmicData/Agamas/Vijay Agama.pdf`
+- **Vir Agama** — `DharmicData/Agamas/Vir Agama.pdf`
+- **Yogaj Agama** — `DharmicData/Agamas/Yogaj Agama.pdf`
+
+### Ashtaka (123)
+- **Abhilasha Ashtakam-(2)** — `DharmicData/Ashtaka/Abhilasha Ashtakam-(2).pdf`
+- **Abhilasha Ashtakam** — `DharmicData/Ashtaka/Abhilasha Ashtakam.pdf`
+- **Achyuta Ashtakam-Sridhara-Venkatesa-Dikshitar** — `DharmicData/Ashtaka/Achyuta Ashtakam-Sridhara-Venkatesa-Dikshitar.pdf`
+- **Achyuta Ashtakam-Vamana-Puranam** — `DharmicData/Ashtaka/Achyuta Ashtakam-Vamana-Puranam.pdf`
+- **Achyuta Ashtakam** — `DharmicData/Ashtaka/Achyuta Ashtakam.pdf`
+- **Annapurna Ashtakam** — `DharmicData/Ashtaka/Annapurna Ashtakam.pdf`
+- **Ardha Nareeswara-Ashtakam** — `DharmicData/Ashtaka/Ardha Nareeswara-Ashtakam.pdf`
+- **Ashraya Ashtakam** — `DharmicData/Ashtaka/Ashraya Ashtakam.pdf`
+- **Attala Sundarashtakam** — `DharmicData/Ashtaka/Attala Sundarashtakam.pdf`
+- **Avadhuta Ashtakam-Shuka-Deva-Stuti** — `DharmicData/Ashtaka/Avadhuta Ashtakam-Shuka-Deva-Stuti.pdf`
+- **Badarinatha Ashtakam** — `DharmicData/Ashtaka/Badarinatha Ashtakam.pdf`
+- **Bala Mukundashtakam** — `DharmicData/Ashtaka/Bala Mukundashtakam.pdf`
+- **Balambika Ashtakam** — `DharmicData/Ashtaka/Balambika Ashtakam.pdf`
+- **Bhagavati Ashtakam** — `DharmicData/Ashtaka/Bhagavati Ashtakam.pdf`
+- **Bhavana Ashtakam** — `DharmicData/Ashtaka/Bhavana Ashtakam.pdf`
+- **Bhavani Ashtakam** — `DharmicData/Ashtaka/Bhavani Ashtakam.pdf`
+- **Bhramaramba Ashtakam** — `DharmicData/Ashtaka/Bhramaramba Ashtakam.pdf`
+- **Bhuvaneshwari Ashtakam** — `DharmicData/Ashtaka/Bhuvaneshwari Ashtakam.pdf`
+- **Bilvashtakam Version-1** — `DharmicData/Ashtaka/Bilvashtakam Version-1.pdf`
+- **Bilvashtakam Version-2** — `DharmicData/Ashtaka/Bilvashtakam Version-2.pdf`
+- **Bindu Madhava-Ashtakam** — `DharmicData/Ashtaka/Bindu Madhava-Ashtakam.pdf`
+- **Chandika Ashtakam** — `DharmicData/Ashtaka/Chandika Ashtakam.pdf`
+- **Chandrashekara Ashtakam** — `DharmicData/Ashtaka/Chandrashekara Ashtakam.pdf`
+- **Deenabandhu Ashtakam** — `DharmicData/Ashtaka/Deenabandhu Ashtakam.pdf`
+- **Durga Apaduddharaka-Ashtakam** — `DharmicData/Ashtaka/Durga Apaduddharaka-Ashtakam.pdf`
+- **Durga Ashtakam** — `DharmicData/Ashtaka/Durga Ashtakam.pdf`
+- **Ganesha Ashtakam-Vyasa-Rishi** — `DharmicData/Ashtaka/Ganesha Ashtakam-Vyasa-Rishi.pdf`
+- **Ganesha Ashtakam** — `DharmicData/Ashtaka/Ganesha Ashtakam.pdf`
+- **Ganga Ashtakam-1** — `DharmicData/Ashtaka/Ganga Ashtakam-1.pdf`
+- **Ganga Ashtakam-2-By-Kalidasa** — `DharmicData/Ashtaka/Ganga Ashtakam-2-By-Kalidasa.pdf`
+- **Ganga Ashtakam-3-By-Kalidasa** — `DharmicData/Ashtaka/Ganga Ashtakam-3-By-Kalidasa.pdf`
+- **Ganga Ashtakam-4** — `DharmicData/Ashtaka/Ganga Ashtakam-4.pdf`
+- **Ganga Ashtakam-5-By-Valmiki-Rishi** — `DharmicData/Ashtaka/Ganga Ashtakam-5-By-Valmiki-Rishi.pdf`
+- **Ganga Ashtakam-6-By-Satya-Gnanananda-Theertha** — `DharmicData/Ashtaka/Ganga Ashtakam-6-By-Satya-Gnanananda-Theertha.pdf`
+- **Gayatri Ashtakam (2)** — `DharmicData/Ashtaka/Gayatri Ashtakam (2).pdf`
+- **Gayatri Ashtakam** — `DharmicData/Ashtaka/Gayatri Ashtakam.pdf`
+- **Gopala Ashtakam** — `DharmicData/Ashtaka/Gopala Ashtakam.pdf`
+- **Goshteshwara Ashtakam** — `DharmicData/Ashtaka/Goshteshwara Ashtakam.pdf`
+- **Govinda Ashtakam-Paramahamsa-Brahmananda** — `DharmicData/Ashtaka/Govinda Ashtakam-Paramahamsa-Brahmananda.pdf`
+- **Govinda Ashtakam-Shankaracharya-Swami** — `DharmicData/Ashtaka/Govinda Ashtakam-Shankaracharya-Swami.pdf`
+- **Guru Ashtakam** — `DharmicData/Ashtaka/Guru Ashtakam.pdf`
+- **Hanuman Ashtakam-Sankata-Mochana (2)** — `DharmicData/Ashtaka/Hanuman Ashtakam-Sankata-Mochana (2).pdf`
+- **Hanuman Ashtakam-Sankata-Mochana** — `DharmicData/Ashtaka/Hanuman Ashtakam-Sankata-Mochana.pdf`
+- **Hanuman Ashtakam** — `DharmicData/Ashtaka/Hanuman Ashtakam.pdf`
+- **Hari Nama-Ashtakam** — `DharmicData/Ashtaka/Hari Nama-Ashtakam.pdf`
+- **Hari Sharanashtakam** — `DharmicData/Ashtaka/Hari Sharanashtakam.pdf`
+- **Hariharatmaja Ashtakam** — `DharmicData/Ashtaka/Hariharatmaja Ashtakam.pdf`
+- **Jagannatha Ashtakam** — `DharmicData/Ashtaka/Jagannatha Ashtakam.pdf`
+- **Jambunatha Ashtakam** — `DharmicData/Ashtaka/Jambunatha Ashtakam.pdf`
+- **Kalabhairava Ashtakam** — `DharmicData/Ashtaka/Kalabhairava Ashtakam.pdf`
+- **Kamalapatya Ashtakam** — `DharmicData/Ashtaka/Kamalapatya Ashtakam.pdf`
+- **Kapaleeshwar Ashtakam** — `DharmicData/Ashtaka/Kapaleeshwar Ashtakam.pdf`
+- **Kashi Vishwanatha-Ashtakam** — `DharmicData/Ashtaka/Kashi Vishwanatha-Ashtakam.pdf`
+- **Katyayani Ashtakam** — `DharmicData/Ashtaka/Katyayani Ashtakam.pdf`
+- **Kirata Ashtakam** — `DharmicData/Ashtaka/Kirata Ashtakam.pdf`
+- **Krishana Ashtakam-1-Shankaracharya-Swami** — `DharmicData/Ashtaka/Krishana Ashtakam-1-Shankaracharya-Swami.pdf`
+- **Krishana Ashtakam-2-Vallabha-Acharya** — `DharmicData/Ashtaka/Krishana Ashtakam-2-Vallabha-Acharya.pdf`
+- **Krishana Ashtakam-3-By-Shankaracharya-Swami** — `DharmicData/Ashtaka/Krishana Ashtakam-3-By-Shankaracharya-Swami.pdf`
+- **Krishana Ashtakam-4-Shankaracharya-Swami** — `DharmicData/Ashtaka/Krishana Ashtakam-4-Shankaracharya-Swami.pdf`
+- **Krishana Ashtakam-5-Vadiraja-Theertha** — `DharmicData/Ashtaka/Krishana Ashtakam-5-Vadiraja-Theertha.pdf`
+- **Krishana Ashtakam-6-Paramahamsa-Brahmananda** — `DharmicData/Ashtaka/Krishana Ashtakam-6-Paramahamsa-Brahmananda.pdf`
+- **Lingashtakam** — `DharmicData/Ashtaka/Lingashtakam.pdf`
+- **Madana Mohana-Ashtakam** — `DharmicData/Ashtaka/Madana Mohana-Ashtakam.pdf`
+- **Madhurashtakam** — `DharmicData/Ashtaka/Madhurashtakam.pdf`
+- **Maha Kalabhairava-Ashtakam-Teekshna-Damstra-Kalabhairava-Ashtakam** — `DharmicData/Ashtaka/Maha Kalabhairava-Ashtakam-Teekshna-Damstra-Kalabhairava-Ashtakam.pdf`
+- **Mahalakshmi Ashtakam** — `DharmicData/Ashtaka/Mahalakshmi Ashtakam.pdf`
+- **Mahamaya Ashtakam** — `DharmicData/Ashtaka/Mahamaya Ashtakam.pdf`
+- **Manikarnika Ashtakam** — `DharmicData/Ashtaka/Manikarnika Ashtakam.pdf`
+- **Mrutyu Ashtakam** — `DharmicData/Ashtaka/Mrutyu Ashtakam.pdf`
+- **Nandakumara Ashtakam** — `DharmicData/Ashtaka/Nandakumara Ashtakam.pdf`
+- **Narasimha Ashtakam** — `DharmicData/Ashtaka/Narasimha Ashtakam.pdf`
+- **Narayana Ashtakam** — `DharmicData/Ashtaka/Narayana Ashtakam.pdf`
+- **Narmada Ashtakam** — `DharmicData/Ashtaka/Narmada Ashtakam.pdf`
+- **Panduranga Ashtakam** — `DharmicData/Ashtaka/Panduranga Ashtakam.pdf`
+- **Parashurama Ashtakam** — `DharmicData/Ashtaka/Parashurama Ashtakam.pdf`
+- **Pashupati Ashtakam** — `DharmicData/Ashtaka/Pashupati Ashtakam.pdf`
+- **Pradosha Stotrashtakam** — `DharmicData/Ashtaka/Pradosha Stotrashtakam.pdf`
+- **Prapatya Ashtakam** — `DharmicData/Ashtaka/Prapatya Ashtakam.pdf`
+- **Raghava Ashtakam** — `DharmicData/Ashtaka/Raghava Ashtakam.pdf`
+- **Raghunatha Ashtakam** — `DharmicData/Ashtaka/Raghunatha Ashtakam.pdf`
+- **Rajarajeshwari Ashtakam** — `DharmicData/Ashtaka/Rajarajeshwari Ashtakam.pdf`
+- **Rama Ashtakam-Ananda-Ramayana** — `DharmicData/Ashtaka/Rama Ashtakam-Ananda-Ramayana.pdf`
+- **Rama Ashtakam-By-Paramahamsa-Brahmananda** — `DharmicData/Ashtaka/Rama Ashtakam-By-Paramahamsa-Brahmananda.pdf`
+- **Rama Ashtakam-Vyasa-Maharshi** — `DharmicData/Ashtaka/Rama Ashtakam-Vyasa-Maharshi.pdf`
+- **Ramachandra Ashtakam** — `DharmicData/Ashtaka/Ramachandra Ashtakam.pdf`
+- **Ramapatya Ashtakam** — `DharmicData/Ashtaka/Ramapatya Ashtakam.pdf`
+- **Renuka Ashtakam-In-Marathi-By-Vishnudas** — `DharmicData/Ashtaka/Renuka Ashtakam-In-Marathi-By-Vishnudas.pdf`
+- **Rudrashtakam** — `DharmicData/Ashtaka/Rudrashtakam.pdf`
+- **Sadashiva Ashtakam** — `DharmicData/Ashtaka/Sadashiva Ashtakam.pdf`
+- **Sankataharana Ganesha-Ashtakam** — `DharmicData/Ashtaka/Sankataharana Ganesha-Ashtakam.pdf`
+- **Sarva Mangala-Ashtakam** — `DharmicData/Ashtaka/Sarva Mangala-Ashtakam.pdf`
+- **Shabarigirisha Ashtakam** — `DharmicData/Ashtaka/Shabarigirisha Ashtakam.pdf`
+- **Shankarashtakam** — `DharmicData/Ashtaka/Shankarashtakam.pdf`
+- **Shitalashtakam** — `DharmicData/Ashtaka/Shitalashtakam.pdf`
+- **Shiva Mangalashtakam** — `DharmicData/Ashtaka/Shiva Mangalashtakam.pdf`
+- **Shiva Naamavalya-Ashtakam** — `DharmicData/Ashtaka/Shiva Naamavalya-Ashtakam.pdf`
+- **Shivashtakam Agastya-Krutha** — `DharmicData/Ashtaka/Shivashtakam Agastya-Krutha.pdf`
+- **Shivashtakam Version- (2)** — `DharmicData/Ashtaka/Shivashtakam Version- (2).pdf`
+- **Shivashtakam Version- (3)** — `DharmicData/Ashtaka/Shivashtakam Version- (3).pdf`
+- **Shivashtakam Version** — `DharmicData/Ashtaka/Shivashtakam Version.pdf`
+- **Shonadrinatha Ashtakam** — `DharmicData/Ashtaka/Shonadrinatha Ashtakam.pdf`
+- **Sita Rama-Ashtakam** — `DharmicData/Ashtaka/Sita Rama-Ashtakam.pdf`
+- **Subrahmanya Mangalashtakam** — `DharmicData/Ashtaka/Subrahmanya Mangalashtakam.pdf`
+- **Sudarshana Ashtakam** — `DharmicData/Ashtaka/Sudarshana Ashtakam.pdf`
+- **Surya Ashtakam** — `DharmicData/Ashtaka/Surya Ashtakam.pdf`
+- **Surya Mandala-Ashtakam** — `DharmicData/Ashtaka/Surya Mandala-Ashtakam.pdf`
+- **Totakashtakam** — `DharmicData/Ashtaka/Totakashtakam.pdf`
+- **Tripura Sundari-Ashtakam** — `DharmicData/Ashtaka/Tripura Sundari-Ashtakam.pdf`
+- **Tulaja Ashtakam** — `DharmicData/Ashtaka/Tulaja Ashtakam.pdf`
+- **Vaidyanatha Ashtakam** — `DharmicData/Ashtaka/Vaidyanatha Ashtakam.pdf`
+- **Valli Bhuvaneshwari-Ashtakam** — `DharmicData/Ashtaka/Valli Bhuvaneshwari-Ashtakam.pdf`
+- **Varahamuki Stavam-Varahyanugraha-Ashtakam** — `DharmicData/Ashtaka/Varahamuki Stavam-Varahyanugraha-Ashtakam.pdf`
+- **Varahi Anugraha-Ashtakam** — `DharmicData/Ashtaka/Varahi Anugraha-Ashtakam.pdf`
+- **Varahi Nigraha-Ashtakam** — `DharmicData/Ashtaka/Varahi Nigraha-Ashtakam.pdf`
+- **Vasudeva Ashtakam** — `DharmicData/Ashtaka/Vasudeva Ashtakam.pdf`
+- **Veda Vyasa-Ashtakam** — `DharmicData/Ashtaka/Veda Vyasa-Ashtakam.pdf`
+- **Venkateshwara Ashtakam-1** — `DharmicData/Ashtaka/Venkateshwara Ashtakam-1.pdf`
+- **Venkateshwara Ashtakam-2** — `DharmicData/Ashtaka/Venkateshwara Ashtakam-2.pdf`
+- **Venkateshwara Mangalashtakam** — `DharmicData/Ashtaka/Venkateshwara Mangalashtakam.pdf`
+- **Yaksharaja Ashtakam-Dandapani-Ashtakam** — `DharmicData/Ashtaka/Yaksharaja Ashtakam-Dandapani-Ashtakam.pdf`
+- **Yama Ashtakam** — `DharmicData/Ashtaka/Yama Ashtakam.pdf`
+- **Yamuna Ashtakam-1** — `DharmicData/Ashtaka/Yamuna Ashtakam-1.pdf`
+- **Yamuna Ashtakam** — `DharmicData/Ashtaka/Yamuna Ashtakam.pdf`
+
+### Bhajan (1)
+- **Bhajan Sangrah** — `DharmicData/Bhajan/Bhajan Sangrah.pdf`
+
+### Chalisa (1)
+- **Navgrah Chalisa** — `DharmicData/Chalisa/Navgrah Chalisa.pdf`
+
+### Gitas (23)
+- **Aajgar Gita** — `DharmicData/Gitas/Aajgar Gita.pdf`
+- **Avadhuta Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Avadhuta Gita (Shrimad Bhagwat Mahapurana).pdf`
+- **Baka Gita** — `DharmicData/Gitas/Baka Gita.pdf`
+- **Bhagavatī Gītā** — `DharmicData/Gitas/Bhagavatī Gītā.pdf`
+- **Bhikshu Gita** — `DharmicData/Gitas/Bhikshu Gita.pdf`
+- **Gopi Gita** — `DharmicData/Gitas/Gopi Gita.pdf`
+- **Guru Gita** — `DharmicData/Gitas/Guru Gita.pdf`
+- **Haarit Gita** — `DharmicData/Gitas/Haarit Gita.pdf`
+- **Hans Gita (Shrimad Bhagwat Mahapurana)** — `DharmicData/Gitas/Hans Gita (Shrimad Bhagwat Mahapurana).pdf`
+- **Jivan Mukta Gita** — `DharmicData/Gitas/Jivan Mukta Gita.pdf`
+- **Kama Gita** — `DharmicData/Gitas/Kama Gita.pdf`
+- **Manki Gita** — `DharmicData/Gitas/Manki Gita.pdf`
+- **Narada Gita** — `DharmicData/Gitas/Narada Gita.pdf`
+- **Paramhansa Gita** — `DharmicData/Gitas/Paramhansa Gita.pdf`
+- **Pingala Gita** — `DharmicData/Gitas/Pingala Gita.pdf`
+- **Putra Gita** — `DharmicData/Gitas/Putra Gita.pdf`
+- **Rudra Gita (Varaha Purana)** — `DharmicData/Gitas/Rudra Gita (Varaha Purana).pdf`
+- **Shadaj Gita** — `DharmicData/Gitas/Shadaj Gita.pdf`
+- **Shampak Gita** — `DharmicData/Gitas/Shampak Gita.pdf`
+- **Shiva Gita** — `DharmicData/Gitas/Shiva Gita.pdf`
+- **Vrutra Gita** — `DharmicData/Gitas/Vrutra Gita.pdf`
+- **Yama Gita (Agni Purana)** — `DharmicData/Gitas/Yama Gita (Agni Purana).pdf`
+- **Yama Gita (Vishnu Purana)** — `DharmicData/Gitas/Yama Gita (Vishnu Purana).pdf`
+
+### Kavacha (95)
+- **Aditya Kavacham** — `DharmicData/Kavacha/Aditya Kavacham.pdf`
+- **Akkalkot Swami Kavacham** — `DharmicData/Kavacha/Akkalkot Swami Kavacham.pdf`
+- **Amogha Shiva Kavacham** — `DharmicData/Kavacha/Amogha Shiva Kavacham.pdf`
+- **Baglamukhi Varna Kavacham** — `DharmicData/Kavacha/Baglamukhi Varna Kavacham.pdf`
+- **Balarama Kavacham** — `DharmicData/Kavacha/Balarama Kavacham.pdf`
+- **Banalinga Kavacham** — `DharmicData/Kavacha/Banalinga Kavacham.pdf`
+- **Baneshwara Samsara Pavana Kavacham** — `DharmicData/Kavacha/Baneshwara Samsara Pavana Kavacham.pdf`
+- **Bhairavi Kavacham** — `DharmicData/Kavacha/Bhairavi Kavacham.pdf`
+- **Bharata Kavacham** — `DharmicData/Kavacha/Bharata Kavacham.pdf`
+- **Bhargava Kavacham** — `DharmicData/Kavacha/Bhargava Kavacham.pdf`
+- **Bhavani Kavacham Bhavani Trilokya Mohana Kavacham** — `DharmicData/Kavacha/Bhavani Kavacham Bhavani Trilokya Mohana Kavacham.pdf`
+- **Bhuvaneshwari Kavacham** — `DharmicData/Kavacha/Bhuvaneshwari Kavacham.pdf`
+- **Brihaspati Kavacham** — `DharmicData/Kavacha/Brihaspati Kavacham.pdf`
+- **Budha Kavacham** — `DharmicData/Kavacha/Budha Kavacham.pdf`
+- **Chandi Kavacham** — `DharmicData/Kavacha/Chandi Kavacham.pdf`
+- **Chandra Kavacham** — `DharmicData/Kavacha/Chandra Kavacham.pdf`
+- **Chinnamasta Kavacham** — `DharmicData/Kavacha/Chinnamasta Kavacham.pdf`
+- **Dasha Mahavidya Kavacham** — `DharmicData/Kavacha/Dasha Mahavidya Kavacham.pdf`
+- **Dattatreya Vajra Kavacham** — `DharmicData/Kavacha/Dattatreya Vajra Kavacham.pdf`
+- **Devi Kavacham** — `DharmicData/Kavacha/Devi Kavacham.pdf`
+- **Dhanada Kavacham** — `DharmicData/Kavacha/Dhanada Kavacham.pdf`
+- **Durga Kavacham Brahmanda Mohanakhyam** — `DharmicData/Kavacha/Durga Kavacham Brahmanda Mohanakhyam.pdf`
+- **Durga Kavacham Kubjika Tantra** — `DharmicData/Kavacha/Durga Kavacham Kubjika Tantra.pdf`
+- **Ekadasa Mukha Hanumath Kavacham** — `DharmicData/Kavacha/Ekadasa Mukha Hanumath Kavacham.pdf`
+- **Ekakshara Ganapathi Kavacham** — `DharmicData/Kavacha/Ekakshara Ganapathi Kavacham.pdf`
+- **Ekamukhi Hanumat Kavacham** — `DharmicData/Kavacha/Ekamukhi Hanumat Kavacham.pdf`
+- **Ganesha Kavacham** — `DharmicData/Kavacha/Ganesha Kavacham.pdf`
+- **Gayatri Kavacham Alabhya** — `DharmicData/Kavacha/Gayatri Kavacham Alabhya.pdf`
+- **Gayatri Kavacham** — `DharmicData/Kavacha/Gayatri Kavacham.pdf`
+- **Gopala Akshaya Kavacham** — `DharmicData/Kavacha/Gopala Akshaya Kavacham.pdf`
+- **Guru Kavacham From Kankalamalini Tantra** — `DharmicData/Kavacha/Guru Kavacham From Kankalamalini Tantra.pdf`
+- **Guru Kavacham From Purascharana Rasollasa** — `DharmicData/Kavacha/Guru Kavacham From Purascharana Rasollasa.pdf`
+- **Guru Kavachantaram** — `DharmicData/Kavacha/Guru Kavachantaram.pdf`
+- **Hanumath Kavacham** — `DharmicData/Kavacha/Hanumath Kavacham.pdf`
+- **Haridra Ganesha Kavacham** — `DharmicData/Kavacha/Haridra Ganesha Kavacham.pdf`
+- **Kali Kavacham 1** — `DharmicData/Kavacha/Kali Kavacham 1.pdf`
+- **Kali Kavacham 4** — `DharmicData/Kavacha/Kali Kavacham 4.pdf`
+- **Kamakhya Kavacham** — `DharmicData/Kavacha/Kamakhya Kavacham.pdf`
+- **Kamala Kavacham** — `DharmicData/Kavacha/Kamala Kavacham.pdf`
+- **Ketu Kavacham** — `DharmicData/Kavacha/Ketu Kavacham.pdf`
+- **Krishna Kavacham Trailokya Vijaya Kavacham** — `DharmicData/Kavacha/Krishna Kavacham Trailokya Vijaya Kavacham.pdf`
+- **Kumari Kavacham** — `DharmicData/Kavacha/Kumari Kavacham.pdf`
+- **Lakshmana Kavacham** — `DharmicData/Kavacha/Lakshmana Kavacham.pdf`
+- **Lakshmi Kavacham (2)** — `DharmicData/Kavacha/Lakshmi Kavacham (2).pdf`
+- **Lakshmi Kavacham** — `DharmicData/Kavacha/Lakshmi Kavacham.pdf`
+- **Lakshmi Narayana Kavacham** — `DharmicData/Kavacha/Lakshmi Narayana Kavacham.pdf`
+- **Maha Lakshmi Kavacham** — `DharmicData/Kavacha/Maha Lakshmi Kavacham.pdf`
+- **Maha Mrutyunjaya Kavacham (2)** — `DharmicData/Kavacha/Maha Mrutyunjaya Kavacham (2).pdf`
+- **Maha Mrutyunjaya Kavacham** — `DharmicData/Kavacha/Maha Mrutyunjaya Kavacham.pdf`
+- **Maha Shasta Anugraha Kavacham** — `DharmicData/Kavacha/Maha Shasta Anugraha Kavacham.pdf`
+- **Mangala Kavacham** — `DharmicData/Kavacha/Mangala Kavacham.pdf`
+- **Matangi Kavacham Sumukhi Kavacham** — `DharmicData/Kavacha/Matangi Kavacham Sumukhi Kavacham.pdf`
+- **Narasimha Kavacham By Bhakta Prahlada** — `DharmicData/Kavacha/Narasimha Kavacham By Bhakta Prahlada.pdf`
+- **Narasimha Kavacham By Brahma** — `DharmicData/Kavacha/Narasimha Kavacham By Brahma.pdf`
+- **Narayana Kavacham** — `DharmicData/Kavacha/Narayana Kavacham.pdf`
+- **Navagraha Kavacham** — `DharmicData/Kavacha/Navagraha Kavacham.pdf`
+- **Pancha Mukha Hanumath Kavacham** — `DharmicData/Kavacha/Pancha Mukha Hanumath Kavacham.pdf`
+- **Radha Kavacham (2)** — `DharmicData/Kavacha/Radha Kavacham (2).pdf`
+- **Radha Kavacham** — `DharmicData/Kavacha/Radha Kavacham.pdf`
+- **Rahu Kavacham** — `DharmicData/Kavacha/Rahu Kavacham.pdf`
+- **Rama Kavacham** — `DharmicData/Kavacha/Rama Kavacham.pdf`
+- **Rama Raksha Stotram Ananda Ramayana** — `DharmicData/Kavacha/Rama Raksha Stotram Ananda Ramayana.pdf`
+- **Rama Raksha Stotram Padma Puranam** — `DharmicData/Kavacha/Rama Raksha Stotram Padma Puranam.pdf`
+- **Renuka Kavacham  (2)** — `DharmicData/Kavacha/Renuka Kavacham  (2).pdf`
+- **Renuka Kavacham  (3)** — `DharmicData/Kavacha/Renuka Kavacham  (3).pdf`
+- **Renuka Kavacham** — `DharmicData/Kavacha/Renuka Kavacham.pdf`
+- **Rudra Kavacham** — `DharmicData/Kavacha/Rudra Kavacham.pdf`
+- **Saptha Mukhi Hanumath Kavacham** — `DharmicData/Kavacha/Saptha Mukhi Hanumath Kavacham.pdf`
+- **Saraswati Kavacham Vishwavijaya Kavacham** — `DharmicData/Kavacha/Saraswati Kavacham Vishwavijaya Kavacham.pdf`
+- **Shani Vajra Panjara Kavacham** — `DharmicData/Kavacha/Shani Vajra Panjara Kavacham.pdf`
+- **Sharadesha Kavacham** — `DharmicData/Kavacha/Sharadesha Kavacham.pdf`
+- **Shatrugna Kavacham** — `DharmicData/Kavacha/Shatrugna Kavacham.pdf`
+- **Shiva Kavacham Brahmanda Vijaya** — `DharmicData/Kavacha/Shiva Kavacham Brahmanda Vijaya.pdf`
+- **Shiva Kavacham** — `DharmicData/Kavacha/Shiva Kavacham.pdf`
+- **Shukra Kavacham** — `DharmicData/Kavacha/Shukra Kavacham.pdf`
+- **Siddha Veera Guru Kavacham** — `DharmicData/Kavacha/Siddha Veera Guru Kavacham.pdf`
+- **Sita Kavacham** — `DharmicData/Kavacha/Sita Kavacham.pdf`
+- **Srividya Kavacham** — `DharmicData/Kavacha/Srividya Kavacham.pdf`
+- **Subrahmanya Kavacham (2)** — `DharmicData/Kavacha/Subrahmanya Kavacham (2).pdf`
+- **Subrahmanya Kavacham** — `DharmicData/Kavacha/Subrahmanya Kavacham.pdf`
+- **Sudarshana Kavacham** — `DharmicData/Kavacha/Sudarshana Kavacham.pdf`
+- **Surya Kavacha By Bhairava** — `DharmicData/Kavacha/Surya Kavacha By Bhairava.pdf`
+- **Surya Kavacham Surya Krutha** — `DharmicData/Kavacha/Surya Kavacham Surya Krutha.pdf`
+- **Surya Kavacham Yagnavalkya Rishi Krutha** — `DharmicData/Kavacha/Surya Kavacham Yagnavalkya Rishi Krutha.pdf`
+- **Tara Kavacham** — `DharmicData/Kavacha/Tara Kavacham.pdf`
+- **Tara Pratyangari Kavacham** — `DharmicData/Kavacha/Tara Pratyangari Kavacham.pdf`
+- **Tara Stotram** — `DharmicData/Kavacha/Tara Stotram.pdf`
+- **Trailokya Mangala Kavacham** — `DharmicData/Kavacha/Trailokya Mangala Kavacham.pdf`
+- **Trilokya Mohana Kali Kavacham** — `DharmicData/Kavacha/Trilokya Mohana Kali Kavacham.pdf`
+- **Tulasi Kavacham** — `DharmicData/Kavacha/Tulasi Kavacham.pdf`
+- **Vakratunda Kavacham** — `DharmicData/Kavacha/Vakratunda Kavacham.pdf`
+- **Vamsha Vruddhikaram Durga Kavacham** — `DharmicData/Kavacha/Vamsha Vruddhikaram Durga Kavacham.pdf`
+- **Varada Ganesha Kavacham** — `DharmicData/Kavacha/Varada Ganesha Kavacham.pdf`
+- **Venkateshwara Vajra Kavacham** — `DharmicData/Kavacha/Venkateshwara Vajra Kavacham.pdf`
+- **Vishnu Kavacham Brahmanda Pavana Kavacham** — `DharmicData/Kavacha/Vishnu Kavacham Brahmanda Pavana Kavacham.pdf`
+
+### Namavalis (50)
+- **AdiShankaracharya** — `DharmicData/Namavalis/100, 108/AdiShankaracharya.pdf`
+- **Anjaneya Ramarahasya** — `DharmicData/Namavalis/100, 108/Anjaneya Ramarahasya.pdf`
+- **Anjaneya** — `DharmicData/Namavalis/100, 108/Anjaneya.pdf`
+- **Annapurna** — `DharmicData/Namavalis/100, 108/Annapurna.pdf`
+- **Ardhanarishvara** — `DharmicData/Namavalis/100, 108/Ardhanarishvara.pdf`
+- **Chandrashekharendra Saraswati** — `DharmicData/Namavalis/100, 108/Chandrashekharendra Saraswati.pdf`
+- **Devasena** — `DharmicData/Namavalis/100, 108/Devasena.pdf`
+- **Dhanvantari** — `DharmicData/Namavalis/100, 108/Dhanvantari.pdf`
+- **Durga** — `DharmicData/Namavalis/100, 108/Durga.pdf`
+- **Gakaradi Ganapati** — `DharmicData/Namavalis/100, 108/Gakaradi Ganapati.pdf`
+- **Ganapati** — `DharmicData/Namavalis/100, 108/Ganapati.pdf`
+- **Ganesha** — `DharmicData/Namavalis/100, 108/Ganesha.pdf`
+- **Ganga** — `DharmicData/Namavalis/100, 108/Ganga.pdf`
+- **Goda** — `DharmicData/Namavalis/100, 108/Goda.pdf`
+- **Harihara** — `DharmicData/Namavalis/100, 108/Harihara.pdf`
+- **Jagadanandakaraka** — `DharmicData/Namavalis/100, 108/Jagadanandakaraka.pdf`
+- **Kamakshi** — `DharmicData/Namavalis/100, 108/Kamakshi.pdf`
+- **Kartikeya** — `DharmicData/Namavalis/100, 108/Kartikeya.pdf`
+- **Krishna** — `DharmicData/Namavalis/100, 108/Krishna.pdf`
+- **Kubera** — `DharmicData/Namavalis/100, 108/Kubera.pdf`
+- **Lakshmi Nrisimha** — `DharmicData/Namavalis/100, 108/Lakshmi Nrisimha.pdf`
+- **Lakshmi** — `DharmicData/Namavalis/100, 108/Lakshmi.pdf`
+- **Mrtyunjaya** — `DharmicData/Namavalis/100, 108/Mrtyunjaya.pdf`
+- **Nrisimha** — `DharmicData/Namavalis/100, 108/Nrisimha.pdf`
+- **Rama Ramarahasya** — `DharmicData/Namavalis/100, 108/Rama Ramarahasya.pdf`
+- **Rama** — `DharmicData/Namavalis/100, 108/Rama.pdf`
+- **Saraswati** — `DharmicData/Namavalis/100, 108/Saraswati.pdf`
+- **Shakti divyasthaniya** — `DharmicData/Namavalis/100, 108/Shakti divyasthaniya.pdf`
+- **Shiva divyasthaniya** — `DharmicData/Namavalis/100, 108/Shiva divyasthaniya.pdf`
+- **Shiva** — `DharmicData/Namavalis/100, 108/Shiva.pdf`
+- **Sita Ramarahasya** — `DharmicData/Namavalis/100, 108/Sita Ramarahasya.pdf`
+- **Sita** — `DharmicData/Namavalis/100, 108/Sita.pdf`
+- **Subrahmanya Hastasthita Astrayudha** — `DharmicData/Namavalis/100, 108/Subrahmanya Hastasthita Astrayudha.pdf`
+- **Subrahmanya** — `DharmicData/Namavalis/100, 108/Subrahmanya.pdf`
+- **Surya Mahabharatam** — `DharmicData/Namavalis/100, 108/Surya Mahabharatam.pdf`
+- **Surya** — `DharmicData/Namavalis/100, 108/Surya.pdf`
+- **Tulasi** — `DharmicData/Namavalis/100, 108/Tulasi.pdf`
+- **Valli** — `DharmicData/Namavalis/100, 108/Valli.pdf`
+- **Venkatesha** — `DharmicData/Namavalis/100, 108/Venkatesha.pdf`
+- **Venkateshwara** — `DharmicData/Namavalis/100, 108/Venkateshwara.pdf`
+- **Vishnu divyasthaniya** — `DharmicData/Namavalis/100, 108/Vishnu divyasthaniya.pdf`
+- **Gakaradi Ganapati** — `DharmicData/Namavalis/1000, 1008/Gakaradi Ganapati.pdf`
+- **Rama** — `DharmicData/Namavalis/1000, 1008/Rama.pdf`
+- **Saraswati** — `DharmicData/Namavalis/1000, 1008/Saraswati.pdf`
+- **Shanmukha** — `DharmicData/Namavalis/1000, 1008/Shanmukha.pdf`
+- **Shiva** — `DharmicData/Namavalis/1000, 1008/Shiva.pdf`
+- **Vakratunda Mahaganapati** — `DharmicData/Namavalis/1000, 1008/Vakratunda Mahaganapati.pdf`
+- **Vishnu** — `DharmicData/Namavalis/1000, 1008/Vishnu.pdf`
+- **Lalita** — `DharmicData/Namavalis/300/Lalita.pdf`
+- **Rudra** — `DharmicData/Namavalis/300/Rudra.pdf`
+
+### Occult (15)
+- **Dhruva Nadi** — `DharmicData/Occult/Dhruva Nadi.pdf`
+- **Garga Hora Shastra** — `DharmicData/Occult/Garga Hora Shastra.pdf`
+- **Jaimini Sutras** — `DharmicData/Occult/Jaimini Sutras.pdf`
+- **Jātaka Parijāta 1** — `DharmicData/Occult/Jātaka Parijāta/Jātaka Parijāta 1.pdf`
+- **Jātaka Parijāta 2** — `DharmicData/Occult/Jātaka Parijāta/Jātaka Parijāta 2.pdf`
+- **Jātaka Parijāta 3** — `DharmicData/Occult/Jātaka Parijāta/Jātaka Parijāta 3.pdf`
+- **Jātaka Parijāta 4** — `DharmicData/Occult/Jātaka Parijāta/Jātaka Parijāta 4.pdf`
+- **Jātaka Parijāta 5** — `DharmicData/Occult/Jātaka Parijāta/Jātaka Parijāta 5.pdf`
+- **Samudrika Shastra 1** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 1.pdf`
+- **Samudrika Shastra 2** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 2.pdf`
+- **Samudrika Shastra 3** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 3.pdf`
+- **Samudrika Shastra 4** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 4.pdf`
+- **Samudrika Shastra 5** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 5.pdf`
+- **Samudrika Shastra 6** — `DharmicData/Occult/Samudrika Shastra/Samudrika Shastra 6.pdf`
+- **Shiv Svarodaya** — `DharmicData/Occult/Shiv Svarodaya.pdf`
+
+### Ramayanas (16)
+- **AdbhutRamayanBook** — `DharmicData/Ramayanas/AdbhutRamayanBook.pdf`
+- **AdhyatmaRamayanaBook** — `DharmicData/Ramayanas/AdhyatmaRamayanaBook.pdf`
+- **Anand Ramayan 1** — `DharmicData/Ramayanas/Anand Ramayan 1.pdf`
+- **Anand Ramayan 2** — `DharmicData/Ramayanas/Anand Ramayan 2.pdf`
+- **Anand Ramayan 3** — `DharmicData/Ramayanas/Anand Ramayan 3.pdf`
+- **Anand Ramayan 4** — `DharmicData/Ramayanas/Anand Ramayan 4.pdf`
+- **Anand Ramayan 5** — `DharmicData/Ramayanas/Anand Ramayan 5.pdf`
+- **Anand Ramayan 6** — `DharmicData/Ramayanas/Anand Ramayan 6.pdf`
+- **Bhushundi Ramayan 1** — `DharmicData/Ramayanas/Bhushundi Ramayan 1.pdf`
+- **Bhushundi Ramayan 2** — `DharmicData/Ramayanas/Bhushundi Ramayan 2.pdf`
+- **Bhushundi Ramayan 3** — `DharmicData/Ramayanas/Bhushundi Ramayan 3.pdf`
+- **Brahm Ramayan** — `DharmicData/Ramayanas/Brahm Ramayan.pdf`
+- **Mantra Ramayana** — `DharmicData/Ramayanas/Mantra Ramayana.pdf`
+- **Satyopakhyan 1** — `DharmicData/Ramayanas/Satyopakhyan 1.pdf`
+- **Satyopakhyan 2** — `DharmicData/Ramayanas/Satyopakhyan 2.pdf`
+- **Satyopakhyan 3** — `DharmicData/Ramayanas/Satyopakhyan 3.pdf`
+
+### Smritis (18)
+- **Angirasa Smriti** — `DharmicData/Smritis/Angirasa Smriti.pdf`
+- **Apastamba Smriti** — `DharmicData/Smritis/Apastamba Smriti.pdf`
+- **Atri Smriti** — `DharmicData/Smritis/Atri Smriti.pdf`
+- **Aushanasa Smriti** — `DharmicData/Smritis/Aushanasa Smriti.pdf`
+- **Brihaspati Smriti** — `DharmicData/Smritis/Brihaspati Smriti.pdf`
+- **Daksha Smriti** — `DharmicData/Smritis/Daksha Smriti.pdf`
+- **Gautama Smriti** — `DharmicData/Smritis/Gautama Smriti.pdf`
+- **Harita Smriti** — `DharmicData/Smritis/Harita Smriti.pdf`
+- **Katyayana Smriti** — `DharmicData/Smritis/Katyayana Smriti.pdf`
+- **Likhita Smriti** — `DharmicData/Smritis/Likhita Smriti.pdf`
+- **Manu Smriti** — `DharmicData/Smritis/Manu Smriti.pdf`
+- **Parashara Smriti** — `DharmicData/Smritis/Parashara Smriti.pdf`
+- **Samvartta Smriti** — `DharmicData/Smritis/Samvartta Smriti.pdf`
+- **Shankha Smriti** — `DharmicData/Smritis/Shankha Smriti.pdf`
+- **Vishnu Smriti** — `DharmicData/Smritis/Vishnu Smriti.pdf`
+- **Vyasa Smriti** — `DharmicData/Smritis/Vyasa Smriti.pdf`
+- **Yagyavalkya Smriti** — `DharmicData/Smritis/Yagyavalkya Smriti.pdf`
+- **Yama Smriti** — `DharmicData/Smritis/Yama Smriti.pdf`
+
+### Stotras (267)
+- **AgastyaDwaraRamaSwarupaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AgastyaDwaraRamaSwarupaKathanam.pdf`
+- **AgastyakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AgastyakrtaRamaStuti.pdf`
+- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AhalyakrtaRamaStotram.pdf`
+- **BharadwajakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/BharadwajakrtaRamaStuti.pdf`
+- **Chandramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Chandramopadesha.pdf`
+- **DevaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/DevaStuti.pdf`
+- **HanumatSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/HanumatSambhashanam.pdf`
+- **JatayukrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/JatayukrtaRamaStotram.pdf`
+- **JnanaVijnanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/JnanaVijnanopadesha.pdf`
+- **KabandhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KabandhakrtaRamaStotram.pdf`
+- **KalanemiSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KalanemiSambhashanam.pdf`
+- **KausalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KausalyakrtaRamaStotram.pdf`
+- **KriyaYoga** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KriyaYoga.pdf`
+- **KumbhakarnaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KumbhakarnaSambhashanam.pdf`
+- **LakshmanaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/LakshmanaSambhashanam.pdf`
+- **Lakshmanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Lakshmanopadesha.pdf`
+- **MandodariRavanaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/MandodariRavanaSamvada.pdf`
+- **NaradaRamaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NaradaRamaSamvada.pdf`
+- **NaradaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NaradaStuti.pdf`
+- **NavavidhabhaktiVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NavavidhabhaktiVarnanam.pdf`
+- **ParashuramakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ParashuramakrtaRamaStotram.pdf`
+- **RamaGita** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaGita.pdf`
+- **RamaHrdayam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaHrdayam.pdf`
+- **RamakathaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamakathaKathanam.pdf`
+- **RamaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaSambhashanam.pdf`
+- **RamavataraRahasyam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamavataraRahasyam.pdf`
+- **Ramopadesha-UttaraKanda** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramopadesha-UttaraKanda.pdf`
+- **Ramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramopadesha.pdf`
+- **RavanaSanatkumaraSamvadaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RavanaSanatkumaraSamvadaKatha.pdf`
+- **ShivakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ShivakrtaRamaStuti.pdf`
+- **ShukaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ShukaSambhashanam.pdf`
+- **SugrivakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SugrivakrtaRamaStotram.pdf`
+- **SutikshnakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SutikshnakrtaRamaStotram.pdf`
+- **SvayamprabhaMoksha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SvayamprabhaMoksha.pdf`
+- **TaraTattvopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/TaraTattvopadesha.pdf`
+- **ValiSugrivaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ValiSugrivaKatha.pdf`
+- **ValmikiRamaSthanaVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ValmikiRamaSthanaVarnanam.pdf`
+- **Valmikyopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Valmikyopadesha.pdf`
+- **Vasishthopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Vasishthopadesha.pdf`
+- **VibhishanakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/VibhishanakrtaRamaStotram.pdf`
+- **ViradhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ViradhakrtaRamaStotram.pdf`
+- **Dhyanam** — `DharmicData/Stotras/Dhyanam/Dhyanam.pdf`
+- **DhyanaShloka** — `DharmicData/Stotras/Dhyanam/DhyanaShloka.pdf`
+- **GuruParampara** — `DharmicData/Stotras/Dhyanam/GuruParampara.pdf`
+- **KanchiKamakshiChurnika** — `DharmicData/Stotras/Dhyanam/KanchiKamakshiChurnika.pdf`
+- **KanchiSwastiVachanam** — `DharmicData/Stotras/Dhyanam/KanchiSwastiVachanam.pdf`
+- **MahabharataDhyanam** — `DharmicData/Stotras/Dhyanam/MahabharataDhyanam.pdf`
+- **NityaShloka** — `DharmicData/Stotras/Dhyanam/NityaShloka.pdf`
+- **ParabrahmaPratahSmaranam** — `DharmicData/Stotras/Dhyanam/ParabrahmaPratahSmaranam.pdf`
+- **RamayanaDhyanam** — `DharmicData/Stotras/Dhyanam/RamayanaDhyanam.pdf`
+- **SaraswatiPrarthana** — `DharmicData/Stotras/Dhyanam/SaraswatiPrarthana.pdf`
+- **VigneshwaraPrarthana** — `DharmicData/Stotras/Dhyanam/VigneshwaraPrarthana.pdf`
+- **GanapatiStava** — `DharmicData/Stotras/Ganesha/GanapatiStava.pdf`
+- **Ganashtakam** — `DharmicData/Stotras/Ganesha/Ganashtakam.pdf`
+- **GaneshaBhujangam** — `DharmicData/Stotras/Ganesha/GaneshaBhujangam.pdf`
+- **MahaganapatiNavarnavedapadaStava** — `DharmicData/Stotras/Ganesha/MahaganapatiNavarnavedapadaStava.pdf`
+- **MahaGaneshaPancharatnam** — `DharmicData/Stotras/Ganesha/MahaGaneshaPancharatnam.pdf`
+- **KanchiKamakotiGuruParamparaStava** — `DharmicData/Stotras/Guru/KanchiKamakotiGuruParamparaStava.pdf`
+- **ApaduddharakaDwadashamukhaHanumanStotram** — `DharmicData/Stotras/Hanuman/ApaduddharakaDwadashamukhaHanumanStotram.pdf`
+- **HanumanChalisa** — `DharmicData/Stotras/Hanuman/HanumanChalisa.pdf`
+- **HanumatPancharatnam** — `DharmicData/Stotras/Hanuman/HanumatPancharatnam.pdf`
+- **SundaraHanumanMahaMantraNamaStotram** — `DharmicData/Stotras/Hanuman/SundaraHanumanMahaMantraNamaStotram.pdf`
+- **Achyutashtakam** — `DharmicData/Stotras/Krishna/Achyutashtakam.pdf`
+- **AkrurakrtaDashavataraStuti** — `DharmicData/Stotras/Krishna/AkrurakrtaDashavataraStuti.pdf`
+- **Balamukundashtakam** — `DharmicData/Stotras/Krishna/Balamukundashtakam.pdf`
+- **Balaraksha** — `DharmicData/Stotras/Krishna/Balaraksha.pdf`
+- **BhajaGovindam-laghu** — `DharmicData/Stotras/Krishna/BhajaGovindam-laghu.pdf`
+- **BhajaGovindam** — `DharmicData/Stotras/Krishna/BhajaGovindam.pdf`
+- **BhishmaStuti** — `DharmicData/Stotras/Krishna/BhishmaStuti.pdf`
+- **Damodarashtakam** — `DharmicData/Stotras/Krishna/Damodarashtakam.pdf`
+- **DhruvakrtaBhagavatStavam** — `DharmicData/Stotras/Krishna/DhruvakrtaBhagavatStavam.pdf`
+- **GitaGovindam** — `DharmicData/Stotras/Krishna/GitaGovindam.pdf`
+- **Govindashtakam** — `DharmicData/Stotras/Krishna/Govindashtakam.pdf`
+- **GuruvatapurishaPancharatnam** — `DharmicData/Stotras/Krishna/GuruvatapurishaPancharatnam.pdf`
+- **KrishnaDwadashaNamaStotram** — `DharmicData/Stotras/Krishna/KrishnaDwadashaNamaStotram.pdf`
+- **KrishnaJananam** — `DharmicData/Stotras/Krishna/KrishnaJananam.pdf`
+- **Krishnashtakam1** — `DharmicData/Stotras/Krishna/Krishnashtakam1.pdf`
+- **Krishnashtakam2** — `DharmicData/Stotras/Krishna/Krishnashtakam2.pdf`
+- **Krishnashtakam3** — `DharmicData/Stotras/Krishna/Krishnashtakam3.pdf`
+- **Madhurashtakam** — `DharmicData/Stotras/Krishna/Madhurashtakam.pdf`
+- **NarayanaKeshadipadantaVarnanam** — `DharmicData/Stotras/Krishna/NarayanaKeshadipadantaVarnanam.pdf`
+- **KanakadharaStavam** — `DharmicData/Stotras/Lakshmi/KanakadharaStavam.pdf`
+- **LakshmiStotram** — `DharmicData/Stotras/Lakshmi/LakshmiStotram.pdf`
+- **MahalakshmiStuti** — `DharmicData/Stotras/Lakshmi/MahalakshmiStuti.pdf`
+- **Mahalakshmyashtakam** — `DharmicData/Stotras/Lakshmi/Mahalakshmyashtakam.pdf`
+- **Gangakarshanashtakam** — `DharmicData/Stotras/Nadi/Gangakarshanashtakam.pdf`
+- **Gangashtakam** — `DharmicData/Stotras/Nadi/Gangashtakam.pdf`
+- **GangaStuti** — `DharmicData/Stotras/Nadi/GangaStuti.pdf`
+- **KaveriPrarthana** — `DharmicData/Stotras/Nadi/KaveriPrarthana.pdf`
+- **Narmadashtakam** — `DharmicData/Stotras/Nadi/Narmadashtakam.pdf`
+- **TriveniStotram** — `DharmicData/Stotras/Nadi/TriveniStotram.pdf`
+- **Yamunashtakam** — `DharmicData/Stotras/Nadi/Yamunashtakam.pdf`
+- **AdityaHrdayam** — `DharmicData/Stotras/Navagraha/AdityaHrdayam.pdf`
+- **AngarakaStotram** — `DharmicData/Stotras/Navagraha/AngarakaStotram.pdf`
+- **BrihaspatiStotram** — `DharmicData/Stotras/Navagraha/BrihaspatiStotram.pdf`
+- **BudhaPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/BudhaPanchavimshatiNamaStotram.pdf`
+- **ChandraAshtavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/ChandraAshtavimshatiNamaStotram.pdf`
+- **ChandraGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/ChandraGrahanaPidapariharaShlokam.pdf`
+- **DwadasharyaSuryaStuti** — `DharmicData/Stotras/Navagraha/DwadasharyaSuryaStuti.pdf`
+- **KetuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/KetuPanchavimshatiNamaStotram.pdf`
+- **NavagrahaMangalashtakam** — `DharmicData/Stotras/Navagraha/NavagrahaMangalashtakam.pdf`
+- **NavagrahaPidaharaStotram** — `DharmicData/Stotras/Navagraha/NavagrahaPidaharaStotram.pdf`
+- **NavagrahaStotram** — `DharmicData/Stotras/Navagraha/NavagrahaStotram.pdf`
+- **RahuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/RahuPanchavimshatiNamaStotram.pdf`
+- **ShanaishcharaAshtakam(Dasharatha)** — `DharmicData/Stotras/Navagraha/ShanaishcharaAshtakam(Dasharatha).pdf`
+- **ShukraChaturvimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/ShukraChaturvimshatiNamaStotram.pdf`
+- **SuryaGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/SuryaGrahanaPidapariharaShlokam.pdf`
+- **SuryaKavacham** — `DharmicData/Stotras/Navagraha/SuryaKavacham.pdf`
+- **SuryaMandalaStotram** — `DharmicData/Stotras/Navagraha/SuryaMandalaStotram.pdf`
+- **SuryaPratahSmaranaStotram** — `DharmicData/Stotras/Navagraha/SuryaPratahSmaranaStotram.pdf`
+- **SuryaryaStotram** — `DharmicData/Stotras/Navagraha/SuryaryaStotram.pdf`
+- **SuryaStavaraja** — `DharmicData/Stotras/Navagraha/SuryaStavaraja.pdf`
+- **SuryaStuti** — `DharmicData/Stotras/Navagraha/SuryaStuti.pdf`
+- **AvaidhavyaPrarthanaStotram** — `DharmicData/Stotras/Other/AvaidhavyaPrarthanaStotram.pdf`
+- **GakaradiGanapatiSahasranamaStotram** — `DharmicData/Stotras/Other/GakaradiGanapatiSahasranamaStotram.pdf`
+- **KaishikaPuranam** — `DharmicData/Stotras/Other/KaishikaPuranam.pdf`
+- **KalidoshanivaranaStotram** — `DharmicData/Stotras/Other/KalidoshanivaranaStotram.pdf`
+- **KartaviryarjunaStotram** — `DharmicData/Stotras/Other/KartaviryarjunaStotram.pdf`
+- **KrishnaNamaMahatmyam** — `DharmicData/Stotras/Other/KrishnaNamaMahatmyam.pdf`
+- **LalitaTrishati** — `DharmicData/Stotras/Other/LalitaTrishati.pdf`
+- **MatribhutaShatakam** — `DharmicData/Stotras/Other/MatribhutaShatakam.pdf`
+- **RogaNivaranaShloka** — `DharmicData/Stotras/Other/RogaNivaranaShloka.pdf`
+- **SankshepaRamayanam** — `DharmicData/Stotras/Other/SankshepaRamayanam.pdf`
+- **SantanagopalaStotram** — `DharmicData/Stotras/Other/SantanagopalaStotram.pdf`
+- **SaraswatiSahasranamaStotram** — `DharmicData/Stotras/Other/SaraswatiSahasranamaStotram.pdf`
+- **SaundaryaLahari** — `DharmicData/Stotras/Other/SaundaryaLahari.pdf`
+- **ShivaMahimnaStotram** — `DharmicData/Stotras/Other/ShivaMahimnaStotram.pdf`
+- **ShivaSahasranamaStotram-VishnuKrtam** — `DharmicData/Stotras/Other/ShivaSahasranamaStotram-VishnuKrtam.pdf`
+- **ShivaSahasranamaStotram** — `DharmicData/Stotras/Other/ShivaSahasranamaStotram.pdf`
+- **SuryaSahasranamaStotram** — `DharmicData/Stotras/Other/SuryaSahasranamaStotram.pdf`
+- **VakratundaMahaganapatiSahasranamaStotram** — `DharmicData/Stotras/Other/VakratundaMahaganapatiSahasranamaStotram.pdf`
+- **VishnuSahasranamaStotram** — `DharmicData/Stotras/Other/VishnuSahasranamaStotram.pdf`
+- **YamabhayanivaranaStotram** — `DharmicData/Stotras/Other/YamabhayanivaranaStotram.pdf`
+- **Yamashtakam** — `DharmicData/Stotras/Other/Yamashtakam.pdf`
+- **KshamaPrarthana** — `DharmicData/Stotras/Purti/KshamaPrarthana.pdf`
+- **VandeMataram** — `DharmicData/Stotras/Purti/VandeMataram.pdf`
+- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Rama/AhalyakrtaRamaStotram.pdf`
+- **ApaduddharanaStotram** — `DharmicData/Stotras/Rama/ApaduddharanaStotram.pdf`
+- **BrahmaKrtaRamaStava** — `DharmicData/Stotras/Rama/BrahmaKrtaRamaStava.pdf`
+- **DevaihKrtaRamaStotram** — `DharmicData/Stotras/Rama/DevaihKrtaRamaStotram.pdf`
+- **EkashlokiRamayanam** — `DharmicData/Stotras/Rama/EkashlokiRamayanam.pdf`
+- **GayatriRamayanam** — `DharmicData/Stotras/Rama/GayatriRamayanam.pdf`
+- **MunikrtaRamaStotram** — `DharmicData/Stotras/Rama/MunikrtaRamaStotram.pdf`
+- **NamaRamayanam** — `DharmicData/Stotras/Rama/NamaRamayanam.pdf`
+- **RamaBhujangaprayataStotram** — `DharmicData/Stotras/Rama/RamaBhujangaprayataStotram.pdf`
+- **RamaDwadashaNamaStotram** — `DharmicData/Stotras/Rama/RamaDwadashaNamaStotram.pdf`
+- **RamarakshaStotram** — `DharmicData/Stotras/Rama/RamarakshaStotram.pdf`
+- **Ramashtakam** — `DharmicData/Stotras/Rama/Ramashtakam.pdf`
+- **RamaStava** — `DharmicData/Stotras/Rama/RamaStava.pdf`
+- **RamaStavarajaStotram** — `DharmicData/Stotras/Rama/RamaStavarajaStotram.pdf`
+- **SitaRamaStotram** — `DharmicData/Stotras/Rama/SitaRamaStotram.pdf`
+- **SaraswatiStotram(Agastya)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Agastya).pdf`
+- **SaraswatiStotram(Brahma)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Brahma).pdf`
+- **SaraswatiStotram(Brihaspati)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Brihaspati).pdf`
+- **SharadaBhujangaprayataAshtakam** — `DharmicData/Stotras/Saraswati/SharadaBhujangaprayataAshtakam.pdf`
+- **SharadaPrarthana** — `DharmicData/Stotras/Saraswati/SharadaPrarthana.pdf`
+- **VaniStavanam** — `DharmicData/Stotras/Saraswati/VaniStavanam.pdf`
+- **AnnapurnaStotram** — `DharmicData/Stotras/Shakti/AnnapurnaStotram.pdf`
+- **ArjunaKrtaDurgaStuti** — `DharmicData/Stotras/Shakti/ArjunaKrtaDurgaStuti.pdf`
+- **DurgaChandraKalaStuti** — `DharmicData/Stotras/Shakti/DurgaChandraKalaStuti.pdf`
+- **DurgaPancharatnam** — `DharmicData/Stotras/Shakti/DurgaPancharatnam.pdf`
+- **DurgaStotram** — `DharmicData/Stotras/Shakti/DurgaStotram.pdf`
+- **Gangashtakam** — `DharmicData/Stotras/Shakti/Gangashtakam.pdf`
+- **GauriDashakam** — `DharmicData/Stotras/Shakti/GauriDashakam.pdf`
+- **GayatriStotram** — `DharmicData/Stotras/Shakti/GayatriStotram.pdf`
+- **KalyanaVrishtiStotram** — `DharmicData/Stotras/Shakti/KalyanaVrishtiStotram.pdf`
+- **KamakshiMahatmyam** — `DharmicData/Stotras/Shakti/KamakshiMahatmyam.pdf`
+- **KamakshiStotram** — `DharmicData/Stotras/Shakti/KamakshiStotram.pdf`
+- **KamakshiSuprabhatam** — `DharmicData/Stotras/Shakti/KamakshiSuprabhatam.pdf`
+- **LalitaPancharatnam** — `DharmicData/Stotras/Shakti/LalitaPancharatnam.pdf`
+- **MahishasuramardiniStotram** — `DharmicData/Stotras/Shakti/MahishasuramardiniStotram.pdf`
+- **MinakshiPancharatnam** — `DharmicData/Stotras/Shakti/MinakshiPancharatnam.pdf`
+- **MukaPanchaShati_10** — `DharmicData/Stotras/Shakti/MukaPanchaShati_10.pdf`
+- **MukaSarah** — `DharmicData/Stotras/Shakti/MukaSarah.pdf`
+- **ParashuramaKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/ParashuramaKrtaDurgaStotram.pdf`
+- **ShashthiDeviStotram** — `DharmicData/Stotras/Shakti/ShashthiDeviStotram.pdf`
+- **Shitalashtakam** — `DharmicData/Stotras/Shakti/Shitalashtakam.pdf`
+- **ShyamalaDandakam** — `DharmicData/Stotras/Shakti/ShyamalaDandakam.pdf`
+- **Tripurasundaryashtakam** — `DharmicData/Stotras/Shakti/Tripurasundaryashtakam.pdf`
+- **TriveniStotram** — `DharmicData/Stotras/Shakti/TriveniStotram.pdf`
+- **Yamunashtakam** — `DharmicData/Stotras/Shakti/Yamunashtakam.pdf`
+- **YudhishthiraKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/YudhishthiraKrtaDurgaStotram.pdf`
+- **Hariharatmajashtakam** — `DharmicData/Stotras/Shasta/Hariharatmajashtakam.pdf`
+- **ShastaDashakam** — `DharmicData/Stotras/Shasta/ShastaDashakam.pdf`
+- **AdityaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AdityaAshtottaraShatanamaStotram.pdf`
+- **AnjaneyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AnjaneyaAshtottaraShatanamaStotram.pdf`
+- **AnnapurnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AnnapurnaAshtottaraShatanamaStotram.pdf`
+- **ArdhanarishvaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ArdhanarishvaraAshtottaraShatanamaStotram.pdf`
+- **DhanvantariAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/DhanvantariAshtottaraShatanamaStotram.pdf`
+- **DurgaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/DurgaAshtottaraShatanamaStotram.pdf`
+- **GanapatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GanapatiAshtottaraShatanamaStotram.pdf`
+- **GanapatiGakaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GanapatiGakaraAshtottaraShatanamaStotram.pdf`
+- **GaneshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GaneshaAshtottaraShatanamaStotram.pdf`
+- **GangaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GangaAshtottaraShatanamaStotram.pdf`
+- **GauriAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GauriAshtottaraShatanamaStotram.pdf`
+- **GodaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GodaAshtottaraShatanamaStotram.pdf`
+- **HariharaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HariharaAshtottaraShatanamaStotram.pdf`
+- **HariharaputraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HariharaputraAshtottaraShatanamaStotram.pdf`
+- **HayagrivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HayagrivaAshtottaraShatanamaStotram.pdf`
+- **KarttikeyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/KarttikeyaAshtottaraShatanamaStotram.pdf`
+- **KrishnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/KrishnaAshtottaraShatanamaStotram.pdf`
+- **LakshmiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/LakshmiAshtottaraShatanamaStotram.pdf`
+- **LakshmiNarayanaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/LakshmiNarayanaAshtottaraShatanamaStotram.pdf`
+- **NrisimhaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/NrisimhaAshtottaraShatanamaStotram.pdf`
+- **RamaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/RamaAshtottaraShatanamaStotram.pdf`
+- **SaraswatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SaraswatiAshtottaraShatanamaStotram.pdf`
+- **ShaktiAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/ShaktiAshtottaraShatadivyasthaniyaNamaStotram.pdf`
+- **ShankaracharyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ShankaracharyaAshtottaraShatanamaStotram.pdf`
+- **ShivaAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/ShivaAshtottaraShatadivyasthaniyaNamaStotram.pdf`
+- **ShivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ShivaAshtottaraShatanamaStotram.pdf`
+- **SitaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SitaAshtottaraShatanamaStotram.pdf`
+- **SubrahmanyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SubrahmanyaAshtottaraShatanamaStotram.pdf`
+- **SuryaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SuryaAshtottaraShatanamaStotram.pdf`
+- **TulasiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/TulasiAshtottaraShatanamaStotram.pdf`
+- **VenkateshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/VenkateshaAshtottaraShatanamaStotram.pdf`
+- **VishnuAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/VishnuAshtottaraShatadivyasthaniyaNamaStotram.pdf`
+- **VyasaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/VyasaAshtottaraShatanamaStotram.pdf`
+- **ArdhanarishwaraStotram** — `DharmicData/Stotras/Shiva/ArdhanarishwaraStotram.pdf`
+- **Bilvashtakam** — `DharmicData/Stotras/Shiva/Bilvashtakam.pdf`
+- **CharanashringarahitaNatarajaStotram** — `DharmicData/Stotras/Shiva/CharanashringarahitaNatarajaStotram.pdf`
+- **DakshinamurtiStotram** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram.pdf`
+- **DakshinamurtiStotram(SamaraPungavaDikshitaKrtam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(SamaraPungavaDikshitaKrtam).pdf`
+- **DakshinamurtiStotram(VrishabhaDevaKritam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(VrishabhaDevaKritam).pdf`
+- **DakshinamurtiStotram(VrishabhaDevaKrtam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(VrishabhaDevaKrtam).pdf`
+- **Dakshinamurtyashtakam** — `DharmicData/Stotras/Shiva/Dakshinamurtyashtakam.pdf`
+- **Gurvashtakam** — `DharmicData/Stotras/Shiva/Gurvashtakam.pdf`
+- **Kalabhairavashtakam** — `DharmicData/Stotras/Shiva/Kalabhairavashtakam.pdf`
+- **Karttikasomavararghyam** — `DharmicData/Stotras/Shiva/Karttikasomavararghyam.pdf`
+- **Lingashtakam** — `DharmicData/Stotras/Shiva/Lingashtakam.pdf`
+- **MargabandhuStotram** — `DharmicData/Stotras/Shiva/MargabandhuStotram.pdf`
+- **RudraStotram** — `DharmicData/Stotras/Shiva/RudraStotram.pdf`
+- **Sadashivashtakam** — `DharmicData/Stotras/Shiva/Sadashivashtakam.pdf`
+- **ShambhuStuti** — `DharmicData/Stotras/Shiva/ShambhuStuti.pdf`
+- **ShivaManasapuja** — `DharmicData/Stotras/Shiva/ShivaManasapuja.pdf`
+- **ShivaPanchaksharaStotram** — `DharmicData/Stotras/Shiva/ShivaPanchaksharaStotram.pdf`
+- **ShivaparadhaKshamapanaStotram** — `DharmicData/Stotras/Shiva/ShivaparadhaKshamapanaStotram.pdf`
+- **ShivaPratahSmaranaStotram** — `DharmicData/Stotras/Shiva/ShivaPratahSmaranaStotram.pdf`
+- **ShivarakshaStotram** — `DharmicData/Stotras/Shiva/ShivarakshaStotram.pdf`
+- **ShivashivaaStuti** — `DharmicData/Stotras/Shiva/ShivashivaaStuti.pdf`
+- **Totakashtakam** — `DharmicData/Stotras/Shiva/Totakashtakam.pdf`
+- **UmamaheshwaraStotram** — `DharmicData/Stotras/Shiva/UmamaheshwaraStotram.pdf`
+- **Vaidyanathashtakam** — `DharmicData/Stotras/Shiva/Vaidyanathashtakam.pdf`
+- **GuhaPancharatnam** — `DharmicData/Stotras/Subrahmanya/GuhaPancharatnam.pdf`
+- **PrajnavivardhanaKarttikeyaStotram** — `DharmicData/Stotras/Subrahmanya/PrajnavivardhanaKarttikeyaStotram.pdf`
+- **SkandaShashthiKavacham** — `DharmicData/Stotras/Subrahmanya/SkandaShashthiKavacham.pdf`
+- **SubrahmanyaAshtakam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaAshtakam.pdf`
+- **SubrahmanyaBhujangam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaBhujangam.pdf`
+- **SubrahmanyaPancharatnam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaPancharatnam.pdf`
+- **SubrahmanyaShodashaNamaStotram** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaShodashaNamaStotram.pdf`
+- **ShrinivasaGadyam** — `DharmicData/Stotras/Venkatesha/ShrinivasaGadyam.pdf`
+- **VenkateshaAshtakam** — `DharmicData/Stotras/Venkatesha/VenkateshaAshtakam.pdf`
+- **VenkateshaDwadashaNamaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaDwadashaNamaStotram.pdf`
+- **VenkateshaKaravalambaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaKaravalambaStotram.pdf`
+- **VenkateshaMangalashasanam** — `DharmicData/Stotras/Venkatesha/VenkateshaMangalashasanam.pdf`
+- **VenkateshaPrapatti** — `DharmicData/Stotras/Venkatesha/VenkateshaPrapatti.pdf`
+- **VenkateshaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaStotram.pdf`
+- **VenkateshaSuprabhatam** — `DharmicData/Stotras/Venkatesha/VenkateshaSuprabhatam.pdf`
+- **BrahmapaaraStotram** — `DharmicData/Stotras/Vishnu/BrahmapaaraStotram.pdf`
+- **DhanvatariStotram** — `DharmicData/Stotras/Vishnu/DhanvatariStotram.pdf`
+- **LakshmiNrisimhaKaravalambaStotram** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaKaravalambaStotram.pdf`
+- **LakshmiNrisimhaKarunarasaStotram** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaKarunarasaStotram.pdf`
+- **LakshmiNrisimhaPancharatnam** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaPancharatnam.pdf`
+- **Pandurangashtakam** — `DharmicData/Stotras/Vishnu/Pandurangashtakam.pdf`
+- **RanganathaGadyam** — `DharmicData/Stotras/Vishnu/RanganathaGadyam.pdf`
+- **Ranganathashtakam** — `DharmicData/Stotras/Vishnu/Ranganathashtakam.pdf`
+- **VishnuBhujangaprayataStotram** — `DharmicData/Stotras/Vishnu/VishnuBhujangaprayataStotram.pdf`
+- **VishnuVijayaStotram** — `DharmicData/Stotras/Vishnu/VishnuVijayaStotram.pdf`
+
+### Stuti (46)
+- **Avadhuta Ashtakam Shuka Deva Stuti** — `DharmicData/Stuti/Avadhuta Ashtakam Shuka Deva Stuti.pdf`
+- **Bhavani Stuti** — `DharmicData/Stuti/Bhavani Stuti.pdf`
+- **Chidambaram Sri Nataraja Stuti** — `DharmicData/Stuti/Chidambaram Sri Nataraja Stuti.pdf`
+- **Dashashloki Stuti** — `DharmicData/Stuti/Dashashloki Stuti.pdf`
+- **Dashavatara Stuti** — `DharmicData/Stuti/Dashavatara Stuti.pdf`
+- **Devi Dasha Sloki Stuti** — `DharmicData/Stuti/Devi Dasha Sloki Stuti.pdf`
+- **Durga Chandrakala Stuti** — `DharmicData/Stuti/Durga Chandrakala Stuti.pdf`
+- **Durga Stuti Essense Of Devi Mahatmyam** — `DharmicData/Stuti/Durga Stuti Essense Of Devi Mahatmyam.pdf`
+- **Dwadasarya Surya Stuti** — `DharmicData/Stuti/Dwadasarya Surya Stuti.pdf`
+- **Ganesha Stuti** — `DharmicData/Stuti/Ganesha Stuti.pdf`
+- **Ganga Stuti** — `DharmicData/Stuti/Ganga Stuti.pdf`
+- **Garbha Stuti** — `DharmicData/Stuti/Garbha Stuti.pdf`
+- **Gokarna Ganadhipa Stuti** — `DharmicData/Stuti/Gokarna Ganadhipa Stuti.pdf`
+- **Gopala Stuti** — `DharmicData/Stuti/Gopala Stuti.pdf`
+- **Guru Stuti** — `DharmicData/Stuti/Guru Stuti.pdf`
+- **Hanumath Stuti** — `DharmicData/Stuti/Hanumath Stuti.pdf`
+- **Hariharabheda Stuti** — `DharmicData/Stuti/Hariharabheda Stuti.pdf`
+- **Kanduka Stuti** — `DharmicData/Stuti/Kanduka Stuti.pdf`
+- **Laghu Vayu Stuti** — `DharmicData/Stuti/Laghu Vayu Stuti.pdf`
+- **Maha Gayatri Lila Stuti** — `DharmicData/Stuti/Maha Gayatri Lila Stuti.pdf`
+- **Mahalakshmi Stuti** — `DharmicData/Stuti/Mahalakshmi Stuti.pdf`
+- **Marga Sahaya Linga Stuti** — `DharmicData/Stuti/Marga Sahaya Linga Stuti.pdf`
+- **Meenakshi Stuti** — `DharmicData/Stuti/Meenakshi Stuti.pdf`
+- **Narasimha Nakha Stuti** — `DharmicData/Stuti/Narasimha Nakha Stuti.pdf`
+- **Narasimha Stuti Shukracharya** — `DharmicData/Stuti/Narasimha Stuti Shukracharya.pdf`
+- **Narayana Stuti** — `DharmicData/Stuti/Narayana Stuti.pdf`
+- **Parashurama Stuti** — `DharmicData/Stuti/Parashurama Stuti.pdf`
+- **Pitru Stotram Pitru Stuti** — `DharmicData/Stuti/Pitru Stotram Pitru Stuti.pdf`
+- **Rama Stuti Brahma** — `DharmicData/Stuti/Rama Stuti Brahma.pdf`
+- **Rama Stuti From Ramcharitmanas** — `DharmicData/Stuti/Rama Stuti From Ramcharitmanas.pdf`
+- **Rama Stuti Jatayu** — `DharmicData/Stuti/Rama Stuti Jatayu.pdf`
+- **Rama Stuti Tulsidas** — `DharmicData/Stuti/Rama Stuti Tulsidas.pdf`
+- **Saraswati Stuti** — `DharmicData/Stuti/Saraswati Stuti.pdf`
+- **Sastha Stuti Dashakam** — `DharmicData/Stuti/Sastha Stuti Dashakam.pdf`
+- **Shiva Stotram Lankeshwara Krutha** — `DharmicData/Stuti/Shiva Stotram Lankeshwara Krutha.pdf`
+- **Shiva Stuti Narayana Pandita Krutha** — `DharmicData/Stuti/Shiva Stuti Narayana Pandita Krutha.pdf`
+- **Siddha Lakshmi Stuti** — `DharmicData/Stuti/Siddha Lakshmi Stuti.pdf`
+- **Sri Chandrashekarendra Saraswati Stuti** — `DharmicData/Stuti/Sri Chandrashekarendra Saraswati Stuti.pdf`
+- **Sri Shankaracharya Padavalamba Suvarnamala Stuti** — `DharmicData/Stuti/Sri Shankaracharya Padavalamba Suvarnamala Stuti.pdf`
+- **Sri Shankaracharya Padavalambana Stuti** — `DharmicData/Stuti/Sri Shankaracharya Padavalambana Stuti.pdf`
+- **Sri Stuti** — `DharmicData/Stuti/Sri Stuti.pdf`
+- **Subhagodaya Stuti** — `DharmicData/Stuti/Subhagodaya Stuti.pdf`
+- **Suvarnamala Stuti** — `DharmicData/Stuti/Suvarnamala Stuti.pdf`
+- **Vishnu Stuti By Brahma** — `DharmicData/Stuti/Vishnu Stuti By Brahma.pdf`
+- **Vishnu Stuti By Kandu Rishi** — `DharmicData/Stuti/Vishnu Stuti By Kandu Rishi.pdf`
+- **Vishnu Stuti By Markandeya Rishi** — `DharmicData/Stuti/Vishnu Stuti By Markandeya Rishi.pdf`
+
+### Swaminarayan Sect (76)
+- **Bal-Charitra** — `DharmicData/Swaminarayan Sect/Bal-Charitra.pdf`
+- **Bhakta-Chintamni** — `DharmicData/Swaminarayan Sect/Bhakta-Chintamni.pdf`
+- **Bhakti-Nidhi-English** — `DharmicData/Swaminarayan Sect/Bhakti-Nidhi-English.pdf`
+- **Bhakti-Nidhi** — `DharmicData/Swaminarayan Sect/Bhakti-Nidhi.pdf`
+- **Chosathapadi-Amrutdhara** — `DharmicData/Swaminarayan Sect/Chosathapadi-Amrutdhara.pdf`
+- **Chosathapadi** — `DharmicData/Swaminarayan Sect/Chosathapadi.pdf`
+- **Ekadashi Mahatmya** — `DharmicData/Swaminarayan Sect/Ekadashi Mahatmya.pdf`
+- **Ekadashi-Letter-Gujarati** — `DharmicData/Swaminarayan Sect/Ekadashi-Letter-Gujarati.pdf`
+- **Funral-Rites** — `DharmicData/Swaminarayan Sect/Funral-Rites.pdf`
+- **Purvardh** — `DharmicData/Swaminarayan Sect/Ghanshyam-Leela/Purvardh.pdf`
+- **Utrardh** — `DharmicData/Swaminarayan Sect/Ghanshyam-Leela/Utrardh.pdf`
+- **Ghar-Satsang-1** — `DharmicData/Swaminarayan Sect/Ghar-Satsang-1.pdf`
+- **Ghar-Satsang-2** — `DharmicData/Swaminarayan Sect/Ghar-Satsang-2.pdf`
+- **Hari-Kavach-English-Translation** — `DharmicData/Swaminarayan Sect/Hari-Kavach-English-Translation.pdf`
+- **Haribal-Gita** — `DharmicData/Swaminarayan Sect/Haribal-Gita.pdf`
+- **Harigita-English** — `DharmicData/Swaminarayan Sect/Harigita-English.pdf`
+- **Harigita-Gujarati** — `DharmicData/Swaminarayan Sect/Harigita-Gujarati.pdf`
+- **Indian-Philosophy-English** — `DharmicData/Swaminarayan Sect/Indian-Philosophy-English.pdf`
+- **Janamangal-Namavali-Gujarati** — `DharmicData/Swaminarayan Sect/Janamangal-Namavali-Gujarati.pdf`
+- **Kutch-Lila** — `DharmicData/Swaminarayan Sect/Kutch-Lila.pdf`
+- **Life-Faith-Of-Lord-Swaminarayan** — `DharmicData/Swaminarayan Sect/Life-Faith-Of-Lord-Swaminarayan.pdf`
+- **Mahapooja** — `DharmicData/Swaminarayan Sect/Mahapooja.pdf`
+- **Manganjan-Amrutdhara** — `DharmicData/Swaminarayan Sect/Manganjan-Amrutdhara.pdf`
+- **Amrutdhara-1** — `DharmicData/Swaminarayan Sect/Nishkulanand Kavya Amrutdhara/Amrutdhara-1.pdf`
+- **Amrutdhara-2** — `DharmicData/Swaminarayan Sect/Nishkulanand Kavya Amrutdhara/Amrutdhara-2.pdf`
+- **Amrutdhara-3** — `DharmicData/Swaminarayan Sect/Nishkulanand Kavya Amrutdhara/Amrutdhara-3.pdf`
+- **Amrutdhara-4** — `DharmicData/Swaminarayan Sect/Nishkulanand Kavya Amrutdhara/Amrutdhara-4.pdf`
+- **Amrutdhara-5** — `DharmicData/Swaminarayan Sect/Nishkulanand Kavya Amrutdhara/Amrutdhara-5.pdf`
+- **Nishkulanand-Kavya** — `DharmicData/Swaminarayan Sect/Nishkulanand-Kavya.pdf`
+- **Nitya-Niyam** — `DharmicData/Swaminarayan Sect/Nitya-Niyam.pdf`
+- **Parcha-Prakaran** — `DharmicData/Swaminarayan Sect/Parcha-Prakaran.pdf`
+- **Parshnavali-English** — `DharmicData/Swaminarayan Sect/Parshnavali-English.pdf`
+- **Parshnavali-Gujarati** — `DharmicData/Swaminarayan Sect/Parshnavali-Gujarati.pdf`
+- **Religious-Rites** — `DharmicData/Swaminarayan Sect/Religious-Rites.pdf`
+- **Saar-Siddhi-Eng** — `DharmicData/Swaminarayan Sect/Saar-Siddhi-Eng.pdf`
+- **Saar-Siddhi** — `DharmicData/Swaminarayan Sect/Saar-Siddhi.pdf`
+- **Samaj-Sudharak-English** — `DharmicData/Swaminarayan Sect/Samaj-Sudharak-English.pdf`
+- **Samaj-Sudharak-Gujarati** — `DharmicData/Swaminarayan Sect/Samaj-Sudharak-Gujarati.pdf`
+- **Samaj-Sudharak-Hindi** — `DharmicData/Swaminarayan Sect/Samaj-Sudharak-Hindi.pdf`
+- **Sanskar-English** — `DharmicData/Swaminarayan Sect/Sanskar-English.pdf`
+- **Sanskar-Gujarati** — `DharmicData/Swaminarayan Sect/Sanskar-Gujarati.pdf`
+- **Sarsiddhi** — `DharmicData/Swaminarayan Sect/Sarsiddhi.pdf`
+- **Sarvamangal-Namavali** — `DharmicData/Swaminarayan Sect/Sarvamangal-Namavali.pdf`
+- **Satsang-Setu** — `DharmicData/Swaminarayan Sect/Satsang-Setu.pdf`
+- **Satsangi-Jivan-1** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/English/Satsangi-Jivan-1.pdf`
+- **Satsangi-Jivan-2** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/English/Satsangi-Jivan-2.pdf`
+- **Satsangi-Jivan-3** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/English/Satsangi-Jivan-3.pdf`
+- **Satsangi-Jivan-4** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/English/Satsangi-Jivan-4.pdf`
+- **Satsangi-Jivan-5** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/English/Satsangi-Jivan-5.pdf`
+- **Satsangi-Jivan-1** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/Gujarati/Satsangi-Jivan-1.pdf`
+- **Satsangi-Jivan-2** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/Gujarati/Satsangi-Jivan-2.pdf`
+- **Satsangi-Jivan-3** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/Gujarati/Satsangi-Jivan-3.pdf`
+- **Satsangi-Jivan-4** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/Gujarati/Satsangi-Jivan-4.pdf`
+- **Satsangi-Jivan-5** — `DharmicData/Swaminarayan Sect/Satsangi-Jivan/Gujarati/Satsangi-Jivan-5.pdf`
+- **Shandilya-Shutra-Bhashya** — `DharmicData/Swaminarayan Sect/Shandilya-Shutra-Bhashya.pdf`
+- **Shikshapatri-English** — `DharmicData/Swaminarayan Sect/Shikshapatri/Shikshapatri-English.pdf`
+- **Shikshapatri-Gujarati** — `DharmicData/Swaminarayan Sect/Shikshapatri/Shikshapatri-Gujarati.pdf`
+- **Shikshapatri-Hindi** — `DharmicData/Swaminarayan Sect/Shikshapatri/Shikshapatri-Hindi.pdf`
+- **Shree-Hari-Kavach-Gujarati-Translation** — `DharmicData/Swaminarayan Sect/Shree-Hari-Kavach-Gujarati-Translation.pdf`
+- **Shree-Hari-Kavach-Sanskrit-In-Gujarati** — `DharmicData/Swaminarayan Sect/Shree-Hari-Kavach-Sanskrit-In-Gujarati.pdf`
+- **Shree-Janamangal-Katha-Saar Gujarati** — `DharmicData/Swaminarayan Sect/Shree-Janamangal-Katha-Saar Gujarati.pdf`
+- **Sneh-Geeta** — `DharmicData/Swaminarayan Sect/Sneh-Geeta.pdf`
+- **Sneha-Gita** — `DharmicData/Swaminarayan Sect/Sneha-Gita.pdf`
+- **Swaminarayan-Mahamantra-English** — `DharmicData/Swaminarayan Sect/Swaminarayan-Mahamantra-English.pdf`
+- **Swaminarayan-Mahamantra-Gujarati** — `DharmicData/Swaminarayan Sect/Swaminarayan-Mahamantra-Gujarati.pdf`
+- **Thakorjini-Seva-Riti** — `DharmicData/Swaminarayan Sect/Thakorjini-Seva-Riti.pdf`
+- **Tulsi** — `DharmicData/Swaminarayan Sect/Tulsi.pdf`
+- **Vachnamrut-English** — `DharmicData/Swaminarayan Sect/Vachnamrut/Vachnamrut-English.pdf`
+- **Vachnamrut-Gujarati** — `DharmicData/Swaminarayan Sect/Vachnamrut/Vachnamrut-Gujarati.pdf`
+- **Vachnamrut-Gutko** — `DharmicData/Swaminarayan Sect/Vachnamrut/Vachnamrut-Gutko.pdf`
+- **Vasudev-Mahatmay-Gujarati** — `DharmicData/Swaminarayan Sect/Vasudev-Mahatmay-Gujarati.pdf`
+- **Vasudev-Mahatmya-English** — `DharmicData/Swaminarayan Sect/Vasudev-Mahatmya-English.pdf`
+- **Vidur-Niti** — `DharmicData/Swaminarayan Sect/Vidur-Niti.pdf`
+- **Vishnusahasranam** — `DharmicData/Swaminarayan Sect/Vishnusahasranam.pdf`
+- **Vrat-Katha** — `DharmicData/Swaminarayan Sect/Vrat-Katha.pdf`
+- **Yamdand-English** — `DharmicData/Swaminarayan Sect/Yamdand-English.pdf`
+
+### Upa-Veda (74)
+- **Ashtanga Sangraha** — `DharmicData/Upa-Veda/Āyur Veda/Ashtanga Sangraha.pdf`
+- **Bhava Prakasha Samhita** — `DharmicData/Upa-Veda/Āyur Veda/Bhava Prakasha Samhita.pdf`
+- **1. Bhel Sutra** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/1. Bhel Sutra.pdf`
+- **2. Bhel Nidana** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/2. Bhel Nidana.pdf`
+- **3. Bhel Vimana** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/3. Bhel Vimana.pdf`
+- **4. Bhel Sharira** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/4. Bhel Sharira.pdf`
+- **5. Bhel Indriya** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/5. Bhel Indriya.pdf`
+- **6. Bhel Cikitsa** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/6. Bhel Cikitsa.pdf`
+- **7. Bhel Kalpa** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/7. Bhel Kalpa.pdf`
+- **8. Bhel Siddhi** — `DharmicData/Upa-Veda/Āyur Veda/Bhel Samhita/8. Bhel Siddhi.pdf`
+- **Charaka Chikitsa** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Chikitsa.pdf`
+- **Charaka Indriya** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Indriya.pdf`
+- **Charaka Kalpa** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Kalpa.pdf`
+- **Charaka Nidana** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Nidana.pdf`
+- **Charaka Sharira** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Sharira.pdf`
+- **Charaka Siddhi** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Siddhi.pdf`
+- **Charaka Sutra** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Sutra.pdf`
+- **Charaka Vimana** — `DharmicData/Upa-Veda/Āyur Veda/Charaka Saṁhitā/Charaka Vimana.pdf`
+- **1. Prathama Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/1. Prathama Sthanam.pdf`
+- **2. Dvitiya Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/2. Dvitiya Sthanam.pdf`
+- **3. Tritiya Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/3. Tritiya Sthanam.pdf`
+- **4. Caturtha Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/4. Caturtha Sthanam.pdf`
+- **5. Pancamam Kalpa Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/5. Pancamam Kalpa Sthanam.pdf`
+- **6. Shashtham Sharira Sthanam** — `DharmicData/Upa-Veda/Āyur Veda/Harita Samhita/6. Shashtham Sharira Sthanam.pdf`
+- **1. Kashyapa Sutra** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/1. Kashyapa Sutra.pdf`
+- **2. Kashyapa Vimana** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/2. Kashyapa Vimana.pdf`
+- **3. Kashyapa Sharira** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/3. Kashyapa Sharira.pdf`
+- **4. Kashyapa Indriya** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/4. Kashyapa Indriya.pdf`
+- **5. Kashyapa Chikitsa** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/5. Kashyapa Chikitsa.pdf`
+- **6. Kashyapa Siddhi** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/6. Kashyapa Siddhi.pdf`
+- **7. Kashyapa Kalpa** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/7. Kashyapa Kalpa.pdf`
+- **8. Kashyapa Khila** — `DharmicData/Upa-Veda/Āyur Veda/Kashyap Samhita/8. Kashyapa Khila.pdf`
+- **Mādhav Nidān Saṁhitā** — `DharmicData/Upa-Veda/Āyur Veda/Mādhav Nidān Saṁhitā.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 1** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 1.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 2** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 2.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 3** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 3.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 4** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 4.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 5** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 5.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 6** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 6.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 7** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 7.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 8** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 8.pdf`
+- **Rasa Ratna Samucchaya Of Vagbhatacharya 9** — `DharmicData/Upa-Veda/Āyur Veda/Rasa Ratna Samucchaya Of Vagbhatacharya/Rasa Ratna Samucchaya Of Vagbhatacharya 9.pdf`
+- **1. Sharngadhara Samhita Purva** — `DharmicData/Upa-Veda/Āyur Veda/Sharngadhar Samhita/1. Sharngadhara Samhita Purva.pdf`
+- **2. Sharngadhara Samhita Madhya** — `DharmicData/Upa-Veda/Āyur Veda/Sharngadhar Samhita/2. Sharngadhara Samhita Madhya.pdf`
+- **3. Sharngadhara Samhita Uttara** — `DharmicData/Upa-Veda/Āyur Veda/Sharngadhar Samhita/3. Sharngadhara Samhita Uttara.pdf`
+- **4. Sharngadhara Samhita Parishishtam** — `DharmicData/Upa-Veda/Āyur Veda/Sharngadhar Samhita/4. Sharngadhara Samhita Parishishtam.pdf`
+- **Sushruta Chikitsa** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Chikitsa.pdf`
+- **Sushruta Kalpa** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Kalpa.pdf`
+- **Sushruta Nidana** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Nidana.pdf`
+- **Sushruta Sharira** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Sharira.pdf`
+- **Sushruta Sutra** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Sutra.pdf`
+- **Sushruta Uttara** — `DharmicData/Upa-Veda/Āyur Veda/Sushruta Samhita/Sushruta Uttara.pdf`
+- **Vagbhatta Chikitsita** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Chikitsita.pdf`
+- **Vagbhatta Kalpa Siddhi** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Kalpa Siddhi.pdf`
+- **Vagbhatta Nidana** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Nidana.pdf`
+- **Vagbhatta Sharira** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Sharira.pdf`
+- **Vagbhatta Sutra** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Sutra.pdf`
+- **Vagbhatta Uttara** — `DharmicData/Upa-Veda/Āyur Veda/Vagbhatt Samhita/Vagbhatta Uttara.pdf`
+- **Niti Prakashika** — `DharmicData/Upa-Veda/Dhanur Veda/Niti Prakashika.pdf`
+- **Shiva Dhanur Veda** — `DharmicData/Upa-Veda/Dhanur Veda/Shiva Dhanur Veda.pdf`
+- **Vasishtha Dhanur Veda** — `DharmicData/Upa-Veda/Dhanur Veda/Vasishtha Dhanur Veda.pdf`
+- **Brhaddesi Of Sri Matanga Muni** — `DharmicData/Upa-Veda/Gandharva Veda/Brhaddesi Of Sri Matanga Muni.pdf`
+- **Dattilam** — `DharmicData/Upa-Veda/Gandharva Veda/Dattilam.pdf`
+- **Natya Shastra** — `DharmicData/Upa-Veda/Gandharva Veda/Natya Shastra.pdf`
+- **Samgita Ratnakara** — `DharmicData/Upa-Veda/Gandharva Veda/Samgita Ratnakara.pdf`
+- **Aparajitaprccha** — `DharmicData/Upa-Veda/Sthapatya Veda/Aparajitaprccha.pdf`
+- **Kashyapa Shilpa Shastra** — `DharmicData/Upa-Veda/Sthapatya Veda/Kashyapa Shilpa Shastra.pdf`
+- **Manasara** — `DharmicData/Upa-Veda/Sthapatya Veda/Manasara.pdf`
+- **Manushyalaya Candrika** — `DharmicData/Upa-Veda/Sthapatya Veda/Manushyalaya Candrika.pdf`
+- **Mayamatam Vastu Shastra** — `DharmicData/Upa-Veda/Sthapatya Veda/Mayamatam Vastu Shastra.pdf`
+- **Samarangana Sutradhara** — `DharmicData/Upa-Veda/Sthapatya Veda/Samarangana Sutradhara.pdf`
+- **Vastusutra Upanishad** — `DharmicData/Upa-Veda/Sthapatya Veda/Vastusutra Upanishad.pdf`
+- **Vishvakarma Vastu Shastra** — `DharmicData/Upa-Veda/Sthapatya Veda/Vishvakarma Vastu Shastra.pdf`
+- **Viśvakarmīya Śilpaśāstra** — `DharmicData/Upa-Veda/Sthapatya Veda/Viśvakarmīya Śilpaśāstra.pdf`
+
+### UpaPuranas (13)
+- **Bhargav Purana** — `DharmicData/UpaPuranas/Bhargav Purana.pdf`
+- **Ekamra Purana** — `DharmicData/UpaPuranas/Ekamra Purana.pdf`
+- **Kalki Purana** — `DharmicData/UpaPuranas/Kalki Purana.pdf`
+- **Kapila Purana** — `DharmicData/UpaPuranas/Kapila Purana.pdf`
+- **Maricha Purana** — `DharmicData/UpaPuranas/Maricha Purana.pdf`
+- **Nandi Purana** — `DharmicData/UpaPuranas/Nandi Purana.pdf`
+- **Narasimha Purana** — `DharmicData/UpaPuranas/Narasimha Purana.pdf`
+- **Nilamata Purana** — `DharmicData/UpaPuranas/Nilamata Purana.pdf`
+- **Parashara Purana** — `DharmicData/UpaPuranas/Parashara Purana.pdf`
+- **Samba Purana** — `DharmicData/UpaPuranas/Samba Purana.pdf`
+- **Saura Purana** — `DharmicData/UpaPuranas/Saura Purana.pdf`
+- **Varuna Purana** — `DharmicData/UpaPuranas/Varuna Purana.pdf`
+- **Vishnudharma Purana** — `DharmicData/UpaPuranas/Vishnudharma Purana.pdf`
+
+### UpaSmritis (16)
+- **Ashvalayana Smriti** — `DharmicData/UpaSmritis/Ashvalayana Smriti.pdf`
+- **Baudhayana Smriti** — `DharmicData/UpaSmritis/Baudhayana Smriti.pdf`
+- **Bharadvaja Smriti** — `DharmicData/UpaSmritis/Bharadvaja Smriti.pdf`
+- **Dalbhya Smriti** — `DharmicData/UpaSmritis/Dalbhya Smriti.pdf`
+- **Devala Smriti** — `DharmicData/UpaSmritis/Devala Smriti.pdf`
+- **Kashyapa Smriti** — `DharmicData/UpaSmritis/Kashyapa Smriti.pdf`
+- **Lohita Smriti** — `DharmicData/UpaSmritis/Lohita Smriti.pdf`
+- **Markandeya Smriti** — `DharmicData/UpaSmritis/Markandeya Smriti.pdf`
+- **Narada Smriti** — `DharmicData/UpaSmritis/Narada Smriti.pdf`
+- **Narayana Smriti** — `DharmicData/UpaSmritis/Narayana Smriti.pdf`
+- **Prajapati Smirti** — `DharmicData/UpaSmritis/Prajapati Smirti.pdf`
+- **Pulastya Smriti** — `DharmicData/UpaSmritis/Pulastya Smriti.pdf`
+- **Rishyashringa Samhita** — `DharmicData/UpaSmritis/Rishyashringa Samhita.pdf`
+- **Shatatapa Smriti** — `DharmicData/UpaSmritis/Shatatapa Smriti.pdf`
+- **Vishvamitra Smirti** — `DharmicData/UpaSmritis/Vishvamitra Smirti.pdf`
+- **Vyaghrapada Smriti** — `DharmicData/UpaSmritis/Vyaghrapada Smriti.pdf`
+
+### Upanga (1)
+- **6 Darshanas** — `DharmicData/Upanga/6 Darshanas.pdf`
+
+### Upnishad (8)
+- **Bramha Vidya Khand 1** — `DharmicData/Upnishad/Bramha Vidya Khand 1.pdf`
+- **Bramha Vidya Khand 2** — `DharmicData/Upnishad/Bramha Vidya Khand 2.pdf`
+- **Bramha Vidya Khand 3** — `DharmicData/Upnishad/Bramha Vidya Khand 3.pdf`
+- **Gyan Khand 1** — `DharmicData/Upnishad/Gyan Khand 1.pdf`
+- **Gyan Khand 2** — `DharmicData/Upnishad/Gyan Khand 2.pdf`
+- **Gyan Khand 3** — `DharmicData/Upnishad/Gyan Khand 3.pdf`
+- **Sadhana Khand 1** — `DharmicData/Upnishad/Sadhana Khand 1.pdf`
+- **Sadhana Khand 2** — `DharmicData/Upnishad/Sadhana Khand 2.pdf`
+
+### Veda (1)
+- **SamaVeda_Kauthuma** — `DharmicData/Veda/Samaved/SamaVeda_Kauthuma.pdf`
+
+### Vedanga (65)
+- **Asthadhyaya** — `DharmicData/Vedanga/Asthadhyaya.pdf`
+- **Chhandas** — `DharmicData/Vedanga/Chhandas.pdf`
+- **Muhurta Cintamani** — `DharmicData/Vedanga/Jyotish/Muhurta Cintamani.pdf`
+- **Parashara Hora Shastra** — `DharmicData/Vedanga/Jyotish/Parashara Hora Shastra.pdf`
+- **Shatpanchashika** — `DharmicData/Vedanga/Jyotish/Shatpanchashika.pdf`
+- **Surya Siddhanta** — `DharmicData/Vedanga/Jyotish/Surya Siddhanta.pdf`
+- **Apastamba Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Apastamba Dharma Sutra.pdf`
+- **Baudhayana Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Baudhayana Dharma Sutra.pdf`
+- **Gautama Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Gautama Dharma Sutra.pdf`
+- **Hiranyakeshi Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Hiranyakeshi Dharma Sutra.pdf`
+- **Vaikhanasa Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Vaikhanasa Dharma Sutra.pdf`
+- **Vasishtha Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Vasishtha Dharma Sutra.pdf`
+- **Vishnu Dharma Sutra** — `DharmicData/Vedanga/Kalp/Dharma Sutra/Vishnu Dharma Sutra.pdf`
+- **Grihya Sutram** — `DharmicData/Vedanga/Kalp/Grihya Sutram.pdf`
+- **Apastamba Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Apastamba Shrauta Sutra.pdf`
+- **Ashvalayana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Ashvalayana Shrauta Sutra.pdf`
+- **Baudhayana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Baudhayana Shrauta Sutra.pdf`
+- **Bharadvaja Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Bharadvaja Shrauta Sutra.pdf`
+- **Drahyayana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Drahyayana Shrauta Sutra.pdf`
+- **Hiranyakeshi Shrauta Prashna 01** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 01.pdf`
+- **Hiranyakeshi Shrauta Prashna 02** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 02.pdf`
+- **Hiranyakeshi Shrauta Prashna 03** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 03.pdf`
+- **Hiranyakeshi Shrauta Prashna 04** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 04.pdf`
+- **Hiranyakeshi Shrauta Prashna 05** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 05.pdf`
+- **Hiranyakeshi Shrauta Prashna 06** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 06.pdf`
+- **Hiranyakeshi Shrauta Prashna 07** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 07.pdf`
+- **Hiranyakeshi Shrauta Prashna 08** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 08.pdf`
+- **Hiranyakeshi Shrauta Prashna 09** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 09.pdf`
+- **Hiranyakeshi Shrauta Prashna 10** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 10.pdf`
+- **Hiranyakeshi Shrauta Prashna 11** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 11.pdf`
+- **Hiranyakeshi Shrauta Prashna 12** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 12.pdf`
+- **Hiranyakeshi Shrauta Prashna 13** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 13.pdf`
+- **Hiranyakeshi Shrauta Prashna 14** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 14.pdf`
+- **Hiranyakeshi Shrauta Prashna 15** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 15.pdf`
+- **Hiranyakeshi Shrauta Prashna 16** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 16.pdf`
+- **Hiranyakeshi Shrauta Prashna 17** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 17.pdf`
+- **Hiranyakeshi Shrauta Prashna 18** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 18.pdf`
+- **Hiranyakeshi Shrauta Prashna 19** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 19.pdf`
+- **Hiranyakeshi Shrauta Prashna 20** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 20.pdf`
+- **Hiranyakeshi Shrauta Prashna 21** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 21.pdf`
+- **Hiranyakeshi Shrauta Prashna 22** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 22.pdf`
+- **Hiranyakeshi Shrauta Prashna 23** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 23.pdf`
+- **Hiranyakeshi Shrauta Prashna 24** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 24.pdf`
+- **Hiranyakeshi Shrauta Prashna 25** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 25.pdf`
+- **Hiranyakeshi Shrauta Prashna 26** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 26.pdf`
+- **Hiranyakeshi Shrauta Prashna 27** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 27.pdf`
+- **Hiranyakeshi Shrauta Prashna 28** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 28.pdf`
+- **Hiranyakeshi Shrauta Prashna 29** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Hiranyakeshi Shrauta Prashna/Hiranyakeshi Shrauta Prashna 29.pdf`
+- **Jaiminiya Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Jaiminiya Shrauta Sutra.pdf`
+- **Latyayana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Latyayana Shrauta Sutra.pdf`
+- **Manava Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Manava Shrauta Sutra.pdf`
+- **Mashaka Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Mashaka Shrauta Sutra.pdf`
+- **Nidana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Nidana Shrauta Sutra.pdf`
+- **Shankhayana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Shankhayana Shrauta Sutra.pdf`
+- **Vaikhanasa Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Vaikhanasa Shrauta Sutra.pdf`
+- **Vaitana Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Vaitana Shrauta Sutra.pdf`
+- **Varaha Shrauta Sutra** — `DharmicData/Vedanga/Kalp/Shrauta Sutram/Varaha Shrauta Sutra.pdf`
+- **Apastamba Shulba Sutra** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Apastamba Shulba Sutra.pdf`
+- **Baudhayana Shulba Sutra** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Baudhayana Shulba Sutra.pdf`
+- **Hiranyakeshi Shulba Sutra** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Hiranyakeshi Shulba Sutra.pdf`
+- **Katyayana Shulba Sutra** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Katyayana Shulba Sutra.pdf`
+- **Maitrayaniya Shulba Sutram** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Maitrayaniya Shulba Sutram.pdf`
+- **Manava Shulba Sutra** — `DharmicData/Vedanga/Kalp/Shulba Sutra/Manava Shulba Sutra.pdf`
+- **Nirukta** — `DharmicData/Vedanga/Nirukta.pdf`
+- **Shiksha** — `DharmicData/Vedanga/Shiksha.pdf`
+
+## 5. Navigation and source-code cross-check
+
+The HTML/JS/CSS inventory was cross-checked against the data tree. Key title-bearing navigation pages and code references include:
+
+- `html/index.html` — main navigation labels and top-level groups.
+- `html/Puranas.html` — 19 Pūrāṇa navigation links.
+- `html/UpaPuranas.html` — Upa-Purāṇa PDF references.
+- `html/Ramayanas.html` — Vālmīki Rāmāyaṇa, Adbhuta Rāmāyaṇa, Adhyātma Rāmāyaṇa, Rāmcaritmānas, and Yoga Vāsiṣṭha.
+- `html/ParvaList.html` and `js/ParvaContent.js` — 18 Mahābhārata Parvas.
+- `html/kandaList.html`, `js/kandaList.js`, and `js/kandaContent.js` — seven Vālmīki Rāmāyaṇa Kāṇḍas.
+- `html/Ramcharitmanas.html` — seven Rāmcaritmānas Kāṇḍas.
+- `html/BhagvadGita.html` and `js/BhagavadGitaContent.js` — 18 Bhagavad Gītā chapters.
+- `html/Vedas.html` — Ṛgveda, Yajurveda, Sāmaveda, and Atharvaveda.
+- `html/Upnishad.html` — dynamically lists the files in `DharmicData/Upnishad/`.
+- `js/search.js` — Gītā, Purāṇa, Veda, Rāmāyaṇa, and other search aliases; aliases are not additional stored documents.
+- `js/server.js` — route map, directory mapping, and AI Scholar system-instruction examples.
+
+### Explicit cross-check notes
+
+- The Pūrāṇa navigation page has 19 links, while the `DharmicData/Purana/` directory contains 20 work folders. `Harivansha Purana` is present in the data tree and is also represented under `UpaPuranas/`.
+- `Harivansha Purana` has 318 JSON files in each of those two category paths; the corresponding file blobs are not byte-identical, so the two datasets have not been merged.
+- The 18 numbered JSON files in `DharmicData/Gitas/Bhagvad Gita/` and the 18 files in `DharmicData/SrimadBhagvadGita/` are byte-identical chapter sets. Both source paths are retained in this inventory.
+- The Upanishad folder contains eight PDF files (Brahma Vidya Khand 1–3, Gyan Khand 1–3, and Sadhana Khand 1–2). The `108 upnishad` phrase in search code is a search alias, not evidence of 108 separate files in this repository.
+- `DharmicData/Swaminarayan Sect/kirtan.json` is a zero-byte file. The Kirtan page and JS refer to it, but it currently contains no JSON text data.
+- The AI Scholar prompt in `js/server.js` mentions `Aśvaghoṣa Gītā` as an example; no separate file with that title was found under `DharmicData/`. Prompt examples and search aliases are not counted as stored text files.
+
+## 6. Source files inspected
+
+### HTML pages
+- `html/Aaratis.html`
+- `html/Aaratis_Sangrah.html`
+- `html/AdbhutRamayanBook.html`
+- `html/AdhyatmaRamayanaBook.html`
+- `html/Agamas.html`
+- `html/AgniPurana.html`
+- `html/AgniPuranaContent.html`
+- `html/Ashtakas.html`
+- `html/AtharvaVeda.html`
+- `html/AtharvaVedaContent.html`
+- `html/Bhagavad Gita_overview.html`
+- `html/BhagavadGitaContent.html`
+- `html/BhagavataPurana.html`
+- `html/BhagavataPuranaContent.html`
+- `html/BhagvadGita.html`
+- `html/Bhajan.html`
+- `html/BhavishyaPurana.html`
+- `html/BhavishyaPuranaContent.html`
+- `html/BrahmaPurana.html`
+- `html/BrahmaPuranaContent.html`
+- `html/BrahmaandaPurana.html`
+- `html/BrahmaandaPuranaContent.html`
+- `html/BrahmavaivartaPurana.html`
+- `html/BrahmavaivartaPuranaContent.html`
+- `html/Chalisas.html`
+- `html/Content(json).html`
+- `html/Content(pdf).html`
+- `html/DattP.html`
+- `html/Garga-Samhita.html`
+- `html/GarudaPurana.html`
+- `html/GarudaPuranaContent.html`
+- `html/Gitas.html`
+- `html/HarivanshaP.html`
+- `html/KalikaP.html`
+- `html/Kavachas.html`
+- `html/KurmaPurana.html`
+- `html/KurmaPuranaContent.html`
+- `html/LingaPurana.html`
+- `html/LingaPuranaContent.html`
+- `html/Mahabharata_overview.html`
+- `html/MallaP.html`
+- `html/MarkandeyaPurana.html`
+- `html/MarkandeyaPuranaContent.html`
+- `html/MatsyaPurana.html`
+- `html/MatsyaPuranaContent.html`
+- `html/MudgalaP.html`
+- `html/Namavalis.html`
+- `html/NaradaPurana.html`
+- `html/NaradaPuranaContent.html`
+- `html/NaradiyaP.html`
+- `html/Occult.html`
+- `html/PadmaPurana.html`
+- `html/PadmaPuranaContent.html`
+- `html/ParvaContent.html`
+- `html/ParvaList.html`
+- `html/Puranas.html`
+- `html/Puranas_overview.html`
+- `html/Ramayana_overview.html`
+- `html/Ramayanas.html`
+- `html/Ramcharitmanas.html`
+- `html/RigVeda.html`
+- `html/RigvedaContent.html`
+- `html/Samaveda.html`
+- `html/ShivaPurana.html`
+- `html/ShivaPuranaContent.html`
+- `html/ShivadharmaP.html`
+- `html/SkandaPurana.html`
+- `html/SkandaPuranaContent.html`
+- `html/Smritis.html`
+- `html/SrimadDeviBhagwatP.html`
+- `html/Stotras.html`
+- `html/Stutis.html`
+- `html/Swaminarayan_Sect.html`
+- `html/Upa-Veda.html`
+- `html/UpaPuranas.html`
+- `html/UpaSmrtis.html`
+- `html/Upanga.html`
+- `html/Upnishad.html`
+- `html/VamanaPurana.html`
+- `html/VamanaPuranaContent.html`
+- `html/VarahaPurana.html`
+- `html/VarahaPuranaContent.html`
+- `html/VayuPurana.html`
+- `html/VayuPuranaContent.html`
+- `html/Vedanga.html`
+- `html/Vedas.html`
+- `html/Vedas_overview.html`
+- `html/VishnuPurana.html`
+- `html/VishnuPuranaContent.html`
+- `html/VishnudharmottarP.html`
+- `html/YajurVeda.html`
+- `html/YajurVedaContent.html`
+- `html/YogaVasistha.html`
+- `html/YogaVasisthaContent.html`
+- `html/googleAI.html`
+- `html/index.html`
+- `html/kandaContent.html`
+- `html/kandaList.html`
+- `html/kirtan.html`
+- `html/pdfrendering.html`
+
+### JavaScript files
+- `js/AdbhutRamayanBook.js`
+- `js/AdhyatmaRamayanaBook.js`
+- `js/BhagavadGitaContent.js`
+- `js/ParvaContent.js`
+- `js/Samaveda.js`
+- `js/data-worker-bhagavata.js`
+- `js/data-worker.js`
+- `js/fontawesome.min.js`
+- `js/kandaContent.js`
+- `js/kandaList.js`
+- `js/kirtan.js`
+- `js/pdf-lib.min.js`
+- `js/pdf.min.js`
+- `js/pdf.worker.min.js`
+- `js/removeHtmlExtension.js`
+- `js/sanscript.js`
+- `js/search.js`
+- `js/server.js`
+- `js/translate.js`
+
+### CSS files
+- `css/fontawesome.min.css`
+- `css/googleAI.css`
+- `css/pdfjs.css`
+- `css/style.css`
+
+---
+
+**Maintenance note:** regenerate this catalogue whenever files are added, removed, renamed, or reorganized under `DharmicData/`, or when the HTML/JS navigation lists change.
