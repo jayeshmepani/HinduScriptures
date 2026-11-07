@@ -640,53 +640,56 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 
 
 ## Nāmāvalīs
-- Adi Shankaracharya
-- Anjaneya
-- Anjaneya Ramarahasya
-- Annapurna
-- Ardhanarishvara
-- Chandrashekharendra Saraswati
-- Devasena
-- Dhanvantari
-- Durga
-- Gakaradi Ganapati
-- Ganapati
-- Ganesha
-- Ganga
-- Goda
-- Harihara
-- Jagadanandakaraka
-- Kamakshi
-- Kartikeya
-- Krishna
-- Kubera
-- Lakshmi
-- Lakshmi Nrisimha
-- Lalita
-- Mrtyunjaya
-- Nrisimha
-- Rama
-- Rama Ramarahasya
-- Rudra
-- Saraswati
-- Shakti divyasthaniya
-- Shanmukha
-- Shiva
-- Shiva divyasthaniya
-- Sita
-- Sita Ramarahasya
-- Subrahmanya
-- Subrahmanya Hastasthita Astrayudha
-- Surya
-- Surya Mahabharatam
-- Tulasi
-- Vakratunda Mahaganapati
-- Valli
-- Venkatesha
-- Venkateshwara
-- Vishnu
-- Vishnu divyasthaniya
-
+- Adi Shankaracharya Nāmāvalī (100/108 names).
+- Anjaneya Ramarahasya Nāmāvalī (100/108 names).
+- Anjaneya Nāmāvalī (100/108 names).
+- Annapurna Nāmāvalī (100/108 names).
+- Ardhanarishvara Nāmāvalī (100/108 names).
+- Chandrashekharendra Saraswati Nāmāvalī (100/108 names).
+- Devasena Nāmāvalī (100/108 names).
+- Dhanvantari Nāmāvalī (100/108 names).
+- Durga Nāmāvalī (100/108 names).
+- Gakaradi Ganapati Nāmāvalī (100/108 names).
+- Ganapati Nāmāvalī (100/108 names).
+- Ganesha Nāmāvalī (100/108 names).
+- Ganga Nāmāvalī (100/108 names).
+- Goda Nāmāvalī (100/108 names).
+- Harihara Nāmāvalī (100/108 names).
+- Jagadanandakaraka Nāmāvalī (100/108 names).
+- Kamakshi Nāmāvalī (100/108 names).
+- Kartikeya Nāmāvalī (100/108 names).
+- Krishna Nāmāvalī (100/108 names).
+- Kubera Nāmāvalī (100/108 names).
+- Lakshmi Nrisimha Nāmāvalī (100/108 names).
+- Lakshmi Nāmāvalī (100/108 names).
+- Mrtyunjaya Nāmāvalī (100/108 names).
+- Nrisimha Nāmāvalī (100/108 names).
+- Rama Ramarahasya Nāmāvalī (100/108 names).
+- Rama Nāmāvalī (100/108 names).
+- Saraswati Nāmāvalī (100/108 names).
+- Shakti divyasthaniya Nāmāvalī (100/108 names).
+- Shiva divyasthaniya Nāmāvalī (100/108 names).
+- Shiva Nāmāvalī (100/108 names).
+- Sita Ramarahasya Nāmāvalī (100/108 names).
+- Sita Nāmāvalī (100/108 names).
+- Subrahmanya Hastasthita Astrayudha Nāmāvalī (100/108 names).
+- Subrahmanya Nāmāvalī (100/108 names).
+- Surya Mahabharatam Nāmāvalī (100/108 names).
+- Surya Nāmāvalī (100/108 names).
+- Tulasi Nāmāvalī (100/108 names).
+- Valli Nāmāvalī (100/108 names).
+- Venkatesha Nāmāvalī (100/108 names).
+- Venkateshwara Nāmāvalī (100/108 names).
+- Vishnu divyasthaniya Nāmāvalī (100/108 names).
+- Gakaradi Ganapati Nāmāvalī (1,000/1,008 names).
+- Rama Nāmāvalī (1,000/1,008 names).
+- Saraswati Nāmāvalī (1,000/1,008 names).
+- Shanmukha Nāmāvalī (1,000/1,008 names).
+- Shiva Nāmāvalī (1,000/1,008 names).
+- Vakratunda Mahaganapati Nāmāvalī (1,000/1,008 names).
+- Vishnu Nāmāvalī (1,000/1,008 names).
+- Lalita Nāmāvalī (300 names).
+- Rudra Nāmāvalī (300 names).
 ## Stotras and Stava Texts
 - Achyutashtakam
 - Aditya Ashtottara Shatanama Stotram
