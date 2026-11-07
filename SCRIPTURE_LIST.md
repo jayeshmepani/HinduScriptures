@@ -90,7 +90,7 @@ These are the eight titles present in the repository's Upaniṣad collection; th
 - Sāmba Purāṇa.
 - Saura Purāṇa.
 - Śivadharma Purāṇa — 12 numbered chapters.
-- Śrīmad Devī Bhāgavata Purāṇa — 12 numbered Skandha files.
+- Śrīmad Devī Bhāgavata Purāṇa — 12 numbered divisions in the repository.
 - Varuṇa Purāṇa.
 - Viṣṇudharmottara Purāṇa — 3 parts.
 
@@ -101,7 +101,7 @@ These are the eight titles present in the repository's Upaniṣad collection; th
 - Lakṣmi Purāṇa.
 - Devānga Purāṇa.
 - Nīlamata Purāṇa.
-- Malla Purāṇa.
+- Malla Purāṇa — 18 numbered chapters.
 - Basava Purāṇa.
 - Periya Purāṇam.
 - Dharma Purāṇa.
@@ -112,7 +112,7 @@ These are the eight titles present in the repository's Upaniṣad collection; th
 - Pāśupati Purāṇa.
 - Ekāmra Purāṇa.
 - Pārānanda Purāṇa.
-- Dattātreya Purāṇa.
+- Dattātreya Purāṇa (Datt Purāṇa) — 8 Aṣṭakas: Prathama, Dvitīya, Tṛtīya, Caturtha, Pañcama, Ṣaṣṭha, Saptama and Aṣṭama.
 - Viśvakarma Purāṇa.
 - Vāsuki Purāṇa.
 - Ātma Purāṇa.
@@ -130,7 +130,7 @@ This is the Ati-Purāṇa list explicitly shown in the repository's Puranas Over
 - Garga Saṃhitā — 10 Khaṇḍas: Goloka, Vṛndāvana, Girirāja, Mādhurya, Mathurā, Dvārakā, Viśvajit, Balabhadra, Vijñāna and Aśvamedha.
 
 ## Gītās
-- Aajgar Gita.
+- Bhagvad Gita — 18 Adhyāyas.
 - Agastya Gita.
 - Aila Gita (Shrimad Bhagwat Mahapurana).
 - Anu Gita.
@@ -209,9 +209,7 @@ This is the Ati-Purāṇa list explicitly shown in the repository's Puranas Over
 - Yama Gita (Agni Purana).
 - Yama Gita (Vishnu Purana).
 - Yudhisthira Gita.
-- Bhagavad Gītā — 18 Adhyāyas.
-The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second repository collection; they are one text, not two separate Gītās.
-
+The repository also contains an identical mirror of the same 18 chapters in a second data collection; it is one Bhagavad Gītā, not two different works.
 ## Āgamas and Tantras
 - Ācārasāra Tantram
 - Agastya Saṃhitā
@@ -378,7 +376,7 @@ The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second 
 - Śrī Akkalkoṭ Svāminaḥ Āratiḥ (second composition)
 - Śrī Dattasya Āratiḥ
 - Śrī Durgāyāḥ Āratiḥ
-- Śrī Gajānanस्य Āratiḥ
+- Śrī Gajānanasya Āratiḥ
 - Śrī Gaṇapateḥ Āratiḥ
 - Śrī Māruteḥ Āratiḥ
 - Śrī Rāmasya Āratiḥ
@@ -606,8 +604,6 @@ The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second 
 - Radha Kavacham (2)
 - Rahu Kavacham
 - Rama Kavacham
-- Rama Raksha Stotram Ananda Ramayana
-- Rama Raksha Stotram Padma Puranam
 - Renuka Kavacham
 - Renuka Kavacham (2)
 - Renuka Kavacham (3)
@@ -631,7 +627,6 @@ The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second 
 - Surya Kavacham Yagnavalkya Rishi Krutha
 - Tara Kavacham
 - Tara Pratyangari Kavacham
-- Tara Stotram
 - Trailokya Mangala Kavacham
 - Trilokya Mohana Kali Kavacham
 - Tulasi Kavacham
@@ -640,6 +635,8 @@ The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second 
 - Varada Ganesha Kavacham
 - Venkateshwara Vajra Kavacham
 - Vishnu Kavacham Brahmanda Pavana Kavacham
+
+
 
 ## Nāmāvalīs
 - Adi Shankaracharya
@@ -954,7 +951,9 @@ The 18 Bhagavad Gītā chapter records are duplicated byte-for-byte in a second 
 - Yamashtakam
 - Yamunashtakam
 - Yudhishthira Krta Durga Stotram
-
+- Rāma Rakṣā Stotram (Ānanda Rāmāyaṇa).
+- Rāma Rakṣā Stotram (Padma Purāṇa).
+- Tārā Stotram.
 ## Stutis
 - Avadhuta Ashtakam Shuka Deva Stuti
 - Bhavani Stuti
