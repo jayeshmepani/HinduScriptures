@@ -269,9 +269,7 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Mālinīvijayottara Tantram
 - Mātṛkābheda Tantram
 - Mṛgendra Tantram
-- Niruttara Tantram
-- Niruttara Tantram Dvitīyaḥ Paṭalaḥ
-- Niruttara Tantram Prathamaḥ Paṭalaḥ
+- Niruttara Tantram — Prathamaḥ and Dvitīyaḥ Paṭalas.
 - Nishvas Agama
 - Padma Saṃhitā
 - Pāñcarātr Āgamaḥ
@@ -289,8 +287,7 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Suprabhed Agama
 - Svacchanda Tantram
 - Svayambhuv Agama
-- Tantraloka
-- Tantrālokaḥ
+- Tantrāloka (PDF and JSON editions).
 - Ṭoḍala Tantram
 - Ūḍḍāmareśvara Tantram
 - Vijay Agama
@@ -528,6 +525,7 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Gayatri Chalisa
 - Giriraj Chalisa
 - Gopal Chalisa
+- Hanuman Chalisa
 - Krishna Chalisa
 - Laxmi Chalisa
 - Mahavir Chalisa
@@ -766,7 +764,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Guru Parampara
 - Guruvatapurisha Pancharatnam
 - Gurvashtakam
-- Hanuman Chalisa
 - Hanumat Pancharatnam
 - Hanumat Sambhashanam
 - Harihara Ashtottara Shatanama Stotram
@@ -1067,7 +1064,6 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 
 ## Composite or multi-text volumes
 - 6 Darśanas — expanded above as Nyāya, Vaiśeṣika, Sāṃkhya, Yoga, Pūrva Mīmāṃsā and Uttara Mīmāṃsā/Vedānta.
-- Kīrtan corpus — a large structured collection with individual Gujarati/English titles, grouping labels and pad numbers; its individual entries are not enumerated here.
 - Amarasaṃvādaḥ — expanded above as 15 separately titled Sanskrit Āratis / prayer pieces.
 - Ārati Saṅgraha, volume 2 — compiled PDF; its individual contents still require direct PDF text extraction.
 - Bhajan Saṅgraha — compiled PDF; its individual bhajan titles still require direct PDF text extraction.
