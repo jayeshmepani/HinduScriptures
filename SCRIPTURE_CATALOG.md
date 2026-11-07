@@ -11,11 +11,11 @@
 - Named JSON files are individually listed. Chaptered works are listed by their parent work/folder, with a separate manifest of every numbered-JSON folder and its file count.
 - Every PDF is individually listed by its exact repository filename and full relative path. The catalogue title is the filename with `.pdf` removed; it is not a transcription of a title page.
 - The complete recursive tree was inspected. All HTML pages were checked for page titles, headings, navigation labels, and embedded file references. App-specific JS modules and CSS files were reviewed for additional title references and routing.
-- **Content-reading limitation:** all 9,063 JSON paths and all 928 PDF paths are inventoried, but the body of every JSON file was not individually opened, and the 928 binary PDFs were not all text-extracted. Representative JSON payloads were opened to verify the chapter-file structure and title conventions. The PDF manifest therefore preserves filename-based titles rather than asserting title-page verification.
+- **Content-reading limitation:** all 9,061 JSON paths and all 928 PDF paths are inventoried, but the body of every JSON file was not individually opened, and the 928 binary PDFs were not all text-extracted. Representative JSON payloads were opened to verify the chapter-file structure and title conventions. The PDF manifest therefore preserves filename-based titles rather than asserting title-page verification.
 
 ## Repository inventory
 
-- **10,125 files** and **251 directories** in the recursive repository tree.
+- **10,125 files** and **251 directories** in the recursive repository tree at the inventory snapshot (before `SCRIPTURE_CATALOG.md` was added).
 - **9,989 files** in `DharmicData/`: **9,061 JSON** and **928 PDF**.
 - **100 HTML**, **19 JavaScript**, and **4 CSS** files.
 
