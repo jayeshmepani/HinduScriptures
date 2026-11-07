@@ -131,6 +131,7 @@ This is the Ati-Purāṇa list explicitly shown in the repository's Puranas Over
 
 ## Gītās
 - Bhagvad Gita — 18 Adhyāyas.
+- Aajgar Gita.
 - Agastya Gita.
 - Aila Gita (Shrimad Bhagwat Mahapurana).
 - Anu Gita.
