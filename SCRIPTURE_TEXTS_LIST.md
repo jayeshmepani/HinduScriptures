@@ -535,21 +535,21 @@ A consolidated list of the distinct works represented in the repository. Numbere
 - Shristhala Devi Aarati
 ### Amarasaṃvādaḥ — 15 separately titled compositions
 
-Śrī Gaṇapateḥ Āratiḥ.
+- Śrī Gaṇapateḥ Āratiḥ.
 - Śrī Gajānanasyāratiḥ.
--   - Śrī Śaṅkarasyāratiḥ.
--   - Śrī Durgāyāḥ Āratiḥ.
--   - Śrī Viṭṭhalasyāratiḥ.
--   - Ehi He Viṭṭhale.
--   - Śrī Dattasyāratiḥ.
--   - Śrī Rāmasyāratiḥ.
--   - Śrī Māruteḥ Āratiḥ.
--   - Chhatrapati Śrī Śivarāja Āratiḥ.
--   - Śrī Akkalkoṭ Svāmi Āratiḥ — I.
--   - Śrī Akkalkoṭ Svāmi Āratiḥ — II.
--   - Mātṛbhūmeḥ Āratiḥ.
--   - Bhūmau Luṭheyam (Bhoum Luthayam).
--   - Mantrapuṣpāñjali.
+- Śrī Śaṅkarasyāratiḥ.
+- Śrī Durgāyāḥ Āratiḥ.
+- Śrī Viṭṭhalasyāratiḥ.
+- Ehi He Viṭṭhale.
+- Śrī Dattasyāratiḥ.
+- Śrī Rāmasyāratiḥ.
+- Śrī Māruteḥ Āratiḥ.
+- Chhatrapati Śrī Śivarāja Āratiḥ.
+- Śrī Akkalkoṭ Svāmi Āratiḥ — I.
+- Śrī Akkalkoṭ Svāmi Āratiḥ — II.
+- Mātṛbhūmeḥ Āratiḥ.
+- Bhūmau Luṭheyam (Bhoum Luthayam).
+- Mantrapuṣpāñjali.
 
 ## Aṣṭakas
 
