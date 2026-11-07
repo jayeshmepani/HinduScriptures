@@ -162,7 +162,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 
 ## Itihāsas and Rāmāyaṇa corpus
 
-- Vālmīki Rāmāyaṇa — 7 Kāṇḍas: Bāla, Ayodhyā, Araṇya, Kiṣkindhā, Sundara, Yuddha, Uttara.
+- Vālmīki Rāmāyaṇa — 7 Kāṇḍas: Bāla, Ayodhyā, Araṇya, Kiṣkindhā, Sundara, Yuddha, Uttara; subdivided into Sargas.
 - Adbhuta Rāmāyaṇa.
 - Adhyātma Rāmāyaṇa.
 - Rāmcaritmānas — 7 Kāṇḍas: Bāla, Ayodhyā, Araṇya, Kiṣkindhā, Sundara, Laṅkā, Uttara.
@@ -217,7 +217,7 @@ A consolidated list of the distinct works represented in the repository. Numbere
 
 ## Other Purāṇic works in the repository
 
-- Vāyu Purāṇa — Pūर्वa Dharma and Uttara Dharma sections.
+- Vāyu Purāṇa — Pūrva Dharma and Uttara Dharma sections.
 - Harivaṃśa Purāṇa — 3 Parvas; also included above with the Mahābhārata corpus.
 
 ## Upa-Purāṇas
@@ -1241,7 +1241,7 @@ Nāmāvalī collections are grouped in the repository as 100/108-name, 300-name,
 
 ## Collections whose constituent contents remain bundled
 
-- Ārati Saṅgraha — collection PDF; individual contents are not split into separate repository files.
+- Aarti Sangrah 2 (Ārati Saṅgraha) — collection PDF; individual contents are not split into separate repository files.
 - Bhajan Saṅgraha — collection PDF; individual contents are not split into separate repository files.
 
 ---
