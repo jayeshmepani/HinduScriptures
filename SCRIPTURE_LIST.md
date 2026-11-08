@@ -1,222 +1,609 @@
-# Hindu Scriptures — Synthesized Text List
+# Hindu Scriptures — Menu Titles
 
-A consolidated, work-level list of the Hindu texts and text-collections represented in the repository. It lists titles rather than data-file names or folder paths. Structural divisions are written inline with each work (Kāṇḍas, Parvas, Skandhas, Khaṇḍas, Saṃhitās, Prakaraṇas, Adhyāyas, and so on).
+Titles in this list are the strings the application shows. A fixed link is copied from the HTML. A file row is the filename with `.pdf` or `.json` removed, including the same underscore replacement that page uses. A folder row is the folder name the page prints. Scholarly spellings are not substituted for those labels.
+
+Chapter rows that the page labels only as `Chapter N` are counted here. They are not repeated one by one.
+
+## Home page
+
+Labels in `html/index.html`:
+
+- Vedas
+- Upnishad
+- Upa-Vedas
+- Puranas Overview
+- Maha Puranas
+- Upa Puranas
+- Ramayanas
+- Mahabharata
+- Gitas
+- Garga Samhita
+- Agamas & Tantras
+- Smritis
+- Upa Smritis
+- Upanga
+- Vedanga
+- Occult & Divinatory Texts
+- Aaratis
+- Ashtakas
+- Bhajan
+- Chalisas
+- Kavachas
+- Namavalis
+- Stotras
+- Stutis
+- Swaminarayan Sect
 
 ## Vedas
-- Ṛgveda — 10 Maṇḍalas; each Maṇḍala contains Sūktas and Ṛks.
-- Yajurveda — Vājasaneyi Mādhyaṃdina Saṃhitā and Vājasaneyi Kāṇva Saṃhitā.
-- Sāmaveda — Kauṭhuma Saṃhitā.
-- Atharvaveda — 20 numbered Kāṇḍa divisions in the repository; the divisions contain Sūktas.
 
-## Upavedas
-- Āyurveda — Aṣṭāṅga Saṅgraha; Bhāva Prakāśa Saṃhitā; Bhela Saṃhitā (Sūtra, Nidāna, Vimāna, Śārīra, Indriya, Cikitsā, Kalpa and Siddhi Sthānas); Caraka Saṃhitā (Sūtra, Nidāna, Vimāna, Śārīra, Indriya, Cikitsā, Kalpa and Siddhi Sthānas); Hārīta Saṃhitā (six Sthānas); Kāśyapa Saṃhitā (Sūtra, Vimāna, Śārīra, Indriya, Cikitsā, Siddhi, Kalpa and Khila sections); Mādhava Nidāna Saṃhitā; Rasa Ratna Samuccaya (nine volumes); Śārṅgadhara Saṃhitā (Pūrva, Madhya, Uttara and Pariśiṣṭa sections); Suśruta Saṃhitā (Sūtra, Nidāna, Śārīra, Cikitsā, Kalpa and Uttara sections); Vāgbhaṭa Saṃhitā (Sūtra, Nidāna, Śārīra, Cikitsita, Kalpa-Siddhi and Uttara sections).
-- Dhanurveda — Nīti Prakāśikā; Śiva Dhanurveda; Vāsiṣṭha Dhanurveda.
-- Gāndharvaveda — Bṛhaddeśī of Śrī Mātaṅga Muni; Dattilam; Nāṭyaśāstra; Saṅgīta Ratnākara.
-- Sthāpatyaveda — Aparājitapṛcchā; Kāśyapa Śilpaśāstra; Mānasāra; Mānuṣyālaya Candrikā; Māyāmata Vāstuśāstra; Samarāṅgaṇa Sūtradhāra; Vāstusūtra Upaniṣad; Viśvakarma Vāstuśāstra; Viśvakarmīya Śilpaśāstra.
+The Vedas page links these four labels, in this order: Rigveda, Yajurveda, Samaveda, Atharvaveda.
 
-## Vedāṅgas
-- Śikṣā — Śikṣā.
-- Vyākaraṇa — Aṣṭādhyāyī.
-- Chandas — Chhandas.
-- Nirukta — Nirukta.
-- Jyotiṣa — Muhūrta Cintāmaṇi; Parāśara Horāśāstra; Ṣaṭpañcāśikā; Sūrya Siddhānta.
-- Kalpa — Dharma Sūtras: Āpastamba, Baudhāyana, Gautama, Hiraṇyakeśin, Vaikhānasa, Vasiṣṭha and Viṣṇu Dharma Sūtras; Gṛhya Sūtram; Śrauta Sūtras: Āpastamba, Āśvalāyana, Baudhāyana, Bhāradvāja, Drāhyāyaṇa, Hiraṇyakeśin, Jaiminīya, Lāṭyāyana, Mānava, Māṣaka, Nidāna, Śāṅkhāyana, Vaikhānasa, Vaitāna and Vārāha; Hiraṇyakeśi Śrauta Praśna (Praśnas 1–29); Śulba Sūtras: Āpastamba, Baudhāyana, Hiraṇyakeśin, Kātyāyana, Maitrāyaṇīya and Mānava.
+- Rigveda — the page lists Mandala 1 through Mandala 10.
+- Yajurveda — the page shows one link, Vajasneyi Madhyadina Samhita. The folder also contains `vajasneyi_kanva_samhita_chapters.json`, and that file is not linked on the page.
+- Samaveda — the menu label is Samaveda. The page title is Sama Veda. The stored file is `SamaVeda_Kauthuma.pdf`.
+- Atharvaveda — the page lists Kaanda 1 through Kaanda 20.
 
-## Upāṅgas and Darśanas
-- Nyāya Darśana.
-- Vaiśeṣika Darśana.
-- Sāṃkhya Darśana.
-- Yoga Darśana.
-- Pūrva Mīmāṃsā Darśana.
-- Uttara Mīmāṃsā / Vedānta Darśana.
-The repository stores these six Darśanas together in one volume titled “6 Darshanas”; they are listed here separately.
+## Upnishad
 
-## Upaniṣad Collection
-- Brahma Vidyā Khaṇḍa — volumes 1, 2 and 3.
-- Jñāna Khaṇḍa — volumes 1, 2 and 3.
-- Sādhana Khaṇḍa — volumes 1 and 2.
-These are the eight titles present in the repository's Upaniṣad collection; the filenames do not identify a separate individual Upaniṣad for each volume.
+The Upnishad page lists these filenames with `.pdf` removed:
 
-## Itihāsa — Mahābhārata
-- Mahābhārata — 18 Parvas: Ādi, Sabhā, Vana, Virāṭa, Udyoga, Bhīṣma, Droṇa, Karṇa, Śalya, Sauptika, Strī, Śānti, Anuśāsana, Āśvamedhika, Āśramavāsika, Mausala, Mahāprasthānika and Svargārohaṇika.
+- Bramha Vidya Khand 1
+- Bramha Vidya Khand 2
+- Bramha Vidya Khand 3
+- Gyan Khand 1
+- Gyan Khand 2
+- Gyan Khand 3
+- Sadhana Khand 1
+- Sadhana Khand 2
 
-## Rāmāyaṇas
-- Vālmīki Rāmāyaṇa — 7 Kāṇḍas: Bāla, Ayodhyā, Araṇya, Kiṣkindhā, Sundara, Yuddha and Uttara.
-- Adbhuta Rāmāyaṇa.
-- Adhyātma Rāmāyaṇa.
-- Rāmcaritmānas — 7 Kāṇḍas: Bāla, Ayodhyā, Araṇya, Kiṣkindhā, Sundara, Laṅkā and Uttara.
-- Yoga Vāsiṣṭha — 7 Prakaraṇas: Vairāgya, Mumukṣu Vyavahāra, Utpatti, Sthiti, Upaśama, Nirvāṇa Pūrva and Nirvāṇa Uttara.
-- Ānanda Rāmāyaṇa — 6 volumes.
-- Bhūṣuṇḍi Rāmāyaṇa — 3 volumes.
-- Brahma Rāmāyaṇa.
-- Mantra Rāmāyaṇa.
-- Satyopākhyāna — 3 volumes.
-- Ekāślokī Rāmāyaṇa.
-- Gāyatrī Rāmāyaṇa.
-- Nāma Rāmāyaṇa.
-- Saṅkṣepa Rāmāyaṇa.
+## Upa-Vedas
 
-## Other Purāṇic and Itihāsa Texts
-- Harivaṃśa — 3 Parvas: Harivaṃśa, Viṣṇu and Bhaviṣya. The repository contains two distinct data sets under its Purāṇa and Upa-Purāṇa collections; it is listed once here.
-- Vāyu Purāṇa — Pūrvadharma and Uttaradharma divisions.
-- Kaiśika Purāṇam.
+The page prints folder names, then filenames with `.pdf` removed and underscores turned into spaces. Only files whose names start with `Rasa Ratna Samucchaya Of Vagbhatacharya` are collapsed into one row.
 
-## Mahāpurāṇas
-- Agni Purāṇa — 383 numbered chapter files.
-- Bhāgavata Purāṇa — 12 Skandhas.
-- Bhaviṣya Purāṇa — Brahma Parva; Madhyama Parva (three subdivisions); Pratisarga Parva (four subdivisions); Uttara Parva.
-- Brahma Purāṇa — 246 numbered chapter files.
-- Brahmāṇḍa Purāṇa — Pūrvabhāga, Madhyabhāga and Uttarabhāga.
-- Brahmavaivarta Purāṇa — Brahma, Prakṛti, Gaṇapati and Śrī Kṛṣṇa Janma Khaṇḍas.
-- Garuḍa Purāṇa — Ācāra, Brahma and Preta Kāṇḍas.
-- Kūrma Purāṇa — Pūrvabhāga and Uttarabhāga.
-- Liṅga Purāṇa — Pūrvabhāga and Uttarabhāga.
-- Mārkaṇḍeya Purāṇa — 26 numbered text sections in the repository.
-- Matsya Purāṇa — 290 numbered chapter files.
-- Nārada Purāṇa — Pūrvārdha and Uttarārdha.
-- Padma Purāṇa — Sṛṣṭi, Bhūmi, Svarga, Brahma, Pātāla, Uttara and Kriyā Khaṇḍas.
-- Śiva Purāṇa — 7 Saṃhitās: Viśveśvara, Rudra, Śatarudra, Koṭirudra, Umā, Kailāsa and Vāyavīya. Rudra Saṃhitā has Sṛṣṭi, Satī, Pārvatī, Kumāra and Yuddha Khaṇḍas; Vāyavīya Saṃhitā has Pūrvabhāga and Uttarabhāga.
-- Skanda Purāṇa — 8 principal Khaṇḍas: Māheśvara, Vaiṣṇava, Brahma, Kāśī, Avantī, Nāgara, Prabhāsa and Ambikā. Subdivisions include Kedāra, Kaumārikā and Arunācala Māhātmya; Veṅkaṭācala, Puruṣottama-Jagannātha, Badrinātha, Kārtika-māsa, Mārgaśīrṣa-māsa, Bhāgavata, Vaiśākha-māsa, Ayodhyā and Vāsudeva Māhātmyas; Setu, Dharmāraṇya and Brahmottara; Avanti-kṣetra, Caturaśīti-liṅga and Revā; Prabhāsa-kṣetra, Vastrāpatha, Arbuda and Dvārakā Māhātmyas.
-- Vāmana Purāṇa — 96 numbered chapter files.
-- Varāha Purāṇa — 218 numbered chapter files.
-- Viṣṇu Purāṇa — 6 Aṃśas: Prathama, Dvitīya, Tṛtīya, Caturtha, Pañcama and Ṣaṣṭha.
+- Āyur Veda
+  - Bhel Samhita
+    - 1. Bhel Sutra
+    - 2. Bhel Nidana
+    - 3. Bhel Vimana
+    - 4. Bhel Sharira
+    - 5. Bhel Indriya
+    - 6. Bhel Cikitsa
+    - 7. Bhel Kalpa
+    - 8. Bhel Siddhi
+  - Charaka Saṁhitā
+    - Charaka Chikitsa
+    - Charaka Indriya
+    - Charaka Kalpa
+    - Charaka Nidana
+    - Charaka Sharira
+    - Charaka Siddhi
+    - Charaka Sutra
+    - Charaka Vimana
+  - Harita Samhita
+    - 1. Prathama Sthanam
+    - 2. Dvitiya Sthanam
+    - 3. Tritiya Sthanam
+    - 4. Caturtha Sthanam
+    - 5. Pancamam Kalpa Sthanam
+    - 6. Shashtham Sharira Sthanam
+  - Kashyap Samhita
+    - 1. Kashyapa Sutra
+    - 2. Kashyapa Vimana
+    - 3. Kashyapa Sharira
+    - 4. Kashyapa Indriya
+    - 5. Kashyapa Chikitsa
+    - 6. Kashyapa Siddhi
+    - 7. Kashyapa Kalpa
+    - 8. Kashyapa Khila
+  - Rasa Ratna Samucchaya Of Vagbhatacharya — 9 parts, shown as one row inside the folder
+  - Sharngadhar Samhita
+    - 1. Sharngadhara Samhita Purva
+    - 2. Sharngadhara Samhita Madhya
+    - 3. Sharngadhara Samhita Uttara
+    - 4. Sharngadhara Samhita Parishishtam
+  - Sushruta Samhita
+    - Sushruta Chikitsa
+    - Sushruta Kalpa
+    - Sushruta Nidana
+    - Sushruta Sharira
+    - Sushruta Sutra
+    - Sushruta Uttara
+  - Vagbhatt Samhita
+    - Vagbhatta Chikitsita
+    - Vagbhatta Kalpa Siddhi
+    - Vagbhatta Nidana
+    - Vagbhatta Sharira
+    - Vagbhatta Sutra
+    - Vagbhatta Uttara
+  - Ashtanga Sangraha
+  - Bhava Prakasha Samhita
+  - Mādhav Nidān Saṁhitā
+- Dhanur Veda
+  - Niti Prakashika
+  - Shiva Dhanur Veda
+  - Vasishtha Dhanur Veda
+- Gandharva Veda
+  - Brhaddesi Of Sri Matanga Muni
+  - Dattilam
+  - Natya Shastra
+  - Samgita Ratnakara
+- Sthapatya Veda
+  - Aparajitaprccha
+  - Kashyapa Shilpa Shastra
+  - Manasara
+  - Manushyalaya Candrika
+  - Mayamatam Vastu Shastra
+  - Samarangana Sutradhara
+  - Vastusutra Upanishad
+  - Vishvakarma Vastu Shastra
+  - Viśvakarmīya Śilpaśāstra
 
-## Upa-Purāṇas
-- Bhārgava Purāṇa.
-- Kalki Purāṇa.
-- Kapila Purāṇa.
-- Kālikā Purāṇa — numbered Adhyāyas.
-- Mārīca Purāṇa.
-- Mudgala Purāṇa — 9 numbered chapters.
-- Nandī Purāṇa.
-- Nārasiṃha Purāṇa.
-- Nāradiya Purāṇa — Pūrvabhāga and Uttarabhāga.
-- Parāśara Purāṇa.
-- Sāmba Purāṇa.
-- Saura Purāṇa.
-- Śivadharma Purāṇa — 12 numbered chapters.
-- Śrīmad Devī Bhāgavata Purāṇa — 12 numbered divisions in the repository.
-- Varuṇa Purāṇa.
-- Viṣṇudharmottara Purāṇa — 3 parts.
+## Vedanga
 
-## Ati-Purāṇas
-- Bṛihaddharma Purāṇa.
-- Ṣivarahasya Purāṇa.
-- Yuga Purāṇa.
-- Lakṣmi Purāṇa.
-- Devānga Purāṇa.
-- Nīlamata Purāṇa.
-- Malla Purāṇa — 18 numbered chapters.
-- Basava Purāṇa.
-- Periya Purāṇam.
-- Dharma Purāṇa.
-- Mahābhāgavata Purāṇa.
-- Viṣṇudharma Purāṇa.
-- Kārtava Purāṇa.
-- Ṛju Purāṇa.
-- Pāśupati Purāṇa.
-- Ekāmra Purāṇa.
-- Pārānanda Purāṇa.
-- Dattātreya Purāṇa (Datt Purāṇa) — 8 Aṣṭakas: Prathama, Dvitīya, Tṛtīya, Caturtha, Pañcama, Ṣaṣṭha, Saptama and Aṣṭama.
-- Viśvakarma Purāṇa.
-- Vāsuki Purāṇa.
-- Ātma Purāṇa.
-- Caṇḍī Purāṇa.
-- Bhairava Purāṇa.
-- Viṣṇurahasya Purāṇa.
-- Śukra Purāṇa.
-- Kubera Purāṇa.
-- Sarasvati Purāṇa.
-- Govinda Purāṇa.
-- Bhūgola Purāṇa.
-This is the Ati-Purāṇa list explicitly shown in the repository's Puranas Overview page. The repository also contains files for Datt, Ekāmra, Malla, Nīlamata and Viṣṇudharma titles.
+The Vedanga page prints folder names and filenames with `.pdf` removed. It does not group the numbered Prashna files.
 
-## Garga Saṃhitā
-- Garga Saṃhitā — 10 Khaṇḍas: Goloka, Vṛndāvana, Girirāja, Mādhurya, Mathurā, Dvārakā, Viśvajit, Balabhadra, Vijñāna and Aśvamedha.
+- Jyotish
+  - Muhurta Cintamani
+  - Parashara Hora Shastra
+  - Shatpanchashika
+  - Surya Siddhanta
+- Kalp
+  - Dharma Sutra
+    - Apastamba Dharma Sutra
+    - Baudhayana Dharma Sutra
+    - Gautama Dharma Sutra
+    - Hiranyakeshi Dharma Sutra
+    - Vaikhanasa Dharma Sutra
+    - Vasishtha Dharma Sutra
+    - Vishnu Dharma Sutra
+  - Shrauta Sutram
+    - Hiranyakeshi Shrauta Prashna
+      - Hiranyakeshi Shrauta Prashna 01
+      - Hiranyakeshi Shrauta Prashna 02
+      - Hiranyakeshi Shrauta Prashna 03
+      - Hiranyakeshi Shrauta Prashna 04
+      - Hiranyakeshi Shrauta Prashna 05
+      - Hiranyakeshi Shrauta Prashna 06
+      - Hiranyakeshi Shrauta Prashna 07
+      - Hiranyakeshi Shrauta Prashna 08
+      - Hiranyakeshi Shrauta Prashna 09
+      - Hiranyakeshi Shrauta Prashna 10
+      - Hiranyakeshi Shrauta Prashna 11
+      - Hiranyakeshi Shrauta Prashna 12
+      - Hiranyakeshi Shrauta Prashna 13
+      - Hiranyakeshi Shrauta Prashna 14
+      - Hiranyakeshi Shrauta Prashna 15
+      - Hiranyakeshi Shrauta Prashna 16
+      - Hiranyakeshi Shrauta Prashna 17
+      - Hiranyakeshi Shrauta Prashna 18
+      - Hiranyakeshi Shrauta Prashna 19
+      - Hiranyakeshi Shrauta Prashna 20
+      - Hiranyakeshi Shrauta Prashna 21
+      - Hiranyakeshi Shrauta Prashna 22
+      - Hiranyakeshi Shrauta Prashna 23
+      - Hiranyakeshi Shrauta Prashna 24
+      - Hiranyakeshi Shrauta Prashna 25
+      - Hiranyakeshi Shrauta Prashna 26
+      - Hiranyakeshi Shrauta Prashna 27
+      - Hiranyakeshi Shrauta Prashna 28
+      - Hiranyakeshi Shrauta Prashna 29
+    - Apastamba Shrauta Sutra
+    - Ashvalayana Shrauta Sutra
+    - Baudhayana Shrauta Sutra
+    - Bharadvaja Shrauta Sutra
+    - Drahyayana Shrauta Sutra
+    - Jaiminiya Shrauta Sutra
+    - Latyayana Shrauta Sutra
+    - Manava Shrauta Sutra
+    - Mashaka Shrauta Sutra
+    - Nidana Shrauta Sutra
+    - Shankhayana Shrauta Sutra
+    - Vaikhanasa Shrauta Sutra
+    - Vaitana Shrauta Sutra
+    - Varaha Shrauta Sutra
+  - Shulba Sutra
+    - Apastamba Shulba Sutra
+    - Baudhayana Shulba Sutra
+    - Hiranyakeshi Shulba Sutra
+    - Katyayana Shulba Sutra
+    - Maitrayaniya Shulba Sutram
+    - Manava Shulba Sutra
+  - Grihya Sutram
+- Asthadhyaya
+- Chhandas
+- Nirukta
+- Shiksha
 
-## Gītās
-- Bhagvad Gita — 18 Adhyāyas.
-- Aajgar Gita.
-- Agastya Gita.
-- Aila Gita (Shrimad Bhagwat Mahapurana).
-- Anu Gita.
-- Ashtavakra Gita (Dattatreyakrut).
-- Avadhuta Gita.
-- Avadhuta Gita (Shrimad Bhagwat Mahapurana).
-- Baka Gita.
-- Bhagavatī Gītā.
-- Bhikshu Gita.
-- Bodhya Gita (Mahabharata).
-- Brahma Gita (Skanda Purana).
-- Brahma Gita (Yoga Vāsiṣṭha).
-- Brahman Gita (Mahabharata).
-- Devi Gita.
-- Dharma Vyaadh Gita (Mahabharata).
-- Dhisha Gita.
-- Ganesh Gita.
-- Garbha Gita.
-- Gayatri Gita.
-- Gopi Gita.
-- Guha Gita.
-- Guru Gita.
-- Haarit Gita.
-- Hans Gita (Mahabharata).
-- Hans Gita (Shrimad Bhagwat Mahapurana).
-- Isvara Gita.
-- Jivan Mukta Gita.
-- Kaashyapa Gita.
-- Kama Gita.
-- Kapil Gita (Shrimad Bhagwat Mahapurana).
-- Karuna Gita (Shrimad Bhagwat Mahapurana).
-- Lakshman Gita (Ramcharitamanas).
-- Manki Gita.
-- Nahusha Gita (Mahabharata).
-- Narada Gita.
-- Pandava Gita.
-- Paraashara Gita (Mahabharata).
-- Paramhansa Gita.
-- Pingala Gita.
-- Pitru Gita (Varaha Purana).
-- Prithvi Gita.
-- Putra Gita.
-- Raasa Gita.
-- Ram Gita (Adbhuta Ramayana).
-- Ram Gita (Adhyatma Ramayana).
-- Ribhu Gita.
-- Rishabha Gita (Mahabharata).
-- Rishabha Gita (Shrimad Bhagwat Mahapurana).
-- Rudra Gita (Shrimad Bhagwat Mahapurana).
-- Rudra Gita (Varaha Purana).
-- Saptaśatī Gītā.
-- Saraswati Gita.
-- Shadaj Gita.
-- Shampak Gita.
-- Shanti Gita.
-- Shaunaka Gita (Mahabharata).
-- Shiv Gita.
-- Shiva Gita.
-- Shri Ramana Gita.
-- Shri Vaanara Gita.
-- Shrigaala Gita (Mahabharata).
-- Shruti Gita (Shrimad Bhagwat Mahapurana).
-- Siddha Gītā.
-- Surya Gita.
-- Suta Gita.
-- Tulsi Gita.
-- Uddhava Gita.
-- Utathya Gita.
-- Uttara Gita.
-- Vaamadeva Gita (Mahabharata).
-- Vaishnava Gita.
-- Vasishtha Gita.
-- Venu Gita.
-- Vrutra Gita.
-- Yajnvalkya Gita (Mahabharata).
-- Yama Gita (Agni Purana).
-- Yama Gita (Vishnu Purana).
-- Yudhisthira Gita.
-The repository also contains an identical mirror of the same 18 chapters in a second data collection; it is one Bhagavad Gītā, not two different works.
-## Āgamas and Tantras
+## Upanga
+
+- 6 Darshanas
+
+That is the only row on the Upanga page.
+
+## Maha Puranas
+
+`html/Puranas.html` links these 19 titles, in this order. `DharmicData/Purana/` also contains `Harivansha Purana`, and that folder is not linked on this page. Harivansha Purana is linked from Upa Puranas.
+
+- Agni Purana
+  - The page lists Chapter 1 through Chapter 383.
+- Bhagavata Purana
+  - Skandhah 1 — 19 files
+  - Skandhah 2 — 10 files
+  - Skandhah 3 — 33 files
+  - Skandhah 4 — 31 files
+  - Skandhah 5 — 26 files
+  - Skandhah 6 — 19 files
+  - Skandhah 7 — 15 files
+  - Skandhah 8 — 24 files
+  - Skandhah 9 — 24 files
+  - Skandhah 10 — 90 files
+  - Skandhah 11 — 31 files
+  - Skandhah 12 — 13 files
+- Bhavishya Purana
+  - 1. Brahma Parva — 216 files
+  - 2.1. Madhyama Parva — 21 files
+  - 2.2. Madhyama Parva — 20 files
+  - 2.3. Madhyama Parva — 20 files
+  - 3.1. Pratisarga Parva — 7 files
+  - 3.2. Pratisarga Parva — 35 files
+  - 3.3. Pratisarga Parva — 32 files
+  - 3.4. Pratisarga Parva — 25 files
+  - 4. Uttara Parva — 208 files
+- Brahma Purana
+  - The page lists Chapter 1 through Chapter 246.
+- Brahmaanda Purana
+  - 1. Poorva Bhagah — 38 files
+  - 2. Madhya Bhagah — 74 files
+  - 3. Uttar Bhagah — 44 files
+- Brahmavaivarta Purana
+  - 1. Brahmakhanda — 30 files
+  - 2. Prakriti Khanda — 67 files
+  - 3. Ganapati Khanda — 46 files
+  - 4. Shri Krishna Janma Khanda — 133 files
+- Garuda Purana
+  - Achara Kanda — 240 files
+  - Brahma Kanda — 21 files
+  - Preta Kanda — 49 files
+- Kurma Purana
+  - Purvabhag — 53 files
+  - Uttarbhag — 46 files
+- Linga Purana
+  - Purvabhag — 108 files
+  - Uttarbhag — 55 files
+- Markandeya Purana
+  - The page lists chapter ranges Chapter 1-5, 6-10, and so on through Chapter 131-134. Chapters 71-80 are one range. The loop is fixed in the page and is not read from the file count. The folder contains 26 JSON files.
+- Matsya Purana
+  - The page lists Chapter 1 through Chapter 290.
+- Narada Purana
+  - Purvardhah — 125 files
+  - Uttarardhah — 82 files
+- Padma Purana
+  - 1. Srishti Khanda — 82 files
+  - 2. Bhumi Khanda — 125 files
+  - 3. Svarga Khanda — 62 files
+  - 4. Brahmana Khanda — 26 files
+  - 5. Patala Khanda — 117 files
+  - 6. Uttara Khanda — 255 files
+  - 7. Kriya Khanda — 26 files
+- Shiva Purana
+  - 1. Vishweshwara Samhita — 25 files
+  - 2. Rudra Samhita — 197 files
+    - 2.1. Srishtikhanda — 20 files
+    - 2.2. Satikhanda — 43 files
+    - 2.3. Parvatikhanda — 55 files
+    - 2.4. Kumarakhanda — 20 files
+    - 2.5. Yuddhakhanda — 59 files
+  - 3. Shatarudra Samhita — 42 files
+  - 4. Koti Rudra Samhita — 43 files
+  - 5. Uma Samhita — 51 files
+  - 6. Kailasa Samhita — 23 files
+  - 7. Vayaviya Samhita — 76 files
+    - Purva Bhag — 35 files
+    - Uttar Bhag — 41 files
+- Skanda Purana
+  - 1. Maheshwarkhanda — 138 files
+    - 1.1. Kedarkhanda — 35 files
+    - 1.2. Kaumarikakhanda — 66 files
+    - 1.3.1. Arunachala Mahatmya Purvardham — 13 files
+    - 1.3.2. Arunachala Mahatmya Uttarardham — 24 files
+  - 2. Vaishnavakhanda — 222 files
+    - 1. Venkatachalamahatmyam — 40 files
+    - 2. Purusottamajagannathmahatmyam — 49 files
+    - 3. Badrinathkshetramahatmyam — 8 files
+    - 4. Kartikamasamahatmyam — 36 files
+    - 5. Margashirshamasamahatmyam — 17 files
+    - 6. Bhagavatmahatmyam — 4 files
+    - 7. Vaishakhamasamahatmyam — 26 files
+    - 8. Ayodhyamahatmyam — 10 files
+    - 9. Vasudevamahatmyam — 32 files
+  - 3. Brahmakhanda — 114 files
+    - 1. Setu Khanda — 52 files
+    - 2. Dharmaranya Khanda — 40 files
+    - 3. Brahmottara Khanda — 22 files
+  - 4. Kashikhanda — 100 files
+  - 5. Avantikhanda — 387 files
+    - 1. Avantikshetramahatmyam — 71 files
+    - 2. Avantishtachaturasitilingamahatmyam — 84 files
+    - 3. Reva Khanda — 232 files
+  - 6. Nagarakhanda — 278 files
+  - 7. Prabhasakhanda — 491 files
+    - 1. Prabhasakshetra Mahatmyam — 365 files
+    - 2. Vastrapathakshetra Mahatmyam — 19 files
+    - 3. Arbudakhanda — 63 files
+    - 4. Dwarakamahatmyam — 44 files
+  - 8. Ambikakhanda — 19 files
+- Vamana Purana
+  - The page lists Chapter 1 through Chapter 96.
+- Varaha Purana
+  - The page lists Chapter 1 through Chapter 218.
+- Vayu Purana
+  - Purva Dharm — 61 files
+  - Uttara Dharm — 50 files
+- Vishnu Purana
+  - 1. Prathamamshah — 22 files
+  - 2. Dvitiamshah — 16 files
+  - 3. Tritiamshah — 18 files
+  - 4. Chaturthamshah — 24 files
+  - 5. Panchamamshah — 38 files
+  - 6. Shashtamshah — 8 files
+
+## Upa Puranas
+
+`html/UpaPuranas.html` shows these labels, in this order:
+
+- Datt Purana
+  - 1. Prathmashtak — 8 files
+  - 2. Dvityashtak — 8 files
+  - 3. Trityashtak — 8 files
+  - 4. Chaturthashtak — 8 files
+  - 5. Panchmashtak — 8 files
+  - 6. Shashthashtak — 8 files
+  - 7. Saptmashtak — 8 files
+  - 8. Ashtamashtak — 8 files
+- Harivansha Purana
+  - 1. Harivamsha Parva — 55 files
+  - 2. Vishnu Parva — 128 files
+  - 3. Bhavishya Parva — 135 files
+- Kalika Purana
+- Malla Purana
+- Mudgala Purana
+- Naradiya Purana
+  - PurvaBhagah — 101 files
+  - UttaraBhagah — 82 files
+- Shivadharma Purana
+- Srimad Devi Bhagwat Purana
+- Vishnudharmottar Purana
+  - 1 — 190 files
+  - 2 — 37 files
+  - 3 — 71 files
+- Bhargav Purana
+- Ekamra Purana
+- Kapila Purana
+- Kalki Purana
+- Maricha Purana
+- Nandi Purana
+- Narasimha Purana
+- Nilamata Purana
+- Parashara Purana
+- Samba Purana
+- Saura Purana
+- Varuna Purana
+- Vishnudharma Purana
+
+The Kalika Purana page lists Chapter 1 through Chapter 89. The folder has files 1-61 and 63-90: there is no `62.json`, and `90.json` is not linked by that page loop.
+
+Malla Purana lists Chapter 1 through Chapter 18. Mudgala Purana lists Chapter 1 through Chapter 9. Shivadharma Purana lists Chapter 1 through Chapter 12. Srimad Devi Bhagwat Purana lists Chapter 1 through Chapter 12.
+
+## Puranas Overview
+
+The overview page prints this traditional Ati-Puranas list. These are sentences on that page. They are not a second file browser.
+
+- Bṛihaddharma Purāṇa
+- Ṣivarahasya Purāṇa
+- Yuga Purāṇa
+- Lakṣmi Purāṇa
+- Devānga Purāṇa
+- Nīlamata Purāṇa
+- Malla Purāṇa
+- Basava Purāṇa
+- Periya Purāṇam
+- Dharma Purāṇa
+- Mahābhāgavata Purāṇa
+- Viṣṇudharma Purāṇa
+- Kārtava Purāṇa
+- Ṛju Purāṇa
+- Pāśupati Purāṇa
+- Ekāmra Purāṇa
+- Pārānanda Purāṇa
+- Dattātreya Purāṇa
+- Viśvakarma Purāṇa
+- Vāsuki Purāṇa
+- Ātma Purāṇa
+- Caṇḍī Purāṇa
+- Bhairava Purāṇa
+- Viṣṇurahasya Purāṇa
+- Śukra Purāṇa
+- Kubera Purāṇa
+- Sarasvati Purāṇa
+- Govinda Purāṇa
+- Bhūgola Purāṇa
+
+Five of those traditions are stored and linked on the Upa Puranas page, under these labels: Nilamata Purana, Malla Purana, Vishnudharma Purana, Ekamra Purana, and Datt Purana. The other overview names have no matching file under `DharmicData/`.
+
+## Mahabharata
+
+The Parva page shows Overview, then these labels:
+
+- Adi Parva
+- Sabha Parva
+- Vana Parva
+- Virata Parva
+- Udyoga Parva
+- Bhishma Parva
+- Drona Parva
+- Karna Parva
+- Shalya Parva
+- Sauptika Parva
+- Stri Parva
+- Shanti Parva
+- Anushasana Parva
+- Ashvamedhika Parva
+- Ashramavasika Parva
+- Mausala Parva
+- Mahaprasthanika Parva
+- Swargarohanika Parva
+
+## Ramayanas
+
+The Ramayanas page shows these ten titles, in this order. The first five are fixed links. The last five are PDF groups from `DharmicData/Ramayanas/`.
+
+- Valmiki Ramayana — Kāṇḍa page labels: Bāla Kāṇḍa, Ayodhyā Kāṇḍa, Araṇya Kāṇḍa, Kiṣkindhā Kāṇda, Sundara Kaṇḍa, Yuddha Kāṇḍa, Uttara Kanda.
+- Adbhuta Ramayana
+- Adhyatma Ramayana
+- Ramcharitmanas — file labels: Baal Kāṇḍa, Ayodhya Kāṇḍa, Aranya Kāṇḍa, Kishkindha Kāṇḍa, Sundar Kāṇḍa, Lanka Kāṇḍa, Uttar Kāṇḍa.
+- Yoga Vasistha
+  - 1. Vairagya Prakaranam — 33 chapter files
+  - 2. Mumukshu Vyavahara Prakaranam — 20 chapter files
+  - 3. Utpatti Prakaranam — 122 chapter files
+  - 4. Sthiti Prakaranam — 62 chapter files
+  - 5. Upashama Prakaranam — 93 chapter files
+  - 6. Nirvana Prakaranasya Purvardham — 128 chapter files
+  - 7. Nirvana Prakaranasya Uttarardham — 216 chapter files
+- Anand Ramayan — 6 volumes
+- Bhushundi Ramayan — 3 volumes
+- Brahm Ramayan
+- Mantra Ramayana
+- Satyopakhyan — 3 volumes
+
+Ekashloki Ramayanam, Gayatri Ramayanam, Nama Ramayanam, and Sankshepa Ramayanam are stotra files. They are listed under Stotras.
+
+## Gitas
+
+The Gitas page lists the Bhagvad Gita folder first, then each other file with the extension removed.
+
+- Bhagvad Gita — chapter labels on its page:
+  - Arjuna Vishada Yoga
+  - Sankhya Yoga
+  - Karma Yoga
+  - Gyana-Karma-Sanyasa Yoga
+  - Karma-Sanyasa Yoga
+  - Atma-Samyama Yoga (Dhyana Yoga)
+  - Gyana-Vigyana Yoga
+  - Akshara Brahma Yoga
+  - Raja-Vidya-Raja-Guhya Yoga
+  - Vibhuti Yoga
+  - Vishwarupa-Darsana Yoga
+  - Bhakti Yoga
+  - Ksetra-Ksetrajna-Vibhaga Yoga
+  - Gunatraya-Vibhaga Yoga
+  - Purushottama Yoga
+  - Daivasura-Sampad-Vibhaga Yoga
+  - Shraddha-Traya-Vibhaga Yoga
+  - Moksha-Sanyasa Yoga
+
+The other Gitas rows, in the page order:
+
+- Aajgar Gita
+- Agastya Gita
+- Aila Gita (Shrimad Bhagwat Mahapurana)
+- Anu Gita
+- Ashtavakra Gita (Dattatreyakrut)
+- Avadhuta Gita (Shrimad Bhagwat Mahapurana)
+- Avadhuta Gita
+- Baka Gita
+- Bhagavatī Gītā
+- Bhikshu Gita
+- Bodhya Gita (Mahabharata)
+- Brahma Gita (Skanda Purana)
+- Brahma Gita (Yoga Vāsiṣṭha)
+- Brahman Gita (Mahabharata)
+- Devi Gita
+- Dharma Vyaadh Gita (Mahabharata)
+- Dhisha Gita
+- Ganesh Gita
+- Garbha Gita
+- Gayatri Gita
+- Gopi Gita
+- Guha Gita
+- Guru Gita
+- Haarit Gita
+- Hans Gita (Mahabharata)
+- Hans Gita (Shrimad Bhagwat Mahapurana)
+- Isvara Gita
+- Jivan Mukta Gita
+- Kaashyapa Gita
+- Kama Gita
+- Kapil Gita (Shrimad Bhagwat Mahapurana)
+- Karuna Gita (Shrimad Bhagwat Mahapurana)
+- Lakshman Gita (Ramcharitamanas)
+- Manki Gita
+- Nahusha Gita (Mahabharata)
+- Narada Gita
+- Pandava Gita
+- Paraashara Gita (Mahabharata)
+- Paramhansa Gita
+- Pingala Gita
+- Pitru Gita (Varaha Purana)
+- Prithvi Gita
+- Putra Gita
+- Raasa Gita
+- Ram Gita (Adbhuta Ramayana)
+- Ram Gita (Adhyatma Ramayana)
+- Ribhu Gita
+- Rishabha Gita (Mahabharata)
+- Rishabha Gita (Shrimad Bhagwat Mahapurana)
+- Rudra Gita (Shrimad Bhagwat Mahapurana)
+- Rudra Gita (Varaha Purana)
+- Saptaśatī Gītā
+- Saraswati Gita
+- Shadaj Gita
+- Shampak Gita
+- Shanti Gita
+- Shaunaka Gita (Mahabharata)
+- Shiv Gita
+- Shiva Gita
+- Shri Ramana Gita
+- Shri Vaanara Gita
+- Shrigaala Gita (Mahabharata)
+- Shruti Gita (Shrimad Bhagwat Mahapurana)
+- Siddha Gītā
+- Surya Gita
+- Suta Gita
+- Tulsi Gita
+- Uddhava Gita
+- Utathya Gita
+- Uttara Gita
+- Vaamadeva Gita (Mahabharata)
+- Vaishnava Gita
+- Vasishtha Gita
+- Venu Gita
+- Vrutra Gita
+- Yajnvalkya Gita (Mahabharata)
+- Yama Gita (Agni Purana)
+- Yama Gita (Vishnu Purana)
+- Yudhisthira Gita
+
+`DharmicData/SrimadBhagvadGita/` repeats the same 18 chapter files. The Gitas page does not show it as a second work.
+
+## Garga Samhita
+
+The page prints these folder names:
+
+- 1. Goloka Khandaḥ — 20 chapter files
+- 2. Vrindavan Khandaḥ — 26 chapter files
+- 3. Giriraja Khandaḥ — 11 chapter files
+- 4. Madhurya Khandaḥ — 24 chapter files
+- 5. Mathura Khandaḥ — 25 chapter files
+- 6. Dvaraka Khandaḥ — 22 chapter files
+- 7. Vishvajita Khandaḥ — 50 chapter files
+- 8. Balabhadra Khandaḥ — 13 chapter files
+- 9. Vijnana Khandaḥ — 10 chapter files
+- 10. Ashvamedha Khandaḥ — 62 chapter files
+
+## Agamas & Tantras
+
+Each file is its own row. The page removes the extension and turns underscores into spaces.
+
 - Ācārasāra Tantram
 - Agastya Saṃhitā
 - Ahirbudhna Saṃhitā
@@ -235,8 +622,8 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Bhṛgu Saṃhitā
 - Bhūtaśuddhi Tantram
 - Bṛhannīla Tantram
-- Candrajñān Āgamaḥ
 - Candrajñān Āgamaḥ (Śivaśāsane Caryā Pādaḥ)
+- Candrajñān Āgamaḥ
 - Candrajñānam
 - Cinmantramālinī
 - Cinmayadīkṣāvidhānam
@@ -263,13 +650,15 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Karan Agama
 - Kiran Agama
 - Kiraṇa Tantram
-- kriyā Kairava Candrikā
+- kriyā-Kairava-Candrikā
 - Kularnava Tantra
 - Lakṣmī Tantram
 - Mālinīvijayottara Tantram
 - Mātṛkābheda Tantram
 - Mṛgendra Tantram
-- Niruttara Tantram — Prathamaḥ and Dvitīyaḥ Paṭalas.
+- Niruttara Tantram Dvitīyaḥ Paṭalaḥ
+- Niruttara Tantram Prathamaḥ Paṭalaḥ
+- Niruttara Tantram
 - Nishvas Agama
 - Padma Saṃhitā
 - Pāñcarātr Āgamaḥ
@@ -287,7 +676,8 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Suprabhed Agama
 - Svacchanda Tantram
 - Svayambhuv Agama
-- Tantrāloka (PDF and JSON editions).
+- Tantraloka
+- Tantrālokaḥ
 - Ṭoḍala Tantram
 - Ūḍḍāmareśvara Tantram
 - Vijay Agama
@@ -299,7 +689,8 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Viśvāmitra Saṃhitā
 - Yogaj Agama
 
-## Smṛtis
+## Smritis
+
 - Angirasa Smriti
 - Apastamba Smriti
 - Atri Smriti
@@ -319,7 +710,8 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Yagyavalkya Smriti
 - Yama Smriti
 
-## Upa-Smṛtis
+## Upa Smritis
+
 - Ashvalayana Smriti
 - Baudhayana Smriti
 - Bharadvaja Smriti
@@ -337,19 +729,23 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Vishvamitra Smirti
 - Vyaghrapada Smriti
 
-## Jyotiṣa, Divination and Allied Texts
-- Bhṛgu Saṃhitā.
-- Bṛhat Jātaka.
-- Bṛhat Saṃhitā.
-- Dhruva Nāḍī.
-- Garga Horāśāstra.
-- Jaimini Sūtras.
-- Jātaka Pārijāta — 5 volumes.
-- Phala Dīpikā.
-- Sāmudrika Śāstra — 6 volumes.
-- Śiva Svarodaya.
+## Occult & Divinatory Texts
 
-## Āratis
+Top-level folders and files are separate rows. Inside a folder, the page shows one link, `Open` plus the folder name, rather than one row per part.
+
+- Bhṛgu Saṁhitā
+- Brihat Jataka
+- Brihat Samhita
+- Dhruva Nadi
+- Garga Hora Shastra
+- Jaimini Sutras
+- Jātaka Parijāta — page link: Open Jātaka Parijāta; parts: Jātaka Parijāta 1; Jātaka Parijāta 2; Jātaka Parijāta 3; Jātaka Parijāta 4; Jātaka Parijāta 5
+- Phala Dīpikā
+- Samudrika Shastra — page link: Open Samudrika Shastra; parts: Samudrika Shastra 1; Samudrika Shastra 2; Samudrika Shastra 3; Samudrika Shastra 4; Samudrika Shastra 5; Samudrika Shastra 6
+- Shiv Svarodaya
+
+## Aaratis
+
 - Aarati Bhagavana Gangadhara
 - Aarati Bhagavana Kailasavasi
 - Aarati Bhagavana Mahadeva
@@ -357,47 +753,38 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Aarati Bhagavana Shri Shankara
 - Aarati Bhagavana Shri Shivashankara
 - Aarati Shrimadbhagavatamahapurana Ki
-- Amarasaṃvādaḥ — Sanskrit Ārati Collection
+- Aarati Yogeshvarichi 1
+- Aarati Yogeshvarichi 2
+- Aarti Sangrah 2
+- Amarasanvadah Sanskrit Prayer Aarati Collection
 - Amba Aarati
-- Ārati Saṅgraha (compiled collection, volume 2)
-- Ārati Yogeshvarī (two versions)
 - Bhagavata Aarati
-- Bhūmau Luṭheyam
-- Chhatrapateḥ Śrī Śivarājasya Āratiḥ
-- Ehi He Viṭṭhale
 - Gayatri Aarati
 - Jaya Jagadisha Hare Aarati
 - Karpura Aarati Mantrah
-- Mantrapuṣpāñjali
-- Mātṛbhūmeḥ Āratiḥ
 - Samskrita Bhasha Nirajana Aarati
 - Shiva Aarati
 - Shri Ganesha Sanskrit Aarati
+- Shri Shakanbhari Aarati 3 (Marathi)
 - Shri Vyadeshvara Aarati
+- Shrishakambhari Aarati 1
+- Shrishakambhari Aarati 2
 - Shristhala Devi Aarati
-- Śrī Akkalkoṭ Svāminaḥ Āratiḥ (first composition)
-- Śrī Akkalkoṭ Svāminaḥ Āratiḥ (second composition)
-- Śrī Dattasya Āratiḥ
-- Śrī Durgāyāḥ Āratiḥ
-- Śrī Gajānanasya Āratiḥ
-- Śrī Gaṇapateḥ Āratiḥ
-- Śrī Māruteḥ Āratiḥ
-- Śrī Rāmasya Āratiḥ
-- Śrī Śākambharī Ārati (three versions)
-- Śrī Śaṅkarasya Āratiḥ
-- Śrī Viṭṭhalasya Āratiḥ
 
-## Aṣṭakas
+`Amarasanvadah Sanskrit Prayer Aarati Collection` is one row. The pieces inside that JSON are not separate rows on the Aaratis page. `Aarti Sangrah 2` is one PDF row. Its internal titles are not extracted here.
+
+## Ashtakas
+
+- Abhilasha Ashtakam-(2)
 - Abhilasha Ashtakam
-- Abhilasha Ashtakam (2)
+- Achyuta Ashtakam-Sridhara-Venkatesa-Dikshitar
+- Achyuta Ashtakam-Vamana-Puranam
 - Achyuta Ashtakam
-- Achyuta Ashtakam Sridhara Venkatesa Dikshitar
-- Achyuta Ashtakam Vamana Puranam
 - Annapurna Ashtakam
-- Ardha Nareeswara Ashtakam
+- Ardha Nareeswara-Ashtakam
 - Ashraya Ashtakam
 - Attala Sundarashtakam
-- Avadhuta Ashtakam Shuka Deva Stuti
+- Avadhuta Ashtakam-Shuka-Deva-Stuti
 - Badarinatha Ashtakam
 - Bala Mukundashtakam
 - Balambika Ashtakam
@@ -406,33 +793,33 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Bhavani Ashtakam
 - Bhramaramba Ashtakam
 - Bhuvaneshwari Ashtakam
-- Bilvashtakam Version 1
-- Bilvashtakam Version 2
-- Bindu Madhava Ashtakam
+- Bilvashtakam Version-1
+- Bilvashtakam Version-2
+- Bindu Madhava-Ashtakam
 - Chandika Ashtakam
 - Chandrashekara Ashtakam
 - Deenabandhu Ashtakam
-- Durga Apaduddharaka Ashtakam
+- Durga Apaduddharaka-Ashtakam
 - Durga Ashtakam
+- Ganesha Ashtakam-Vyasa-Rishi
 - Ganesha Ashtakam
-- Ganesha Ashtakam Vyasa Rishi
-- Ganga Ashtakam 1
-- Ganga Ashtakam 2 By Kalidasa
-- Ganga Ashtakam 3 By Kalidasa
-- Ganga Ashtakam 4
-- Ganga Ashtakam 5 By Valmiki Rishi
-- Ganga Ashtakam 6 By Satya Gnanananda Theertha
-- Gayatri Ashtakam
+- Ganga Ashtakam-1
+- Ganga Ashtakam-2-By-Kalidasa
+- Ganga Ashtakam-3-By-Kalidasa
+- Ganga Ashtakam-4
+- Ganga Ashtakam-5-By-Valmiki-Rishi
+- Ganga Ashtakam-6-By-Satya-Gnanananda-Theertha
 - Gayatri Ashtakam (2)
+- Gayatri Ashtakam
 - Gopala Ashtakam
 - Goshteshwara Ashtakam
-- Govinda Ashtakam Paramahamsa Brahmananda
-- Govinda Ashtakam Shankaracharya Swami
+- Govinda Ashtakam-Paramahamsa-Brahmananda
+- Govinda Ashtakam-Shankaracharya-Swami
 - Guru Ashtakam
+- Hanuman Ashtakam-Sankata-Mochana (2)
+- Hanuman Ashtakam-Sankata-Mochana
 - Hanuman Ashtakam
-- Hanuman Ashtakam Sankata Mochana
-- Hanuman Ashtakam Sankata Mochana (2)
-- Hari Nama Ashtakam
+- Hari Nama-Ashtakam
 - Hari Sharanashtakam
 - Hariharatmaja Ashtakam
 - Jagannatha Ashtakam
@@ -440,19 +827,19 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Kalabhairava Ashtakam
 - Kamalapatya Ashtakam
 - Kapaleeshwar Ashtakam
-- Kashi Vishwanatha Ashtakam
+- Kashi Vishwanatha-Ashtakam
 - Katyayani Ashtakam
 - Kirata Ashtakam
-- Krishana Ashtakam 1 Shankaracharya Swami
-- Krishana Ashtakam 2 Vallabha Acharya
-- Krishana Ashtakam 3 By Shankaracharya Swami
-- Krishana Ashtakam 4 Shankaracharya Swami
-- Krishana Ashtakam 5 Vadiraja Theertha
-- Krishana Ashtakam 6 Paramahamsa Brahmananda
+- Krishana Ashtakam-1-Shankaracharya-Swami
+- Krishana Ashtakam-2-Vallabha-Acharya
+- Krishana Ashtakam-3-By-Shankaracharya-Swami
+- Krishana Ashtakam-4-Shankaracharya-Swami
+- Krishana Ashtakam-5-Vadiraja-Theertha
+- Krishana Ashtakam-6-Paramahamsa-Brahmananda
 - Lingashtakam
-- Madana Mohana Ashtakam
+- Madana Mohana-Ashtakam
 - Madhurashtakam
-- Maha Kalabhairava Ashtakam Teekshna Damstra Kalabhairava Ashtakam
+- Maha Kalabhairava-Ashtakam-Teekshna-Damstra-Kalabhairava-Ashtakam
 - Mahalakshmi Ashtakam
 - Mahamaya Ashtakam
 - Manikarnika Ashtakam
@@ -469,53 +856,57 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Raghava Ashtakam
 - Raghunatha Ashtakam
 - Rajarajeshwari Ashtakam
-- Rama Ashtakam Ananda Ramayana
-- Rama Ashtakam By Paramahamsa Brahmananda
-- Rama Ashtakam Vyasa Maharshi
+- Rama Ashtakam-Ananda-Ramayana
+- Rama Ashtakam-By-Paramahamsa-Brahmananda
+- Rama Ashtakam-Vyasa-Maharshi
 - Ramachandra Ashtakam
 - Ramapatya Ashtakam
-- Renuka Ashtakam In Marathi By Vishnudas
+- Renuka Ashtakam-In-Marathi-By-Vishnudas
 - Rudrashtakam
 - Sadashiva Ashtakam
-- Sankataharana Ganesha Ashtakam
-- Sarva Mangala Ashtakam
+- Sankataharana Ganesha-Ashtakam
+- Sarva Mangala-Ashtakam
 - Shabarigirisha Ashtakam
 - Shankarashtakam
 - Shitalashtakam
 - Shiva Mangalashtakam
-- Shiva Naamavalya Ashtakam
-- Shivashtakam Agastya Krutha
+- Shiva Naamavalya-Ashtakam
+- Shivashtakam Agastya-Krutha
+- Shivashtakam Version- (2)
+- Shivashtakam Version- (3)
 - Shivashtakam Version
-- Shivashtakam Version (2)
-- Shivashtakam Version (3)
 - Shonadrinatha Ashtakam
-- Sita Rama Ashtakam
+- Sita Rama-Ashtakam
 - Subrahmanya Mangalashtakam
 - Sudarshana Ashtakam
 - Surya Ashtakam
-- Surya Mandala Ashtakam
+- Surya Mandala-Ashtakam
 - Totakashtakam
-- Tripura Sundari Ashtakam
+- Tripura Sundari-Ashtakam
 - Tulaja Ashtakam
 - Vaidyanatha Ashtakam
-- Valli Bhuvaneshwari Ashtakam
-- Varahamuki Stavam Varahyanugraha Ashtakam
-- Varahi Anugraha Ashtakam
-- Varahi Nigraha Ashtakam
+- Valli Bhuvaneshwari-Ashtakam
+- Varahamuki Stavam-Varahyanugraha-Ashtakam
+- Varahi Anugraha-Ashtakam
+- Varahi Nigraha-Ashtakam
 - Vasudeva Ashtakam
-- Veda Vyasa Ashtakam
-- Venkateshwara Ashtakam 1
-- Venkateshwara Ashtakam 2
+- Veda Vyasa-Ashtakam
+- Venkateshwara Ashtakam-1
+- Venkateshwara Ashtakam-2
 - Venkateshwara Mangalashtakam
-- Yaksharaja Ashtakam Dandapani Ashtakam
+- Yaksharaja Ashtakam-Dandapani-Ashtakam
 - Yama Ashtakam
+- Yamuna Ashtakam-1
 - Yamuna Ashtakam
-- Yamuna Ashtakam 1
 
-## Bhajans
-- Bhajan Saṅgraha — compiled collection; individual bhajan titles are not separately indexed in the repository metadata.
+## Bhajan
 
-## Chālīsās
+- Bhajan Sangrah
+
+`Bhajan Sangrah` is one PDF. Its internal bhajan titles are not extracted here.
+
+## Chalisas
+
 - Bajrang Baan Chalisa
 - Batuk Bhairav Chalisa
 - Bhairav Chalisa
@@ -546,6 +937,7 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Vishwakarma Chalisa
 
 ## Kavachas
+
 - Aditya Kavacham
 - Akkalkot Swami Kavacham
 - Amogha Shiva Kavacham
@@ -573,8 +965,8 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Ekakshara Ganapathi Kavacham
 - Ekamukhi Hanumat Kavacham
 - Ganesha Kavacham
-- Gayatri Kavacham
 - Gayatri Kavacham Alabhya
+- Gayatri Kavacham
 - Gopala Akshaya Kavacham
 - Guru Kavacham From Kankalamalini Tantra
 - Guru Kavacham From Purascharana Rasollasa
@@ -589,12 +981,12 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Krishna Kavacham Trailokya Vijaya Kavacham
 - Kumari Kavacham
 - Lakshmana Kavacham
-- Lakshmi Kavacham
 - Lakshmi Kavacham (2)
+- Lakshmi Kavacham
 - Lakshmi Narayana Kavacham
 - Maha Lakshmi Kavacham
-- Maha Mrutyunjaya Kavacham
 - Maha Mrutyunjaya Kavacham (2)
+- Maha Mrutyunjaya Kavacham
 - Maha Shasta Anugraha Kavacham
 - Mangala Kavacham
 - Matangi Kavacham Sumukhi Kavacham
@@ -603,33 +995,36 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Narayana Kavacham
 - Navagraha Kavacham
 - Pancha Mukha Hanumath Kavacham
-- Radha Kavacham
 - Radha Kavacham (2)
+- Radha Kavacham
 - Rahu Kavacham
 - Rama Kavacham
+- Rama Raksha Stotram Ananda Ramayana
+- Rama Raksha Stotram Padma Puranam
+- Renuka Kavacham  (2)
+- Renuka Kavacham  (3)
 - Renuka Kavacham
-- Renuka Kavacham (2)
-- Renuka Kavacham (3)
 - Rudra Kavacham
 - Saptha Mukhi Hanumath Kavacham
 - Saraswati Kavacham Vishwavijaya Kavacham
 - Shani Vajra Panjara Kavacham
 - Sharadesha Kavacham
 - Shatrugna Kavacham
-- Shiva Kavacham
 - Shiva Kavacham Brahmanda Vijaya
+- Shiva Kavacham
 - Shukra Kavacham
 - Siddha Veera Guru Kavacham
 - Sita Kavacham
 - Srividya Kavacham
-- Subrahmanya Kavacham
 - Subrahmanya Kavacham (2)
+- Subrahmanya Kavacham
 - Sudarshana Kavacham
 - Surya Kavacha By Bhairava
 - Surya Kavacham Surya Krutha
 - Surya Kavacham Yagnavalkya Rishi Krutha
 - Tara Kavacham
 - Tara Pratyangari Kavacham
+- Tara Stotram
 - Trailokya Mangala Kavacham
 - Trilokya Mohana Kali Kavacham
 - Tulasi Kavacham
@@ -639,321 +1034,359 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Venkateshwara Vajra Kavacham
 - Vishnu Kavacham Brahmanda Pavana Kavacham
 
+## Namavalis
 
+The first screen lists these section folders. Opening one lists its filenames with the extension removed.
 
-## Nāmāvalīs
-- Adi Shankaracharya Nāmāvalī (100/108 names).
-- Anjaneya Ramarahasya Nāmāvalī (100/108 names).
-- Anjaneya Nāmāvalī (100/108 names).
-- Annapurna Nāmāvalī (100/108 names).
-- Ardhanarishvara Nāmāvalī (100/108 names).
-- Chandrashekharendra Saraswati Nāmāvalī (100/108 names).
-- Devasena Nāmāvalī (100/108 names).
-- Dhanvantari Nāmāvalī (100/108 names).
-- Durga Nāmāvalī (100/108 names).
-- Gakaradi Ganapati Nāmāvalī (100/108 names).
-- Ganapati Nāmāvalī (100/108 names).
-- Ganesha Nāmāvalī (100/108 names).
-- Ganga Nāmāvalī (100/108 names).
-- Goda Nāmāvalī (100/108 names).
-- Harihara Nāmāvalī (100/108 names).
-- Jagadanandakaraka Nāmāvalī (100/108 names).
-- Kamakshi Nāmāvalī (100/108 names).
-- Kartikeya Nāmāvalī (100/108 names).
-- Krishna Nāmāvalī (100/108 names).
-- Kubera Nāmāvalī (100/108 names).
-- Lakshmi Nrisimha Nāmāvalī (100/108 names).
-- Lakshmi Nāmāvalī (100/108 names).
-- Mrtyunjaya Nāmāvalī (100/108 names).
-- Nrisimha Nāmāvalī (100/108 names).
-- Rama Ramarahasya Nāmāvalī (100/108 names).
-- Rama Nāmāvalī (100/108 names).
-- Saraswati Nāmāvalī (100/108 names).
-- Shakti divyasthaniya Nāmāvalī (100/108 names).
-- Shiva divyasthaniya Nāmāvalī (100/108 names).
-- Shiva Nāmāvalī (100/108 names).
-- Sita Ramarahasya Nāmāvalī (100/108 names).
-- Sita Nāmāvalī (100/108 names).
-- Subrahmanya Hastasthita Astrayudha Nāmāvalī (100/108 names).
-- Subrahmanya Nāmāvalī (100/108 names).
-- Surya Mahabharatam Nāmāvalī (100/108 names).
-- Surya Nāmāvalī (100/108 names).
-- Tulasi Nāmāvalī (100/108 names).
-- Valli Nāmāvalī (100/108 names).
-- Venkatesha Nāmāvalī (100/108 names).
-- Venkateshwara Nāmāvalī (100/108 names).
-- Vishnu divyasthaniya Nāmāvalī (100/108 names).
-- Gakaradi Ganapati Nāmāvalī (1,000/1,008 names).
-- Rama Nāmāvalī (1,000/1,008 names).
-- Saraswati Nāmāvalī (1,000/1,008 names).
-- Shanmukha Nāmāvalī (1,000/1,008 names).
-- Shiva Nāmāvalī (1,000/1,008 names).
-- Vakratunda Mahaganapati Nāmāvalī (1,000/1,008 names).
-- Vishnu Nāmāvalī (1,000/1,008 names).
-- Lalita Nāmāvalī (300 names).
-- Rudra Nāmāvalī (300 names).
-## Stotras and Stava Texts
-- Achyutashtakam
-- Aditya Ashtottara Shatanama Stotram
-- Aditya Hrdayam
-- Agastya Dwara Rama Swarupa Kathanam
-- Agastyakrta Rama Stuti
-- Ahalyakrta Rama Stotram
-- Akrurakrta Dashavatara Stuti
-- Angaraka Stotram
-- Anjaneya Ashtottara Shatanama Stotram
-- Annapurna Ashtottara Shatanama Stotram
-- Annapurna Stotram
-- Apaduddharaka Dwadashamukha Hanuman Stotram
-- Apaduddharana Stotram
-- Ardhanarishvara Ashtottara Shatanama Stotram
-- Ardhanarishwara Stotram
-- Arjuna Krta Durga Stuti
-- Avaidhavya Prarthana Stotram
-- Balamukundashtakam
-- Balaraksha
-- Bhaja Govindam
-- Bhaja Govindam laghu
-- Bharadwajakrta Rama Stuti
-- Bhishma Stuti
-- Bilvashtakam
-- Brahma Krta Rama Stava
-- Brahmapaara Stotram
-- Brihaspati Stotram
-- Budha Panchavimshati Nama Stotram
-- Chandra Ashtavimshati Nama Stotram
-- Chandra Grahana Pidaparihara Shlokam
-- Chandramopadesha
-- Charanashringarahita Nataraja Stotram
-- Dakshinamurti Stotram
-- Dakshinamurti Stotram(Samara Pungava Dikshita Krtam)
-- Dakshinamurti Stotram(Vrishabha Deva Kritam)
-- Dakshinamurti Stotram(Vrishabha Deva Krtam)
-- Dakshinamurtyashtakam
-- Damodarashtakam
-- Deva Stuti
-- Devaih Krta Rama Stotram
-- Dhanvantari Ashtottara Shatanama Stotram
-- Dhanvatari Stotram
-- Dhruvakrta Bhagavat Stavam
-- Dhyana Shloka
+- 100, 108
+  - AdiShankaracharya
+  - Anjaneya Ramarahasya
+  - Anjaneya
+  - Annapurna
+  - Ardhanarishvara
+  - Chandrashekharendra Saraswati
+  - Devasena
+  - Dhanvantari
+  - Durga
+  - Gakaradi Ganapati
+  - Ganapati
+  - Ganesha
+  - Ganga
+  - Goda
+  - Harihara
+  - Jagadanandakaraka
+  - Kamakshi
+  - Kartikeya
+  - Krishna
+  - Kubera
+  - Lakshmi Nrisimha
+  - Lakshmi
+  - Mrtyunjaya
+  - Nrisimha
+  - Rama Ramarahasya
+  - Rama
+  - Saraswati
+  - Shakti divyasthaniya
+  - Shiva divyasthaniya
+  - Shiva
+  - Sita Ramarahasya
+  - Sita
+  - Subrahmanya Hastasthita Astrayudha
+  - Subrahmanya
+  - Surya Mahabharatam
+  - Surya
+  - Tulasi
+  - Valli
+  - Venkatesha
+  - Venkateshwara
+  - Vishnu divyasthaniya
+- 300
+  - Lalita
+  - Rudra
+- 1000, 1008
+  - Gakaradi Ganapati
+  - Rama
+  - Saraswati
+  - Shanmukha
+  - Shiva
+  - Vakratunda Mahaganapati
+  - Vishnu
+
+## Stotras
+
+The first screen lists these section folders. Opening one lists its filenames with the extension removed. The page does not insert spaces into those names.
+
+- Adhyatma-Ramayana-Stotras
+  - AgastyaDwaraRamaSwarupaKathanam
+  - AgastyakrtaRamaStuti
+  - AhalyakrtaRamaStotram
+  - BharadwajakrtaRamaStuti
+  - Chandramopadesha
+  - DevaStuti
+  - HanumatSambhashanam
+  - JatayukrtaRamaStotram
+  - JnanaVijnanopadesha
+  - KabandhakrtaRamaStotram
+  - KalanemiSambhashanam
+  - KausalyakrtaRamaStotram
+  - KriyaYoga
+  - KumbhakarnaSambhashanam
+  - LakshmanaSambhashanam
+  - Lakshmanopadesha
+  - MandodariRavanaSamvada
+  - NaradaRamaSamvada
+  - NaradaStuti
+  - NavavidhabhaktiVarnanam
+  - ParashuramakrtaRamaStotram
+  - RamaGita
+  - RamaHrdayam
+  - RamakathaKathanam
+  - RamaSambhashanam
+  - RamavataraRahasyam
+  - Ramopadesha-UttaraKanda
+  - Ramopadesha
+  - RavanaSanatkumaraSamvadaKatha
+  - ShivakrtaRamaStuti
+  - ShukaSambhashanam
+  - SugrivakrtaRamaStotram
+  - SutikshnakrtaRamaStotram
+  - SvayamprabhaMoksha
+  - TaraTattvopadesha
+  - ValiSugrivaKatha
+  - ValmikiRamaSthanaVarnanam
+  - Valmikyopadesha
+  - Vasishthopadesha
+  - VibhishanakrtaRamaStotram
+  - ViradhakrtaRamaStotram
 - Dhyanam
-- Durga Ashtottara Shatanama Stotram
-- Durga Chandra Kala Stuti
-- Durga Pancharatnam
-- Durga Stotram
-- Dwadasharya Surya Stuti
-- Gakaradi Ganapati Sahasranama Stotram
-- Ganapati Ashtottara Shatanama Stotram
-- Ganapati Gakara Ashtottara Shatanama Stotram
-- Ganapati Stava
-- Ganashtakam
-- Ganesha Ashtottara Shatanama Stotram
-- Ganesha Bhujangam
-- Ganga Ashtottara Shatanama Stotram
-- Ganga Stuti
-- Gangakarshanashtakam
-- Gangashtakam
-- Gauri Ashtottara Shatanama Stotram
-- Gauri Dashakam
-- Gayatri Stotram
-- Gita Govindam
-- Goda Ashtottara Shatanama Stotram
-- Govindashtakam
-- Guha Pancharatnam
-- Guru Parampara
-- Guruvatapurisha Pancharatnam
-- Gurvashtakam
-- Hanumat Pancharatnam
-- Hanumat Sambhashanam
-- Harihara Ashtottara Shatanama Stotram
-- Hariharaputra Ashtottara Shatanama Stotram
-- Hariharatmajashtakam
-- Hayagriva Ashtottara Shatanama Stotram
-- Jatayukrta Rama Stotram
-- Jnana Vijnanopadesha
-- Kabandhakrta Rama Stotram
-- Kalabhairavashtakam
-- Kalanemi Sambhashanam
-- Kalidoshanivarana Stotram
-- Kalyana Vrishti Stotram
-- Kamakshi Mahatmyam
-- Kamakshi Stotram
-- Kamakshi Suprabhatam
-- Kanakadhara Stavam
-- Kanchi Kamakoti Guru Parampara Stava
-- Kanchi Kamakshi Churnika
-- Kanchi Swasti Vachanam
-- Kartaviryarjuna Stotram
-- Karttikasomavararghyam
-- Karttikeya Ashtottara Shatanama Stotram
-- Kausalyakrta Rama Stotram
-- Kaveri Prarthana
-- Ketu Panchavimshati Nama Stotram
-- Krishna Ashtottara Shatanama Stotram
-- Krishna Dwadasha Nama Stotram
-- Krishna Jananam
-- Krishna Nama Mahatmyam
-- Krishnashtakam1
-- Krishnashtakam2
-- Krishnashtakam3
-- Kriya Yoga
-- Kshama Prarthana
-- Kumbhakarna Sambhashanam
-- Lakshmana Sambhashanam
-- Lakshmanopadesha
-- Lakshmi Ashtottara Shatanama Stotram
-- Lakshmi Narayana Ashtottara Shatanama Stotram
-- Lakshmi Nrisimha Karavalamba Stotram
-- Lakshmi Nrisimha Karunarasa Stotram
-- Lakshmi Nrisimha Pancharatnam
-- Lakshmi Stotram
-- Lalita Pancharatnam
-- Lalita Trishati
-- Lingashtakam
-- Madhurashtakam
-- Maha Ganesha Pancharatnam
-- Mahabharata Dhyanam
-- Mahaganapati Navarnavedapada Stava
-- Mahalakshmi Stuti
-- Mahalakshmyashtakam
-- Mahishasuramardini Stotram
-- Mandodari Ravana Samvada
-- Margabandhu Stotram
-- Matribhuta Shatakam
-- Minakshi Pancharatnam
-- Muka Pancha Shati 10
-- Muka Sarah
-- Munikrta Rama Stotram
-- Narada Rama Samvada
-- Narada Stuti
-- Narayana Keshadipadanta Varnanam
-- Narmadashtakam
-- Navagraha Mangalashtakam
-- Navagraha Pidahara Stotram
-- Navagraha Stotram
-- Navavidhabhakti Varnanam
-- Nitya Shloka
-- Nrisimha Ashtottara Shatanama Stotram
-- Pandurangashtakam
-- Parabrahma Pratah Smaranam
-- Parashurama Krta Durga Stotram
-- Parashuramakrta Rama Stotram
-- Prajnavivardhana Karttikeya Stotram
-- Rahu Panchavimshati Nama Stotram
-- Rama Ashtottara Shatanama Stotram
-- Rama Bhujangaprayata Stotram
-- Rama Dwadasha Nama Stotram
-- Rama Hrdayam
-- Rama Sambhashanam
-- Rama Stava
-- Rama Stavaraja Stotram
-- Ramakatha Kathanam
-- Ramaraksha Stotram
-- Ramashtakam
-- Ramavatara Rahasyam
-- Ramayana Dhyanam
-- Ramopadesha
-- Ramopadesha Uttara Kanda
-- Ranganatha Gadyam
-- Ranganathashtakam
-- Ravana Sanatkumara Samvada Katha
-- Roga Nivarana Shloka
-- Rudra Stotram
-- Sadashivashtakam
-- Santanagopala Stotram
-- Saraswati Ashtottara Shatanama Stotram
-- Saraswati Prarthana
-- Saraswati Sahasranama Stotram
-- Saraswati Stotram(Agastya)
-- Saraswati Stotram(Brahma)
-- Saraswati Stotram(Brihaspati)
-- Saundarya Lahari
-- Shakti Ashtottara Shatadivyasthaniya Nama Stotram
-- Shambhu Stuti
-- Shanaishchara Ashtakam(Dasharatha)
-- Shankaracharya Ashtottara Shatanama Stotram
-- Sharada Bhujangaprayata Ashtakam
-- Sharada Prarthana
-- Shashthi Devi Stotram
-- Shasta Dashakam
-- Shitalashtakam
-- Shiva Ashtottara Shatadivyasthaniya Nama Stotram
-- Shiva Ashtottara Shatanama Stotram
-- Shiva Mahimna Stotram
-- Shiva Manasapuja
-- Shiva Panchakshara Stotram
-- Shiva Pratah Smarana Stotram
-- Shiva Sahasranama Stotram
-- Shiva Sahasranama Stotram Vishnu Krtam
-- Shiva Tandav Stotra
-- Shivakrta Rama Stuti
-- Shivaparadha Kshamapana Stotram
-- Shivaraksha Stotram
-- Shivashivaa Stuti
-- Shrinivasa Gadyam
-- Shuka Sambhashanam
-- Shukra Chaturvimshati Nama Stotram
-- Shyamala Dandakam
-- Sita Ashtottara Shatanama Stotram
-- Sita Rama Stotram
-- Skanda Shashthi Kavacham
-- Subrahmanya Ashtakam
-- Subrahmanya Ashtottara Shatanama Stotram
-- Subrahmanya Bhujangam
-- Subrahmanya Pancharatnam
-- Subrahmanya Shodasha Nama Stotram
-- Sugrivakrta Rama Stotram
-- Sundara Hanuman Maha Mantra Nama Stotram
-- Surya Ashtottara Shatanama Stotram
-- Surya Grahana Pidaparihara Shlokam
-- Surya Kavacham
-- Surya Mandala Stotram
-- Surya Pratah Smarana Stotram
-- Surya Sahasranama Stotram
-- Surya Stavaraja
-- Surya Stuti
-- Suryarya Stotram
-- Sutikshnakrta Rama Stotram
-- Svayamprabha Moksha
-- Tara Tattvopadesha
-- Totakashtakam
-- Tripurasundaryashtakam
-- Triveni Stotram
-- Tulasi Ashtottara Shatanama Stotram
-- Umamaheshwara Stotram
-- Vaidyanathashtakam
-- Vakratunda Mahaganapati Sahasranama Stotram
-- Vali Sugriva Katha
-- Valmiki Rama Sthana Varnanam
-- Valmikyopadesha
-- Vande Mataram
-- Vani Stavanam
-- Vasishthopadesha
-- Venkatesha Ashtakam
-- Venkatesha Ashtottara Shatanama Stotram
-- Venkatesha Dwadasha Nama Stotram
-- Venkatesha Karavalamba Stotram
-- Venkatesha Mangalashasanam
-- Venkatesha Prapatti
-- Venkatesha Stotram
-- Venkatesha Suprabhatam
-- Vibhishanakrta Rama Stotram
-- Vigneshwara Prarthana
-- Viradhakrta Rama Stotram
-- Vishnu Ashtottara Shatadivyasthaniya Nama Stotram
-- Vishnu Bhujangaprayata Stotram
-- Vishnu Sahasranama Stotram
-- Vishnu Vijaya Stotram
-- Vyasa Ashtottara Shatanama Stotram
-- Yamabhayanivarana Stotram
-- Yamashtakam
-- Yamunashtakam
-- Yudhishthira Krta Durga Stotram
-- Rāma Rakṣā Stotram (Ānanda Rāmāyaṇa).
-- Rāma Rakṣā Stotram (Padma Purāṇa).
-- Tārā Stotram.
+  - Dhyanam
+  - DhyanaShloka
+  - GuruParampara
+  - KanchiKamakshiChurnika
+  - KanchiSwastiVachanam
+  - MahabharataDhyanam
+  - NityaShloka
+  - ParabrahmaPratahSmaranam
+  - RamayanaDhyanam
+  - SaraswatiPrarthana
+  - VigneshwaraPrarthana
+- Ganesha
+  - GanapatiStava
+  - Ganashtakam
+  - GaneshaBhujangam
+  - MahaganapatiNavarnavedapadaStava
+  - MahaGaneshaPancharatnam
+- Guru
+  - KanchiKamakotiGuruParamparaStava
+- Hanuman
+  - ApaduddharakaDwadashamukhaHanumanStotram
+  - HanumanChalisa
+  - HanumatPancharatnam
+  - SundaraHanumanMahaMantraNamaStotram
+- Krishna
+  - Achyutashtakam
+  - AkrurakrtaDashavataraStuti
+  - Balamukundashtakam
+  - Balaraksha
+  - BhajaGovindam-laghu
+  - BhajaGovindam
+  - BhishmaStuti
+  - Damodarashtakam
+  - DhruvakrtaBhagavatStavam
+  - GitaGovindam
+  - Govindashtakam
+  - GuruvatapurishaPancharatnam
+  - KrishnaDwadashaNamaStotram
+  - KrishnaJananam
+  - Krishnashtakam1
+  - Krishnashtakam2
+  - Krishnashtakam3
+  - Madhurashtakam
+  - NarayanaKeshadipadantaVarnanam
+- Lakshmi
+  - KanakadharaStavam
+  - LakshmiStotram
+  - MahalakshmiStuti
+  - Mahalakshmyashtakam
+- Nadi
+  - Gangakarshanashtakam
+  - Gangashtakam
+  - GangaStuti
+  - KaveriPrarthana
+  - Narmadashtakam
+  - TriveniStotram
+  - Yamunashtakam
+- Navagraha
+  - AdityaHrdayam
+  - AngarakaStotram
+  - BrihaspatiStotram
+  - BudhaPanchavimshatiNamaStotram
+  - ChandraAshtavimshatiNamaStotram
+  - ChandraGrahanaPidapariharaShlokam
+  - DwadasharyaSuryaStuti
+  - KetuPanchavimshatiNamaStotram
+  - NavagrahaMangalashtakam
+  - NavagrahaPidaharaStotram
+  - NavagrahaStotram
+  - RahuPanchavimshatiNamaStotram
+  - ShanaishcharaAshtakam(Dasharatha)
+  - ShukraChaturvimshatiNamaStotram
+  - SuryaGrahanaPidapariharaShlokam
+  - SuryaKavacham
+  - SuryaMandalaStotram
+  - SuryaPratahSmaranaStotram
+  - SuryaryaStotram
+  - SuryaStavaraja
+  - SuryaStuti
+- Other
+  - AvaidhavyaPrarthanaStotram
+  - GakaradiGanapatiSahasranamaStotram
+  - KaishikaPuranam
+  - KalidoshanivaranaStotram
+  - KartaviryarjunaStotram
+  - KrishnaNamaMahatmyam
+  - LalitaTrishati
+  - MatribhutaShatakam
+  - RogaNivaranaShloka
+  - SankshepaRamayanam
+  - SantanagopalaStotram
+  - SaraswatiSahasranamaStotram
+  - SaundaryaLahari
+  - ShivaMahimnaStotram
+  - ShivaSahasranamaStotram-VishnuKrtam
+  - ShivaSahasranamaStotram
+  - SuryaSahasranamaStotram
+  - VakratundaMahaganapatiSahasranamaStotram
+  - VishnuSahasranamaStotram
+  - YamabhayanivaranaStotram
+  - Yamashtakam
+- Purti
+  - KshamaPrarthana
+  - VandeMataram
+- Rama
+  - AhalyakrtaRamaStotram
+  - ApaduddharanaStotram
+  - BrahmaKrtaRamaStava
+  - DevaihKrtaRamaStotram
+  - EkashlokiRamayanam
+  - GayatriRamayanam
+  - MunikrtaRamaStotram
+  - NamaRamayanam
+  - RamaBhujangaprayataStotram
+  - RamaDwadashaNamaStotram
+  - RamarakshaStotram
+  - Ramashtakam
+  - RamaStava
+  - RamaStavarajaStotram
+  - SitaRamaStotram
+- Saraswati
+  - SaraswatiStotram(Agastya)
+  - SaraswatiStotram(Brahma)
+  - SaraswatiStotram(Brihaspati)
+  - SharadaBhujangaprayataAshtakam
+  - SharadaPrarthana
+  - VaniStavanam
+- Shakti
+  - AnnapurnaStotram
+  - ArjunaKrtaDurgaStuti
+  - DurgaChandraKalaStuti
+  - DurgaPancharatnam
+  - DurgaStotram
+  - Gangashtakam
+  - GauriDashakam
+  - GayatriStotram
+  - KalyanaVrishtiStotram
+  - KamakshiMahatmyam
+  - KamakshiStotram
+  - KamakshiSuprabhatam
+  - LalitaPancharatnam
+  - MahishasuramardiniStotram
+  - MinakshiPancharatnam
+  - MukaPanchaShati_10
+  - MukaSarah
+  - ParashuramaKrtaDurgaStotram
+  - ShashthiDeviStotram
+  - Shitalashtakam
+  - ShyamalaDandakam
+  - Tripurasundaryashtakam
+  - TriveniStotram
+  - Yamunashtakam
+  - YudhishthiraKrtaDurgaStotram
+- Shasta
+  - Hariharatmajashtakam
+  - ShastaDashakam
+- Shatanama
+  - AdityaAshtottaraShatanamaStotram
+  - AnjaneyaAshtottaraShatanamaStotram
+  - AnnapurnaAshtottaraShatanamaStotram
+  - ArdhanarishvaraAshtottaraShatanamaStotram
+  - DhanvantariAshtottaraShatanamaStotram
+  - DurgaAshtottaraShatanamaStotram
+  - GanapatiAshtottaraShatanamaStotram
+  - GanapatiGakaraAshtottaraShatanamaStotram
+  - GaneshaAshtottaraShatanamaStotram
+  - GangaAshtottaraShatanamaStotram
+  - GauriAshtottaraShatanamaStotram
+  - GodaAshtottaraShatanamaStotram
+  - HariharaAshtottaraShatanamaStotram
+  - HariharaputraAshtottaraShatanamaStotram
+  - HayagrivaAshtottaraShatanamaStotram
+  - KarttikeyaAshtottaraShatanamaStotram
+  - KrishnaAshtottaraShatanamaStotram
+  - LakshmiAshtottaraShatanamaStotram
+  - LakshmiNarayanaAshtottaraShatanamaStotram
+  - NrisimhaAshtottaraShatanamaStotram
+  - RamaAshtottaraShatanamaStotram
+  - SaraswatiAshtottaraShatanamaStotram
+  - ShaktiAshtottaraShatadivyasthaniyaNamaStotram
+  - ShankaracharyaAshtottaraShatanamaStotram
+  - ShivaAshtottaraShatadivyasthaniyaNamaStotram
+  - ShivaAshtottaraShatanamaStotram
+  - SitaAshtottaraShatanamaStotram
+  - SubrahmanyaAshtottaraShatanamaStotram
+  - SuryaAshtottaraShatanamaStotram
+  - TulasiAshtottaraShatanamaStotram
+  - VenkateshaAshtottaraShatanamaStotram
+  - VishnuAshtottaraShatadivyasthaniyaNamaStotram
+  - VyasaAshtottaraShatanamaStotram
+- Shiva
+  - ArdhanarishwaraStotram
+  - Bilvashtakam
+  - CharanashringarahitaNatarajaStotram
+  - DakshinamurtiStotram
+  - DakshinamurtiStotram(SamaraPungavaDikshitaKrtam)
+  - DakshinamurtiStotram(VrishabhaDevaKritam)
+  - DakshinamurtiStotram(VrishabhaDevaKrtam)
+  - Dakshinamurtyashtakam
+  - Gurvashtakam
+  - Kalabhairavashtakam
+  - Karttikasomavararghyam
+  - Lingashtakam
+  - MargabandhuStotram
+  - RudraStotram
+  - Sadashivashtakam
+  - ShambhuStuti
+  - Shiva Tandav Stotra
+  - ShivaManasapuja
+  - ShivaPanchaksharaStotram
+  - ShivaparadhaKshamapanaStotram
+  - ShivaPratahSmaranaStotram
+  - ShivarakshaStotram
+  - ShivashivaaStuti
+  - Totakashtakam
+  - UmamaheshwaraStotram
+  - Vaidyanathashtakam
+- Subrahmanya
+  - GuhaPancharatnam
+  - PrajnavivardhanaKarttikeyaStotram
+  - SkandaShashthiKavacham
+  - SubrahmanyaAshtakam
+  - SubrahmanyaBhujangam
+  - SubrahmanyaPancharatnam
+  - SubrahmanyaShodashaNamaStotram
+- Venkatesha
+  - ShrinivasaGadyam
+  - VenkateshaAshtakam
+  - VenkateshaDwadashaNamaStotram
+  - VenkateshaKaravalambaStotram
+  - VenkateshaMangalashasanam
+  - VenkateshaPrapatti
+  - VenkateshaStotram
+  - VenkateshaSuprabhatam
+- Vishnu
+  - BrahmapaaraStotram
+  - DhanvatariStotram
+  - LakshmiNrisimhaKaravalambaStotram
+  - LakshmiNrisimhaKarunarasaStotram
+  - LakshmiNrisimhaPancharatnam
+  - Pandurangashtakam
+  - RanganathaGadyam
+  - Ranganathashtakam
+  - VishnuBhujangaprayataStotram
+  - VishnuVijayaStotram
+
 ## Stutis
+
 - Avadhuta Ashtakam Shuka Deva Stuti
 - Bhavani Stuti
 - Chidambaram Sri Nataraja Stuti
@@ -1001,76 +1434,100 @@ The repository also contains an identical mirror of the same 18 chapters in a se
 - Vishnu Stuti By Kandu Rishi
 - Vishnu Stuti By Markandeya Rishi
 
-## Svāminārāyaṇa Sampradāya Texts
-- Bal Charitra
-- Bhakta Chintamni
-- Bhakti Nidhi
-- Bhakti Nidhi English
+## Swaminarayan Sect
+
+On the main screen the first row is the fixed link Kirtan. Folders follow, then PDF names with `.pdf` removed. `kirtan.json` is not shown in that file list.
+
+- Kirtan
+- Ghanshyam-Leela
+  - Purvardh
+  - Utrardh
+- Nishkulanand Kavya Amrutdhara
+  - Amrutdhara-1
+  - Amrutdhara-2
+  - Amrutdhara-3
+  - Amrutdhara-4
+  - Amrutdhara-5
+- Satsangi-Jivan
+  - English
+    - Satsangi-Jivan-1
+    - Satsangi-Jivan-2
+    - Satsangi-Jivan-3
+    - Satsangi-Jivan-4
+    - Satsangi-Jivan-5
+  - Gujarati
+    - Satsangi-Jivan-1
+    - Satsangi-Jivan-2
+    - Satsangi-Jivan-3
+    - Satsangi-Jivan-4
+    - Satsangi-Jivan-5
+- Shikshapatri
+  - Shikshapatri-English
+  - Shikshapatri-Gujarati
+  - Shikshapatri-Hindi
+- Vachnamrut
+  - Vachnamrut-English
+  - Vachnamrut-Gujarati
+  - Vachnamrut-Gutko
+- Bal-Charitra
+- Bhakta-Chintamni
+- Bhakti-Nidhi-English
+- Bhakti-Nidhi
+- Chosathapadi-Amrutdhara
 - Chosathapadi
-- Chosathapadi Amrutdhara
-- Ekadashi Letter Gujarati
 - Ekadashi Mahatmya
-- Funral Rites
-- Ghanshyām Līlā — Pūrvārdha and Uttarārdha.
-- Ghar Satsang 1
-- Ghar Satsang 2
-- Hari Kavach English Translation
-- Haribal Gita
-- Harigita English
-- Harigita Gujarati
-- Indian Philosophy English
-- Janamangal Namavali Gujarati
-- Kutch Lila
-- Life Faith Of Lord Swaminarayan
+- Ekadashi-Letter-Gujarati
+- Funral-Rites
+- Ghar-Satsang-1
+- Ghar-Satsang-2
+- Hari-Kavach-English-Translation
+- Haribal-Gita
+- Harigita-English
+- Harigita-Gujarati
+- Indian-Philosophy-English
+- Janamangal-Namavali-Gujarati
+- Kutch-Lila
+- Life-Faith-Of-Lord-Swaminarayan
 - Mahapooja
-- Manganjan Amrutdhara
-- Nishkulanand Kavya
-- Niṣkulānanda Kāvyāmṛtadhārā — 5 volumes.
-- Nitya Niyam
-- Parcha Prakaran
-- Parshnavali English
-- Parshnavali Gujarati
-- Religious Rites
-- Saar Siddhi
-- Saar Siddhi Eng
-- Samaj Sudharak English
-- Samaj Sudharak Gujarati
-- Samaj Sudharak Hindi
-- Sanskar English
-- Sanskar Gujarati
+- Manganjan-Amrutdhara
+- Nishkulanand-Kavya
+- Nitya-Niyam
+- Parcha-Prakaran
+- Parshnavali-English
+- Parshnavali-Gujarati
+- Religious-Rites
+- Saar-Siddhi-Eng
+- Saar-Siddhi
+- Samaj-Sudharak-English
+- Samaj-Sudharak-Gujarati
+- Samaj-Sudharak-Hindi
+- Sanskar-English
+- Sanskar-Gujarati
 - Sarsiddhi
-- Sarvamangal Namavali
-- Satsang Setu
-- Satsaṅgī Jīvan — English edition, 5 volumes; Gujarati edition, 5 volumes.
-- Shandilya Shutra Bhashya
-- Shree Hari Kavach Gujarati Translation
-- Shree Hari Kavach Sanskrit In Gujarati
-- Shree Janamangal Katha Saar Gujarati
-- Śikṣāpatrī — English, Gujarati and Hindi editions.
-- Sneh Geeta
-- Sneha Gita
-- Swaminarayan Mahamantra English
-- Swaminarayan Mahamantra Gujarati
-- Thakorjini Seva Riti
+- Sarvamangal-Namavali
+- Satsang-Setu
+- Shandilya-Shutra-Bhashya
+- Shree-Hari-Kavach-Gujarati-Translation
+- Shree-Hari-Kavach-Sanskrit-In-Gujarati
+- Shree-Janamangal-Katha-Saar Gujarati
+- Sneh-Geeta
+- Sneha-Gita
+- Swaminarayan-Mahamantra-English
+- Swaminarayan-Mahamantra-Gujarati
+- Thakorjini-Seva-Riti
 - Tulsi
-- Vacanāmṛta — English, Gujarati and Gutko editions.
-- Vasudev Mahatmay Gujarati
-- Vasudev Mahatmya English
-- Vidur Niti
+- Vasudev-Mahatmay-Gujarati
+- Vasudev-Mahatmya-English
+- Vidur-Niti
 - Vishnusahasranam
-- Vrat Katha
-- Yamdand English
-- Kīrtan collection — individual compositions are stored with Gujarati and English titles, Kīrtan groups and pad numbers.
+- Vrat-Katha
+- Yamdand-English
 
-## Composite or multi-text volumes
-- 6 Darśanas — expanded above as Nyāya, Vaiśeṣika, Sāṃkhya, Yoga, Pūrva Mīmāṃsā and Uttara Mīmāṃsā/Vedānta.
-- Amarasaṃvādaḥ — expanded above as 15 separately titled Sanskrit Āratis / prayer pieces.
-- Ārati Saṅgraha, volume 2 — compiled PDF; its individual contents still require direct PDF text extraction.
-- Bhajan Saṅgraha — compiled PDF; its individual bhajan titles still require direct PDF text extraction.
+The Kirtan page reads `kirtan.json`. Its individual compositions are not listed here.
 
-## Notes on naming and scope
-- Numbered JSON files are represented as parts of the parent work, not as separate scriptures.
-- Where the repository stores multiple translations or volumes of one text, the list groups them under the text's name and identifies the available editions or volume divisions.
-- Where a collection page itself names internal divisions, those divisions are listed with the work.
-- The Ati-Purāṇa names are transcribed from the repository's own Puranas Overview page, while the Upa-Purāṇa list is based on distinct works present in the UpaPuranas data collection.
-- PDF titles are taken from the committed filenames. The GitHub file connector does not return PDF binary contents for page-level text extraction; therefore, Ārati Saṅgraha and Bhajan Saṅgraha remain identified as anthologies rather than expanded into every internal item. The Kīrtan JSON is present as a large structured dataset, but its full body is too large to retrieve through the repository text interface in one pass.
+## Stored paths that are not separate menu rows
+
+- `DharmicData/Purana/Harivansha Purana` is a second Harivansha dataset. The Maha Puranas page does not link it. The Upa Puranas page links `DharmicData/UpaPuranas/Harivansha Purana`.
+- `DharmicData/SrimadBhagvadGita` mirrors `DharmicData/Gitas/Bhagvad Gita`.
+- `DharmicData/Veda/Yajurveda/vajasneyi_kanva_samhita_chapters.json` is stored and is not linked from the Yajurveda page.
+

@@ -1580,273 +1580,273 @@ All **928 PDF files** are enumerated below, grouped by their actual `DharmicData
 - **Yama Smriti** — `DharmicData/Smritis/Yama Smriti.pdf`
 
 ### Stotras (267)
-- **AgastyaDwaraRamaSwarupaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AgastyaDwaraRamaSwarupaKathanam.pdf`
-- **AgastyakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AgastyakrtaRamaStuti.pdf`
-- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/AhalyakrtaRamaStotram.pdf`
-- **BharadwajakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/BharadwajakrtaRamaStuti.pdf`
-- **Chandramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Chandramopadesha.pdf`
-- **DevaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/DevaStuti.pdf`
-- **HanumatSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/HanumatSambhashanam.pdf`
-- **JatayukrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/JatayukrtaRamaStotram.pdf`
-- **JnanaVijnanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/JnanaVijnanopadesha.pdf`
-- **KabandhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KabandhakrtaRamaStotram.pdf`
-- **KalanemiSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KalanemiSambhashanam.pdf`
-- **KausalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KausalyakrtaRamaStotram.pdf`
-- **KriyaYoga** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KriyaYoga.pdf`
-- **KumbhakarnaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/KumbhakarnaSambhashanam.pdf`
-- **LakshmanaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/LakshmanaSambhashanam.pdf`
-- **Lakshmanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Lakshmanopadesha.pdf`
-- **MandodariRavanaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/MandodariRavanaSamvada.pdf`
-- **NaradaRamaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NaradaRamaSamvada.pdf`
-- **NaradaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NaradaStuti.pdf`
-- **NavavidhabhaktiVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/NavavidhabhaktiVarnanam.pdf`
-- **ParashuramakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ParashuramakrtaRamaStotram.pdf`
-- **RamaGita** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaGita.pdf`
-- **RamaHrdayam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaHrdayam.pdf`
-- **RamakathaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamakathaKathanam.pdf`
-- **RamaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamaSambhashanam.pdf`
-- **RamavataraRahasyam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RamavataraRahasyam.pdf`
-- **Ramopadesha-UttaraKanda** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramopadesha-UttaraKanda.pdf`
-- **Ramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramopadesha.pdf`
-- **RavanaSanatkumaraSamvadaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/RavanaSanatkumaraSamvadaKatha.pdf`
-- **ShivakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ShivakrtaRamaStuti.pdf`
-- **ShukaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ShukaSambhashanam.pdf`
-- **SugrivakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SugrivakrtaRamaStotram.pdf`
-- **SutikshnakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SutikshnakrtaRamaStotram.pdf`
-- **SvayamprabhaMoksha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/SvayamprabhaMoksha.pdf`
-- **TaraTattvopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/TaraTattvopadesha.pdf`
-- **ValiSugrivaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ValiSugrivaKatha.pdf`
-- **ValmikiRamaSthanaVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ValmikiRamaSthanaVarnanam.pdf`
-- **Valmikyopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Valmikyopadesha.pdf`
-- **Vasishthopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Vasishthopadesha.pdf`
-- **VibhishanakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/VibhishanakrtaRamaStotram.pdf`
-- **ViradhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/ViradhakrtaRamaStotram.pdf`
+- **AgastyaDwaraRamaSwarupaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Agastya Dwara Rama Swarupa Kathanam.pdf`
+- **AgastyakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Agastya Krta Rama Stuti.pdf`
+- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ahalya Krta Rama Stotram.pdf`
+- **BharadwajakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Bharadwaja Krta Rama Stuti.pdf`
+- **Chandramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Chandrama Upadesha.pdf`
+- **DevaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Deva Stuti.pdf`
+- **HanumatSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Hanumat Sambhashanam.pdf`
+- **JatayukrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Jatayu Krta Rama Stotram.pdf`
+- **JnanaVijnanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Jnana Vijnana Upadesha.pdf`
+- **KabandhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Kabandha Krta Rama Stotram.pdf`
+- **KalanemiSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Kalanemi Sambhashanam.pdf`
+- **KausalyakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Kausalya Krta Rama Stotram.pdf`
+- **KriyaYoga** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Kriya Yoga.pdf`
+- **KumbhakarnaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Kumbhakarna Sambhashanam.pdf`
+- **LakshmanaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Lakshmana Sambhashanam.pdf`
+- **Lakshmanopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Lakshmana Upadesha.pdf`
+- **MandodariRavanaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Mandodari Ravana Samvada.pdf`
+- **NaradaRamaSamvada** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Narada Rama Samvada.pdf`
+- **NaradaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Narada Stuti.pdf`
+- **NavavidhabhaktiVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Navavidhabhakti Varnanam.pdf`
+- **ParashuramakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Parashurama Krta Rama Stotram.pdf`
+- **RamaGita** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Rama Gita.pdf`
+- **RamaHrdayam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Rama Hrdayam.pdf`
+- **RamakathaKathanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramakatha Kathanam.pdf`
+- **RamaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Rama Sambhashanam.pdf`
+- **RamavataraRahasyam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ramavatara Rahasyam.pdf`
+- **Ramopadesha-UttaraKanda** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Rama Upadesha (Uttara Kanda).pdf`
+- **Ramopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Rama Upadesha.pdf`
+- **RavanaSanatkumaraSamvadaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Ravana Sanatkumara Samvada Katha.pdf`
+- **ShivakrtaRamaStuti** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Shiva Krta Rama Stuti.pdf`
+- **ShukaSambhashanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Shuka Sambhashanam.pdf`
+- **SugrivakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Sugriva Krta Rama Stotram.pdf`
+- **SutikshnakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Sutikshna Krta Rama Stotram.pdf`
+- **SvayamprabhaMoksha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Svayamprabha Moksha.pdf`
+- **TaraTattvopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Tara Tattva Upadesha.pdf`
+- **ValiSugrivaKatha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Vali Sugriva Katha.pdf`
+- **ValmikiRamaSthanaVarnanam** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Valmiki Rama Sthana Varnanam.pdf`
+- **Valmikyopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Valmiki Upadesha.pdf`
+- **Vasishthopadesha** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Vasishtha Upadesha.pdf`
+- **VibhishanakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Vibhishana Krta Rama Stotram.pdf`
+- **ViradhakrtaRamaStotram** — `DharmicData/Stotras/Adhyatma-Ramayana-Stotras/Viradha Krta Rama Stotram.pdf`
 - **Dhyanam** — `DharmicData/Stotras/Dhyanam/Dhyanam.pdf`
-- **DhyanaShloka** — `DharmicData/Stotras/Dhyanam/DhyanaShloka.pdf`
-- **GuruParampara** — `DharmicData/Stotras/Dhyanam/GuruParampara.pdf`
-- **KanchiKamakshiChurnika** — `DharmicData/Stotras/Dhyanam/KanchiKamakshiChurnika.pdf`
-- **KanchiSwastiVachanam** — `DharmicData/Stotras/Dhyanam/KanchiSwastiVachanam.pdf`
-- **MahabharataDhyanam** — `DharmicData/Stotras/Dhyanam/MahabharataDhyanam.pdf`
-- **NityaShloka** — `DharmicData/Stotras/Dhyanam/NityaShloka.pdf`
-- **ParabrahmaPratahSmaranam** — `DharmicData/Stotras/Dhyanam/ParabrahmaPratahSmaranam.pdf`
-- **RamayanaDhyanam** — `DharmicData/Stotras/Dhyanam/RamayanaDhyanam.pdf`
-- **SaraswatiPrarthana** — `DharmicData/Stotras/Dhyanam/SaraswatiPrarthana.pdf`
-- **VigneshwaraPrarthana** — `DharmicData/Stotras/Dhyanam/VigneshwaraPrarthana.pdf`
-- **GanapatiStava** — `DharmicData/Stotras/Ganesha/GanapatiStava.pdf`
-- **Ganashtakam** — `DharmicData/Stotras/Ganesha/Ganashtakam.pdf`
-- **GaneshaBhujangam** — `DharmicData/Stotras/Ganesha/GaneshaBhujangam.pdf`
-- **MahaganapatiNavarnavedapadaStava** — `DharmicData/Stotras/Ganesha/MahaganapatiNavarnavedapadaStava.pdf`
-- **MahaGaneshaPancharatnam** — `DharmicData/Stotras/Ganesha/MahaGaneshaPancharatnam.pdf`
-- **KanchiKamakotiGuruParamparaStava** — `DharmicData/Stotras/Guru/KanchiKamakotiGuruParamparaStava.pdf`
-- **ApaduddharakaDwadashamukhaHanumanStotram** — `DharmicData/Stotras/Hanuman/ApaduddharakaDwadashamukhaHanumanStotram.pdf`
-- **HanumanChalisa** — `DharmicData/Stotras/Hanuman/HanumanChalisa.pdf`
-- **HanumatPancharatnam** — `DharmicData/Stotras/Hanuman/HanumatPancharatnam.pdf`
-- **SundaraHanumanMahaMantraNamaStotram** — `DharmicData/Stotras/Hanuman/SundaraHanumanMahaMantraNamaStotram.pdf`
-- **Achyutashtakam** — `DharmicData/Stotras/Krishna/Achyutashtakam.pdf`
-- **AkrurakrtaDashavataraStuti** — `DharmicData/Stotras/Krishna/AkrurakrtaDashavataraStuti.pdf`
-- **Balamukundashtakam** — `DharmicData/Stotras/Krishna/Balamukundashtakam.pdf`
-- **Balaraksha** — `DharmicData/Stotras/Krishna/Balaraksha.pdf`
-- **BhajaGovindam-laghu** — `DharmicData/Stotras/Krishna/BhajaGovindam-laghu.pdf`
-- **BhajaGovindam** — `DharmicData/Stotras/Krishna/BhajaGovindam.pdf`
-- **BhishmaStuti** — `DharmicData/Stotras/Krishna/BhishmaStuti.pdf`
-- **Damodarashtakam** — `DharmicData/Stotras/Krishna/Damodarashtakam.pdf`
-- **DhruvakrtaBhagavatStavam** — `DharmicData/Stotras/Krishna/DhruvakrtaBhagavatStavam.pdf`
-- **GitaGovindam** — `DharmicData/Stotras/Krishna/GitaGovindam.pdf`
-- **Govindashtakam** — `DharmicData/Stotras/Krishna/Govindashtakam.pdf`
-- **GuruvatapurishaPancharatnam** — `DharmicData/Stotras/Krishna/GuruvatapurishaPancharatnam.pdf`
-- **KrishnaDwadashaNamaStotram** — `DharmicData/Stotras/Krishna/KrishnaDwadashaNamaStotram.pdf`
-- **KrishnaJananam** — `DharmicData/Stotras/Krishna/KrishnaJananam.pdf`
-- **Krishnashtakam1** — `DharmicData/Stotras/Krishna/Krishnashtakam1.pdf`
-- **Krishnashtakam2** — `DharmicData/Stotras/Krishna/Krishnashtakam2.pdf`
-- **Krishnashtakam3** — `DharmicData/Stotras/Krishna/Krishnashtakam3.pdf`
-- **Madhurashtakam** — `DharmicData/Stotras/Krishna/Madhurashtakam.pdf`
-- **NarayanaKeshadipadantaVarnanam** — `DharmicData/Stotras/Krishna/NarayanaKeshadipadantaVarnanam.pdf`
-- **KanakadharaStavam** — `DharmicData/Stotras/Lakshmi/KanakadharaStavam.pdf`
-- **LakshmiStotram** — `DharmicData/Stotras/Lakshmi/LakshmiStotram.pdf`
-- **MahalakshmiStuti** — `DharmicData/Stotras/Lakshmi/MahalakshmiStuti.pdf`
-- **Mahalakshmyashtakam** — `DharmicData/Stotras/Lakshmi/Mahalakshmyashtakam.pdf`
-- **Gangakarshanashtakam** — `DharmicData/Stotras/Nadi/Gangakarshanashtakam.pdf`
-- **Gangashtakam** — `DharmicData/Stotras/Nadi/Gangashtakam.pdf`
-- **GangaStuti** — `DharmicData/Stotras/Nadi/GangaStuti.pdf`
-- **KaveriPrarthana** — `DharmicData/Stotras/Nadi/KaveriPrarthana.pdf`
-- **Narmadashtakam** — `DharmicData/Stotras/Nadi/Narmadashtakam.pdf`
-- **TriveniStotram** — `DharmicData/Stotras/Nadi/TriveniStotram.pdf`
-- **Yamunashtakam** — `DharmicData/Stotras/Nadi/Yamunashtakam.pdf`
-- **AdityaHrdayam** — `DharmicData/Stotras/Navagraha/AdityaHrdayam.pdf`
-- **AngarakaStotram** — `DharmicData/Stotras/Navagraha/AngarakaStotram.pdf`
-- **BrihaspatiStotram** — `DharmicData/Stotras/Navagraha/BrihaspatiStotram.pdf`
-- **BudhaPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/BudhaPanchavimshatiNamaStotram.pdf`
-- **ChandraAshtavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/ChandraAshtavimshatiNamaStotram.pdf`
-- **ChandraGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/ChandraGrahanaPidapariharaShlokam.pdf`
-- **DwadasharyaSuryaStuti** — `DharmicData/Stotras/Navagraha/DwadasharyaSuryaStuti.pdf`
-- **KetuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/KetuPanchavimshatiNamaStotram.pdf`
-- **NavagrahaMangalashtakam** — `DharmicData/Stotras/Navagraha/NavagrahaMangalashtakam.pdf`
-- **NavagrahaPidaharaStotram** — `DharmicData/Stotras/Navagraha/NavagrahaPidaharaStotram.pdf`
-- **NavagrahaStotram** — `DharmicData/Stotras/Navagraha/NavagrahaStotram.pdf`
-- **RahuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/RahuPanchavimshatiNamaStotram.pdf`
-- **ShanaishcharaAshtakam(Dasharatha)** — `DharmicData/Stotras/Navagraha/ShanaishcharaAshtakam(Dasharatha).pdf`
-- **ShukraChaturvimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/ShukraChaturvimshatiNamaStotram.pdf`
-- **SuryaGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/SuryaGrahanaPidapariharaShlokam.pdf`
-- **SuryaKavacham** — `DharmicData/Stotras/Navagraha/SuryaKavacham.pdf`
-- **SuryaMandalaStotram** — `DharmicData/Stotras/Navagraha/SuryaMandalaStotram.pdf`
-- **SuryaPratahSmaranaStotram** — `DharmicData/Stotras/Navagraha/SuryaPratahSmaranaStotram.pdf`
-- **SuryaryaStotram** — `DharmicData/Stotras/Navagraha/SuryaryaStotram.pdf`
-- **SuryaStavaraja** — `DharmicData/Stotras/Navagraha/SuryaStavaraja.pdf`
-- **SuryaStuti** — `DharmicData/Stotras/Navagraha/SuryaStuti.pdf`
-- **AvaidhavyaPrarthanaStotram** — `DharmicData/Stotras/Other/AvaidhavyaPrarthanaStotram.pdf`
-- **GakaradiGanapatiSahasranamaStotram** — `DharmicData/Stotras/Other/GakaradiGanapatiSahasranamaStotram.pdf`
-- **KaishikaPuranam** — `DharmicData/Stotras/Other/KaishikaPuranam.pdf`
-- **KalidoshanivaranaStotram** — `DharmicData/Stotras/Other/KalidoshanivaranaStotram.pdf`
-- **KartaviryarjunaStotram** — `DharmicData/Stotras/Other/KartaviryarjunaStotram.pdf`
-- **KrishnaNamaMahatmyam** — `DharmicData/Stotras/Other/KrishnaNamaMahatmyam.pdf`
-- **LalitaTrishati** — `DharmicData/Stotras/Other/LalitaTrishati.pdf`
-- **MatribhutaShatakam** — `DharmicData/Stotras/Other/MatribhutaShatakam.pdf`
-- **RogaNivaranaShloka** — `DharmicData/Stotras/Other/RogaNivaranaShloka.pdf`
-- **SankshepaRamayanam** — `DharmicData/Stotras/Other/SankshepaRamayanam.pdf`
-- **SantanagopalaStotram** — `DharmicData/Stotras/Other/SantanagopalaStotram.pdf`
-- **SaraswatiSahasranamaStotram** — `DharmicData/Stotras/Other/SaraswatiSahasranamaStotram.pdf`
-- **SaundaryaLahari** — `DharmicData/Stotras/Other/SaundaryaLahari.pdf`
-- **ShivaMahimnaStotram** — `DharmicData/Stotras/Other/ShivaMahimnaStotram.pdf`
-- **ShivaSahasranamaStotram-VishnuKrtam** — `DharmicData/Stotras/Other/ShivaSahasranamaStotram-VishnuKrtam.pdf`
-- **ShivaSahasranamaStotram** — `DharmicData/Stotras/Other/ShivaSahasranamaStotram.pdf`
-- **SuryaSahasranamaStotram** — `DharmicData/Stotras/Other/SuryaSahasranamaStotram.pdf`
-- **VakratundaMahaganapatiSahasranamaStotram** — `DharmicData/Stotras/Other/VakratundaMahaganapatiSahasranamaStotram.pdf`
-- **VishnuSahasranamaStotram** — `DharmicData/Stotras/Other/VishnuSahasranamaStotram.pdf`
-- **YamabhayanivaranaStotram** — `DharmicData/Stotras/Other/YamabhayanivaranaStotram.pdf`
-- **Yamashtakam** — `DharmicData/Stotras/Other/Yamashtakam.pdf`
-- **KshamaPrarthana** — `DharmicData/Stotras/Purti/KshamaPrarthana.pdf`
-- **VandeMataram** — `DharmicData/Stotras/Purti/VandeMataram.pdf`
-- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Rama/AhalyakrtaRamaStotram.pdf`
-- **ApaduddharanaStotram** — `DharmicData/Stotras/Rama/ApaduddharanaStotram.pdf`
-- **BrahmaKrtaRamaStava** — `DharmicData/Stotras/Rama/BrahmaKrtaRamaStava.pdf`
-- **DevaihKrtaRamaStotram** — `DharmicData/Stotras/Rama/DevaihKrtaRamaStotram.pdf`
-- **EkashlokiRamayanam** — `DharmicData/Stotras/Rama/EkashlokiRamayanam.pdf`
-- **GayatriRamayanam** — `DharmicData/Stotras/Rama/GayatriRamayanam.pdf`
-- **MunikrtaRamaStotram** — `DharmicData/Stotras/Rama/MunikrtaRamaStotram.pdf`
-- **NamaRamayanam** — `DharmicData/Stotras/Rama/NamaRamayanam.pdf`
-- **RamaBhujangaprayataStotram** — `DharmicData/Stotras/Rama/RamaBhujangaprayataStotram.pdf`
-- **RamaDwadashaNamaStotram** — `DharmicData/Stotras/Rama/RamaDwadashaNamaStotram.pdf`
-- **RamarakshaStotram** — `DharmicData/Stotras/Rama/RamarakshaStotram.pdf`
-- **Ramashtakam** — `DharmicData/Stotras/Rama/Ramashtakam.pdf`
-- **RamaStava** — `DharmicData/Stotras/Rama/RamaStava.pdf`
-- **RamaStavarajaStotram** — `DharmicData/Stotras/Rama/RamaStavarajaStotram.pdf`
-- **SitaRamaStotram** — `DharmicData/Stotras/Rama/SitaRamaStotram.pdf`
-- **SaraswatiStotram(Agastya)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Agastya).pdf`
-- **SaraswatiStotram(Brahma)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Brahma).pdf`
-- **SaraswatiStotram(Brihaspati)** — `DharmicData/Stotras/Saraswati/SaraswatiStotram(Brihaspati).pdf`
-- **SharadaBhujangaprayataAshtakam** — `DharmicData/Stotras/Saraswati/SharadaBhujangaprayataAshtakam.pdf`
-- **SharadaPrarthana** — `DharmicData/Stotras/Saraswati/SharadaPrarthana.pdf`
-- **VaniStavanam** — `DharmicData/Stotras/Saraswati/VaniStavanam.pdf`
-- **AnnapurnaStotram** — `DharmicData/Stotras/Shakti/AnnapurnaStotram.pdf`
-- **ArjunaKrtaDurgaStuti** — `DharmicData/Stotras/Shakti/ArjunaKrtaDurgaStuti.pdf`
-- **DurgaChandraKalaStuti** — `DharmicData/Stotras/Shakti/DurgaChandraKalaStuti.pdf`
-- **DurgaPancharatnam** — `DharmicData/Stotras/Shakti/DurgaPancharatnam.pdf`
-- **DurgaStotram** — `DharmicData/Stotras/Shakti/DurgaStotram.pdf`
-- **Gangashtakam** — `DharmicData/Stotras/Shakti/Gangashtakam.pdf`
-- **GauriDashakam** — `DharmicData/Stotras/Shakti/GauriDashakam.pdf`
-- **GayatriStotram** — `DharmicData/Stotras/Shakti/GayatriStotram.pdf`
-- **KalyanaVrishtiStotram** — `DharmicData/Stotras/Shakti/KalyanaVrishtiStotram.pdf`
-- **KamakshiMahatmyam** — `DharmicData/Stotras/Shakti/KamakshiMahatmyam.pdf`
-- **KamakshiStotram** — `DharmicData/Stotras/Shakti/KamakshiStotram.pdf`
-- **KamakshiSuprabhatam** — `DharmicData/Stotras/Shakti/KamakshiSuprabhatam.pdf`
-- **LalitaPancharatnam** — `DharmicData/Stotras/Shakti/LalitaPancharatnam.pdf`
-- **MahishasuramardiniStotram** — `DharmicData/Stotras/Shakti/MahishasuramardiniStotram.pdf`
-- **MinakshiPancharatnam** — `DharmicData/Stotras/Shakti/MinakshiPancharatnam.pdf`
-- **MukaPanchaShati_10** — `DharmicData/Stotras/Shakti/MukaPanchaShati_10.pdf`
-- **MukaSarah** — `DharmicData/Stotras/Shakti/MukaSarah.pdf`
-- **ParashuramaKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/ParashuramaKrtaDurgaStotram.pdf`
-- **ShashthiDeviStotram** — `DharmicData/Stotras/Shakti/ShashthiDeviStotram.pdf`
-- **Shitalashtakam** — `DharmicData/Stotras/Shakti/Shitalashtakam.pdf`
-- **ShyamalaDandakam** — `DharmicData/Stotras/Shakti/ShyamalaDandakam.pdf`
-- **Tripurasundaryashtakam** — `DharmicData/Stotras/Shakti/Tripurasundaryashtakam.pdf`
-- **TriveniStotram** — `DharmicData/Stotras/Shakti/TriveniStotram.pdf`
-- **Yamunashtakam** — `DharmicData/Stotras/Shakti/Yamunashtakam.pdf`
-- **YudhishthiraKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/YudhishthiraKrtaDurgaStotram.pdf`
-- **Hariharatmajashtakam** — `DharmicData/Stotras/Shasta/Hariharatmajashtakam.pdf`
-- **ShastaDashakam** — `DharmicData/Stotras/Shasta/ShastaDashakam.pdf`
-- **AdityaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AdityaAshtottaraShatanamaStotram.pdf`
-- **AnjaneyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AnjaneyaAshtottaraShatanamaStotram.pdf`
-- **AnnapurnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/AnnapurnaAshtottaraShatanamaStotram.pdf`
-- **ArdhanarishvaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ArdhanarishvaraAshtottaraShatanamaStotram.pdf`
-- **DhanvantariAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/DhanvantariAshtottaraShatanamaStotram.pdf`
-- **DurgaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/DurgaAshtottaraShatanamaStotram.pdf`
-- **GanapatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GanapatiAshtottaraShatanamaStotram.pdf`
-- **GanapatiGakaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GanapatiGakaraAshtottaraShatanamaStotram.pdf`
-- **GaneshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GaneshaAshtottaraShatanamaStotram.pdf`
-- **GangaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GangaAshtottaraShatanamaStotram.pdf`
-- **GauriAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GauriAshtottaraShatanamaStotram.pdf`
-- **GodaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/GodaAshtottaraShatanamaStotram.pdf`
-- **HariharaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HariharaAshtottaraShatanamaStotram.pdf`
-- **HariharaputraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HariharaputraAshtottaraShatanamaStotram.pdf`
-- **HayagrivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/HayagrivaAshtottaraShatanamaStotram.pdf`
-- **KarttikeyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/KarttikeyaAshtottaraShatanamaStotram.pdf`
-- **KrishnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/KrishnaAshtottaraShatanamaStotram.pdf`
-- **LakshmiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/LakshmiAshtottaraShatanamaStotram.pdf`
-- **LakshmiNarayanaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/LakshmiNarayanaAshtottaraShatanamaStotram.pdf`
-- **NrisimhaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/NrisimhaAshtottaraShatanamaStotram.pdf`
-- **RamaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/RamaAshtottaraShatanamaStotram.pdf`
-- **SaraswatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SaraswatiAshtottaraShatanamaStotram.pdf`
-- **ShaktiAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/ShaktiAshtottaraShatadivyasthaniyaNamaStotram.pdf`
-- **ShankaracharyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ShankaracharyaAshtottaraShatanamaStotram.pdf`
-- **ShivaAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/ShivaAshtottaraShatadivyasthaniyaNamaStotram.pdf`
-- **ShivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/ShivaAshtottaraShatanamaStotram.pdf`
-- **SitaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SitaAshtottaraShatanamaStotram.pdf`
-- **SubrahmanyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SubrahmanyaAshtottaraShatanamaStotram.pdf`
-- **SuryaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/SuryaAshtottaraShatanamaStotram.pdf`
-- **TulasiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/TulasiAshtottaraShatanamaStotram.pdf`
-- **VenkateshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/VenkateshaAshtottaraShatanamaStotram.pdf`
-- **VishnuAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/VishnuAshtottaraShatadivyasthaniyaNamaStotram.pdf`
-- **VyasaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/VyasaAshtottaraShatanamaStotram.pdf`
-- **ArdhanarishwaraStotram** — `DharmicData/Stotras/Shiva/ArdhanarishwaraStotram.pdf`
-- **Bilvashtakam** — `DharmicData/Stotras/Shiva/Bilvashtakam.pdf`
-- **CharanashringarahitaNatarajaStotram** — `DharmicData/Stotras/Shiva/CharanashringarahitaNatarajaStotram.pdf`
-- **DakshinamurtiStotram** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram.pdf`
-- **DakshinamurtiStotram(SamaraPungavaDikshitaKrtam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(SamaraPungavaDikshitaKrtam).pdf`
-- **DakshinamurtiStotram(VrishabhaDevaKritam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(VrishabhaDevaKritam).pdf`
-- **DakshinamurtiStotram(VrishabhaDevaKrtam)** — `DharmicData/Stotras/Shiva/DakshinamurtiStotram(VrishabhaDevaKrtam).pdf`
-- **Dakshinamurtyashtakam** — `DharmicData/Stotras/Shiva/Dakshinamurtyashtakam.pdf`
-- **Gurvashtakam** — `DharmicData/Stotras/Shiva/Gurvashtakam.pdf`
-- **Kalabhairavashtakam** — `DharmicData/Stotras/Shiva/Kalabhairavashtakam.pdf`
-- **Karttikasomavararghyam** — `DharmicData/Stotras/Shiva/Karttikasomavararghyam.pdf`
-- **Lingashtakam** — `DharmicData/Stotras/Shiva/Lingashtakam.pdf`
-- **MargabandhuStotram** — `DharmicData/Stotras/Shiva/MargabandhuStotram.pdf`
-- **RudraStotram** — `DharmicData/Stotras/Shiva/RudraStotram.pdf`
-- **Sadashivashtakam** — `DharmicData/Stotras/Shiva/Sadashivashtakam.pdf`
-- **ShambhuStuti** — `DharmicData/Stotras/Shiva/ShambhuStuti.pdf`
-- **ShivaManasapuja** — `DharmicData/Stotras/Shiva/ShivaManasapuja.pdf`
-- **ShivaPanchaksharaStotram** — `DharmicData/Stotras/Shiva/ShivaPanchaksharaStotram.pdf`
-- **ShivaparadhaKshamapanaStotram** — `DharmicData/Stotras/Shiva/ShivaparadhaKshamapanaStotram.pdf`
-- **ShivaPratahSmaranaStotram** — `DharmicData/Stotras/Shiva/ShivaPratahSmaranaStotram.pdf`
-- **ShivarakshaStotram** — `DharmicData/Stotras/Shiva/ShivarakshaStotram.pdf`
-- **ShivashivaaStuti** — `DharmicData/Stotras/Shiva/ShivashivaaStuti.pdf`
-- **Totakashtakam** — `DharmicData/Stotras/Shiva/Totakashtakam.pdf`
-- **UmamaheshwaraStotram** — `DharmicData/Stotras/Shiva/UmamaheshwaraStotram.pdf`
-- **Vaidyanathashtakam** — `DharmicData/Stotras/Shiva/Vaidyanathashtakam.pdf`
-- **GuhaPancharatnam** — `DharmicData/Stotras/Subrahmanya/GuhaPancharatnam.pdf`
-- **PrajnavivardhanaKarttikeyaStotram** — `DharmicData/Stotras/Subrahmanya/PrajnavivardhanaKarttikeyaStotram.pdf`
-- **SkandaShashthiKavacham** — `DharmicData/Stotras/Subrahmanya/SkandaShashthiKavacham.pdf`
-- **SubrahmanyaAshtakam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaAshtakam.pdf`
-- **SubrahmanyaBhujangam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaBhujangam.pdf`
-- **SubrahmanyaPancharatnam** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaPancharatnam.pdf`
-- **SubrahmanyaShodashaNamaStotram** — `DharmicData/Stotras/Subrahmanya/SubrahmanyaShodashaNamaStotram.pdf`
-- **ShrinivasaGadyam** — `DharmicData/Stotras/Venkatesha/ShrinivasaGadyam.pdf`
-- **VenkateshaAshtakam** — `DharmicData/Stotras/Venkatesha/VenkateshaAshtakam.pdf`
-- **VenkateshaDwadashaNamaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaDwadashaNamaStotram.pdf`
-- **VenkateshaKaravalambaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaKaravalambaStotram.pdf`
-- **VenkateshaMangalashasanam** — `DharmicData/Stotras/Venkatesha/VenkateshaMangalashasanam.pdf`
-- **VenkateshaPrapatti** — `DharmicData/Stotras/Venkatesha/VenkateshaPrapatti.pdf`
-- **VenkateshaStotram** — `DharmicData/Stotras/Venkatesha/VenkateshaStotram.pdf`
-- **VenkateshaSuprabhatam** — `DharmicData/Stotras/Venkatesha/VenkateshaSuprabhatam.pdf`
-- **BrahmapaaraStotram** — `DharmicData/Stotras/Vishnu/BrahmapaaraStotram.pdf`
-- **DhanvatariStotram** — `DharmicData/Stotras/Vishnu/DhanvatariStotram.pdf`
-- **LakshmiNrisimhaKaravalambaStotram** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaKaravalambaStotram.pdf`
-- **LakshmiNrisimhaKarunarasaStotram** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaKarunarasaStotram.pdf`
-- **LakshmiNrisimhaPancharatnam** — `DharmicData/Stotras/Vishnu/LakshmiNrisimhaPancharatnam.pdf`
-- **Pandurangashtakam** — `DharmicData/Stotras/Vishnu/Pandurangashtakam.pdf`
-- **RanganathaGadyam** — `DharmicData/Stotras/Vishnu/RanganathaGadyam.pdf`
-- **Ranganathashtakam** — `DharmicData/Stotras/Vishnu/Ranganathashtakam.pdf`
-- **VishnuBhujangaprayataStotram** — `DharmicData/Stotras/Vishnu/VishnuBhujangaprayataStotram.pdf`
-- **VishnuVijayaStotram** — `DharmicData/Stotras/Vishnu/VishnuVijayaStotram.pdf`
+- **DhyanaShloka** — `DharmicData/Stotras/Dhyanam/Dhyana Shloka.pdf`
+- **GuruParampara** — `DharmicData/Stotras/Dhyanam/Guru Parampara.pdf`
+- **KanchiKamakshiChurnika** — `DharmicData/Stotras/Dhyanam/Kanchi Kamakshi Churnika.pdf`
+- **KanchiSwastiVachanam** — `DharmicData/Stotras/Dhyanam/Kanchi Swasti Vachanam.pdf`
+- **MahabharataDhyanam** — `DharmicData/Stotras/Dhyanam/Mahabharata Dhyanam.pdf`
+- **NityaShloka** — `DharmicData/Stotras/Dhyanam/Nitya Shloka.pdf`
+- **ParabrahmaPratahSmaranam** — `DharmicData/Stotras/Dhyanam/Parabrahma Pratah Smaranam.pdf`
+- **RamayanaDhyanam** — `DharmicData/Stotras/Dhyanam/Ramayana Dhyanam.pdf`
+- **SaraswatiPrarthana** — `DharmicData/Stotras/Dhyanam/Saraswati Prarthana.pdf`
+- **VigneshwaraPrarthana** — `DharmicData/Stotras/Dhyanam/Vigneshwara Prarthana.pdf`
+- **GanapatiStava** — `DharmicData/Stotras/Ganesha/Ganapati Stava.pdf`
+- **Ganashtakam** — `DharmicData/Stotras/Ganesha/Gana Ashtakam.pdf`
+- **GaneshaBhujangam** — `DharmicData/Stotras/Ganesha/Ganesha Bhujangam.pdf`
+- **MahaganapatiNavarnavedapadaStava** — `DharmicData/Stotras/Ganesha/Mahaganapati Navarnavedapada Stava.pdf`
+- **MahaGaneshaPancharatnam** — `DharmicData/Stotras/Ganesha/Maha Ganesha Pancharatnam.pdf`
+- **KanchiKamakotiGuruParamparaStava** — `DharmicData/Stotras/Guru/Kanchi Kamakoti Guru Parampara Stava.pdf`
+- **ApaduddharakaDwadashamukhaHanumanStotram** — `DharmicData/Stotras/Hanuman/Apaduddharaka Dwadashamukha Hanuman Stotram.pdf`
+- **HanumanChalisa** — `DharmicData/Stotras/Hanuman/Hanuman Chalisa.pdf`
+- **HanumatPancharatnam** — `DharmicData/Stotras/Hanuman/Hanumat Pancharatnam.pdf`
+- **SundaraHanumanMahaMantraNamaStotram** — `DharmicData/Stotras/Hanuman/Sundara Hanuman Maha Mantra Nama Stotram.pdf`
+- **Achyutashtakam** — `DharmicData/Stotras/Krishna/Achyuta Ashtakam.pdf`
+- **AkrurakrtaDashavataraStuti** — `DharmicData/Stotras/Krishna/Akrura Krta Dashavatara Stuti.pdf`
+- **Balamukundashtakam** — `DharmicData/Stotras/Krishna/Bala Mukunda Ashtakam.pdf`
+- **Balaraksha** — `DharmicData/Stotras/Krishna/Bala Raksha.pdf`
+- **BhajaGovindam-laghu** — `DharmicData/Stotras/Krishna/Bhaja Govindam (Laghu).pdf`
+- **BhajaGovindam** — `DharmicData/Stotras/Krishna/Bhaja Govindam.pdf`
+- **BhishmaStuti** — `DharmicData/Stotras/Krishna/Bhishma Stuti.pdf`
+- **Damodarashtakam** — `DharmicData/Stotras/Krishna/Damodara Ashtakam.pdf`
+- **DhruvakrtaBhagavatStavam** — `DharmicData/Stotras/Krishna/Dhruva Krta Bhagavat Stavam.pdf`
+- **GitaGovindam** — `DharmicData/Stotras/Krishna/Gita Govindam.pdf`
+- **Govindashtakam** — `DharmicData/Stotras/Krishna/Govinda Ashtakam.pdf`
+- **GuruvatapurishaPancharatnam** — `DharmicData/Stotras/Krishna/Guruvatapurisha Pancharatnam.pdf`
+- **KrishnaDwadashaNamaStotram** — `DharmicData/Stotras/Krishna/Krishna Dwadasha Nama Stotram.pdf`
+- **KrishnaJananam** — `DharmicData/Stotras/Krishna/Krishna Jananam.pdf`
+- **Krishnashtakam1** — `DharmicData/Stotras/Krishna/Krishna Ashtakam 1.pdf`
+- **Krishnashtakam2** — `DharmicData/Stotras/Krishna/Krishna Ashtakam 2.pdf`
+- **Krishnashtakam3** — `DharmicData/Stotras/Krishna/Krishna Ashtakam 3.pdf`
+- **Madhurashtakam** — `DharmicData/Stotras/Krishna/Madhura Ashtakam.pdf`
+- **NarayanaKeshadipadantaVarnanam** — `DharmicData/Stotras/Krishna/Narayana Keshadipadanta Varnanam.pdf`
+- **KanakadharaStavam** — `DharmicData/Stotras/Lakshmi/Kanakadhara Stavam.pdf`
+- **LakshmiStotram** — `DharmicData/Stotras/Lakshmi/Lakshmi Stotram.pdf`
+- **MahalakshmiStuti** — `DharmicData/Stotras/Lakshmi/Mahalakshmi Stuti.pdf`
+- **Mahalakshmyashtakam** — `DharmicData/Stotras/Lakshmi/Maha Lakshmi Ashtakam.pdf`
+- **Gangakarshanashtakam** — `DharmicData/Stotras/Nadi/Ganga Akarshana Ashtakam.pdf`
+- **Gangashtakam** — `DharmicData/Stotras/Nadi/Ganga Ashtakam.pdf`
+- **GangaStuti** — `DharmicData/Stotras/Nadi/Ganga Stuti.pdf`
+- **KaveriPrarthana** — `DharmicData/Stotras/Nadi/Kaveri Prarthana.pdf`
+- **Narmadashtakam** — `DharmicData/Stotras/Nadi/Narmada Ashtakam.pdf`
+- **TriveniStotram** — `DharmicData/Stotras/Nadi/Triveni Stotram.pdf`
+- **Yamunashtakam** — `DharmicData/Stotras/Nadi/Yamuna Ashtakam.pdf`
+- **AdityaHrdayam** — `DharmicData/Stotras/Navagraha/Aditya Hrdayam.pdf`
+- **AngarakaStotram** — `DharmicData/Stotras/Navagraha/Angaraka Stotram.pdf`
+- **BrihaspatiStotram** — `DharmicData/Stotras/Navagraha/Brihaspati Stotram.pdf`
+- **BudhaPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/Budha Panchavimshati Nama Stotram.pdf`
+- **ChandraAshtavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/Chandra Ashtavimshati Nama Stotram.pdf`
+- **ChandraGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/Chandra Grahana Pidaparihara Shlokam.pdf`
+- **DwadasharyaSuryaStuti** — `DharmicData/Stotras/Navagraha/Dwadasharya Surya Stuti.pdf`
+- **KetuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/Ketu Panchavimshati Nama Stotram.pdf`
+- **NavagrahaMangalashtakam** — `DharmicData/Stotras/Navagraha/Navagraha Mangalashtakam.pdf`
+- **NavagrahaPidaharaStotram** — `DharmicData/Stotras/Navagraha/Navagraha Pidahara Stotram.pdf`
+- **NavagrahaStotram** — `DharmicData/Stotras/Navagraha/Navagraha Stotram.pdf`
+- **RahuPanchavimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/Rahu Panchavimshati Nama Stotram.pdf`
+- **ShanaishcharaAshtakam(Dasharatha)** — `DharmicData/Stotras/Navagraha/Shanaishchara Ashtakam (Dasharatha).pdf`
+- **ShukraChaturvimshatiNamaStotram** — `DharmicData/Stotras/Navagraha/Shukra Chaturvimshati Nama Stotram.pdf`
+- **SuryaGrahanaPidapariharaShlokam** — `DharmicData/Stotras/Navagraha/Surya Grahana Pidaparihara Shlokam.pdf`
+- **SuryaKavacham** — `DharmicData/Stotras/Navagraha/Surya Kavacham.pdf`
+- **SuryaMandalaStotram** — `DharmicData/Stotras/Navagraha/Surya Mandala Stotram.pdf`
+- **SuryaPratahSmaranaStotram** — `DharmicData/Stotras/Navagraha/Surya Pratah Smarana Stotram.pdf`
+- **SuryaryaStotram** — `DharmicData/Stotras/Navagraha/Suryarya Stotram.pdf`
+- **SuryaStavaraja** — `DharmicData/Stotras/Navagraha/Surya Stavaraja.pdf`
+- **SuryaStuti** — `DharmicData/Stotras/Navagraha/Surya Stuti.pdf`
+- **AvaidhavyaPrarthanaStotram** — `DharmicData/Stotras/Other/Avaidhavya Prarthana Stotram.pdf`
+- **GakaradiGanapatiSahasranamaStotram** — `DharmicData/Stotras/Other/Gakaradi Ganapati Sahasranama Stotram.pdf`
+- **KaishikaPuranam** — `DharmicData/Stotras/Other/Kaishika Puranam.pdf`
+- **KalidoshanivaranaStotram** — `DharmicData/Stotras/Other/Kalidoshanivarana Stotram.pdf`
+- **KartaviryarjunaStotram** — `DharmicData/Stotras/Other/Kartaviryarjuna Stotram.pdf`
+- **KrishnaNamaMahatmyam** — `DharmicData/Stotras/Other/Krishna Nama Mahatmyam.pdf`
+- **LalitaTrishati** — `DharmicData/Stotras/Other/Lalita Trishati.pdf`
+- **MatribhutaShatakam** — `DharmicData/Stotras/Other/Matribhuta Shatakam.pdf`
+- **RogaNivaranaShloka** — `DharmicData/Stotras/Other/Roga Nivarana Shloka.pdf`
+- **SankshepaRamayanam** — `DharmicData/Stotras/Other/Sankshepa Ramayanam.pdf`
+- **SantanagopalaStotram** — `DharmicData/Stotras/Other/Santanagopala Stotram.pdf`
+- **SaraswatiSahasranamaStotram** — `DharmicData/Stotras/Other/Saraswati Sahasranama Stotram.pdf`
+- **SaundaryaLahari** — `DharmicData/Stotras/Other/Saundarya Lahari.pdf`
+- **ShivaMahimnaStotram** — `DharmicData/Stotras/Other/Shiva Mahimna Stotram.pdf`
+- **ShivaSahasranamaStotram-VishnuKrtam** — `DharmicData/Stotras/Other/Shiva Sahasranama Stotram (Vishnu Krta m).pdf`
+- **ShivaSahasranamaStotram** — `DharmicData/Stotras/Other/Shiva Sahasranama Stotram.pdf`
+- **SuryaSahasranamaStotram** — `DharmicData/Stotras/Other/Surya Sahasranama Stotram.pdf`
+- **VakratundaMahaganapatiSahasranamaStotram** — `DharmicData/Stotras/Other/Vakratunda Mahaganapati Sahasranama Stotram.pdf`
+- **VishnuSahasranamaStotram** — `DharmicData/Stotras/Other/Vishnu Sahasranama Stotram.pdf`
+- **YamabhayanivaranaStotram** — `DharmicData/Stotras/Other/Yamabhayanivarana Stotram.pdf`
+- **Yamashtakam** — `DharmicData/Stotras/Other/Yama Ashtakam.pdf`
+- **KshamaPrarthana** — `DharmicData/Stotras/Purti/Kshama Prarthana.pdf`
+- **VandeMataram** — `DharmicData/Stotras/Purti/Vande Mataram.pdf`
+- **AhalyakrtaRamaStotram** — `DharmicData/Stotras/Rama/Ahalya Krta Rama Stotram.pdf`
+- **ApaduddharanaStotram** — `DharmicData/Stotras/Rama/Apaduddharana Stotram.pdf`
+- **BrahmaKrtaRamaStava** — `DharmicData/Stotras/Rama/Brahma Krta Rama Stava.pdf`
+- **DevaihKrtaRamaStotram** — `DharmicData/Stotras/Rama/Devaih Krta Rama Stotram.pdf`
+- **EkashlokiRamayanam** — `DharmicData/Stotras/Rama/Ekashloki Ramayanam.pdf`
+- **GayatriRamayanam** — `DharmicData/Stotras/Rama/Gayatri Ramayanam.pdf`
+- **MunikrtaRamaStotram** — `DharmicData/Stotras/Rama/Muni Krta Rama Stotram.pdf`
+- **NamaRamayanam** — `DharmicData/Stotras/Rama/Nama Ramayanam.pdf`
+- **RamaBhujangaprayataStotram** — `DharmicData/Stotras/Rama/Rama Bhujangaprayata Stotram.pdf`
+- **RamaDwadashaNamaStotram** — `DharmicData/Stotras/Rama/Rama Dwadasha Nama Stotram.pdf`
+- **RamarakshaStotram** — `DharmicData/Stotras/Rama/Ramaraksha Stotram.pdf`
+- **Ramashtakam** — `DharmicData/Stotras/Rama/Rama Ashtakam.pdf`
+- **RamaStava** — `DharmicData/Stotras/Rama/Rama Stava.pdf`
+- **RamaStavarajaStotram** — `DharmicData/Stotras/Rama/Rama Stavaraja Stotram.pdf`
+- **SitaRamaStotram** — `DharmicData/Stotras/Rama/Sita Rama Stotram.pdf`
+- **SaraswatiStotram(Agastya)** — `DharmicData/Stotras/Saraswati/Saraswati Stotram (Agastya).pdf`
+- **SaraswatiStotram(Brahma)** — `DharmicData/Stotras/Saraswati/Saraswati Stotram (Brahma).pdf`
+- **SaraswatiStotram(Brihaspati)** — `DharmicData/Stotras/Saraswati/Saraswati Stotram (Brihaspati).pdf`
+- **SharadaBhujangaprayataAshtakam** — `DharmicData/Stotras/Saraswati/Sharada Bhujangaprayata Ashtakam.pdf`
+- **SharadaPrarthana** — `DharmicData/Stotras/Saraswati/Sharada Prarthana.pdf`
+- **VaniStavanam** — `DharmicData/Stotras/Saraswati/Vani Stavanam.pdf`
+- **AnnapurnaStotram** — `DharmicData/Stotras/Shakti/Annapurna Stotram.pdf`
+- **ArjunaKrtaDurgaStuti** — `DharmicData/Stotras/Shakti/Arjuna Krta Durga Stuti.pdf`
+- **DurgaChandraKalaStuti** — `DharmicData/Stotras/Shakti/Durga Chandra Kala Stuti.pdf`
+- **DurgaPancharatnam** — `DharmicData/Stotras/Shakti/Durga Pancharatnam.pdf`
+- **DurgaStotram** — `DharmicData/Stotras/Shakti/Durga Stotram.pdf`
+- **Gangashtakam** — `DharmicData/Stotras/Shakti/Ganga Ashtakam.pdf`
+- **GauriDashakam** — `DharmicData/Stotras/Shakti/Gauri Dashakam.pdf`
+- **GayatriStotram** — `DharmicData/Stotras/Shakti/Gayatri Stotram.pdf`
+- **KalyanaVrishtiStotram** — `DharmicData/Stotras/Shakti/Kalyana Vrishti Stotram.pdf`
+- **KamakshiMahatmyam** — `DharmicData/Stotras/Shakti/Kamakshi Mahatmyam.pdf`
+- **KamakshiStotram** — `DharmicData/Stotras/Shakti/Kamakshi Stotram.pdf`
+- **KamakshiSuprabhatam** — `DharmicData/Stotras/Shakti/Kamakshi Suprabhatam.pdf`
+- **LalitaPancharatnam** — `DharmicData/Stotras/Shakti/Lalita Pancharatnam.pdf`
+- **MahishasuramardiniStotram** — `DharmicData/Stotras/Shakti/Mahishasuramardini Stotram.pdf`
+- **MinakshiPancharatnam** — `DharmicData/Stotras/Shakti/Minakshi Pancharatnam.pdf`
+- **MukaPanchaShati_10** — `DharmicData/Stotras/Shakti/Muka Pancha Shati 10.pdf`
+- **MukaSarah** — `DharmicData/Stotras/Shakti/Muka Sarah.pdf`
+- **ParashuramaKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/Parashurama Krta Durga Stotram.pdf`
+- **ShashthiDeviStotram** — `DharmicData/Stotras/Shakti/Shashthi Devi Stotram.pdf`
+- **Shitalashtakam** — `DharmicData/Stotras/Shakti/Shitala Ashtakam.pdf`
+- **ShyamalaDandakam** — `DharmicData/Stotras/Shakti/Shyamala Dandakam.pdf`
+- **Tripurasundaryashtakam** — `DharmicData/Stotras/Shakti/Tripura Sundari Ashtakam.pdf`
+- **TriveniStotram** — `DharmicData/Stotras/Shakti/Triveni Stotram.pdf`
+- **Yamunashtakam** — `DharmicData/Stotras/Shakti/Yamuna Ashtakam.pdf`
+- **YudhishthiraKrtaDurgaStotram** — `DharmicData/Stotras/Shakti/Yudhishthira Krta Durga Stotram.pdf`
+- **Hariharatmajashtakam** — `DharmicData/Stotras/Shasta/Hariharatmaja Ashtakam.pdf`
+- **ShastaDashakam** — `DharmicData/Stotras/Shasta/Shasta Dashakam.pdf`
+- **AdityaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Aditya Ashtottara Shatanama Stotram.pdf`
+- **AnjaneyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Anjaneya Ashtottara Shatanama Stotram.pdf`
+- **AnnapurnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Annapurna Ashtottara Shatanama Stotram.pdf`
+- **ArdhanarishvaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Ardhanarishvara Ashtottara Shatanama Stotram.pdf`
+- **DhanvantariAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Dhanvantari Ashtottara Shatanama Stotram.pdf`
+- **DurgaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Durga Ashtottara Shatanama Stotram.pdf`
+- **GanapatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Ganapati Ashtottara Shatanama Stotram.pdf`
+- **GanapatiGakaraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Ganapati Gakara Ashtottara Shatanama Stotram.pdf`
+- **GaneshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Ganesha Ashtottara Shatanama Stotram.pdf`
+- **GangaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Ganga Ashtottara Shatanama Stotram.pdf`
+- **GauriAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Gauri Ashtottara Shatanama Stotram.pdf`
+- **GodaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Goda Ashtottara Shatanama Stotram.pdf`
+- **HariharaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Harihara Ashtottara Shatanama Stotram.pdf`
+- **HariharaputraAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Hariharaputra Ashtottara Shatanama Stotram.pdf`
+- **HayagrivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Hayagriva Ashtottara Shatanama Stotram.pdf`
+- **KarttikeyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Karttikeya Ashtottara Shatanama Stotram.pdf`
+- **KrishnaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Krishna Ashtottara Shatanama Stotram.pdf`
+- **LakshmiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Lakshmi Ashtottara Shatanama Stotram.pdf`
+- **LakshmiNarayanaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Lakshmi Narayana Ashtottara Shatanama Stotram.pdf`
+- **NrisimhaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Nrisimha Ashtottara Shatanama Stotram.pdf`
+- **RamaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Rama Ashtottara Shatanama Stotram.pdf`
+- **SaraswatiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Saraswati Ashtottara Shatanama Stotram.pdf`
+- **ShaktiAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/Shakti Ashtottara Shatadivyasthaniya Nama Stotram.pdf`
+- **ShankaracharyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Shankaracharya Ashtottara Shatanama Stotram.pdf`
+- **ShivaAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/Shiva Ashtottara Shatadivyasthaniya Nama Stotram.pdf`
+- **ShivaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Shiva Ashtottara Shatanama Stotram.pdf`
+- **SitaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Sita Ashtottara Shatanama Stotram.pdf`
+- **SubrahmanyaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Subrahmanya Ashtottara Shatanama Stotram.pdf`
+- **SuryaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Surya Ashtottara Shatanama Stotram.pdf`
+- **TulasiAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Tulasi Ashtottara Shatanama Stotram.pdf`
+- **VenkateshaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Venkatesha Ashtottara Shatanama Stotram.pdf`
+- **VishnuAshtottaraShatadivyasthaniyaNamaStotram** — `DharmicData/Stotras/Shatanama/Vishnu Ashtottara Shatadivyasthaniya Nama Stotram.pdf`
+- **VyasaAshtottaraShatanamaStotram** — `DharmicData/Stotras/Shatanama/Vyasa Ashtottara Shatanama Stotram.pdf`
+- **ArdhanarishwaraStotram** — `DharmicData/Stotras/Shiva/Ardhanarishwara Stotram.pdf`
+- **Bilvashtakam** — `DharmicData/Stotras/Shiva/Bilva Ashtakam.pdf`
+- **CharanashringarahitaNatarajaStotram** — `DharmicData/Stotras/Shiva/Charana Shringa Rahita Nataraja Stotram.pdf`
+- **DakshinamurtiStotram** — `DharmicData/Stotras/Shiva/Dakshinamurti Stotram.pdf`
+- **DakshinamurtiStotram(SamaraPungavaDikshitaKrtam)** — `DharmicData/Stotras/Shiva/Dakshinamurti Stotram (Samara Pungava Dikshita Krtam).pdf`
+- **DakshinamurtiStotram(VrishabhaDevaKritam)** — `DharmicData/Stotras/Shiva/Dakshinamurti Stotram (Vrishabha Deva Kritam).pdf`
+- **DakshinamurtiStotram(VrishabhaDevaKrtam)** — `DharmicData/Stotras/Shiva/Dakshinamurti Stotram (Vrishabha Deva Krtam).pdf`
+- **Dakshinamurtyashtakam** — `DharmicData/Stotras/Shiva/Dakshinamurti Ashtakam.pdf`
+- **Gurvashtakam** — `DharmicData/Stotras/Shiva/Guru Ashtakam.pdf`
+- **Kalabhairavashtakam** — `DharmicData/Stotras/Shiva/Kala Bhairava Ashtakam.pdf`
+- **Karttikasomavararghyam** — `DharmicData/Stotras/Shiva/Karttika Somavara Arghyam.pdf`
+- **Lingashtakam** — `DharmicData/Stotras/Shiva/Linga Ashtakam.pdf`
+- **MargabandhuStotram** — `DharmicData/Stotras/Shiva/Margabandhu Stotram.pdf`
+- **RudraStotram** — `DharmicData/Stotras/Shiva/Rudra Stotram.pdf`
+- **Sadashivashtakam** — `DharmicData/Stotras/Shiva/Sadashiva Ashtakam.pdf`
+- **ShambhuStuti** — `DharmicData/Stotras/Shiva/Shambhu Stuti.pdf`
+- **ShivaManasapuja** — `DharmicData/Stotras/Shiva/Shiva Manasapuja.pdf`
+- **ShivaPanchaksharaStotram** — `DharmicData/Stotras/Shiva/Shiva Panchakshara Stotram.pdf`
+- **ShivaparadhaKshamapanaStotram** — `DharmicData/Stotras/Shiva/Shivaparadha Kshamapana Stotram.pdf`
+- **ShivaPratahSmaranaStotram** — `DharmicData/Stotras/Shiva/Shiva Pratah Smarana Stotram.pdf`
+- **ShivarakshaStotram** — `DharmicData/Stotras/Shiva/Shivaraksha Stotram.pdf`
+- **ShivashivaaStuti** — `DharmicData/Stotras/Shiva/Shivashivaa Stuti.pdf`
+- **Totakashtakam** — `DharmicData/Stotras/Shiva/Totaka Ashtakam.pdf`
+- **UmamaheshwaraStotram** — `DharmicData/Stotras/Shiva/Umamaheshwara Stotram.pdf`
+- **Vaidyanathashtakam** — `DharmicData/Stotras/Shiva/Vaidyanatha Ashtakam.pdf`
+- **GuhaPancharatnam** — `DharmicData/Stotras/Subrahmanya/Guha Pancharatnam.pdf`
+- **PrajnavivardhanaKarttikeyaStotram** — `DharmicData/Stotras/Subrahmanya/Prajnavivardhana Karttikeya Stotram.pdf`
+- **SkandaShashthiKavacham** — `DharmicData/Stotras/Subrahmanya/Skanda Shashthi Kavacham.pdf`
+- **SubrahmanyaAshtakam** — `DharmicData/Stotras/Subrahmanya/Subrahmanya Ashtakam.pdf`
+- **SubrahmanyaBhujangam** — `DharmicData/Stotras/Subrahmanya/Subrahmanya Bhujangam.pdf`
+- **SubrahmanyaPancharatnam** — `DharmicData/Stotras/Subrahmanya/Subrahmanya Pancharatnam.pdf`
+- **SubrahmanyaShodashaNamaStotram** — `DharmicData/Stotras/Subrahmanya/Subrahmanya Shodasha Nama Stotram.pdf`
+- **ShrinivasaGadyam** — `DharmicData/Stotras/Venkatesha/Shrinivasa Gadyam.pdf`
+- **VenkateshaAshtakam** — `DharmicData/Stotras/Venkatesha/Venkatesha Ashtakam.pdf`
+- **VenkateshaDwadashaNamaStotram** — `DharmicData/Stotras/Venkatesha/Venkatesha Dwadasha Nama Stotram.pdf`
+- **VenkateshaKaravalambaStotram** — `DharmicData/Stotras/Venkatesha/Venkatesha Karavalamba Stotram.pdf`
+- **VenkateshaMangalashasanam** — `DharmicData/Stotras/Venkatesha/Venkatesha Mangalashasanam.pdf`
+- **VenkateshaPrapatti** — `DharmicData/Stotras/Venkatesha/Venkatesha Prapatti.pdf`
+- **VenkateshaStotram** — `DharmicData/Stotras/Venkatesha/Venkatesha Stotram.pdf`
+- **VenkateshaSuprabhatam** — `DharmicData/Stotras/Venkatesha/Venkatesha Suprabhatam.pdf`
+- **BrahmapaaraStotram** — `DharmicData/Stotras/Vishnu/Brahmapaara Stotram.pdf`
+- **DhanvatariStotram** — `DharmicData/Stotras/Vishnu/Dhanvatari Stotram.pdf`
+- **LakshmiNrisimhaKaravalambaStotram** — `DharmicData/Stotras/Vishnu/Lakshmi Nrisimha Karavalamba Stotram.pdf`
+- **LakshmiNrisimhaKarunarasaStotram** — `DharmicData/Stotras/Vishnu/Lakshmi Nrisimha Karunarasa Stotram.pdf`
+- **LakshmiNrisimhaPancharatnam** — `DharmicData/Stotras/Vishnu/Lakshmi Nrisimha Pancharatnam.pdf`
+- **Pandurangashtakam** — `DharmicData/Stotras/Vishnu/Panduranga Ashtakam.pdf`
+- **RanganathaGadyam** — `DharmicData/Stotras/Vishnu/Ranganatha Gadyam.pdf`
+- **Ranganathashtakam** — `DharmicData/Stotras/Vishnu/Ranganatha Ashtakam.pdf`
+- **VishnuBhujangaprayataStotram** — `DharmicData/Stotras/Vishnu/Vishnu Bhujangaprayata Stotram.pdf`
+- **VishnuVijayaStotram** — `DharmicData/Stotras/Vishnu/Vishnu Vijaya Stotram.pdf`
 
 ### Stuti (46)
 - **Avadhuta Ashtakam Shuka Deva Stuti** — `DharmicData/Stuti/Avadhuta Ashtakam Shuka Deva Stuti.pdf`
@@ -2173,7 +2173,7 @@ The HTML/JS/CSS inventory was cross-checked against the data tree. Key title-bea
 - `html/index.html` — main navigation labels and top-level groups.
 - `html/Puranas.html` — 19 Pūrāṇa navigation links.
 - `html/UpaPuranas.html` — Upa-Purāṇa PDF references.
-- `html/Ramayanas.html` — Vālmīki Rāmāyaṇa, Adbhuta Rāmāyaṇa, Adhyātma Rāmāyaṇa, Rāmcaritmānas, and Yoga Vāsiṣṭha.
+- `html/Ramayanas.html` — ten menu labels, in order: Valmiki Ramayana, Adbhuta Ramayana, Adhyatma Ramayana, Ramcharitmanas, Yoga Vasistha, then the PDF groups Anand Ramayan (6), Bhushundi Ramayan (3), Brahm Ramayan, Mantra Ramayana and Satyopakhyan (3). Ekashloki Ramayanam, Gayatri Ramayanam, Nama Ramayanam and Sankshepa Ramayanam are Stotra PDFs and do not appear on this menu.
 - `html/ParvaList.html` and `js/ParvaContent.js` — 18 Mahābhārata Parvas.
 - `html/kandaList.html`, `js/kandaList.js`, and `js/kandaContent.js` — seven Vālmīki Rāmāyaṇa Kāṇḍas.
 - `html/Ramcharitmanas.html` — seven Rāmcaritmānas Kāṇḍas.
