@@ -1,5 +1,7 @@
 # Hindu Scriptures — Texts
 
+`[x]` is in this repo. `[ ]` is not in this repo, and a copy survives in print, manuscript, or quotation. `[-]` is completely lost: no manuscript, printed edition, or surviving text has been traced. A related work that survives is named in the bracket and does not keep the lost title open.
+
 ## Veda
 
 - [x] Ṛgveda
@@ -13,39 +15,73 @@
 - [ ] Taittirīya Saṃhitā
 - [ ] Maitrāyaṇī Saṃhitā
 - [ ] Kāṭhaka Saṃhitā
-- [ ] Kapiṣṭhala-Kaṭha Saṃhitā
+- [ ] Kapiṣṭhala-Kaṭha Saṃhitā (fragmentary manuscript)
 - [x] Vājasaneyi Mādhyandina Saṃhitā
 - [x] Vājasaneyi Kāṇva Saṃhitā
-- [x] Kauthuma Saṃhitā
-- [ ] Jaiminīya Saṃhitā
-- [x] Śaunaka Saṃhitā
+- [x] Kauthuma Saṃhitā (Rāṇāyanīya)
+- [ ] Jaiminīya Saṃhitā (Talavakāra)
+- [x] Śaunaka Saṃhitā (Śaunakīya)
 - [ ] Paippalāda Saṃhitā
+- [ ] Bāṣkala Saṃhitā (lost; Khila Sūkta survives)
+- [-] Māṇḍūkeya Saṃhitā (lost; Māṇḍūkāyana)
+- [-] Āśvalāyana Saṃhitā (lost; the Śrauta and Gṛhya Sūtras survive)
+- [-] Śāṅkhāyana Saṃhitā (lost; the Brāhmaṇa, Āraṇyaka, and Sūtras survive)
+- [-] Śāṭyāyana Saṃhitā (lost)
+- [-] Bhāllavī Saṃhitā (lost)
+- [-] Kālabavī Saṃhitā (lost)
+- [-] Raurukī Saṃhitā (lost)
+- [-] Naigeya Saṃhitā (lost; the Naigeya indices survive)
+- [-] Moda Saṃhitā (lost; Maudā)
+- [-] Staudā Saṃhitā (lost; Stauda)
+- [-] Jājala Saṃhitā (lost)
+- [-] Jalada Saṃhitā (lost)
+- [-] Brahmavada Saṃhitā (lost)
+- [-] Devadarśa Saṃhitā (lost; Devadarśin)
+- [-] Cāraṇavaidya Saṃhitā (lost)
 
 ## Brāhmaṇa
 
 - [ ] Aitareya Brāhmaṇa
-- [ ] Kauṣītaki Brāhmaṇa
+- [ ] Kauṣītaki Brāhmaṇa (Śāṅkhāyana Brāhmaṇa)
 - [ ] Taittirīya Brāhmaṇa
-- [ ] Kāṭhaka Brāhmaṇa
-- [ ] Vādhūla Anvākhyāna
-- [ ] Śatapatha Brāhmaṇa
-- [ ] Tāṇḍya Mahābrāhmaṇa
-- [ ] Ṣaḍviṃśa Brāhmaṇa
+- [ ] Kāṭhaka Brāhmaṇa (fragmentary)
+- [ ] Vādhūla Anvākhyāna (Vādhūla Brāhmaṇa)
+- [ ] Śatapatha Brāhmaṇa (Mādhyandina and Kāṇva)
+- [ ] Tāṇḍya Mahābrāhmaṇa (Pañcaviṃśa Brāhmaṇa)
+- [ ] Ṣaḍviṃśa Brāhmaṇa (Adbhuta Brāhmaṇa)
 - [ ] Sāmavidhāna Brāhmaṇa
 - [ ] Ārṣeya Brāhmaṇa
-- [ ] Devatādhyāya Brāhmaṇa
-- [ ] Chāndogya Brāhmaṇa
+- [ ] Devatādhyāya Brāhmaṇa (Daivata Brāhmaṇa)
+- [ ] Chāndogya Brāhmaṇa (Mantra Brāhmaṇa)
 - [ ] Saṃhitopaniṣad Brāhmaṇa
 - [ ] Vaṃśa Brāhmaṇa
 - [ ] Jaiminīya Brāhmaṇa
 - [ ] Jaiminīya Ārṣeya Brāhmaṇa
 - [ ] Jaiminīya Upaniṣad Brāhmaṇa
 - [ ] Gopatha Brāhmaṇa
+- [-] Paiṅgya Brāhmaṇa (lost; Paiṅgī)
+- [-] Bahvṛca Brāhmaṇa (lost)
+- [-] Āśvalāyana Brāhmaṇa (lost)
+- [-] Gālava Brāhmaṇa (lost)
+- [-] Śāṭyāyana Brāhmaṇa (lost)
+- [-] Bhāllavī Brāhmaṇa (lost)
+- [-] Kālabavī Brāhmaṇa (lost)
+- [-] Raurukī Brāhmaṇa (lost)
+- [-] Tumburu Brāhmaṇa (lost)
+- [-] Chāgaleya Brāhmaṇa (lost)
+- [-] Hāridravika Brāhmaṇa (lost)
+- [-] Ahvaraka Brāhmaṇa (lost)
+- [-] Kāṅkati Brāhmaṇa (lost)
+- [-] Māṣaśarāvī Brāhmaṇa (lost)
+- [-] Śvetāśvatara Brāhmaṇa (lost)
+- [-] Jābāla Brāhmaṇa (lost)
+- [-] Khāṇḍikīya Brāhmaṇa (lost)
+- [-] Aukheya Brāhmaṇa (lost)
 
 ## Āraṇyaka
 
 - [ ] Aitareya Āraṇyaka
-- [ ] Kauṣītaki Āraṇyaka
+- [ ] Kauṣītaki Āraṇyaka (Śāṅkhāyana Āraṇyaka)
 - [ ] Taittirīya Āraṇyaka
 - [ ] Kaṭha Āraṇyaka
 
@@ -176,7 +212,11 @@
 - [ ] Tripurātāpinī Upaniṣad
 - [ ] Nṛsiṃha Uttara Tāpinī Upaniṣad
 - [ ] Gopāla Uttara Tāpinī Upaniṣad
-- [ ] Mahānārāyaṇa Upaniṣad
+- [ ] Mahānārāyaṇa Upaniṣad (Yājñikī Upaniṣad)
+- [ ] Bāṣkalamantra Upaniṣad (lost; Persian anthology)
+- [ ] Chāgaleya Upaniṣad (lost; Persian anthology)
+- [ ] Ārṣeya Upaniṣad (lost; Persian anthology)
+- [ ] Śaunaka Upaniṣad (lost; Persian anthology)
 
 ## Upaveda
 
@@ -189,7 +229,7 @@
 - [x] Rasa Ratna Samuccaya of Vāgbhaṭācārya
 - [x] Śārṅgadhara Saṃhitā
 - [x] Suśruta Saṃhitā
-- [x] Vāgbhaṭa Saṃhitā
+- [x] Vāgbhaṭa Saṃhitā (Aṣṭāṅga Hṛdaya)
 - [x] Aṣṭāṅga Saṅgraha
 - [x] Bhāva Prakāśa Saṃhitā
 - [x] Mādhava Nidāna Saṃhitā
@@ -253,7 +293,7 @@
 - [x] Mayamata Vāstu Śāstra
 - [x] Samarāṅgaṇa Sūtradhāra
 - [x] Vāstusūtra Upaniṣad
-- [x] Viśvakarma Vāstu Śāstra
+- [x] Viśvakarma Vāstu Śāstra (Viśvakarmā Prakāśa)
 - [x] Viśvakarmīya Śilpaśāstra
 - [ ] Yukti Kalpataru
 - [ ] Rājavallabha
@@ -281,103 +321,127 @@
 
 ## Mahāpurāṇa
 
-- [x] Agni Purāṇa
-- [x] Bhāgavata Purāṇa
-- [x] Bhaviṣya Purāṇa
-- [x] Brahma Purāṇa
-- [x] Brahmāṇḍa Purāṇa
-- [x] Brahmavaivarta Purāṇa
-- [x] Garuḍa Purāṇa
-- [x] Kūrma Purāṇa
-- [x] Liṅga Purāṇa
-- [x] Mārkaṇḍeya Purāṇa
-- [x] Matsya Purāṇa
-- [x] Nārada Purāṇa
-- [x] Padma Purāṇa
-- [x] Śiva Purāṇa
-- [x] Skanda Purāṇa
-- [x] Vāmana Purāṇa
-- [x] Varāha Purāṇa
-- [x] Vāyu Purāṇa
-- [x] Viṣṇu Purāṇa
+Wikipedia’s numbered table gives eighteen extant Mahāpurāṇas. It does not mark any of them lost. The same article names Vāyu Purāṇa in its other Mahāpurāṇa lists and omits it from that numbered eighteen. Both Vāyu and Śiva stay here.
+
+- [x] Agni Purāṇa (extant)
+- [x] Bhāgavata Purāṇa (extant)
+- [x] Bhaviṣya Purāṇa (extant)
+- [x] Brahma Purāṇa (Ādi Purāṇa; extant)
+- [x] Brahmāṇḍa Purāṇa (extant)
+- [x] Brahmavaivarta Purāṇa (extant)
+- [x] Garuḍa Purāṇa (extant)
+- [x] Kūrma Purāṇa (extant)
+- [x] Liṅga Purāṇa (extant)
+- [x] Mārkaṇḍeya Purāṇa (extant)
+- [x] Matsya Purāṇa (extant)
+- [x] Nārada Purāṇa (Nāradīya Purāṇa; extant)
+- [x] Padma Purāṇa (extant)
+- [x] Śiva Purāṇa (extant)
+- [x] Skanda Purāṇa (extant)
+- [x] Vāmana Purāṇa (extant)
+- [x] Varāha Purāṇa (extant)
+- [x] Vāyu Purāṇa (extant; not in the numbered eighteen)
+- [x] Viṣṇu Purāṇa (extant)
 
 ## Upapurāṇa
 
-- [x] Harivaṃśa Purāṇa
-- [x] Kālikā Purāṇa
-- [x] Mudgala Purāṇa
-- [x] Nāradīya Purāṇa
-- [x] Śivadharma Purāṇa
-- [x] Śrīmad Devī Bhāgavata Purāṇa
-- [x] Viṣṇudharmottara Purāṇa
-- [x] Bhārgava Purāṇa
-- [x] Kapila Purāṇa
-- [x] Kalki Purāṇa
-- [x] Marīca Purāṇa
-- [x] Nandi Purāṇa
-- [x] Narasiṃha Purāṇa
-- [x] Parāśara Purāṇa
-- [x] Sāmba Purāṇa
-- [x] Saura Purāṇa
-- [x] Varuṇa Purāṇa
-- [ ] Sanatkumāra Purāṇa
-- [ ] Mānava Purāṇa
-- [ ] Auśanasa Purāṇa
-- [ ] Maheśvara Purāṇa
-- [ ] Gaṇeśa Purāṇa
-- [ ] Durvāsas Purāṇa
-- [ ] Haṃsa Purāṇa
-- [ ] Vasiṣṭha Purāṇa
-- [ ] Vāmana Upapurāṇa
-- [ ] Āditya Upapurāṇa
-- [ ] Bṛhannāradīya Purāṇa
+Nārada Purāṇa above is the same text as the repo’s Nāradīya folder. Bṛhannāradīya is the separate 38-chapter Upapurāṇa. Hazra found no manuscript and no quotation for Mānava, Auśanasa, Durvāsas, and the Vāmana Upapurāṇa. Haṃsa and Bṛhad Viṣṇu are titles with no copy traced.
+
+- [x] Harivaṃśa Purāṇa (published)
+- [x] Kālikā Purāṇa (published)
+- [x] Mudgala Purāṇa (vulgate published; manuscript unavailable)
+- [x] Śivadharma Purāṇa (Śivadharmapūrva and Śivadharmottara; published)
+- [x] Śrīmad Devī Bhāgavata Purāṇa (extant; Mahāpurāṇa in some lists, Upapurāṇa in others)
+- [x] Viṣṇudharmottara Purāṇa (published)
+- [x] Bhārgava Purāṇa (published)
+- [x] Kapila Purāṇa (published)
+- [x] Kalki Purāṇa (published)
+- [x] Marīca Purāṇa (extant)
+- [x] Nandi Purāṇa (Nānda Purāṇa; unpublished; manuscript available)
+- [x] Narasiṃha Purāṇa (published)
+- [x] Parāśara Purāṇa (published)
+- [x] Sāmba Purāṇa (published)
+- [x] Saura Purāṇa (published)
+- [x] Varuṇa Purāṇa (published)
+- [ ] Sanatkumāra Purāṇa (Ādi Upapurāṇa; published)
+- [-] Mānava Purāṇa (completely lost)
+- [-] Auśanasa Purāṇa (Śaukra; Śukra Purāṇa; completely lost)
+- [ ] Māheśvara Purāṇa (unpublished; manuscript available)
+- [ ] Gaṇeśa Purāṇa (published)
+- [-] Durvāsas Purāṇa (Daurvāsasa; completely lost)
+- [-] Haṃsa Purāṇa (completely lost)
+- [ ] Vasiṣṭha Purāṇa (Vasiṣṭha Liṅga; published)
+- [-] Vāmana Upapurāṇa (completely lost; not the Vāmana Mahāpurāṇa)
+- [ ] Āditya Upapurāṇa (Bhāskara; book lost; verses quoted)
+- [ ] Bṛhannāradīya Purāṇa (Nāradīya Upapurāṇa; published)
+- [-] Bṛhad Viṣṇu Purāṇa (completely lost)
 
 ## Atipurāṇa
 
-- [x] Nīlamata Purāṇa
-- [x] Malla Purāṇa
-- [x] Viṣṇudharma Purāṇa
-- [x] Ekāmra Purāṇa
-- [x] Datta Purāṇa
-- [ ] Bṛhaddharma Purāṇa
-- [ ] Śivarahasya Purāṇa
-- [ ] Kriyāyogasāra Purāṇa
-- [ ] Yuga Purāṇa
-- [ ] Lakṣmī Purāṇa
-- [ ] Bhaviṣyottara Purāṇa
-- [ ] Devāṅga Purāṇa
-- [ ] Basava Purāṇa
-- [ ] Periya Purāṇam
-- [ ] Dharma Purāṇa
-- [ ] Mahābhāgavata Purāṇa
-- [ ] Kārtava Purāṇa
-- [ ] Ṛju Purāṇa
-- [ ] Paśupati Purāṇa
-- [ ] Parānanda Purāṇa
-- [ ] Viśvakarma Purāṇa
-- [ ] Vāsuki Purāṇa
-- [ ] Ātma Purāṇa
-- [ ] Caṇḍī Purāṇa
-- [ ] Bhairava Purāṇa
-- [ ] Viṣṇurahasya Purāṇa
-- [ ] Śukra Purāṇa
-- [ ] Kubera Purāṇa
-- [ ] Sarasvatī Purāṇa
-- [ ] Govinda Purāṇa
-- [ ] Bhūgola Purāṇa
+Śiva Purāṇa is already a Mahāpurāṇa and is not repeated here. Gaṇeśa Purāṇa and Mudgala Purāṇa are already under Upapurāṇa. Śukra Purāṇa is the same title as Auśanasa Purāṇa and is not repeated here.
+
+- [x] Nīlamata Purāṇa (published)
+- [x] Malla Purāṇa (published)
+- [x] Viṣṇudharma Purāṇa (extant)
+- [x] Ekāmra Purāṇa (published)
+- [x] Datta Purāṇa (Dattātreya Purāṇa; extant)
+- [ ] Bṛhaddharma Purāṇa (published)
+- [ ] Śivarahasya Purāṇa (published)
+- [ ] Kriyāyogasāra Purāṇa (published)
+- [ ] Yuga Purāṇa (published)
+- [ ] Lakṣmī Purāṇa (published; Odia)
+- [ ] Bhaviṣyottara Purāṇa (published)
+- [ ] Devāṅga Purāṇa (published)
+- [ ] Basava Purāṇa (published)
+- [ ] Periya Purāṇam (published)
+- [ ] Dharma Purāṇa (extant)
+- [ ] Mahābhāgavata Purāṇa (published)
+- [-] Kārtava Purāṇa (completely lost)
+- [-] Ṛju Purāṇa (completely lost)
+- [ ] Paśupati Purāṇa (manuscript; Nepali translation published)
+- [ ] Parānanda Purāṇa (manuscript)
+- [ ] Viśvakarma Purāṇa (vernacular editions)
+- [-] Vāsuki Purāṇa (completely lost)
+- [ ] Ātma Purāṇa (Śaṅkarānanda; manuscript and print)
+- [ ] Caṇḍī Purāṇa (extant)
+- [-] Bhairava Purāṇa (completely lost)
+- [-] Viṣṇurahasya Purāṇa (completely lost)
+- [-] Kubera Purāṇa (completely lost)
+- [ ] Sarasvatī Purāṇa (published)
+- [-] Govinda Purāṇa (completely lost)
+- [ ] Bhūgola Purāṇa (manuscript)
 
 ## Rāmāyaṇa
 
-- [x] Vālmīki Rāmāyaṇa
-- [x] Adbhuta Rāmāyaṇa
-- [x] Adhyātma Rāmāyaṇa
-- [x] Rāmacaritamānasa
-- [x] Yoga Vāsiṣṭha
-- [x] Ānanda Rāmāyaṇa
-- [x] Bhuśuṇḍi Rāmāyaṇa
-- [x] Brahma Rāmāyaṇa
-- [x] Mantra Rāmāyaṇa
-- [x] Satyopākhyāna
+Names, speakers, and hearers follow the list of twenty-seven in *Basics of Sanatan Sanskriti*, p. 218. Ten are in this repo. The other seventeen are also named in Rāmadāsa Gauḍ’s *Hindutva* (1938), from Paṇḍita Dhanarāja Śāstrī’s list, and are placed there in other manvantaras. No manuscript, printed edition, or quoted text of those seventeen was traced, so they are `[-]`. Agastya Saṃhitā, Lomaśa Saṃhitā, and the Rāma Rahasya Upaniṣad are different works that do survive. The page’s “525,000 ślokas” is not what Matsya Purāṇa 53 says of the Vālmīki text: that passage gives Vālmīki’s telling as a hundred crore ślokas, and 525,000 as the combined bulk of the Purāṇas and Itihāsas. The billion-śloka note stays on the Brahma Rāmāyaṇa already in the repo. The page closes the list with Bhāgavata Purāṇa 9.10.3: tasyānucaritaṃ rājann ṛṣibhis tattva-darśibhiḥ / śrutaṃ hi varṇitaṃ bhūri tvayā sītā-pater muhuḥ. Śuka tells Parīkṣit that the deeds of Sītā’s husband have already been told at length by ṛṣis who see the truth, and that he has heard them many times, so this telling will be brief. The page reads that verse as “a few of the innumerable Rāmāyaṇas written by sages and seers.”
+
+- [x] Vālmīki Rāmāyaṇa (Ādi Rāmāyaṇa; Vālmīki; the page cites the Matsya Purāṇa for 525,000 ślokas)
+- [x] Ānanda Rāmāyaṇa (Vālmīki to Bharadvāja)
+- [x] Adbhuta Rāmāyaṇa (Vālmīki)
+- [x] Rāmacaritamānasa (Tulasīdāsa)
+- [-] Rahasya Rāmāyaṇa (Hanumān to the Sanatkumāras; completely lost; not the Rāma Rahasya Upaniṣad)
+- [x] Bhuśuṇḍi Rāmāyaṇa (Brahmā to Kākabhuśuṇḍi)
+- [x] Adhyātma Rāmāyaṇa (Śiva to Pārvatī)
+- [-] Agastya Rāmāyaṇa (Agastya; completely lost; not the Agastya Saṃhitā)
+- [-] Lomaśa Rāmāyaṇa (Lomaśa; completely lost; not the Lomaśa Saṃhitā)
+- [x] Mantra Rāmāyaṇa (the page: mentioned in the Ṛgveda)
+- [x] Satyopākhyāna (Vālmīki to Mārkaṇḍeya)
+- [x] Yoga Vāsiṣṭha (Yogavāsiṣṭha Rāmāyaṇa; Vasiṣṭha)
+- [x] Brahma Rāmāyaṇa (Brahmā, written for his own pleasure; the page: one billion ślokas)
+- [-] Saṃvṛta Rāmāyaṇa (Nārada; completely lost)
+- [-] Mañjula Rāmāyaṇa (Sutīkṣṇa; completely lost)
+- [-] Saupadma Rāmāyaṇa (Atri; completely lost)
+- [-] Rāmāyaṇa Mahāmālā (Śiva to Pārvatī; completely lost)
+- [-] Rāmāyaṇa Maṇiratna (Vasiṣṭha to Arundhatī; completely lost)
+- [-] Sauhārda Rāmāyaṇa (Śarabhaṅga; completely lost)
+- [-] Saurya Rāmāyaṇa (Sūrya to Hanumān; completely lost)
+- [-] Candra Rāmāyaṇa (Candra; completely lost)
+- [-] Svāyambhuva Rāmāyaṇa (Brahmā to Nārada; completely lost)
+- [-] Suvarcā Rāmāyaṇa (Sugrīva to Tārā; completely lost)
+- [-] Deva Rāmāyaṇa (Indra to Jayanta; completely lost)
+- [-] Śravaṇa Rāmāyaṇa (Indra to Janaka; completely lost)
+- [-] Duranta Rāmāyaṇa (Vasiṣṭha to Janaka; completely lost)
+- [-] Mainda Rāmāyaṇa (Mainda to the Kauravas; completely lost)
 
 ## Mahābhārata
 
@@ -425,7 +489,7 @@
 - [x] Pāṇḍava Gītā
 - [x] Parāśara Gītā (Mahābhārata)
 - [x] Paramahaṃsa Gītā
-- [x] Piṅgala Gītā
+- [x] Piṅgala Gītā (Senajit Gītā)
 - [x] Pitṛ Gītā (Varāha Purāṇa)
 - [x] Pṛthvī Gītā
 - [x] Putra Gītā
@@ -438,7 +502,7 @@
 - [x] Rudra Gītā (Śrīmad Bhāgavata Mahāpurāṇa)
 - [x] Rudra Gītā (Varāha Purāṇa)
 - [x] Saptaśatī Gītā
-- [x] Sarasvatī Gītā
+- [x] Sarasvatī Gītā (Sārasvata Gītā)
 - [x] Ṣaḍja Gītā
 - [x] Śampāka Gītā
 - [x] Śānti Gītā
@@ -473,20 +537,20 @@
 - [ ] Bhramara Gītā
 - [ ] Bhṛgu Gītā
 - [ ] Brahma Gītā (Padma Purāṇa)
-- [ ] Jānakī Gītā
+- [ ] Jānakī Gītā (untraced manuscript)
 - [ ] Jñāna Gītā
 - [ ] Jñāna Gītā (saṃskaraṇa 2)
 - [ ] Kabīra Gītā
 - [ ] Kapila Gītā (Padma Purāṇa)
-- [ ] Karma Gītā
-- [ ] Kāvaṣeya Gītā
+- [ ] Karma Gītā (lost; Padma Purāṇa recension)
+- [ ] Kāvaṣeya Gītā (lost; Brahmāṇḍa Purāṇa recension)
 - [ ] Kṛṣṇa Gītā (Somanātha)
 - [ ] Mokṣa Gītā
 - [ ] Mokṣa Gītā (Śivānanda)
 - [ ] Nārāyaṇa Gītā
-- [ ] Navavasantā Gītā
+- [ ] Navavasantā Gītā (rare manuscript)
 - [ ] Pañcaratna Gītā
-- [ ] Praṇava Gītā
+- [-] Praṇava Gītā (lost)
 - [ ] Rāma Gītā (Skanda Purāṇa)
 - [ ] Rāma Gītā (Tattvasaṃgraha Rāmāyaṇa)
 - [ ] Sannyāsa Gītā
@@ -525,9 +589,11 @@
 - [x] Aśeṣakulavallarī
 - [x] Bagalāmukhīpañcāṅgam
 - [x] Bhārgava Tantram
+- [ ] Bhairava-Padmāvatī Kalpa (Malliseṇasūri; Jain; Bhairava and Padmāvatī)
 - [x] Bhṛgu Saṃhitā
 - [x] Bhūtaśuddhi Tantram
 - [x] Bṛhannīla Tantram
+- [ ] Cakrasaṃvara Tantra (Buddhist; Heruka and Vajravārāhī on Bhairava and Kālarātri)
 - [x] Candrajñān Āgamaḥ
 - [x] Candrajñānam
 - [x] Cinmantramālinī
@@ -542,13 +608,14 @@
 - [x] Gāndharva Tantram
 - [x] Gautama Tantram
 - [x] Gorakṣaguṭikā
-- [x] Guhyasamāja Tantram
+- [x] Guhyasamāja Tantram (Buddhist; names Viṣṇu, Indra, Rudra, and Śacī)
 - [x] Haṃsa Sāraḥ
 - [x] Hayaśīrṣa Pañcarātram
+- [ ] Hevajra Tantra (Buddhist; Gaurī among the yoginīs)
 - [x] Jayākhya Saṃhitā
 - [x] Jñānasaṅkalinī Tantram
-- [x] Jñānasiddhi Āgamaḥ
 - [x] Kalasaṃkarṣiṇīmata Tantraṭippaṇī
+- [ ] Kālacakra Tantra (Buddhist; stands on Rudra, Gaurī, Kāmadeva, and Rati)
 - [x] Kālikā Rahasyam
 - [x] Kāmika Āgama
 - [x] Kaṅkālamālinī Tantram
@@ -639,6 +706,12 @@
 - [ ] Saubhāgya Bhāskara
 - [ ] Śrīvidyārṇava Tantra
 - [ ] Bṛhat Tantrasāra
+- [ ] Kālīvilāsa Tantra
+- [ ] Brahmayāmala
+- [ ] Parātrīśikā
+- [ ] Śāktakrama
+- [ ] Pārameśvaratattvacintāmaṇi
+- [ ] Āgamacandrikā
 - [ ] Mantramuktāvalī
 - [ ] Mantradevaprakāśikā
 - [ ] Mantrakamalākāra
@@ -789,11 +862,11 @@ The Dharmasūtras are under Vedāṅga Kalpa. The Smṛtis, Upasmṛtis, and Dha
 
 ### Pūrvamīmāṃsā
 
-- [x] Mīmāṃsā Sūtra (Jaimini)
+- [x] Mīmāṃsā Sūtra (Jaimini; Karma Mīmāṃsā)
 
 ### Uttaramīmāṃsā
 
-- [x] Brahma Sūtra (Bādarāyaṇa)
+- [x] Brahma Sūtra (Bādarāyaṇa; Vedānta Sūtra; Śārīraka Sūtra)
 
 The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, and the Bhagavad Gītā under Gītā.
 
@@ -874,7 +947,7 @@ The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, 
 
 ### Chandas
 
-- [x] Chandaḥśāstra
+- [x] Chandaḥśāstra (Piṅgala)
 
 ### Nirukta
 
@@ -922,7 +995,7 @@ The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, 
 - [ ] Ṛgveda Prātiśākhya
 - [ ] Taittirīya Prātiśākhya
 - [ ] Vājasaneyi Prātiśākhya
-- [ ] Śaunakīyā Caturādhyāyikā
+- [ ] Śaunakīyā Caturādhyāyikā (Atharvaveda Prātiśākhya)
 - [ ] Puṣpasūtra
 - [ ] Ṛktantra
 
@@ -948,7 +1021,7 @@ The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, 
 - [ ] Āśvalāyana Gṛhya Pariśiṣṭa
 - [ ] Bahvṛca Gṛhya Pariśiṣṭa
 - [ ] Śāṅkhāyana Gṛhya Pariśiṣṭa
-- [ ] Khila Sūkta
+- [ ] Khila Sūkta (Bāṣkala)
 - [ ] Gobhila Gṛhya Pariśiṣṭa
 - [ ] Chāndogya Pariśiṣṭa
 - [ ] Naigeya Ārṣa Pariśiṣṭa
@@ -1041,7 +1114,7 @@ The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, 
 
 - [x] Bṛhat Jātaka
 - [x] Garga Horā Śāstra
-- [x] Jaimini Sūtra
+- [x] Jaimini Sūtra (Jaimini Upadeśa Sūtra)
 - [x] Jātaka Pārijāta
 - [x] Phala Dīpikā
 - [ ] Vyāsa Horā
@@ -1095,6 +1168,7 @@ The Vedānta Prasthānatrayī is this sūtra, the Upaniṣads under Upaniṣad, 
 - [ ] Bhārgava Nāḍī
 - [ ] Gautama Nāḍī
 - [ ] Jamadagni Nāḍī
+- [ ] Jīva Nāḍī
 - [ ] Kākabhuśuṇḍi Nāḍī
 - [ ] Kauśika Nāḍī
 - [ ] Viśvāmitra Nāḍī
