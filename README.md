@@ -14,6 +14,12 @@ Welcome to the **Hindu Scriptures Digital Repository & AI Scholar**, a comprehen
 
 Whether you are a lifelong practitioner, a student of religion, or simply curious, this platform provides tools to navigate, read, search, and understand the diverse scriptures of Hinduism. Engage directly with the texts through our integrated reader or pose your questions to our specialized AI for insightful explanations grounded in traditional scholarship.
 
+## Goals
+
+The working plan is in [goal.md](goal.md).
+
+Primary work is the missing texts, the web app, and a restructure so Upāṅga, Occult, and the newer catalogue sections match the site. Later work is a full JSON corpus, and one locally run LLM (AI, RAG, finetuning, and more) that replaces every online API and call site, including Gemini and Google Translate. Transliteration and transcription replace `js/sanscript.js` with a mix of rules and ML. Text-to-speech is a local model that can be finetuned.
+
 ## Key Features
 
 *   **Extensive & Organized Scripture Database (`DharmicData/`)**: Access a meticulously organized collection spanning the breadth of Hindu literature:
