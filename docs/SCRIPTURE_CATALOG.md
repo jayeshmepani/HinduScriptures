@@ -11,7 +11,7 @@
 - Named JSON files are individually listed. Chaptered works are listed by their parent work/folder, with a separate manifest of every numbered-JSON folder and its file count.
 - Every PDF is individually listed by its exact repository filename and full relative path. The catalogue title is the filename with `.pdf` removed; it is not a transcription of a title page.
 - The complete recursive tree was inspected. All HTML pages were checked for page titles, headings, navigation labels, and embedded file references. App-specific JS modules and CSS files were reviewed for additional title references and routing.
-- **Content-reading limitation:** all 9,061 JSON paths and all 928 PDF paths are inventoried, but the body of every JSON file was not individually opened, and the 928 binary PDFs were not all text-extracted. Representative JSON payloads were opened to verify the chapter-file structure and title conventions. The PDF manifest therefore preserves filename-based titles rather than asserting title-page verification.
+- **Content-reading limitation:** all 9,061 JSON paths and all 940 PDF paths are inventoried, but the body of every JSON file was not individually opened, and the 940 binary PDFs were not all text-extracted. Representative JSON payloads were opened to verify the chapter-file structure and title conventions. The PDF manifest therefore preserves filename-based titles rather than asserting title-page verification.
 
 ## Repository inventory
 
@@ -1194,7 +1194,7 @@ Every folder below contains numbered JSON files. This map accounts for the chapt
 
 ## 4. Complete PDF inventory
 
-All **928 PDF files** are enumerated below, grouped by their actual `DharmicData` category. Volume numbers and alternate copies are kept separate exactly as named in the repository.
+All **940 PDF files** are enumerated below, grouped by their actual `DharmicData` category. Volume numbers and alternate copies are kept separate exactly as named in the repository.
 
 ### Aartis (1)
 - **Aarti Sangrah 2** — `DharmicData/Aartis/Aarti Sangrah 2.pdf`
