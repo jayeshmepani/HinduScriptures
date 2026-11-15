@@ -1397,7 +1397,7 @@ The first screen lists these section folders. Opening one lists its filenames wi
   - Vishnu Bhujangaprayata Stotram
   - Vishnu Vijaya Stotram
 
-The current folder inventory contains 275 PDF files across these folders and one top-level JSON file listed separately.
+The `Shiva` folder contains 25 PDF files and one JSON file (`Shiva Tandav Stotra`).
 
 ## Stutis
 
