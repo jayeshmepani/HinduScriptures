@@ -1045,18 +1045,21 @@ The first screen lists these section folders. Opening one lists its filenames wi
   - Annapurna
   - Ardhanarishvara
   - Chandrashekharendra Saraswati
+  - Dakshinamurti
   - Devasena
   - Dhanvantari
   - Durga
   - Gakaradi Ganapati
   - Ganapati
   - Ganesha
+  - Ganga 2
   - Ganga
   - Goda
   - Harihara
   - Jagadanandakaraka
   - Kamakshi
   - Kartikeya
+  - Kaveri
   - Krishna
   - Kubera
   - Lakshmi Nrisimha
@@ -1080,9 +1083,6 @@ The first screen lists these section folders. Opening one lists its filenames wi
   - Venkatesha
   - Venkateshwara
   - Vishnu divyasthaniya
-- 300
-  - Lalita
-  - Rudra
 - 1000, 1008
   - Gakaradi Ganapati
   - Rama
@@ -1091,299 +1091,313 @@ The first screen lists these section folders. Opening one lists its filenames wi
   - Shiva
   - Vakratunda Mahaganapati
   - Vishnu
+- 300
+  - Lalita
+  - Rudra Compact
+  - Rudra
 
 ## Stotras
 
 The first screen lists these section folders. Opening one lists its filenames with the extension removed. The page does not insert spaces into those names.
 
 - Adhyatma-Ramayana-Stotras
-  - AgastyaDwaraRamaSwarupaKathanam
-  - AgastyakrtaRamaStuti
-  - AhalyakrtaRamaStotram
-  - BharadwajakrtaRamaStuti
-  - Chandramopadesha
-  - DevaStuti
-  - HanumatSambhashanam
-  - JatayukrtaRamaStotram
-  - JnanaVijnanopadesha
-  - KabandhakrtaRamaStotram
-  - KalanemiSambhashanam
-  - KausalyakrtaRamaStotram
-  - KriyaYoga
-  - KumbhakarnaSambhashanam
-  - LakshmanaSambhashanam
-  - Lakshmanopadesha
-  - MandodariRavanaSamvada
-  - NaradaRamaSamvada
-  - NaradaStuti
-  - NavavidhabhaktiVarnanam
-  - ParashuramakrtaRamaStotram
-  - RamaGita
-  - RamaHrdayam
-  - RamakathaKathanam
-  - RamaSambhashanam
-  - RamavataraRahasyam
-  - Ramopadesha-UttaraKanda
-  - Ramopadesha
-  - RavanaSanatkumaraSamvadaKatha
-  - ShivakrtaRamaStuti
-  - ShukaSambhashanam
-  - SugrivakrtaRamaStotram
-  - SutikshnakrtaRamaStotram
-  - SvayamprabhaMoksha
-  - TaraTattvopadesha
-  - ValiSugrivaKatha
-  - ValmikiRamaSthanaVarnanam
-  - Valmikyopadesha
-  - Vasishthopadesha
-  - VibhishanakrtaRamaStotram
-  - ViradhakrtaRamaStotram
+  - Agastya Dwara Rama Swarupa Kathanam
+  - Agastya Krta Rama Stuti
+  - Ahalya Krta Rama Stotram
+  - Bharadwaja Krta Rama Stuti
+  - Chandrama Upadesha
+  - Deva Stuti
+  - Hanumat Sambhashanam
+  - Jatayu Krta Rama Stotram
+  - Jnana Vijnana Upadesha
+  - Kabandha Krta Rama Stotram
+  - Kalanemi Sambhashanam
+  - Kausalya Krta Rama Stotram
+  - Kriya Yoga
+  - Kumbhakarna Sambhashanam
+  - Lakshmana Sambhashanam
+  - Lakshmana Upadesha
+  - Mandodari Ravana Samvada
+  - Narada Rama Samvada
+  - Narada Stuti
+  - Navavidhabhakti Varnanam
+  - Parashurama Krta Rama Stotram
+  - Rama Gita
+  - Rama Hrdayam
+  - Rama Sambhashanam
+  - Rama Upadesha (Uttara Kanda)
+  - Rama Upadesha
+  - Ramakatha Kathanam
+  - Ramavatara Rahasyam
+  - Ravana Sanatkumara Samvada Katha
+  - Shiva Krta Rama Stuti
+  - Shuka Sambhashanam
+  - Sugriva Krta Rama Stotram
+  - Sutikshna Krta Rama Stotram
+  - Svayamprabha Moksha
+  - Tara Tattva Upadesha
+  - Vali Sugriva Katha
+  - Valmiki Rama Sthana Varnanam
+  - Valmiki Upadesha
+  - Vasishtha Upadesha
+  - Vibhishana Krta Rama Stotram
+  - Viradha Krta Rama Stotram
 - Dhyanam
+  - Dhyana Shloka
   - Dhyanam
-  - DhyanaShloka
-  - GuruParampara
-  - KanchiKamakshiChurnika
-  - KanchiSwastiVachanam
-  - MahabharataDhyanam
-  - NityaShloka
-  - ParabrahmaPratahSmaranam
-  - RamayanaDhyanam
-  - SaraswatiPrarthana
-  - VigneshwaraPrarthana
+  - Guru Parampara
+  - Kanchi Kamakshi Churnika
+  - Kanchi Swasti Vachanam
+  - Mahabharata Dhyanam
+  - Nitya Shloka
+  - Parabrahma Pratah Smaranam
+  - Ramayana Dhyanam
+  - Saraswati Prarthana
+  - Vigneshwara Prarthana
 - Ganesha
-  - GanapatiStava
-  - Ganashtakam
-  - GaneshaBhujangam
-  - MahaganapatiNavarnavedapadaStava
-  - MahaGaneshaPancharatnam
+  - Gana Ashtakam
+  - Ganapati Stava
+  - Ganesha Bhujangam
+  - Maha Ganesha Pancharatnam
+  - Mahaganapati Navarnavedapada Stava
 - Guru
-  - KanchiKamakotiGuruParamparaStava
+  - Kanchi Kamakoti Guru Parampara Stava
+  - Vyasa Ashtakam
 - Hanuman
-  - ApaduddharakaDwadashamukhaHanumanStotram
-  - HanumanChalisa
-  - HanumatPancharatnam
-  - SundaraHanumanMahaMantraNamaStotram
+  - Apaduddharaka Dwadashamukha Hanuman Stotram
+  - Hanuman Chalisa
+  - Hanumat Pancharatnam
+  - Sundara Hanuman Maha Mantra Nama Stotram
 - Krishna
-  - Achyutashtakam
-  - AkrurakrtaDashavataraStuti
-  - Balamukundashtakam
-  - Balaraksha
-  - BhajaGovindam-laghu
-  - BhajaGovindam
-  - BhishmaStuti
-  - Damodarashtakam
-  - DhruvakrtaBhagavatStavam
-  - GitaGovindam
-  - Govindashtakam
-  - GuruvatapurishaPancharatnam
-  - KrishnaDwadashaNamaStotram
-  - KrishnaJananam
-  - Krishnashtakam1
-  - Krishnashtakam2
-  - Krishnashtakam3
-  - Madhurashtakam
-  - NarayanaKeshadipadantaVarnanam
+  - Achyuta Ashtakam
+  - Akrura Krta Dashavatara Stuti
+  - Bala Mukunda Ashtakam
+  - Bala Raksha
+  - Bhaja Govindam (Laghu)
+  - Bhaja Govindam
+  - Bhishma Stavaraja
+  - Bhishma Stuti
+  - Damodara Ashtakam
+  - Dhruva Krta Bhagavat Stavam
+  - Gita Govindam
+  - Govinda Ashtakam
+  - Guruvatapurisha Pancharatnam
+  - Krishna Ashtakam 1
+  - Krishna Ashtakam 2
+  - Krishna Ashtakam 3
+  - Krishna Dwadasha Nama Stotram
+  - Krishna Jananam
+  - Madhura Ashtakam
+  - Narayana Keshadipadanta Varnanam
+  - Vatapuranatha Ashtakam
 - Lakshmi
-  - KanakadharaStavam
-  - LakshmiStotram
-  - MahalakshmiStuti
-  - Mahalakshmyashtakam
+  - Kanakadhara Stavam
+  - Lakshmi Stotram
+  - Maha Lakshmi Ashtakam
+  - Mahalakshmi Stuti
 - Nadi
-  - Gangakarshanashtakam
-  - Gangashtakam
-  - GangaStuti
-  - KaveriPrarthana
-  - Narmadashtakam
-  - TriveniStotram
-  - Yamunashtakam
+  - Ganga Akarshana Ashtakam
+  - Ganga Ashtakam
+  - Ganga Stuti
+  - Kaveri Prarthana
+  - Narmada Ashtakam
+  - Triveni Stotram
+  - Yamuna Ashtakam
 - Navagraha
-  - AdityaHrdayam
-  - AngarakaStotram
-  - BrihaspatiStotram
-  - BudhaPanchavimshatiNamaStotram
-  - ChandraAshtavimshatiNamaStotram
-  - ChandraGrahanaPidapariharaShlokam
-  - DwadasharyaSuryaStuti
-  - KetuPanchavimshatiNamaStotram
-  - NavagrahaMangalashtakam
-  - NavagrahaPidaharaStotram
-  - NavagrahaStotram
-  - RahuPanchavimshatiNamaStotram
-  - ShanaishcharaAshtakam(Dasharatha)
-  - ShukraChaturvimshatiNamaStotram
-  - SuryaGrahanaPidapariharaShlokam
-  - SuryaKavacham
-  - SuryaMandalaStotram
-  - SuryaPratahSmaranaStotram
-  - SuryaryaStotram
-  - SuryaStavaraja
-  - SuryaStuti
+  - Aditya Hrdayam
+  - Angaraka Stotram
+  - Brihaspati Stotram
+  - Budha Panchavimshati Nama Stotram
+  - Chandra Ashtavimshati Nama Stotram
+  - Chandra Grahana Pidaparihara Shlokam
+  - Dwadasharya Surya Stuti
+  - Ketu Panchavimshati Nama Stotram
+  - Navagraha Mangalashtakam
+  - Navagraha Pidahara Stotram
+  - Navagraha Stotram
+  - Rahu Panchavimshati Nama Stotram
+  - Shanaishchara Ashtakam (Dasharatha)
+  - Shukra Chaturvimshati Nama Stotram
+  - Surya Grahana Pidaparihara Shlokam
+  - Surya Kavacham
+  - Surya Mandala Stotram
+  - Surya Pratah Smarana Stotram
+  - Surya Stavaraja
+  - Surya Stuti
+  - Suryarya Stotram
 - Other
-  - AvaidhavyaPrarthanaStotram
-  - GakaradiGanapatiSahasranamaStotram
-  - KaishikaPuranam
-  - KalidoshanivaranaStotram
-  - KartaviryarjunaStotram
-  - KrishnaNamaMahatmyam
-  - LalitaTrishati
-  - MatribhutaShatakam
-  - RogaNivaranaShloka
-  - SankshepaRamayanam
-  - SantanagopalaStotram
-  - SaraswatiSahasranamaStotram
-  - SaundaryaLahari
-  - ShivaMahimnaStotram
-  - ShivaSahasranamaStotram-VishnuKrtam
-  - ShivaSahasranamaStotram
-  - SuryaSahasranamaStotram
-  - VakratundaMahaganapatiSahasranamaStotram
-  - VishnuSahasranamaStotram
-  - YamabhayanivaranaStotram
-  - Yamashtakam
+  - Avaidhavya Prarthana Stotram
+  - Gakaradi Ganapati Sahasranama Stotram
+  - Kaishika Puranam
+  - Kalidoshanivarana Stotram
+  - Kartaviryarjuna Stotram
+  - Krishna Nama Mahatmyam
+  - Lalita Trishati
+  - Matribhuta Shatakam
+  - Roga Nivarana Shloka
+  - Sankshepa Ramayanam
+  - Santanagopala Stotram
+  - Saraswati Sahasranama Stotram
+  - Saundarya Lahari
+  - Shiva Mahimna Stotram
+  - Shiva Sahasranama Stotram (Vishnu Krta m)
+  - Shiva Sahasranama Stotram
+  - Surya Sahasranama Stotram
+  - Vakratunda Mahaganapati Sahasranama Stotram
+  - Vishnu Sahasranama Stotram
+  - Yama Ashtakam
+  - Yamabhayanivarana Stotram
 - Purti
-  - KshamaPrarthana
-  - VandeMataram
+  - Kshama Prarthana
+  - Vande Mataram
 - Rama
-  - AhalyakrtaRamaStotram
-  - ApaduddharanaStotram
-  - BrahmaKrtaRamaStava
-  - DevaihKrtaRamaStotram
-  - EkashlokiRamayanam
-  - GayatriRamayanam
-  - MunikrtaRamaStotram
-  - NamaRamayanam
-  - RamaBhujangaprayataStotram
-  - RamaDwadashaNamaStotram
-  - RamarakshaStotram
-  - Ramashtakam
-  - RamaStava
-  - RamaStavarajaStotram
-  - SitaRamaStotram
+  - Ahalya Krta Rama Stotram
+  - Apaduddharana Stotram
+  - Brahma Krta Rama Stava
+  - Devaih Krta Rama Stotram
+  - Ekashloki Ramayanam
+  - Gayatri Ramayanam
+  - Muni Krta Rama Stotram
+  - Nama Ramayanam
+  - Rama Ashtakam
+  - Rama Bhujangaprayata Stotram
+  - Rama Dwadasha Nama Stotram
+  - Rama Stava
+  - Rama Stavaraja Stotram
+  - Ramaraksha Stotram
+  - Sita Rama Stotram
+  - Sita Vivaha Churnika
+  - Vivaha Mangalashtakam
 - Saraswati
-  - SaraswatiStotram(Agastya)
-  - SaraswatiStotram(Brahma)
-  - SaraswatiStotram(Brihaspati)
-  - SharadaBhujangaprayataAshtakam
-  - SharadaPrarthana
-  - VaniStavanam
+  - Saraswati Stotram (Agastya)
+  - Saraswati Stotram (Brahma)
+  - Saraswati Stotram (Brihaspati)
+  - Sharada Bhujangaprayata Ashtakam
+  - Sharada Prarthana
+  - Vani Stavanam
 - Shakti
-  - AnnapurnaStotram
-  - ArjunaKrtaDurgaStuti
-  - DurgaChandraKalaStuti
-  - DurgaPancharatnam
-  - DurgaStotram
-  - Gangashtakam
-  - GauriDashakam
-  - GayatriStotram
-  - KalyanaVrishtiStotram
-  - KamakshiMahatmyam
-  - KamakshiStotram
-  - KamakshiSuprabhatam
-  - LalitaPancharatnam
-  - MahishasuramardiniStotram
-  - MinakshiPancharatnam
-  - MukaPanchaShati_10
-  - MukaSarah
-  - ParashuramaKrtaDurgaStotram
-  - ShashthiDeviStotram
-  - Shitalashtakam
-  - ShyamalaDandakam
-  - Tripurasundaryashtakam
-  - TriveniStotram
-  - Yamunashtakam
-  - YudhishthiraKrtaDurgaStotram
+  - Annapurna Stotram
+  - Arjuna Krta Durga Stuti
+  - Durga Chandra Kala Stuti
+  - Durga Pancharatnam
+  - Durga Stotram
+  - Ganga Ashtakam
+  - Gauri Dashakam
+  - Gayatri Stotram
+  - Kalyana Vrishti Stotram
+  - Kamakshi Mahatmyam
+  - Kamakshi Stotram
+  - Kamakshi Suprabhatam
+  - Lalita Pancharatnam
+  - Mahishasuramardini Stotram
+  - Minakshi Pancharatnam
+  - Muka Pancha Shati 10
+  - Muka Sarah
+  - Parashurama Krta Durga Stotram
+  - Shashthi Devi Stotram
+  - Shitala Ashtakam
+  - Shyamala Dandakam
+  - Tripura Sundari Ashtakam
+  - Triveni Stotram
+  - Yamuna Ashtakam
+  - Yudhishthira Krta Durga Stotram
 - Shasta
-  - Hariharatmajashtakam
-  - ShastaDashakam
+  - Hariharatmaja Ashtakam
+  - Shasta Dashakam
 - Shatanama
-  - AdityaAshtottaraShatanamaStotram
-  - AnjaneyaAshtottaraShatanamaStotram
-  - AnnapurnaAshtottaraShatanamaStotram
-  - ArdhanarishvaraAshtottaraShatanamaStotram
-  - DhanvantariAshtottaraShatanamaStotram
-  - DurgaAshtottaraShatanamaStotram
-  - GanapatiAshtottaraShatanamaStotram
-  - GanapatiGakaraAshtottaraShatanamaStotram
-  - GaneshaAshtottaraShatanamaStotram
-  - GangaAshtottaraShatanamaStotram
-  - GauriAshtottaraShatanamaStotram
-  - GodaAshtottaraShatanamaStotram
-  - HariharaAshtottaraShatanamaStotram
-  - HariharaputraAshtottaraShatanamaStotram
-  - HayagrivaAshtottaraShatanamaStotram
-  - KarttikeyaAshtottaraShatanamaStotram
-  - KrishnaAshtottaraShatanamaStotram
-  - LakshmiAshtottaraShatanamaStotram
-  - LakshmiNarayanaAshtottaraShatanamaStotram
-  - NrisimhaAshtottaraShatanamaStotram
-  - RamaAshtottaraShatanamaStotram
-  - SaraswatiAshtottaraShatanamaStotram
-  - ShaktiAshtottaraShatadivyasthaniyaNamaStotram
-  - ShankaracharyaAshtottaraShatanamaStotram
-  - ShivaAshtottaraShatadivyasthaniyaNamaStotram
-  - ShivaAshtottaraShatanamaStotram
-  - SitaAshtottaraShatanamaStotram
-  - SubrahmanyaAshtottaraShatanamaStotram
-  - SuryaAshtottaraShatanamaStotram
-  - TulasiAshtottaraShatanamaStotram
-  - VenkateshaAshtottaraShatanamaStotram
-  - VishnuAshtottaraShatadivyasthaniyaNamaStotram
-  - VyasaAshtottaraShatanamaStotram
+  - Aditya Ashtottara Shatanama Stotram
+  - Anjaneya Ashtottara Shatanama Stotram
+  - Annapurna Ashtottara Shatanama Stotram
+  - Ardhanarishvara Ashtottara Shatanama Stotram
+  - Dhanvantari Ashtottara Shatanama Stotram
+  - Durga Ashtottara Shatanama Stotram
+  - Ganapati Ashtottara Shatanama Stotram
+  - Ganapati Gakara Ashtottara Shatanama Stotram
+  - Ganesha Ashtottara Shatanama Stotram
+  - Ganga Ashtottara Shatanama Stotram
+  - Gauri Ashtottara Shatanama Stotram
+  - Goda Ashtottara Shatanama Stotram
+  - Harihara Ashtottara Shatanama Stotram
+  - Hariharaputra Ashtottara Shatanama Stotram
+  - Hayagriva Ashtottara Shatanama Stotram
+  - Karttikeya Ashtottara Shatanama Stotram
+  - Krishna Ashtottara Shatanama Stotram
+  - Lakshmi Ashtottara Shatanama Stotram
+  - Lakshmi Narayana Ashtottara Shatanama Stotram
+  - Nrisimha Ashtottara Shatanama Stotram
+  - Rama Ashtottara Shatanama Stotram
+  - Saraswati Ashtottara Shatanama Stotram
+  - Shakti Ashtottara Shatadivyasthaniya Nama Stotram
+  - Shankaracharya Ashtottara Shatanama Stotram
+  - Shiva Ashtottara Shatadivyasthaniya Nama Stotram
+  - Shiva Ashtottara Shatanama Stotram
+  - Sita Ashtottara Shatanama Stotram
+  - Subrahmanya Ashtottara Shatanama Stotram
+  - Surya Ashtottara Shatanama Stotram
+  - Tulasi Ashtottara Shatanama Stotram
+  - Venkatesha Ashtottara Shatanama Stotram
+  - Vishnu Ashtottara Shatadivyasthaniya Nama Stotram
+  - Vyasa Ashtottara Shatanama Stotram
 - Shiva
-  - ArdhanarishwaraStotram
-  - Bilvashtakam
-  - CharanashringarahitaNatarajaStotram
-  - DakshinamurtiStotram
-  - DakshinamurtiStotram(SamaraPungavaDikshitaKrtam)
-  - DakshinamurtiStotram(VrishabhaDevaKritam)
-  - DakshinamurtiStotram(VrishabhaDevaKrtam)
-  - Dakshinamurtyashtakam
-  - Gurvashtakam
-  - Kalabhairavashtakam
-  - Karttikasomavararghyam
-  - Lingashtakam
-  - MargabandhuStotram
-  - RudraStotram
-  - Sadashivashtakam
-  - ShambhuStuti
+  - Ardhanarishwara Stotram
+  - Bilva Ashtakam
+  - Charana Shringa Rahita Nataraja Stotram
+  - Dakshinamurti Ashtakam
+  - Dakshinamurti Stotram (Samara Pungava Dikshita Krtam)
+  - Dakshinamurti Stotram (Vrishabha Deva Kritam)
+  - Dakshinamurti Stotram (Vrishabha Deva Krtam)
+  - Dakshinamurti Stotram
+  - Guru Ashtakam
+  - Kala Bhairava Ashtakam
+  - Karttika Somavara Arghyam
+  - Linga Ashtakam
+  - Margabandhu Stotram
+  - Rudra Stotram
+  - Sadashiva Ashtakam
+  - Shambhu Stuti
+  - Shiva Manasapuja
+  - Shiva Panchakshara Stotram
+  - Shiva Pratah Smarana Stotram
   - Shiva Tandav Stotra
-  - ShivaManasapuja
-  - ShivaPanchaksharaStotram
-  - ShivaparadhaKshamapanaStotram
-  - ShivaPratahSmaranaStotram
-  - ShivarakshaStotram
-  - ShivashivaaStuti
-  - Totakashtakam
-  - UmamaheshwaraStotram
-  - Vaidyanathashtakam
+  - Shivaparadha Kshamapana Stotram
+  - Shivaraksha Stotram
+  - Shivashivaa Stuti
+  - Totaka Ashtakam
+  - Umamaheshwara Stotram
+  - Vaidyanatha Ashtakam
 - Subrahmanya
-  - GuhaPancharatnam
-  - PrajnavivardhanaKarttikeyaStotram
-  - SkandaShashthiKavacham
-  - SubrahmanyaAshtakam
-  - SubrahmanyaBhujangam
-  - SubrahmanyaPancharatnam
-  - SubrahmanyaShodashaNamaStotram
+  - Guha Pancharatnam
+  - Prajnavivardhana Karttikeya Stotram
+  - Skanda Shashthi Kavacham
+  - Subrahmanya Ashtakam
+  - Subrahmanya Bhujangam (Paramashivendra Krtam)
+  - Subrahmanya Bhujangam
+  - Subrahmanya Pancharatnam
+  - Subrahmanya Shodasha Nama Stotram
 - Venkatesha
-  - ShrinivasaGadyam
-  - VenkateshaAshtakam
-  - VenkateshaDwadashaNamaStotram
-  - VenkateshaKaravalambaStotram
-  - VenkateshaMangalashasanam
-  - VenkateshaPrapatti
-  - VenkateshaStotram
-  - VenkateshaSuprabhatam
+  - Shrinivasa Gadyam
+  - Venkatesha Ashtakam
+  - Venkatesha Dwadasha Nama Stotram
+  - Venkatesha Karavalamba Stotram
+  - Venkatesha Mangalashasanam
+  - Venkatesha Prapatti
+  - Venkatesha Stotram
+  - Venkatesha Suprabhatam
 - Vishnu
-  - BrahmapaaraStotram
-  - DhanvatariStotram
-  - LakshmiNrisimhaKaravalambaStotram
-  - LakshmiNrisimhaKarunarasaStotram
-  - LakshmiNrisimhaPancharatnam
-  - Pandurangashtakam
-  - RanganathaGadyam
-  - Ranganathashtakam
-  - VishnuBhujangaprayataStotram
-  - VishnuVijayaStotram
+  - Brahmapaara Stotram
+  - Dhanvantari Stotram
+  - Dhanvatari Stotram
+  - Lakshmi Nrisimha Karavalamba Stotram
+  - Lakshmi Nrisimha Karunarasa Stotram
+  - Lakshmi Nrisimha Pancharatnam
+  - Panduranga Ashtakam
+  - Ranganatha Ashtakam
+  - Ranganatha Gadyam
+  - Sankashta Nashana Stotram
+  - Vishnu Bhujangaprayata Stotram
+  - Vishnu Vijaya Stotram
+
+The current folder inventory contains 275 PDF files across these folders and one top-level JSON file listed separately.
 
 ## Stutis
 
