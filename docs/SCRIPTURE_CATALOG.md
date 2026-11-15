@@ -2,7 +2,7 @@
 
 **Repository:** [`jayeshmepani/HinduScriptures`](https://github.com/jayeshmepani/HinduScriptures)  
 **Branch inspected:** `main`  
-**Repository tree snapshot:** `5ba7cbab3acffcbc7dbb23e46a3dd3d2ea725d9f`  
+**Repository tree snapshot:** `010cb7cff8ff4f5f7a492f535ff0eb1c0baed02f`  
 **Catalogue purpose:** list the works and text collections represented in `DharmicData`, preserving their exact repository titles and source paths.
 
 ## Scope and counting rules
@@ -15,8 +15,8 @@
 
 ## Repository inventory
 
-- **10,125 files** and **251 directories** in the recursive repository tree at the inventory snapshot (before `SCRIPTURE_CATALOG.md` was added).
-- **9,989 files** in `DharmicData/`: **9,061 JSON** and **928 PDF**.
+- **10,146 files** and **253 directories** in the recursive repository tree at the inventory snapshot (`main`, tree `010cb7cff8ff4f5f7a492f535ff0eb1c0baed02f`).
+- **10,001 files** in `DharmicData/`: **9,061 JSON** and **940 PDF**.
 - **100 HTML**, **19 JavaScript**, and **4 CSS** files.
 
 | `DharmicData` category | Files | JSON | PDF |
@@ -30,13 +30,13 @@
 | Gitas | 97 | 74 | 23 |
 | Kavacha | 95 | 0 | 95 |
 | Mahabharata | 18 | 18 | 0 |
-| Namavalis | 50 | 0 | 50 |
+| Namavalis | 54 | 0 | 54 |
 | Occult | 19 | 4 | 15 |
 | Purana | 6843 | 6843 | 0 |
 | Ramayanas | 704 | 688 | 16 |
 | Smritis | 18 | 0 | 18 |
 | SrimadBhagvadGita | 18 | 18 | 0 |
-| Stotras | 268 | 1 | 267 |
+| Stotras | 276 | 1 | 275 |
 | Stuti | 46 | 0 | 46 |
 | Swaminarayan Sect | 77 | 1 | 76 |
 | Upa-Veda | 74 | 0 | 74 |
@@ -46,7 +46,7 @@
 | Upnishad | 8 | 0 | 8 |
 | Veda | 33 | 32 | 1 |
 | Vedanga | 65 | 0 | 65 |
-| **Total** | **9989** | **9061** | **928** |
+| **Total** | **10001** | **9061** | **940** |
 
 ## 1. Work and collection directory index
 
