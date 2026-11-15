@@ -2,7 +2,7 @@
 
 **Repository:** [`jayeshmepani/HinduScriptures`](https://github.com/jayeshmepani/HinduScriptures)  
 **Branch inspected:** `main`  
-**Repository tree snapshot:** `010cb7cff8ff4f5f7a492f535ff0eb1c0baed02f`  
+**Source commit inspected:** [`af4d6e5865b0`](https://github.com/jayeshmepani/HinduScriptures/commit/af4d6e5865b0274b59e14045000b233e4ecdc585)  
 **Catalogue purpose:** list the works and text collections represented in `DharmicData`, preserving their exact repository titles and source paths.
 
 ## Scope and counting rules
@@ -15,7 +15,7 @@
 
 ## Repository inventory
 
-- **10,146 files** and **253 directories** in the recursive repository tree at the inventory snapshot (`main`, tree `010cb7cff8ff4f5f7a492f535ff0eb1c0baed02f`).
+- **10,146 files** and **253 directories** in the recursive repository tree at the inspected source commit. The counts describe that snapshot; rerun the inventory when the repository tree changes.
 - **10,001 files** in `DharmicData/`: **9,061 JSON** and **940 PDF**.
 - **100 HTML**, **19 JavaScript**, and **4 CSS** files.
 
